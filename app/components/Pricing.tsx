@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { Check, Sparkles } from "lucide-react";
 
 const offers = [
   {
+    key: "audit",
     name: "Operations Audit",
     price: "1,500",
     description: "Identify your biggest automation opportunities",
@@ -18,6 +20,7 @@ const offers = [
     gradient: "from-blue-600 to-cyan-600"
   },
   {
+    key: "sprint",
     name: "Build & Launch",
     price: "6,000",
     description: "Get live in 2 weeks with full automation",
@@ -35,6 +38,7 @@ const offers = [
     gradient: "from-purple-600 to-pink-600"
   },
   {
+    key: "managed",
     name: "Managed Ops",
     price: "2,500",
     priceSuffix: "/mo",
@@ -54,6 +58,30 @@ const offers = [
 ];
 
 export function Pricing() {
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+
+  const startCheckout = async (plan: string) => {
+    try {
+      setLoadingPlan(plan);
+      const res = await fetch('/api/stripe/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan }),
+      });
+      const data = await res.json();
+      if (data?.url) {
+        window.location.href = data.url;
+        return;
+      }
+    } catch (e) {
+      // fallback below
+    } finally {
+      setLoadingPlan(null);
+    }
+
+    window.location.href = '/book';
+  };
+
   return (
     <section id="pricing" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-neutral-50 to-white">
       <div className="max-w-7xl mx-auto">
@@ -102,13 +130,15 @@ export function Pricing() {
                 </div>
 
                 <Button
+                  onClick={() => startCheckout(offer.key)}
+                  disabled={loadingPlan === offer.key}
                   className={`w-full text-lg py-7 rounded-full font-black transition-all ${
                     offer.popular
                       ? `bg-gradient-to-r ${offer.gradient} !text-white hover:scale-105 shadow-xl`
                       : "bg-black !text-white hover:bg-neutral-800"
                   }`}
                 >
-                  {offer.cta}
+                  {loadingPlan === offer.key ? 'Redirecting…' : offer.cta}
                 </Button>
               </div>
 
