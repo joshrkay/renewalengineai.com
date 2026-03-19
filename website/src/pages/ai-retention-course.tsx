@@ -87,9 +87,9 @@ export default function AIRetentionCourse() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4>
                     <svg className="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7 20h10a2 2 0 002-2V6a2 2 0 00-2-2H7a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7 20h10a2 2 0 002-2V6a2 2 0 00-2-2H7a2 2 0 00-2-2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
@@ -101,9 +101,9 @@ export default function AIRetentionCourse() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4>
                     <svg className="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a4 4 0 110-8 4 4 0 010 8zm4 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-8 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a4 4 0 110-8 4 4 0 010-8 4 4 0 010 8zm4 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-8 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                     </svg>
                   </div>
                   <div>
@@ -117,9 +117,9 @@ export default function AIRetentionCourse() {
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4>
                     <svg className="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 4h12M5 14h12a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 4h12M5 14h12a2 2 0 012 2v6a2 2 0 012-2v-6a2 2 0 012-2z" />
                     </svg>
                   </div>
                   <div>
@@ -131,7 +131,7 @@ export default function AIRetentionCourse() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4>
                     <svg className="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m2 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -145,9 +145,9 @@ export default function AIRetentionCourse() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                  <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4>
                     <svg className="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5a2 2 0 002-2V6a2 2 0 002-2H5a2 2 0 002-2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
@@ -176,8 +176,8 @@ export default function AIRetentionCourse() {
                   <p className="text-sm text-gray-600">Master the math that shows exactly how much lapse is costing your agency</p>
                 </div>
                 <div className="space-y-2">
-                  <p><strong>Setting Up Your AI Toolkit</strong></p>
-                  <p className="text-sm text-gray-600">Get started with the AI tools you'll use throughout the course</p>
+                  <p><strong>Setting Up Your AI Toolkit</strong></p
+>Learn to get started with the AI tools you'll use throughout the course</p>
                 </div>
               </div>
               
@@ -275,7 +275,7 @@ export default function AIRetentionCourse() {
                 <h3 className="font-bold mb-3">Before & After Results</h3>
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                    <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4>
                       <span className="text-indigo-600 font-bold">Before</span>
                     </div>
                     <div>
@@ -286,8 +286,8 @@ export default function AIRetentionCourse() {
                     </div>
                   </div>
                   
-                  <div className="flex items-start mt-4">
-                    <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                  <div className="flex items-start mt-4>
+                    <div className="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4>
                       <span className="text-indigo-600 font-bold">After</span>
                     </div>
                     <div>
@@ -302,25 +302,25 @@ export default function AIRetentionCourse() {
               
               <div className="bg-white rounded-xl shadow-md p-6">
                 <h3 className="font-bold mb-3">Student Testimonials</h3>
-                <div className="space-y-4">
-                  <p className="italic mb-3">
+                <div className="space-y-4>
+                  <p className="italic mb-3>
                     "I implemented the renewal outreach system from Module 2 and retained $8,400 in premium I would have lost last quarter. The course paid for itself in the first month."
                   </p>
-                  <p className="text-sm font-medium text-gray-600"> - Jennifer K., Independent Agent, Colorado</p>
+                  <p className="text-sm font-medium text-gray-600> - Jennifer K., Independent Agent, Colorado</p>
                 </div>
                 
-                <p className="italic mb-3">
+                <p className="italic mb-3>
                   "Finally, AI training that actually gets it. No Silicon Valley jargon - just practical strategies for real insurance agencies."
                 </p>
-                <p className="text-sm font-medium text-gray-600"> - David R., Agency Owner, Florida</p>
+                <p className="text-sm font-medium text-gray-600> - David R., Agency Owner, Florida</p>
               </div>
             </div>
           </section>
 
           {/* Call to Action */}
-          <section className="text-center py-12 bg-indigo-50">
-            <h2 className="text-2xl font-bold mb-6 text-white">Ready to Keep More of Your Book?</h2>
-            <p className="text-xl mb-8 text-white/90">
+          <section className="text-center py-12 bg-indigo-50>
+            <h2 className="text-2xl font-bold mb-6 text-white>Ready to Keep More of Your Book?</h2>
+            <p className="text-xl mb-8 text-white/90>
               Join hundreds of agents who are already using AI to reduce lapse and increase retention
             </p>
             <Link
