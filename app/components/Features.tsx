@@ -1,37 +1,45 @@
-import { Zap, RefreshCw, MessageSquare, BarChart3 } from "lucide-react";
+import { RefreshCw, Zap, MessageSquare, Brain, BarChart3 } from "lucide-react";
 
 const features = [
   {
-    icon: Zap,
-    title: "Instant Lead Response",
-    description: "24/7 automated response to new leads with intelligent routing to your team",
-    stat: "5 min",
-    label: "Avg Response",
+    icon: RefreshCw,
+    title: "AI-Powered Renewal Campaigns",
+    description: "Proactive 60-day outreach sequences contact clients via email, text, and voice before renewal dates. Personalized to each client's policy details and history.",
+    stat: "95%+",
+    label: "Retention Rate",
     gradient: "from-blue-600 to-cyan-600"
   },
   {
-    icon: RefreshCw,
-    title: "Renewal Protection",
-    description: "90-day automated campaigns prevent lapses and increase retention",
-    stat: "35%",
-    label: "Better Retention",
+    icon: Zap,
+    title: "Instant Lead Response System",
+    description: "AI receptionist answers calls and messages 24/7. New leads get a response in under 60 seconds via text, email, or AI-powered call-back. Never miss a prospect again.",
+    stat: "<60s",
+    label: "Response Time",
     gradient: "from-purple-600 to-blue-600"
   },
   {
     icon: MessageSquare,
-    title: "Quote Follow-Up",
-    description: "Every quote gets systematic follow-up until client binds or declines",
-    stat: "50%",
-    label: "More Conversions",
+    title: "Quote Follow-Up Automation",
+    description: "Every quoted prospect receives a personalized multi-touch sequence until they bind or decline. No lead falls through the cracks.",
+    stat: "50%+",
+    label: "More Binds",
     gradient: "from-pink-600 to-purple-600"
   },
   {
-    icon: BarChart3,
-    title: "Full Visibility",
-    description: "Real-time dashboard tracks conversions, renewals, and pipeline health",
-    stat: "100%",
-    label: "Oversight",
+    icon: Brain,
+    title: "Client Retention & Cross-Sell Intelligence",
+    description: "AI analyzes your book to predict churn risk and identify cross-sell opportunities. Surface hidden revenue in your existing client base automatically.",
+    stat: "8X",
+    label: "ROI Potential",
     gradient: "from-orange-600 to-pink-600"
+  },
+  {
+    icon: BarChart3,
+    title: "Agency Operations Dashboard",
+    description: "Real-time visibility into renewal pipelines, lead response metrics, campaign performance, and team productivity. Weekly reports delivered to your inbox.",
+    stat: "100%",
+    label: "Visibility",
+    gradient: "from-cyan-600 to-blue-600"
   }
 ];
 
@@ -42,13 +50,13 @@ export function Features() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full font-bold mb-6">
-            The Solution
+            AI Automation Services
           </div>
           <h2 className="text-6xl lg:text-7xl font-black text-black mb-6">
-            Automation That Works
+            How Does AI Automation Work for Insurance Agencies?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            Built, managed, and optimized by our team
+            Five done-for-you AI systems built, managed, and optimized by our team — specifically for independent insurance agencies
           </p>
         </div>
 
@@ -59,11 +67,13 @@ export function Features() {
             return (
               <div
                 key={index}
-                className="group relative bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-neutral-100 hover:border-blue-600 overflow-hidden"
+                className={`group relative bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-neutral-100 hover:border-blue-600 overflow-hidden ${
+                  index === 4 ? "md:col-span-2 md:max-w-xl md:mx-auto" : ""
+                }`}
               >
                 {/* Background Gradient on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
-                
+
                 <div className="relative">
                   {/* Icon */}
                   <div className={`w-20 h-20 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
