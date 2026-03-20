@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Phone } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -18,8 +18,8 @@ export function Footer() {
               RenewalEngineAI provides done-for-you AI automation services for independent insurance agencies, including renewal campaigns, instant lead response systems, quote follow-up automation, and agency operations management.
             </p>
             <div className="flex items-center gap-3 text-white">
-              <Phone className="h-5 w-5 text-blue-600" />
-              <span className="font-bold">(555) 123-4567</span>
+              <Mail className="h-5 w-5 text-blue-600" />
+              <a href="mailto:hello@renewalengineai.com" className="font-bold hover:text-blue-400 transition-colors">hello@renewalengineai.com</a>
             </div>
           </div>
 
@@ -49,8 +49,8 @@ export function Footer() {
           <div>
             <h4 className="text-white font-black mb-4">Legal</h4>
             <ul className="space-y-3">
-              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy.html" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms.html" className="hover:text-white transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>
@@ -62,7 +62,7 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/company/renewalengineai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <Linkedin className="h-5 w-5" />
             </a>
             <a href="mailto:hello@renewalengineai.com" className="hover:text-white transition-colors">

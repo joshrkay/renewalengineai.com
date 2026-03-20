@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Check, Sparkles } from "lucide-react";
+import { useBooking } from "./BookingContext";
 
 const offers = [
   {
@@ -59,6 +60,7 @@ const offers = [
 
 export function Pricing() {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const { openBooking } = useBooking();
 
   const startCheckout = async (plan: string) => {
     try {
@@ -79,7 +81,7 @@ export function Pricing() {
       setLoadingPlan(null);
     }
 
-    window.location.href = '/book';
+    openBooking();
   };
 
   return (
@@ -178,7 +180,10 @@ export function Pricing() {
             <p className="text-lg text-neutral-400 mb-6">
               All packages include a free initial consultation. See ROI before you commit.
             </p>
-            <Button className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105">
+            <Button
+              onClick={openBooking}
+              className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
+            >
               Schedule Free Consultation
             </Button>
           </div>

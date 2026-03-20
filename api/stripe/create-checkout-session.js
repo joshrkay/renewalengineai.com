@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       mode: cfg.mode,
       line_items: [line_item],
       success_url: `${origin}/?checkout=success&plan=${plan}`,
-      cancel_url: `${origin}/offers?checkout=cancel&plan=${plan}`,
+      cancel_url: `${origin}/?checkout=cancel&plan=${plan}`,
       allow_promotion_codes: true,
       billing_address_collection: 'auto',
     })

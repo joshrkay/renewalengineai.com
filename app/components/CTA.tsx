@@ -1,7 +1,10 @@
 import { Button } from "./ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useBooking } from "./BookingContext";
 
 export function CTA() {
+  const { openBooking } = useBooking();
+
   return (
     <section className="relative py-32 px-6 lg:px-8 bg-gradient-to-br from-black via-neutral-900 to-black overflow-hidden">
       {/* Animated Background Elements */}
@@ -34,6 +37,7 @@ export function CTA() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <Button
             size="lg"
+            onClick={openBooking}
             className="bg-gradient-to-r from-blue-600 to-purple-600 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-blue-600/50 hover:scale-105 transition-all font-black"
           >
             Book Free Renewal Audit
