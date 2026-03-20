@@ -5,112 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout — RenewalEngineAI</title>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"><\/script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag("js", new Date());
     gtag("config", "GA_MEASUREMENT_ID");
-  <\/script>
+  </script>
 </head>
 <body>
+  <!-- Lead Capture Form -->
+  <section style="max-width: 500px; margin: 40px auto; padding: 20px; background: #1e293b; border-radius: 12px; border: 1px solid #334155;">
+    <h2 style="color: #f8fafc; text-align: center; margin-bottom: 24px;">Get Started with AI Automation</h2>
+    <form id="lead-capture-form" style="display: flex; flex-direction: column; gap: 16px;">
+      <div>
+        <label for="email" style="display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: 500;">Email Address</label>
+        <input type="email" id="email" name="email" required 
+               style="width: 100%; padding: 12px; border: 1px solid #475569; border-radius: 8px; background: #0f172a; color: #f8fafc; font-size: 16px;"
+               placeholder="Enter your email">
+      </div>
+      <div>
+        <label for="name" style="display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: 500;">Full Name (Optional)</label>
+        <input type="text" id="name" name="name" 
+               style="width: 100%; padding: 12px; border: 1px solid #475569; border-radius: 8px; background: #0f172a; color: #f8fafc; font-size: 16px;"
+               placeholder="Enter your full name">
+      </div>
+      <div>
+        <label for="phone" style="display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: 500;">Phone Number (Optional)</label>
+        <input type="tel" id="phone" name="phone" 
+               style="width: 100%; padding: 12px; border: 1px solid #475569; border-radius: 8px; background: #0f172a; color: #f8fafc; font-size: 16px;"
+               placeholder="Enter your phone number">
+      </div>
+      <button type="submit" 
+              style="background: #3b82f6; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s;"
+              onmouseover="this.style.background='#2563eb'" 
+              onmouseout="this.style.background='#3b82f6'">
+        Get Free Access to Lead Magnet
+      </button>
+    </form>
+    <p style="margin-top: 16px; text-align: center; color: #94a3b8; font-size: 14px;">
+      We'll send you our free guide: "5 AI Automations Every Insurance Agent Should Set Up This Week"
+    </p>
+  </section>
 
-    <!-- Basic event tracking -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Track page views
-        gtag("event", "page_view", {
-          page_path: window.location.pathname,
-          page_title: document.title
-        });
-        
-        // Track form interactions (to be extended)
-        const forms = document.querySelectorAll("form");
-        forms.forEach(form => {
-          form.addEventListener("submit", function(e) {
-            gtag("event", "form_submit", {
-              form_id: this.id || "unknown",
-              page_location: window.location.href
-            });
-          });
-        });
+  <!-- Basic event tracking -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Track page views
+      gtag("event", "page_view", {
+        page_path: window.location.pathname,
+        page_title: document.title
       });
-    <\/script>
-  <\/body>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"><\/script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "GA_MEASUREMENT_ID");
-    <\/script>
-</head>
-<body>
-
-    <!-- Basic event tracking -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Track page views
-        gtag("event", "page_view", {
-          page_path: window.location.pathname,
-          page_title: document.title
-        });
-        
-        // Track form interactions (to be extended)
-        const forms = document.querySelectorAll("form");
-        forms.forEach(form => {
-          form.addEventListener("submit", function(e) {
-            gtag("event", "form_submit", {
-              form_id: this.id || "unknown",
-              page_location: window.location.href
-            });
-          });
-        });
-      });
-    <\/script>
-  <\/body>
-    <!-- Basic event tracking -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Track page views
-          gtag("event", "page_view", {
-            page_path: window.location.pathname,
-            page_title: document.title
+      
+      // Track form interactions
+      const forms = document.querySelectorAll("form");
+      forms.forEach(form => {
+        form.addEventListener("submit", function(e) {
+          gtag("event", "form_submit", {
+            form_id: this.id || "unknown",
+            page_location: window.location.href
           });
           
-        // Track form interactions (to be extended)
-        const forms = document.querySelectorAll("form");
-        forms.forEach(form => {
-          form.addEventListener("submit", function(e) {
-            gtag("event", "form_submit", {
-              form_id: this.id || "unknown",
-              page_location: window.location.href
-            });
-          });
+          // Track lead capture specifically
+          if (this.id === "lead-capture-form") {
+            const emailInput = this.querySelector('input[name="email"]');
+            if (emailInput && emailInput.value) {
+              gtag("event", "lead_capture", {
+                email: emailInput.value,
+                page_location: window.location.href
+              });
+            }
+          }
         });
       });
-    <\/script>
-    <!-- Basic event tracking -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Track page views
-        gtag("event", "page_view", {
-          page_path: window.location.pathname,
-          page_title: document.title
-        });
-        
-        // Track form interactions (to be extended)
-        const forms = document.querySelectorAll("form");
-        forms.forEach(form => {
-          form.addEventListener("submit", function(e) {
-            gtag("event", "form_submit", {
-              form_id: this.id || "unknown",
+      
+      // Track form abandonment
+      const inputs = document.querySelectorAll("input");
+      inputs.forEach(input => {
+        input.addEventListener("blur", function() {
+          if (this.value && this.matches('[required]')) {
+            gtag("event", "form_field_completed", {
+              field_name: this.name,
+              field_type: this.type,
               page_location: window.location.href
             });
-          });
+          }
         });
       });
-    <\/script>
-  </body>
+    });
+  </script>
+</body>
 </html>
