@@ -2,24 +2,24 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const testimonials = [
   {
-    quote: "We went from 15% renewal lapses to under 5%. The system handles all the follow-up automatically.",
-    author: "David Richardson",
-    title: "Agency Principal",
-    result: "15% → 4.8%",
-    metric: "Renewal Lapse"
+    quote: "Our renewal lapse rate dropped from 18% to under 6% in the first quarter. The AI system catches every expiring policy and runs outreach automatically — nothing slips through.",
+    author: "Mike T.",
+    title: "Agency Principal, Texas",
+    result: "18% → 6%",
+    metric: "Renewal Lapse Rate"
   },
   {
-    quote: "Our producers manage 750+ policies now versus 400 before. Same team, nearly double the capacity.",
-    author: "Sarah Kim",
-    title: "Owner",
-    result: "400 → 750+",
-    metric: "Policies/Producer"
+    quote: "We used to miss half our after-hours leads. Now every inquiry gets a response in under a minute. Our bind rate on new quotes jumped 40% in two months.",
+    author: "Rachel S.",
+    title: "Agency Owner, Florida",
+    result: "40%",
+    metric: "More Binds"
   },
   {
-    quote: "We avoided hiring two CSRs. The automation handles routine requests and saves us $120K annually.",
-    author: "James Martinez",
-    title: "Managing Partner",
-    result: "$120K",
+    quote: "We avoided hiring two CSRs by automating follow-ups and renewals. That's $130K saved annually, and our clients actually get faster, more consistent service now.",
+    author: "Carlos M.",
+    title: "Managing Partner, California",
+    result: "$130K",
     metric: "Annual Savings"
   }
 ];
@@ -31,7 +31,7 @@ export function Benefits() {
       <div className="absolute inset-0">
         <ImageWithFallback
           src="https://images.unsplash.com/photo-1660854088062-c178a98550cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwc3VjY2VzcyUyMGJ1c2luZXNzJTIwdmljdG9yeXxlbnwxfHx8fDE3NzMzNzY5NDF8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Team success"
+          alt="Insurance agency team celebrating success with AI automation"
           className="w-full h-full object-cover opacity-5"
         />
       </div>
@@ -44,13 +44,13 @@ export function Benefits() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full font-bold mb-6">
-            Real Results
+            Results
           </div>
           <h2 className="text-6xl lg:text-7xl font-black text-white mb-6">
-            Proven Impact
+            What Results Do Agencies Get with AI Automation?
           </h2>
           <p className="text-2xl text-neutral-400 max-w-3xl mx-auto font-medium">
-            Independent agencies growing without adding headcount
+            Independent insurance agencies using AI automation to grow without adding headcount
           </p>
         </div>
 
@@ -94,21 +94,21 @@ export function Benefits() {
         <div className="grid md:grid-cols-3 gap-8 mt-20">
           <div className="text-center">
             <div className="text-6xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-3">
-              50+
+              391%
             </div>
-            <div className="text-xl text-neutral-400 font-bold">Agencies Using Our System</div>
+            <div className="text-xl text-neutral-400 font-bold">More Lead Conversions</div>
           </div>
           <div className="text-center">
             <div className="text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
-              2x
+              95%+
             </div>
-            <div className="text-xl text-neutral-400 font-bold">Average Capacity Increase</div>
+            <div className="text-xl text-neutral-400 font-bold">Renewal Retention Rate</div>
           </div>
           <div className="text-center">
             <div className="text-6xl font-black bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent mb-3">
-              24/7
+              75%
             </div>
-            <div className="text-xl text-neutral-400 font-bold">Lead Response Coverage</div>
+            <div className="text-xl text-neutral-400 font-bold">Lower Follow-Up Costs</div>
           </div>
         </div>
       </div>
