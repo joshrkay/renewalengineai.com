@@ -4,40 +4,40 @@ const steps = [
   {
     icon: Search,
     number: "01",
-    title: "Audit",
-    duration: "5 Days",
-    description: "We analyze your workflow and identify where automation will have the biggest impact",
+    title: "Renewal Leak Audit",
+    duration: "3-5 Days",
+    description: "We analyze your renewal book, lead response times, and follow-up gaps to find exactly where revenue is leaking. You get a custom AI automation roadmap with projected ROI.",
     gradient: "from-blue-600 to-cyan-600"
   },
   {
     icon: Rocket,
     number: "02",
-    title: "Build",
-    duration: "2 Weeks",
-    description: "Our team builds and tests your custom automation systems tailored to your processes",
+    title: "Custom Build",
+    duration: "1-2 Weeks",
+    description: "Our team builds your AI automation systems — renewal campaigns, lead response workflows, and follow-up sequences — configured to your agency's AMS and processes.",
     gradient: "from-purple-600 to-blue-600"
   },
   {
     icon: Gauge,
     number: "03",
-    title: "Launch",
-    duration: "Week 3",
-    description: "We go live, monitor performance closely, and make any needed adjustments",
+    title: "Launch & Train",
+    duration: "Week 2-3",
+    description: "We go live, monitor everything, and train your team. AI starts answering leads, renewal campaigns begin flowing, and follow-ups run automatically.",
     gradient: "from-pink-600 to-purple-600"
   },
   {
     icon: TrendingUp,
     number: "04",
-    title: "Optimize",
+    title: "Manage & Optimize",
     duration: "Ongoing",
-    description: "Regular reviews and enhancements to keep your automation running at peak performance",
+    description: "We monitor performance weekly, optimize campaigns, and expand automation as your agency grows. You focus on selling — we handle the systems.",
     gradient: "from-orange-600 to-pink-600"
   }
 ];
 
 export function HowItWorks() {
   return (
-    <section className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white to-neutral-50">
+    <section id="how-it-works" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-white to-neutral-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
@@ -45,10 +45,10 @@ export function HowItWorks() {
             The Process
           </div>
           <h2 className="text-6xl lg:text-7xl font-black text-black mb-6">
-            How It Works
+            How Do You Get Started with AI Automation?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            From assessment to optimization—we handle everything
+            From audit to optimization — we handle everything so you can focus on growing your agency
           </p>
         </div>
 
