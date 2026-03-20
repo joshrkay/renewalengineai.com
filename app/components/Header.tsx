@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { useBooking } from "./BookingContext";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openBooking } = useBooking();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-neutral-800">
@@ -28,7 +30,10 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full px-8 py-6 transition-all hover:scale-105">
+            <Button
+              onClick={openBooking}
+              className="bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full px-8 py-6 transition-all hover:scale-105"
+            >
               Book Free Audit
             </Button>
           </div>
@@ -52,7 +57,10 @@ export function Header() {
             <a href="#how-it-works" className="block text-white hover:text-blue-600 py-3 font-semibold text-lg">How It Works</a>
             <a href="#pricing" className="block text-white hover:text-blue-600 py-3 font-semibold text-lg">Pricing</a>
             <div className="pt-4">
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full py-6">
+              <Button
+                onClick={() => { setMobileMenuOpen(false); openBooking(); }}
+                className="w-full bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full py-6"
+              >
                 Book Free Audit
               </Button>
             </div>
