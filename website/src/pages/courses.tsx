@@ -43,33 +43,36 @@ export default function Courses() {
               </div>
               
               {/* Bootcamp */}
-              <div className="border border-gray-200 rounded-lg p-6">
-                <Link href="#" className="block">
+              <div className="border border-gray-200 rounded-lg p-6 relative opacity-80">
+                <div className="block">
+                  <span className="inline-block bg-indigo-100 text-indigo-600 text-xs font-bold px-2 py-1 rounded mb-2">Coming Soon</span>
                   <h4 className="font-bold mb-2">AI Agency Operations Bootcamp</h4>
                   <p className="text-indigo-600 font-semibold mb-3">$797 - $1,297</p>
                   <p className="text-sm text-gray-600 mb-3">Live cohort or premium self-paced</p>
                   <p className="text-sm">Go deeper into AI for your entire agency operation</p>
-                </Link>
+                </div>
               </div>
-              
+
               {/* Mastermind */}
-              <div className="border border-gray-200 rounded-lg p-6">
-                <Link href="#" className="block">
+              <div className="border border-gray-200 rounded-lg p-6 relative opacity-80">
+                <div className="block">
+                  <span className="inline-block bg-indigo-100 text-indigo-600 text-xs font-bold px-2 py-1 rounded mb-2">Coming Soon</span>
                   <h4 className="font-bold mb-2">AI Mastermind / Community</h4>
                   <p className="text-indigo-600 font-semibold mb-3">$97 - $197/mo</p>
                   <p className="text-sm text-gray-600 mb-3">Ongoing access: live calls + new content</p>
                   <p className="text-sm">Recurring revenue from course graduates</p>
-                </Link>
+                </div>
               </div>
-              
+
               {/* Team Licenses */}
-              <div className="border border-gray-200 rounded-lg p-6">
-                <Link href="#" className="block">
+              <div className="border border-gray-200 rounded-lg p-6 relative opacity-80">
+                <div className="block">
+                  <span className="inline-block bg-indigo-100 text-indigo-600 text-xs font-bold px-2 py-1 rounded mb-2">Coming Soon</span>
                   <h4 className="font-bold mb-2">Agency Team Licenses</h4>
                   <p className="text-indigo-600 font-semibold mb-3">Custom pricing</p>
                   <p className="text-sm text-gray-600 mb-3">Multi-seat access</p>
                   <p className="text-sm">Higher ACV, agency owner buys for staff</p>
-                </Link>
+                </div>
               </div>
             </div>
           </div>
