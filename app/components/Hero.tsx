@@ -1,7 +1,10 @@
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
+import { useBooking } from "./BookingContext";
 
 export function Hero() {
+  const { openBooking } = useBooking();
+
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-black via-neutral-900 to-black overflow-hidden">
       {/* Animated Background Gradient */}
@@ -37,6 +40,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Button
               size="lg"
+              onClick={openBooking}
               className="bg-blue-600 hover:bg-blue-700 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-blue-600/50 transition-all hover:scale-105 font-bold"
             >
               Book Your Free Renewal Audit

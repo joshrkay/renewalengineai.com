@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Calculator } from "lucide-react";
+import { useBooking } from "./BookingContext";
 
 export function ROICalculator() {
+  const { openBooking } = useBooking();
   const [policies, setPolicies] = useState(500);
   const [avgPremium, setAvgPremium] = useState(1200);
   const [currentRetention, setCurrentRetention] = useState(82);
@@ -153,6 +155,7 @@ export function ROICalculator() {
                   Based on industry averages: 12% commission rate, 15% baseline lead conversion improving to 25% with instant response, and 15-point retention improvement with AI automation.
                 </p>
                 <Button
+                  onClick={openBooking}
                   className="bg-black !text-white hover:bg-neutral-800 text-lg px-10 py-6 rounded-full font-black transition-all hover:scale-105"
                 >
                   Book Free Audit to Get Your Exact Numbers
