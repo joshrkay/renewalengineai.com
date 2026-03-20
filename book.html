@@ -1,1 +1,38 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Book — RenewalEngineAI</title><style>body{font-family:Inter,system-ui;max-width:900px;margin:0 auto;padding:24px;background:#0f172a;color:#e2e8f0}input,textarea{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #334155;background:#111827;color:#e2e8f0}button{background:#67e8f9;color:#05232a;padding:10px 16px;border:none;border-radius:8px;font-weight:700}</style></head><body><h1>Book Discovery Call</h1><form><label>Name</label><input /><label>Email</label><input type="email"/><label>Agency Size</label><input/><label>Primary Ops Pain</label><textarea rows="4"></textarea><button type="button">Submit Intake</button></form></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"><\/script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "GA_MEASUREMENT_ID");
+    <\/script>
+
+<\/head>
+<body>
+
+    <!-- Basic event tracking -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Track page views
+        gtag("event", "page_view", {
+          page_path: window.location.pathname,
+          page_title: document.title
+        });
+        
+        // Track form interactions (to be extended)
+        const forms = document.querySelectorAll("form");
+        forms.forEach(form => {
+          form.addEventListener("submit", function(e) {
+            gtag("event", "form_submit", {
+              form_id: this.id || "unknown",
+              page_location: window.location.href
+            });
+          });
+        });
+      });
+    <\/script>
+  <\/body>
+</html>
