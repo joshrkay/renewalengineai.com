@@ -1,0 +1,2 @@
+Lead capture verification: Tested form structure and tracking implementation in checkout.html and checkout.html.variant-a
+Timestamp: Fri Mar 20 11:11:17 MST 2026

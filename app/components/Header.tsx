@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { useBooking } from "./BookingContext";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openBooking } = useBooking();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-neutral-800">
@@ -22,13 +24,17 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#solutions" className="text-neutral-300 hover:text-white transition-colors font-semibold">Solutions</a>
             <a href="#results" className="text-neutral-300 hover:text-white transition-colors font-semibold">Results</a>
+            <a href="#how-it-works" className="text-neutral-300 hover:text-white transition-colors font-semibold">How It Works</a>
             <a href="#pricing" className="text-neutral-300 hover:text-white transition-colors font-semibold">Pricing</a>
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full px-8 py-6 transition-all hover:scale-105">
-              Get Started
+            <Button
+              onClick={openBooking}
+              className="bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full px-8 py-6 transition-all hover:scale-105"
+            >
+              Book Free Audit
             </Button>
           </div>
 
@@ -48,10 +54,14 @@ export function Header() {
           <div className="px-6 py-6 space-y-4">
             <a href="#solutions" className="block text-white hover:text-blue-600 py-3 font-semibold text-lg">Solutions</a>
             <a href="#results" className="block text-white hover:text-blue-600 py-3 font-semibold text-lg">Results</a>
+            <a href="#how-it-works" className="block text-white hover:text-blue-600 py-3 font-semibold text-lg">How It Works</a>
             <a href="#pricing" className="block text-white hover:text-blue-600 py-3 font-semibold text-lg">Pricing</a>
             <div className="pt-4">
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full py-6">
-                Get Started
+              <Button
+                onClick={() => { setMobileMenuOpen(false); openBooking(); }}
+                className="w-full bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full py-6"
+              >
+                Book Free Audit
               </Button>
             </div>
           </div>

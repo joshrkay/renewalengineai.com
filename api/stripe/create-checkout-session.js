@@ -5,9 +5,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 })
 
 const PLAN_CONFIG = {
-  audit: { amount: 150000, mode: 'payment', name: 'Operations Audit', interval: null },
-  sprint: { amount: 600000, mode: 'payment', name: 'Build & Launch', interval: null },
-  managed: { amount: 250000, mode: 'subscription', name: 'Managed Ops', interval: 'month' },
+  audit: { amount: 150000, mode: 'payment', name: 'AI-Powered Renewal Audit', interval: null },
+  sprint: { amount: 600000, mode: 'payment', name: 'AI Automation Build & Launch', interval: null },
+  managed: { amount: 250000, mode: 'subscription', name: 'Managed AI Operations', interval: 'month' },
 }
 
 export default async function handler(req, res) {
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       mode: cfg.mode,
       line_items: [line_item],
       success_url: `${origin}/?checkout=success&plan=${plan}`,
-      cancel_url: `${origin}/offers?checkout=cancel&plan=${plan}`,
+      cancel_url: `${origin}/?checkout=cancel&plan=${plan}`,
       allow_promotion_codes: true,
       billing_address_collection: 'auto',
     })

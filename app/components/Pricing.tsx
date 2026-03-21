@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Check, Sparkles } from "lucide-react";
+import { useBooking } from "./BookingContext";
 
 const offers = [
   {
     key: "audit",
-    name: "Operations Audit",
+    name: "AI-Powered Renewal Audit",
     price: "1,500",
-    description: "Identify your biggest automation opportunities",
+    description: "Find exactly where your agency is leaking revenue",
     features: [
       "5-day workflow assessment",
-      "Renewal and pipeline analysis",
-      "Custom automation roadmap",
-      "ROI projections",
-      "Executive presentation"
+      "Renewal book & pipeline analysis",
+      "Lead response time evaluation",
+      "Custom AI automation roadmap",
+      "ROI projections & executive report"
     ],
     cta: "Start Audit",
     popular: false,
@@ -23,15 +24,15 @@ const offers = [
     key: "sprint",
     name: "Build & Launch",
     price: "6,000",
-    description: "Get live in 2 weeks with full automation",
+    description: "Go live with full AI automation in 2-3 weeks",
     features: [
       "Everything in Audit, plus:",
-      "Complete automation setup",
-      "Renewal tracking system",
+      "AI renewal campaign system",
+      "Instant lead response automation",
       "Quote follow-up sequences",
-      "Lead response management",
-      "Performance dashboard",
-      "Team training"
+      "Agency operations dashboard",
+      "AMS integration setup",
+      "Full team training"
     ],
     cta: "Get Started",
     popular: true,
@@ -39,17 +40,17 @@ const offers = [
   },
   {
     key: "managed",
-    name: "Managed Ops",
+    name: "Managed AI Operations",
     price: "2,500",
     priceSuffix: "/mo",
-    description: "Ongoing management & optimization",
+    description: "We run and optimize your AI systems ongoing",
     features: [
       "All Build & Launch systems, plus:",
       "Weekly performance monitoring",
-      "Continuous improvements",
-      "Monthly reviews",
-      "Priority support",
-      "Quarterly planning"
+      "Continuous campaign optimization",
+      "Monthly strategy reviews",
+      "Cross-sell intelligence reports",
+      "Priority support & quarterly planning"
     ],
     cta: "Schedule Call",
     popular: false,
@@ -59,6 +60,7 @@ const offers = [
 
 export function Pricing() {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const { openBooking } = useBooking();
 
   const startCheckout = async (plan: string) => {
     try {
@@ -79,7 +81,7 @@ export function Pricing() {
       setLoadingPlan(null);
     }
 
-    window.location.href = '/book';
+    openBooking();
   };
 
   return (
@@ -91,10 +93,10 @@ export function Pricing() {
             Pricing
           </div>
           <h2 className="text-6xl lg:text-7xl font-black text-black mb-6">
-            Simple, Clear Pricing
+            How Much Does AI Automation Cost?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            No software licenses. No per-seat fees. Just results.
+            No software licenses. No per-seat fees. Just done-for-you AI automation that delivers results for your insurance agency.
           </p>
         </div>
 
@@ -123,7 +125,7 @@ export function Pricing() {
               <div className="mb-8">
                 <h3 className="text-3xl font-black text-black mb-3">{offer.name}</h3>
                 <p className="text-lg text-neutral-600 mb-6">{offer.description}</p>
-                
+
                 <div className="flex items-baseline gap-2 mb-6">
                   <span className="text-6xl font-black text-black">${offer.price}</span>
                   {offer.priceSuffix && <span className="text-2xl font-bold text-neutral-500">{offer.priceSuffix}</span>}
@@ -172,10 +174,16 @@ export function Pricing() {
         {/* Bottom CTA */}
         <div className="text-center mt-20">
           <div className="bg-gradient-to-r from-black to-neutral-800 p-12 rounded-3xl">
-            <p className="text-3xl font-black text-white mb-6">
+            <p className="text-3xl font-black text-white mb-4">
               Not sure which package fits your agency?
             </p>
-            <Button className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105">
+            <p className="text-lg text-neutral-400 mb-6">
+              All packages include a free initial consultation. See ROI before you commit.
+            </p>
+            <Button
+              onClick={openBooking}
+              className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
+            >
               Schedule Free Consultation
             </Button>
           </div>
