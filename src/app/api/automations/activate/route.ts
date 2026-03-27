@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { activateRecipe, ActivationError } from "@/lib/recipe-engine";
+import { log } from "@/lib/logger";
 
 export async function POST(req: NextRequest) {
   const session = await auth();
@@ -25,7 +26,7 @@ export async function POST(req: NextRequest) {
         { status: e.statusCode }
       );
     }
-    console.error("Activation failed:", e);
+    log.error("Activation failed:", e);
     return NextResponse.json({ error: "activation_failed" }, { status: 500 });
   }
 }

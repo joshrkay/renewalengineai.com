@@ -1,3 +1,5 @@
+import { log } from "@/lib/logger";
+
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 const FROM_EMAIL = process.env.FROM_EMAIL || "RenewalEngineAI <noreply@renewalengineai.com>";
 const APP_URL = process.env.NEXTAUTH_URL || "https://renewalengineai.com";
@@ -10,7 +12,7 @@ interface SendEmailParams {
 
 async function sendEmail({ to, subject, html }: SendEmailParams): Promise<void> {
   if (!RESEND_API_KEY) {
-    console.warn("[email] RESEND_API_KEY not set — email not sent:", { to, subject });
+    log.warn("[email] RESEND_API_KEY not set — email not sent:", subject);
     return;
   }
 
@@ -24,8 +26,7 @@ async function sendEmail({ to, subject, html }: SendEmailParams): Promise<void> 
   });
 
   if (!res.ok) {
-    const body = await res.text();
-    console.error("[email] Send failed:", res.status, body);
+    log.error("[email] Send failed:", res.status);
     throw new Error(`Email send failed: ${res.status}`);
   }
 }
@@ -36,7 +37,7 @@ export async function sendWelcomeEmail(
   email: string,
   name: string | null,
   tier: string,
-  tempPassword: string
+  resetToken: string
 ): Promise<void> {
   const tierLabels: Record<string, string> = {
     AUDIT: "AI-Powered Renewal Audit",
@@ -44,9 +45,11 @@ export async function sendWelcomeEmail(
     MANAGED: "Managed AI Operations",
   };
 
+  const resetUrl = `${APP_URL}/set-password?token=${resetToken}`;
+
   await sendEmail({
     to: email,
-    subject: `Welcome to RenewalEngineAI — Your ${tierLabels[tier] || tier} Account is Ready`,
+    subject: `Welcome to RenewalEngineAI — Set Up Your Account`,
     html: `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="text-align: center; margin-bottom: 32px;">
@@ -57,26 +60,19 @@ export async function sendWelcomeEmail(
 
         <p style="color: #525252; font-size: 16px; line-height: 1.6;">
           Your <strong>${tierLabels[tier] || tier}</strong> account has been created.
-          You can now log in to your dashboard to connect your tools and activate automation recipes.
+          Click the button below to set your password and access your dashboard.
         </p>
 
-        <div style="background: #f5f5f5; border-radius: 12px; padding: 24px; margin: 24px 0;">
-          <p style="margin: 0 0 8px 0; font-size: 14px; color: #737373;">Your login credentials:</p>
-          <p style="margin: 0; font-size: 16px;"><strong>Email:</strong> ${email}</p>
-          <p style="margin: 8px 0 0 0; font-size: 16px;"><strong>Temporary Password:</strong> ${tempPassword}</p>
-        </div>
-
         <div style="text-align: center; margin: 32px 0;">
-          <a href="${APP_URL}/login"
+          <a href="${resetUrl}"
              style="display: inline-block; background: #4f46e5; color: white; padding: 14px 32px;
                     border-radius: 9999px; text-decoration: none; font-weight: bold; font-size: 16px;">
-            Log In to Your Dashboard
+            Set Your Password
           </a>
         </div>
 
         <p style="color: #a3a3a3; font-size: 14px; line-height: 1.5;">
-          Please change your password after your first login.
-          If you have any questions, reply to this email or schedule a call with our team.
+          This link expires in 24 hours. If you did not make this purchase, please contact us immediately.
         </p>
 
         <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
@@ -96,7 +92,7 @@ export async function sendAutomationAlert(
 
   await sendEmail({
     to: email,
-    subject: `${isError ? "⚠️" : "✅"} ${recipeName} — ${isError ? "Error" : "Run Completed"}`,
+    subject: `${isError ? "Action Required" : "Update"}: ${recipeName} — ${isError ? "Error" : "Run Completed"}`,
     html: `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <h2 style="color: ${isError ? "#dc2626" : "#16a34a"}; font-size: 20px;">
@@ -137,7 +133,7 @@ export async function sendTokenExpiryWarning(
         <h2 style="color: #d97706; font-size: 20px;">Your ${provider} connection needs attention</h2>
 
         <p style="color: #525252; font-size: 16px; line-height: 1.6;">
-          The OAuth token for your <strong>${provider}</strong> integration is expiring soon or has expired.
+          The connection for your <strong>${provider}</strong> integration is expiring or has expired.
           Please reconnect to keep your automations running.
         </p>
 

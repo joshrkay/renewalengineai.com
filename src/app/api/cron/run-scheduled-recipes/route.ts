@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { runLangGraphRecipe } from "@/lib/recipe-engine";
 import * as n8n from "@/lib/n8n";
+import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
@@ -58,7 +59,7 @@ export async function GET(req: NextRequest) {
           triggered++;
         }
       } catch (e) {
-        console.error(`[org:${org.id}] Scheduled run failed for instance ${instance.id}:`, e);
+        log.error(`[org:${org.id}] Scheduled run failed for instance ${instance.id}:`, e);
         orgResults[org.id].errors++;
         errors++;
 

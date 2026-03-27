@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStripe, PLAN_CONFIG, type PlanKey } from "@/lib/stripe";
+import { log } from "@/lib/logger";
 
 export async function POST(req: NextRequest) {
   try {
@@ -39,7 +40,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url });
   } catch (error) {
-    console.error("Stripe checkout error:", error);
+    log.error("Stripe checkout error:", error);
     return NextResponse.json(
       { error: "checkout_session_failed" },
       { status: 500 }

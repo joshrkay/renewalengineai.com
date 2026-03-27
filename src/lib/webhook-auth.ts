@@ -1,4 +1,5 @@
 import { createHmac, timingSafeEqual } from "crypto";
+import { log } from "@/lib/logger";
 
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || "";
 
@@ -11,7 +12,7 @@ export function verifyWebhookSignature(
   signature: string | null
 ): boolean {
   if (!WEBHOOK_SECRET) {
-    console.warn("[webhook] WEBHOOK_SECRET not set — skipping verification in development");
+    log.warn("[webhook] WEBHOOK_SECRET not set — skipping verification in development");
     return process.env.NODE_ENV === "development";
   }
 

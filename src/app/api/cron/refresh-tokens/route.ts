@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { decrypt, encrypt } from "@/lib/encryption";
 import { sendTokenExpiryWarning } from "@/lib/email";
+import { log } from "@/lib/logger";
 
 // Token endpoint configuration per provider
 const TOKEN_REFRESH_CONFIG: Record<string, { tokenUrl: string; clientIdEnv: string; clientSecretEnv: string }> = {
@@ -106,7 +107,7 @@ export async function GET(req: NextRequest) {
         throw new Error(tokens.error || "No access token in response");
       }
     } catch (e) {
-      console.error(`Token refresh failed for ${connection.provider} (org ${connection.organizationId}):`, e);
+      log.error(`Token refresh failed for ${connection.provider} (org ${connection.organizationId}):`, e);
       await prisma.oAuthConnection.update({
         where: { id: connection.id },
         data: { status: "EXPIRED" },

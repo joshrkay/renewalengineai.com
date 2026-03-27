@@ -16,12 +16,13 @@ model User {
   passwordHash   String?
   emailVerified  DateTime?
   image          String?
-  organizationId String?
-  organization   Organization? @relation(fields: [organizationId], references: [id])
-  accounts       Account[]
-  sessions       Session[]
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  organizationId      String?
+  organization        Organization? @relation(fields: [organizationId], references: [id])
+  accounts            Account[]
+  sessions            Session[]
+  passwordResetTokens PasswordResetToken[]
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
 }
 
 model Account {
@@ -56,6 +57,31 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id             String   @id @default(cuid())
+  organizationId String?
+  userId         String?
+  action         String
+  resource       String
+  resourceId     String?
+  metadata       Json     @default("{}")
+  ipAddress      String?
+  createdAt      DateTime @default(now())
+
+  @@index([organizationId, createdAt])
+  @@index([action, createdAt])
 }
 
 // ─── Business Models ────────────────────────────────────────
@@ -198,13 +224,14 @@ model AutomationInstance {
 }
 
 model WorkflowRun {
-  id                   String             @id @default(cuid())
-  automationInstanceId String
-  automationInstance   AutomationInstance @relation(fields: [automationInstanceId], references: [id], onDelete: Cascade)
-  status               RunStatus          @default(RUNNING)
-  startedAt            DateTime           @default(now())
-  completedAt          DateTime?
-  resultSummary        String?
-  resultData           Json?
-  errorMessage         String?
+  id                      String             @id @default(cuid())
+  automationInstanceId    String
+  automationInstance      AutomationInstance @relation(fields: [automationInstanceId], references: [id], onDelete: Cascade)
+  status                  RunStatus          @default(RUNNING)
+  startedAt               DateTime           @default(now())
+  completedAt             DateTime?
+  resultSummaryEncrypted  String?
+  resultDataEncrypted     String?
+  errorMessage            String?
+  expiresAt               DateTime?
 }

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { resumeAutomation, ActivationError } from "@/lib/recipe-engine";
+import { log } from "@/lib/logger";
 
 export async function POST(
   req: NextRequest,
@@ -21,7 +22,7 @@ export async function POST(
     if (e instanceof ActivationError) {
       return NextResponse.json({ error: e.code, message: e.message }, { status: e.statusCode });
     }
-    console.error("Resume failed:", e);
+    log.error("Resume failed:", e);
     return NextResponse.json({ error: "resume_failed" }, { status: 500 });
   }
 }

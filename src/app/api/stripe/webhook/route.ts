@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/db";
-import { hash } from "bcryptjs";
 import { randomBytes } from "crypto";
 import { sendWelcomeEmail } from "@/lib/email";
+import { logAudit } from "@/lib/audit";
+import { log } from "@/lib/logger";
 import type Stripe from "stripe";
 
 export async function POST(req: NextRequest) {
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest) {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    console.error("Webhook signature verification failed:", err);
+    log.error("Webhook signature verification failed");
     return NextResponse.json({ error: "invalid_signature" }, { status: 400 });
   }
 
@@ -57,10 +58,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   let user = await prisma.user.findUnique({ where: { email } });
 
   if (!user) {
-    // Generate a temporary password and send it to the user
-    const tempPassword = randomBytes(8).toString("base64url");
-    const passwordHash = await hash(tempPassword, 12);
-
+    // Create org and user without storing a plaintext password
     const org = await prisma.organization.create({
       data: {
         name: name || email.split("@")[0],
@@ -74,7 +72,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       data: {
         email,
         name,
-        passwordHash,
+        passwordHash: null, // No password yet — user sets it via reset link
         organizationId: org.id,
       },
     });
@@ -88,8 +86,27 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       },
     });
 
-    // Send welcome email with temporary password
-    await sendWelcomeEmail(email, name, tier, tempPassword);
+    // Create a secure password reset token (24-hour expiry)
+    const resetToken = randomBytes(32).toString("base64url");
+    await prisma.passwordResetToken.create({
+      data: {
+        userId: user.id,
+        token: resetToken,
+        expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      },
+    });
+
+    // Send welcome email with secure reset link (no password in email)
+    await sendWelcomeEmail(email, name, tier, resetToken);
+
+    await logAudit({
+      organizationId: org.id,
+      userId: user.id,
+      action: "user.created",
+      resource: "User",
+      resourceId: user.id,
+      metadata: { tier, source: "stripe_checkout" },
+    });
   } else {
     if (user.organizationId) {
       await prisma.organization.update({
@@ -116,7 +133,6 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     past_due: "PAST_DUE",
     trialing: "TRIALING",
   };
-
   const status = statusMap[subscription.status] || "ACTIVE";
 
   await prisma.subscription.update({

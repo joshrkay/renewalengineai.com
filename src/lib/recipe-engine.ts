@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/db";
 import * as n8n from "@/lib/n8n";
 import * as langgraph from "@/lib/langgraph";
-import { decrypt } from "@/lib/encryption";
+import { logAudit } from "@/lib/audit";
+import { log } from "@/lib/logger";
 
 const TIER_RANK: Record<string, number> = { AUDIT: 1, SPRINT: 2, MANAGED: 3 };
 
@@ -141,6 +142,14 @@ export async function activateRecipe(
     },
   });
 
+  await logAudit({
+    organizationId: orgId,
+    action: "automation.activated",
+    resource: "AutomationInstance",
+    resourceId: instance.id,
+    metadata: { recipeSlug: recipe.slug, engineType: recipe.engineType },
+  });
+
   return {
     instanceId: instance.id,
     status: instance.status,
@@ -202,7 +211,7 @@ export async function deactivateAutomation(instanceId: string, orgId: string): P
       await n8n.deactivateWorkflow(instance.n8nWorkflowId);
       await n8n.deleteWorkflow(instance.n8nWorkflowId);
     } catch (e) {
-      console.error("n8n workflow cleanup error (non-fatal):", e);
+      log.error("n8n workflow cleanup error (non-fatal):", (e as Error).message);
     }
   }
 
@@ -235,12 +244,17 @@ export async function runLangGraphRecipe(
 
   const connections = await prisma.oAuthConnection.findMany({
     where: { organizationId: orgId, status: "CONNECTED" },
+    select: { provider: true, id: true },
   });
 
+  // Pass credential REFERENCES, not decrypted tokens.
+  // LangGraph calls our /api/internal/credentials endpoint to fetch tokens server-side.
   const orgContext: Record<string, any> = {
     orgId,
     config: instance.config,
     connectedProviders: connections.map((c) => c.provider),
+    credentialRefs: connections.map((c) => ({ provider: c.provider, connectionId: c.id })),
+    dataApiUrl: `${process.env.NEXTAUTH_URL}/api/internal/org-data`,
   };
 
   const amsConnection = connections.find((c) =>
@@ -248,7 +262,8 @@ export async function runLangGraphRecipe(
   );
   if (amsConnection) {
     orgContext.amsProvider = amsConnection.provider;
-    orgContext.amsAccessToken = decrypt(amsConnection.accessToken);
+    orgContext.amsConnectionId = amsConnection.id;
+    // Tokens are NOT sent — LangGraph calls our API to fetch data via the connection
   }
 
   const run = await prisma.workflowRun.create({
@@ -301,7 +316,7 @@ export async function cleanupCredentialsForProvider(
       try {
         await n8n.deactivateWorkflow(instance.n8nWorkflowId);
       } catch (e) {
-        console.error(`Failed to pause workflow for instance ${instance.id}:`, e);
+        log.error(`Failed to pause workflow for instance ${instance.id}:`, (e as Error).message);
       }
     }
 

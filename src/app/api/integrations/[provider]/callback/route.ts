@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { encrypt } from "@/lib/encryption";
+import { logAudit } from "@/lib/audit";
+import { log } from "@/lib/logger";
 
 // Token endpoint configuration per provider
 const TOKEN_CONFIG: Record<
@@ -101,7 +103,7 @@ export async function GET(
     const tokens = await tokenRes.json();
 
     if (!tokens.access_token) {
-      console.error("Token exchange failed:", tokens);
+      log.error("Token exchange failed for provider:", provider);
       return NextResponse.redirect(
         new URL("/dashboard/integrations?error=token_exchange_failed", req.url)
       );
@@ -147,7 +149,7 @@ export async function GET(
       new URL("/dashboard/integrations?connected=" + provider, req.url)
     );
   } catch (error) {
-    console.error("OAuth callback error:", error);
+    log.error("OAuth callback error for provider:", provider);
     return NextResponse.redirect(
       new URL("/dashboard/integrations?error=callback_failed", req.url)
     );

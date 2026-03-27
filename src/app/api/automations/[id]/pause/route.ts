@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { pauseAutomation, ActivationError } from "@/lib/recipe-engine";
+import { log } from "@/lib/logger";
 
 export async function POST(
   req: NextRequest,
@@ -21,7 +22,7 @@ export async function POST(
     if (e instanceof ActivationError) {
       return NextResponse.json({ error: e.code, message: e.message }, { status: e.statusCode });
     }
-    console.error("Pause failed:", e);
+    log.error("Pause failed:", e);
     return NextResponse.json({ error: "pause_failed" }, { status: 500 });
   }
 }

@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/db";
 import { decrypt } from "@/lib/encryption";
+import { log } from "@/lib/logger";
 
 const N8N_BASE_URL = process.env.N8N_BASE_URL || "";
 const N8N_API_KEY = process.env.N8N_API_KEY || "";
@@ -150,7 +151,7 @@ export async function deleteN8nCredentials(credentialIds: string[]): Promise<voi
     try {
       await deleteN8nCredential(id);
     } catch (e) {
-      console.error(`Failed to delete n8n credential ${id} (non-fatal):`, e);
+      log.error(`Failed to delete n8n credential ${id} (non-fatal):`, e);
     }
   }
 }
