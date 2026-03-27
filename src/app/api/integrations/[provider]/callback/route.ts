@@ -80,14 +80,14 @@ export async function GET(
   }
 
   const code = req.nextUrl.searchParams.get("code");
-  const state = req.nextUrl.searchParams.get("state");
-  const error = req.nextUrl.searchParams.get("error");
+  const stateParam = req.nextUrl.searchParams.get("state");
+  const errorParam = req.nextUrl.searchParams.get("error");
 
   // Handle provider-side errors (user denied, etc.)
-  if (error) {
+  if (errorParam) {
     log.warn("OAuth denied by user for provider:", providerKey);
     return NextResponse.redirect(
-      new URL(`/dashboard/settings/integrations?error=${error}`, req.url)
+      new URL(`/dashboard/settings/integrations?error=${errorParam}`, req.url)
     );
   }
 
@@ -97,7 +97,31 @@ export async function GET(
     );
   }
 
-  const orgId = state || (session as any).organizationId;
+  // Validate CSRF state token from cookie
+  const cookieStore = await cookies();
+  const stateCookie = cookieStore.get(`oauth_state_${providerKey}`)?.value;
+  let orgId: string | null = null;
+
+  if (stateCookie) {
+    try {
+      const stored = JSON.parse(stateCookie);
+      if (stored.token !== stateParam) {
+        log.warn("OAuth state mismatch for provider:", providerKey);
+        return NextResponse.redirect(
+          new URL("/dashboard/settings/integrations?error=invalid_state", req.url)
+        );
+      }
+      orgId = stored.orgId;
+    } catch {
+      log.warn("Invalid OAuth state cookie for provider:", providerKey);
+    }
+    cookieStore.delete(`oauth_state_${providerKey}`);
+  }
+
+  if (!orgId) {
+    orgId = (session as any).organizationId;
+  }
+
   if (!orgId) {
     return NextResponse.redirect(
       new URL("/dashboard/settings/integrations?error=no_org", req.url)

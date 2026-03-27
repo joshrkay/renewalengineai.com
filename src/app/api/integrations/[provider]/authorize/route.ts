@@ -97,6 +97,17 @@ export async function GET(
 
   const orgId = (session as any).organizationId || "";
 
+  // Generate cryptographic state token to prevent CSRF
+  const stateToken = randomBytes(32).toString("base64url");
+  const cookieStore = await cookies();
+  cookieStore.set(`oauth_state_${providerKey}`, JSON.stringify({ token: stateToken, orgId }), {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+    maxAge: 600, // 10 minutes
+    path: "/",
+  });
+
   const authUrl = new URL(config.authUrl);
   authUrl.searchParams.set("client_id", clientId);
   authUrl.searchParams.set("redirect_uri", redirectUri);
@@ -104,7 +115,7 @@ export async function GET(
   authUrl.searchParams.set("scope", config.scopes);
   authUrl.searchParams.set("access_type", "offline");
   authUrl.searchParams.set("prompt", "consent");
-  authUrl.searchParams.set("state", orgId);
+  authUrl.searchParams.set("state", stateToken);
 
   // Apply provider-specific extra params (e.g., response_mode for Microsoft)
   if (config.extraParams) {
