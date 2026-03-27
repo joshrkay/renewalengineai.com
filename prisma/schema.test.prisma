@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./test.db"
+}
+
+// ─── Auth Models ────────────────────────────────────────────
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  name           String?
+  passwordHash   String?
+  emailVerified  DateTime?
+  image          String?
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  accounts       Account[]
+  sessions       Session[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─── Business Models ────────────────────────────────────────
+// Note: SQLite doesn't support enums, so we use String fields
+
+model Organization {
+  id                 String             @id @default(cuid())
+  name               String
+  stripeCustomerId   String?            @unique
+  subscriptionTier   String             @default("AUDIT")
+  subscriptionStatus String             @default("ACTIVE")
+  users              User[]
+  subscriptions      Subscription[]
+  oauthConnections   OAuthConnection[]
+  automationInstances AutomationInstance[]
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+}
+
+model Subscription {
+  id                   String    @id @default(cuid())
+  organizationId       String
+  organization         Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  stripeSubscriptionId String?   @unique
+  stripePriceId        String?
+  tier                 String
+  status               String    @default("ACTIVE")
+  currentPeriodStart   DateTime?
+  currentPeriodEnd     DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+}
+
+// ─── Integration Models ─────────────────────────────────────
+
+model OAuthConnection {
+  id                String   @id @default(cuid())
+  organizationId    String
+  organization      Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  provider          String
+  accessToken       String
+  refreshToken      String?
+  tokenExpiresAt    DateTime?
+  scopes            String?
+  providerAccountId String?
+  status            String   @default("CONNECTED")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([organizationId, provider])
+}
+
+// ─── Automation Models ──────────────────────────────────────
+
+model AutomationRecipe {
+  id                   String              @id @default(cuid())
+  slug                 String              @unique
+  name                 String
+  description          String
+  category             String
+  requiredIntegrations String              @default("[]")
+  minimumTier          String              @default("AUDIT")
+  engineType           String              @default("N8N")
+  n8nTemplateId        String?
+  langGraphId          String?
+  config               String              @default("{}")
+  isActive             Boolean             @default(true)
+  instances            AutomationInstance[]
+  createdAt            DateTime            @default(now())
+  updatedAt            DateTime            @updatedAt
+}
+
+model AutomationInstance {
+  id             String   @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  recipeId       String
+  recipe         AutomationRecipe @relation(fields: [recipeId], references: [id])
+  status         String   @default("PENDING")
+  config         String   @default("{}")
+  n8nWorkflowId  String?
+  lastRunAt      DateTime?
+  nextRunAt      DateTime?
+  runs           WorkflowRun[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([organizationId, recipeId])
+}
+
+model WorkflowRun {
+  id                   String   @id @default(cuid())
+  automationInstanceId String
+  automationInstance   AutomationInstance @relation(fields: [automationInstanceId], references: [id], onDelete: Cascade)
+  status               String   @default("RUNNING")
+  startedAt            DateTime @default(now())
+  completedAt          DateTime?
+  resultSummary        String?
+  resultData           String?
+  errorMessage         String?
+}
