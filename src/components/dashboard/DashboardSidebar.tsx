@@ -15,9 +15,9 @@ import { signOut } from "next-auth/react";
 const navItems = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
   { href: "/dashboard/recipes", label: "Recipes", icon: Zap },
-  { href: "/dashboard/integrations", label: "Integrations", icon: Link2 },
   { href: "/dashboard/automations", label: "Automations", icon: Activity },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
+  { href: "/dashboard/settings/integrations", label: "Integrations", icon: Link2, indent: true },
 ];
 
 interface DashboardSidebarProps {
@@ -44,18 +44,22 @@ export function DashboardSidebar({ user }: DashboardSidebarProps) {
         {navItems.map((item) => {
           const isActive =
             pathname === item.href ||
-            (item.href !== "/dashboard" && pathname.startsWith(item.href));
+            (item.href !== "/dashboard" && pathname.startsWith(item.href) &&
+              !navItems.some((other) => other.href !== item.href && other.href.startsWith(item.href) && pathname.startsWith(other.href)));
+          const indent = (item as any).indent;
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              className={`flex items-center gap-3 rounded-xl text-sm font-medium transition-colors ${
+                indent ? "px-4 py-2 pl-12" : "px-4 py-3"
+              } ${
                 isActive
                   ? "bg-primary/10 text-primary"
                   : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
               }`}
             >
-              <item.icon className="w-5 h-5" />
+              <item.icon className={indent ? "w-4 h-4" : "w-5 h-5"} />
               {item.label}
             </Link>
           );
