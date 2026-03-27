@@ -63,7 +63,9 @@ export default async function IntegrationsPage() {
       })
     : [];
 
-  const connectionMap = new Map(connections.map((c) => [c.provider, c]));
+  const connectionMap: Map<string, (typeof connections)[number]> = new Map(
+    connections.map((c) => [c.provider, c])
+  );
 
   const categories = [...new Set(AVAILABLE_INTEGRATIONS.map((i) => i.category))];
 
@@ -85,7 +87,7 @@ export default async function IntegrationsPage() {
                 <IntegrationCard
                   key={integration.provider}
                   integration={integration}
-                  connection={connectionMap.get(integration.provider as any)}
+                  connection={connectionMap.get(integration.provider)}
                 />
               )
             )}

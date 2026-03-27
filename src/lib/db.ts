@@ -79,6 +79,20 @@ export function getTenantDb(organizationId: string) {
           return query(args);
         },
       },
+      workflowRun: {
+        async findMany({ args, query }) {
+          args.where = { ...args.where, automationInstance: { organizationId } };
+          return query(args);
+        },
+        async findFirst({ args, query }) {
+          args.where = { ...args.where, automationInstance: { organizationId } };
+          return query(args);
+        },
+        async count({ args, query }) {
+          args.where = { ...args.where, automationInstance: { organizationId } };
+          return query(args);
+        },
+      },
     },
   });
 }
