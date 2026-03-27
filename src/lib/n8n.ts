@@ -12,10 +12,16 @@ export interface N8nWorkflow {
   nodes: any[];
   connections: Record<string, any>;
   settings?: Record<string, any>;
-  tags?: { id: string; name: string }[];
+  projectId?: string;
 }
 
 export interface N8nCredential {
+  id: string;
+  name: string;
+  type: string;
+}
+
+export interface N8nProject {
   id: string;
   name: string;
   type: string;
@@ -29,7 +35,6 @@ export interface N8nExecution {
   startedAt: string;
   stoppedAt: string | null;
   workflowId: string;
-  data?: any;
 }
 
 async function n8nFetch<T = any>(path: string, options: RequestInit = {}): Promise<T> {
@@ -53,7 +58,46 @@ async function n8nFetch<T = any>(path: string, options: RequestInit = {}): Promi
   return res.json();
 }
 
-// ─── Credential Management ─────────────────────────────────
+// ─── Project Management (Per-Org Isolation) ─────────────────
+
+export async function createProject(orgId: string, orgName: string): Promise<N8nProject> {
+  return n8nFetch<N8nProject>("/projects", {
+    method: "POST",
+    body: JSON.stringify({ name: `tenant-${orgId} | ${orgName}` }),
+  });
+}
+
+export async function getProject(projectId: string): Promise<N8nProject> {
+  return n8nFetch<N8nProject>(`/projects/${projectId}`);
+}
+
+export async function deleteProject(projectId: string): Promise<void> {
+  await n8nFetch(`/projects/${projectId}`, { method: "DELETE" });
+}
+
+/**
+ * Ensures the org has an n8n Project. Creates one if it doesn't exist.
+ * Stores the projectId on the Organization record.
+ */
+export async function ensureOrgProject(orgId: string): Promise<string> {
+  const org = await prisma.organization.findUnique({ where: { id: orgId } });
+  if (!org) throw new Error(`Organization ${orgId} not found`);
+
+  if (org.n8nProjectId) {
+    return org.n8nProjectId;
+  }
+
+  const project = await createProject(orgId, org.name);
+
+  await prisma.organization.update({
+    where: { id: orgId },
+    data: { n8nProjectId: project.id },
+  });
+
+  return project.id;
+}
+
+// ─── Credential Management (Project-Scoped) ────────────────
 
 const CREDENTIAL_TYPE_MAP: Record<string, string> = {
   GMAIL: "googleOAuth2Api",
@@ -71,10 +115,11 @@ export async function createN8nCredential(
   provider: string,
   name: string
 ): Promise<N8nCredential> {
+  const projectId = await ensureOrgProject(orgId);
+
   const connection = await prisma.oAuthConnection.findUnique({
     where: { organizationId_provider: { organizationId: orgId, provider: provider as any } },
   });
-
   if (!connection) throw new Error(`No ${provider} connection found for org ${orgId}`);
 
   const credType = CREDENTIAL_TYPE_MAP[provider] || "httpHeaderAuth";
@@ -88,9 +133,10 @@ export async function createN8nCredential(
   return n8nFetch<N8nCredential>("/credentials", {
     method: "POST",
     body: JSON.stringify({
-      name: `org-${orgId} | ${name} - ${provider}`,
+      name: `${name} - ${provider}`,
       type: credType,
       data: credentialData,
+      projectId,
     }),
   });
 }
@@ -99,7 +145,17 @@ export async function deleteN8nCredential(credentialId: string): Promise<void> {
   await n8nFetch(`/credentials/${credentialId}`, { method: "DELETE" });
 }
 
-// ─── Workflow Management ────────────────────────────────────
+export async function deleteN8nCredentials(credentialIds: string[]): Promise<void> {
+  for (const id of credentialIds) {
+    try {
+      await deleteN8nCredential(id);
+    } catch (e) {
+      console.error(`Failed to delete n8n credential ${id} (non-fatal):`, e);
+    }
+  }
+}
+
+// ─── Workflow Management (Project-Scoped) ───────────────────
 
 export async function getWorkflow(workflowId: string): Promise<N8nWorkflow> {
   return n8nFetch<N8nWorkflow>(`/workflows/${workflowId}`);
@@ -112,15 +168,13 @@ export async function createWorkflowFromTemplate(
   config: Record<string, any>,
   credentialIds: Record<string, string>
 ): Promise<N8nWorkflow> {
+  const projectId = await ensureOrgProject(orgId);
   const template = await getWorkflow(templateWorkflowId);
-  const namespacedName = `org-${orgId} | ${name}`;
   const webhookSecret = process.env.WEBHOOK_SECRET || "";
 
-  // Inject credentials into nodes that need them
   const nodes = template.nodes.map((node: any) => {
     const updatedNode = { ...node };
 
-    // Map credential references to the org's provisioned credentials
     if (updatedNode.credentials) {
       for (const [credKey] of Object.entries(updatedNode.credentials as Record<string, any>)) {
         const matchingCredId = Object.entries(credentialIds).find(
@@ -132,7 +186,6 @@ export async function createWorkflowFromTemplate(
       }
     }
 
-    // Inject user config into Set nodes named "Config"
     if (updatedNode.type === "n8n-nodes-base.set" && updatedNode.name === "Config") {
       updatedNode.parameters = {
         ...updatedNode.parameters,
@@ -147,21 +200,22 @@ export async function createWorkflowFromTemplate(
     return updatedNode;
   });
 
-  // Create the workflow (callback URL uses a placeholder — patched after creation)
+  // Create workflow inside the org's project
   const workflow = await n8nFetch<N8nWorkflow>("/workflows", {
     method: "POST",
     body: JSON.stringify({
-      name: namespacedName,
+      name,
       nodes,
       connections: template.connections,
       settings: {
         ...template.settings,
         executionOrder: "v1",
       },
+      projectId,
     }),
   });
 
-  // Patch callback nodes to use the actual provisioned workflow ID and include HMAC signature header
+  // Patch callback nodes with actual workflow ID and HMAC signature
   const patchedNodes = workflow.nodes.map((node: any) => {
     if (node.type === "n8n-nodes-base.httpRequest" && node.name?.includes("Callback")) {
       return {
@@ -181,9 +235,7 @@ export async function createWorkflowFromTemplate(
     return node;
   });
 
-  if (patchedNodes !== workflow.nodes) {
-    await updateWorkflowNodes(workflow.id, { nodes: patchedNodes });
-  }
+  await updateWorkflowNodes(workflow.id, { nodes: patchedNodes });
 
   return workflow;
 }
@@ -201,16 +253,11 @@ export async function deleteWorkflow(workflowId: string): Promise<void> {
 }
 
 export async function executeWorkflow(workflowId: string, data?: Record<string, any>): Promise<N8nExecution> {
-  return n8nFetch<N8nExecution>(`/executions`, {
+  return n8nFetch<N8nExecution>("/executions", {
     method: "POST",
-    body: JSON.stringify({
-      workflowId,
-      data: data || {},
-    }),
+    body: JSON.stringify({ workflowId, data: data || {} }),
   });
 }
-
-// ─── Execution Tracking ─────────────────────────────────────
 
 export async function getExecution(executionId: string): Promise<N8nExecution> {
   return n8nFetch<N8nExecution>(`/executions/${executionId}`);

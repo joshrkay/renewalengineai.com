@@ -77,6 +77,7 @@ model Organization {
   id                 String             @id @default(cuid())
   name               String
   stripeCustomerId   String?            @unique
+  n8nProjectId       String?            @unique
   subscriptionTier   SubscriptionTier   @default(AUDIT)
   subscriptionStatus SubscriptionStatus @default(ACTIVE)
   users              User[]
@@ -177,19 +178,21 @@ model AutomationRecipe {
 }
 
 model AutomationInstance {
-  id             String           @id @default(cuid())
-  organizationId String
-  organization   Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  recipeId       String
-  recipe         AutomationRecipe @relation(fields: [recipeId], references: [id])
-  status         AutomationStatus @default(PENDING)
-  config         Json             @default("{}")
-  n8nWorkflowId  String?
-  lastRunAt      DateTime?
-  nextRunAt      DateTime?
-  runs           WorkflowRun[]
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
+  id                 String           @id @default(cuid())
+  organizationId     String
+  organization       Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  recipeId           String
+  recipe             AutomationRecipe @relation(fields: [recipeId], references: [id])
+  status             AutomationStatus @default(PENDING)
+  config             Json             @default("{}")
+  n8nWorkflowId      String?
+  n8nCredentialIds   Json             @default("[]")
+  langGraphThreadId  String?
+  lastRunAt          DateTime?
+  nextRunAt          DateTime?
+  runs               WorkflowRun[]
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
 
   @@unique([organizationId, recipeId])
 }

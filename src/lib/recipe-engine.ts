@@ -21,7 +21,6 @@ export async function validateActivation(orgId: string, recipeId: string) {
   const org = await prisma.organization.findUnique({ where: { id: orgId } });
   if (!org) throw new ActivationError("org_not_found", "Organization not found", 404);
 
-  // Tier check
   const userRank = TIER_RANK[org.subscriptionTier] || 0;
   const requiredRank = TIER_RANK[recipe.minimumTier] || 0;
   if (userRank < requiredRank) {
@@ -32,7 +31,6 @@ export async function validateActivation(orgId: string, recipeId: string) {
     );
   }
 
-  // Integration check
   const required = (recipe.requiredIntegrations as any as string[]) || [];
   if (required.length > 0) {
     const connections = await prisma.oAuthConnection.findMany({
@@ -50,7 +48,6 @@ export async function validateActivation(orgId: string, recipeId: string) {
     }
   }
 
-  // Duplicate check
   const existing = await prisma.automationInstance.findUnique({
     where: { organizationId_recipeId: { organizationId: orgId, recipeId } },
   });
@@ -70,18 +67,21 @@ export async function activateRecipe(
 ): Promise<ActivationResult> {
   const { recipe, org } = await validateActivation(orgId, recipeId);
 
+  // Ensure org has an n8n project for data isolation
+  await n8n.ensureOrgProject(orgId);
+
   let n8nWorkflowId: string | undefined;
   let langGraphThreadId: string | undefined;
+  const n8nCredentialIds: string[] = [];
 
-  const instanceName = `${org.name} - ${recipe.name}`;
+  const instanceName = `${recipe.name}`;
   const mergedConfig = { ...(recipe.config as any), ...userConfig };
 
-  // Provision based on engine type
+  // Provision n8n workflow (for N8N and HYBRID recipes)
   if (recipe.engineType === "N8N" || recipe.engineType === "HYBRID") {
     if (recipe.n8nTemplateId) {
-      // Create n8n credentials for each required integration
-      const credentialIds: Record<string, string> = {};
       const required = (recipe.requiredIntegrations as any as string[]) || [];
+      const credentialIds: Record<string, string> = {};
 
       for (const provider of required) {
         const providerEnum = provider.toUpperCase();
@@ -91,10 +91,10 @@ export async function activateRecipe(
         if (connection) {
           const cred = await n8n.createN8nCredential(orgId, providerEnum, instanceName);
           credentialIds[providerEnum] = cred.id;
+          n8nCredentialIds.push(cred.id);
         }
       }
 
-      // Create workflow from template with injected credentials
       const workflow = await n8n.createWorkflowFromTemplate(
         recipe.n8nTemplateId,
         instanceName,
@@ -104,14 +104,13 @@ export async function activateRecipe(
       );
       n8nWorkflowId = workflow.id;
 
-      // Activate the workflow
       await n8n.activateWorkflow(workflow.id);
     }
   }
 
+  // Provision LangGraph thread (for LANGGRAPH and HYBRID recipes)
   if (recipe.engineType === "LANGGRAPH" || recipe.engineType === "HYBRID") {
     if (recipe.langGraphId) {
-      // Create a persistent thread for this automation
       const thread = await langgraph.createThread({
         orgId,
         recipeSlug: recipe.slug,
@@ -121,7 +120,7 @@ export async function activateRecipe(
     }
   }
 
-  // Create or update the automation instance
+  // Persist everything — workflow ID, credential IDs, and LangGraph thread ID are all tracked
   const instance = await prisma.automationInstance.upsert({
     where: { organizationId_recipeId: { organizationId: orgId, recipeId } },
     create: {
@@ -129,12 +128,16 @@ export async function activateRecipe(
       recipeId,
       status: "ACTIVE",
       config: mergedConfig,
-      n8nWorkflowId: n8nWorkflowId || langGraphThreadId || null,
+      n8nWorkflowId: n8nWorkflowId || null,
+      n8nCredentialIds: n8nCredentialIds,
+      langGraphThreadId: langGraphThreadId || null,
     },
     update: {
       status: "ACTIVE",
       config: mergedConfig,
-      n8nWorkflowId: n8nWorkflowId || langGraphThreadId || null,
+      n8nWorkflowId: n8nWorkflowId || null,
+      n8nCredentialIds: n8nCredentialIds,
+      langGraphThreadId: langGraphThreadId || null,
     },
   });
 
@@ -155,7 +158,6 @@ export async function pauseAutomation(instanceId: string, orgId: string): Promis
   });
   if (!instance) throw new ActivationError("not_found", "Automation not found", 404);
 
-  // Deactivate in n8n
   if (instance.n8nWorkflowId && (instance.recipe.engineType === "N8N" || instance.recipe.engineType === "HYBRID")) {
     await n8n.deactivateWorkflow(instance.n8nWorkflowId);
   }
@@ -175,7 +177,6 @@ export async function resumeAutomation(instanceId: string, orgId: string): Promi
   });
   if (!instance) throw new ActivationError("not_found", "Automation not found", 404);
 
-  // Re-activate in n8n
   if (instance.n8nWorkflowId && (instance.recipe.engineType === "N8N" || instance.recipe.engineType === "HYBRID")) {
     await n8n.activateWorkflow(instance.n8nWorkflowId);
   }
@@ -186,7 +187,7 @@ export async function resumeAutomation(instanceId: string, orgId: string): Promi
   });
 }
 
-// ─── Deactivate (full teardown) ─────────────────────────────
+// ─── Deactivate (full teardown — workflow + credentials) ────
 
 export async function deactivateAutomation(instanceId: string, orgId: string): Promise<void> {
   const instance = await prisma.automationInstance.findFirst({
@@ -201,12 +202,17 @@ export async function deactivateAutomation(instanceId: string, orgId: string): P
       await n8n.deactivateWorkflow(instance.n8nWorkflowId);
       await n8n.deleteWorkflow(instance.n8nWorkflowId);
     } catch (e) {
-      // Workflow may already be deleted in n8n — continue with local cleanup
-      console.error("n8n cleanup error (non-fatal):", e);
+      console.error("n8n workflow cleanup error (non-fatal):", e);
     }
   }
 
-  // Delete all workflow runs, then the instance
+  // Delete all n8n credentials created for this instance
+  const credIds = (instance.n8nCredentialIds as string[]) || [];
+  if (credIds.length > 0) {
+    await n8n.deleteN8nCredentials(credIds);
+  }
+
+  // Clean up workflow runs, then delete the instance
   await prisma.workflowRun.deleteMany({ where: { automationInstanceId: instanceId } });
   await prisma.automationInstance.delete({ where: { id: instanceId } });
 }
@@ -224,10 +230,9 @@ export async function runLangGraphRecipe(
   if (!instance) throw new ActivationError("not_found", "Active automation not found", 404);
   if (!instance.recipe.langGraphId) throw new ActivationError("no_graph", "Recipe has no LangGraph graph configured", 400);
 
-  const threadId = instance.n8nWorkflowId; // We store the LangGraph thread ID here for LANGGRAPH-only recipes
+  const threadId = instance.langGraphThreadId;
   if (!threadId) throw new ActivationError("no_thread", "No LangGraph thread found", 400);
 
-  // Gather org context — pull client data from connected AMS
   const connections = await prisma.oAuthConnection.findMany({
     where: { organizationId: orgId, status: "CONNECTED" },
   });
@@ -238,7 +243,6 @@ export async function runLangGraphRecipe(
     connectedProviders: connections.map((c) => c.provider),
   };
 
-  // For AMS-connected orgs, include credentials reference so LangGraph can pull data
   const amsConnection = connections.find((c) =>
     ["APPLIED_EPIC", "HAWKSOFT", "EZLYNX"].includes(c.provider)
   );
@@ -247,17 +251,12 @@ export async function runLangGraphRecipe(
     orgContext.amsAccessToken = decrypt(amsConnection.accessToken);
   }
 
-  // Create workflow run record
   const run = await prisma.workflowRun.create({
-    data: {
-      automationInstanceId: instance.id,
-      status: "RUNNING",
-    },
+    data: { automationInstanceId: instance.id, status: "RUNNING" },
   });
 
-  // Submit to LangGraph (async — results come back via webhook or polling)
   try {
-    const lgRun = await langgraph.createRun(
+    await langgraph.createRun(
       threadId,
       instance.recipe.langGraphId,
       orgContext,
@@ -276,6 +275,40 @@ export async function runLangGraphRecipe(
       data: { status: "FAILED", completedAt: new Date(), errorMessage: String(e) },
     });
     throw e;
+  }
+}
+
+// ─── Clean up n8n credentials when a provider is disconnected ─
+
+export async function cleanupCredentialsForProvider(
+  orgId: string,
+  provider: string
+): Promise<void> {
+  // Find all automation instances for this org that use this provider
+  const instances = await prisma.automationInstance.findMany({
+    where: { organizationId: orgId },
+    include: { recipe: true },
+  });
+
+  for (const instance of instances) {
+    const required = (instance.recipe.requiredIntegrations as any as string[]) || [];
+    const needsProvider = required.some((r) => r.toLowerCase() === provider.toLowerCase());
+
+    if (!needsProvider) continue;
+
+    // This automation depends on the disconnected provider — pause it
+    if (instance.status === "ACTIVE" && instance.n8nWorkflowId) {
+      try {
+        await n8n.deactivateWorkflow(instance.n8nWorkflowId);
+      } catch (e) {
+        console.error(`Failed to pause workflow for instance ${instance.id}:`, e);
+      }
+    }
+
+    await prisma.automationInstance.update({
+      where: { id: instance.id },
+      data: { status: "ERROR" },
+    });
   }
 }
 

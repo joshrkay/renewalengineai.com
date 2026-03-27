@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/db";
+import { cleanupCredentialsForProvider } from "@/lib/recipe-engine";
 
 const PROVIDER_MAP: Record<string, string> = {
   gmail: "GMAIL",
@@ -33,6 +34,10 @@ export async function POST(
     return NextResponse.json({ error: "unsupported_provider" }, { status: 400 });
   }
 
+  // Pause any automations that depend on this provider and clean up their n8n credentials
+  await cleanupCredentialsForProvider(orgId, providerEnum);
+
+  // Delete the OAuth connection
   await prisma.oAuthConnection.deleteMany({
     where: {
       organizationId: orgId,
