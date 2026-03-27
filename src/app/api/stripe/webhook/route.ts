@@ -3,6 +3,7 @@ import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/db";
 import { hash } from "bcryptjs";
 import { randomBytes } from "crypto";
+import { sendWelcomeEmail } from "@/lib/email";
 import type Stripe from "stripe";
 
 export async function POST(req: NextRequest) {
@@ -50,41 +51,34 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const email = session.customer_details?.email;
   if (!email) return;
 
-  const plan = session.metadata?.plan;
-  const tier = (session.metadata?.tier || "AUDIT") as
-    | "AUDIT"
-    | "SPRINT"
-    | "MANAGED";
+  const tier = (session.metadata?.tier || "AUDIT") as "AUDIT" | "SPRINT" | "MANAGED";
+  const name = session.customer_details?.name || null;
 
-  // Check if user already exists
   let user = await prisma.user.findUnique({ where: { email } });
 
   if (!user) {
-    // Generate a temporary password (user will reset via magic link)
-    const tempPassword = randomBytes(16).toString("hex");
+    // Generate a temporary password and send it to the user
+    const tempPassword = randomBytes(8).toString("base64url");
     const passwordHash = await hash(tempPassword, 12);
 
-    // Create organization
     const org = await prisma.organization.create({
       data: {
-        name: session.customer_details?.name || email.split("@")[0],
+        name: name || email.split("@")[0],
         stripeCustomerId: session.customer as string,
         subscriptionTier: tier,
         subscriptionStatus: "ACTIVE",
       },
     });
 
-    // Create user
     user = await prisma.user.create({
       data: {
         email,
-        name: session.customer_details?.name,
+        name,
         passwordHash,
         organizationId: org.id,
       },
     });
 
-    // Create subscription record
     await prisma.subscription.create({
       data: {
         organizationId: org.id,
@@ -93,8 +87,10 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
         status: "ACTIVE",
       },
     });
+
+    // Send welcome email with temporary password
+    await sendWelcomeEmail(email, name, tier, tempPassword);
   } else {
-    // Update existing user's organization tier if upgrading
     if (user.organizationId) {
       await prisma.organization.update({
         where: { id: user.organizationId },
@@ -106,15 +102,12 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       });
     }
   }
-
-  // TODO: Send welcome email with password reset / magic link
 }
 
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
   const sub = await prisma.subscription.findUnique({
     where: { stripeSubscriptionId: subscription.id },
   });
-
   if (!sub) return;
 
   const statusMap: Record<string, "ACTIVE" | "CANCELED" | "PAST_DUE" | "TRIALING"> = {
@@ -145,7 +138,6 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   const sub = await prisma.subscription.findUnique({
     where: { stripeSubscriptionId: subscription.id },
   });
-
   if (!sub) return;
 
   await prisma.subscription.update({

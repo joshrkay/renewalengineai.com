@@ -4,39 +4,42 @@ import { sendAutomationAlert } from "@/lib/email";
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: Promise<{ workflowId: string }> }
+  { params }: { params: Promise<{ runId: string }> }
 ) {
-  const { workflowId } = await params;
+  const { runId } = await params;
   const body = await req.json();
 
-  const instance = await prisma.automationInstance.findFirst({
-    where: { n8nWorkflowId: workflowId },
+  const run = await prisma.workflowRun.findUnique({
+    where: { id: runId },
     include: {
-      recipe: true,
-      organization: { include: { users: { take: 1 } } },
+      automationInstance: {
+        include: {
+          recipe: true,
+          organization: { include: { users: { take: 1 } } },
+        },
+      },
     },
   });
 
-  if (!instance) {
-    return NextResponse.json({ error: "instance_not_found" }, { status: 404 });
+  if (!run) {
+    return NextResponse.json({ error: "run_not_found" }, { status: 404 });
   }
 
-  const isError = body.status === "error";
+  const isError = body.status === "error" || body.status === "failed";
 
-  const run = await prisma.workflowRun.create({
+  await prisma.workflowRun.update({
+    where: { id: runId },
     data: {
-      automationInstanceId: instance.id,
       status: isError ? "FAILED" : "SUCCESS",
-      startedAt: body.startedAt ? new Date(body.startedAt) : new Date(),
       completedAt: new Date(),
       resultSummary: body.summary || null,
-      resultData: body.data || null,
+      resultData: body.result || body.data || null,
       errorMessage: body.error || null,
     },
   });
 
   await prisma.automationInstance.update({
-    where: { id: instance.id },
+    where: { id: run.automationInstanceId },
     data: {
       lastRunAt: new Date(),
       status: isError ? "ERROR" : "ACTIVE",
@@ -44,11 +47,11 @@ export async function POST(
   });
 
   // Email the org owner about the result
-  const owner = instance.organization.users[0];
+  const owner = run.automationInstance.organization.users[0];
   if (owner?.email) {
     await sendAutomationAlert(
       owner.email,
-      instance.recipe.name,
+      run.automationInstance.recipe.name,
       isError ? "error" : "completed",
       isError
         ? body.error || "An error occurred during execution."
@@ -56,5 +59,5 @@ export async function POST(
     );
   }
 
-  return NextResponse.json({ runId: run.id });
+  return NextResponse.json({ updated: true });
 }

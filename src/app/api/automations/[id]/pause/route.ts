@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { pauseAutomation, ActivationError } from "@/lib/recipe-engine";
 
 export async function POST(
   req: NextRequest,
@@ -14,19 +14,14 @@ export async function POST(
   const { id } = await params;
   const orgId = (session as any).organizationId;
 
-  const instance = await prisma.automationInstance.findFirst({
-    where: { id, organizationId: orgId },
-  });
-
-  if (!instance) {
-    return NextResponse.json({ error: "not_found" }, { status: 404 });
+  try {
+    await pauseAutomation(id, orgId);
+    return NextResponse.json({ status: "PAUSED" });
+  } catch (e) {
+    if (e instanceof ActivationError) {
+      return NextResponse.json({ error: e.code, message: e.message }, { status: e.statusCode });
+    }
+    console.error("Pause failed:", e);
+    return NextResponse.json({ error: "pause_failed" }, { status: 500 });
   }
-
-  // TODO: Pause workflow in n8n
-  await prisma.automationInstance.update({
-    where: { id },
-    data: { status: "PAUSED" },
-  });
-
-  return NextResponse.json({ status: "PAUSED" });
 }

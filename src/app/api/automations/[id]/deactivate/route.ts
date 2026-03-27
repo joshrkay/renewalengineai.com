@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { deactivateAutomation, ActivationError } from "@/lib/recipe-engine";
 
 export async function POST(
   req: NextRequest,
@@ -14,16 +14,14 @@ export async function POST(
   const { id } = await params;
   const orgId = (session as any).organizationId;
 
-  const instance = await prisma.automationInstance.findFirst({
-    where: { id, organizationId: orgId },
-  });
-
-  if (!instance) {
-    return NextResponse.json({ error: "not_found" }, { status: 404 });
+  try {
+    await deactivateAutomation(id, orgId);
+    return NextResponse.json({ deleted: true });
+  } catch (e) {
+    if (e instanceof ActivationError) {
+      return NextResponse.json({ error: e.code, message: e.message }, { status: e.statusCode });
+    }
+    console.error("Deactivation failed:", e);
+    return NextResponse.json({ error: "deactivation_failed" }, { status: 500 });
   }
-
-  // TODO: Deactivate/delete workflow in n8n
-  await prisma.automationInstance.delete({ where: { id } });
-
-  return NextResponse.json({ deleted: true });
 }
