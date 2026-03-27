@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { getTenantDb } from "@/lib/db";
 import { Activity, Pause, Play, Trash2 } from "lucide-react";
 import { AutomationActions } from "@/components/dashboard/AutomationActions";
 
@@ -8,8 +8,8 @@ export default async function AutomationsPage() {
   const orgId = (session as any)?.organizationId;
 
   const instances = orgId
-    ? await prisma.automationInstance.findMany({
-        where: { organizationId: orgId },
+    ? await getTenantDb(orgId).automationInstance.findMany({
+        where: {},
         include: {
           recipe: true,
           runs: {

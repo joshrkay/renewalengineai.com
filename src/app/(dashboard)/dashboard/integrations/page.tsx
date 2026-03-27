@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { getTenantDb } from "@/lib/db";
 import { IntegrationCard } from "@/components/dashboard/IntegrationCard";
 
 const AVAILABLE_INTEGRATIONS = [
@@ -58,8 +58,8 @@ export default async function IntegrationsPage() {
   const orgId = (session as any)?.organizationId;
 
   const connections = orgId
-    ? await prisma.oAuthConnection.findMany({
-        where: { organizationId: orgId },
+    ? await getTenantDb(orgId).oAuthConnection.findMany({
+        where: {},
       })
     : [];
 

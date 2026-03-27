@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { prisma, getTenantDb } from "@/lib/db";
 import { Building2, CreditCard, Users } from "lucide-react";
 
 export default async function SettingsPage() {
@@ -10,11 +10,13 @@ export default async function SettingsPage() {
   let subscription = null;
 
   if (orgId) {
+    const tenantDb = getTenantDb(orgId);
+
     org = await prisma.organization.findUnique({
       where: { id: orgId },
     });
-    subscription = await prisma.subscription.findFirst({
-      where: { organizationId: orgId },
+    subscription = await tenantDb.subscription.findFirst({
+      where: {},
       orderBy: { createdAt: "desc" },
     });
   }

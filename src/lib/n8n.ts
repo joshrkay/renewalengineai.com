@@ -88,7 +88,7 @@ export async function createN8nCredential(
   return n8nFetch<N8nCredential>("/credentials", {
     method: "POST",
     body: JSON.stringify({
-      name: `${name} - ${provider}`,
+      name: `org-${orgId} | ${name} - ${provider}`,
       type: credType,
       data: credentialData,
     }),
@@ -113,6 +113,8 @@ export async function createWorkflowFromTemplate(
   credentialIds: Record<string, string>
 ): Promise<N8nWorkflow> {
   const template = await getWorkflow(templateWorkflowId);
+  const namespacedName = `org-${orgId} | ${name}`;
+  const webhookSecret = process.env.WEBHOOK_SECRET || "";
 
   // Inject credentials into nodes that need them
   const nodes = template.nodes.map((node: any) => {
@@ -120,7 +122,7 @@ export async function createWorkflowFromTemplate(
 
     // Map credential references to the org's provisioned credentials
     if (updatedNode.credentials) {
-      for (const [credKey, credVal] of Object.entries(updatedNode.credentials as Record<string, any>)) {
+      for (const [credKey] of Object.entries(updatedNode.credentials as Record<string, any>)) {
         const matchingCredId = Object.entries(credentialIds).find(
           ([provider]) => CREDENTIAL_TYPE_MAP[provider] === credKey || credKey.toLowerCase().includes(provider.toLowerCase())
         );
@@ -130,14 +132,6 @@ export async function createWorkflowFromTemplate(
       }
     }
 
-    // Inject the webhook callback URL into HTTP Request nodes that post results
-    if (updatedNode.type === "n8n-nodes-base.httpRequest" && updatedNode.name?.includes("Callback")) {
-      updatedNode.parameters = {
-        ...updatedNode.parameters,
-        url: `${WEBHOOK_BASE_URL}/api/webhooks/n8n/${templateWorkflowId}`,
-      };
-    }
-
     // Inject user config into Set nodes named "Config"
     if (updatedNode.type === "n8n-nodes-base.set" && updatedNode.name === "Config") {
       updatedNode.parameters = {
@@ -145,6 +139,7 @@ export async function createWorkflowFromTemplate(
         values: {
           ...updatedNode.parameters?.values,
           ...config,
+          _orgId: orgId,
         },
       };
     }
@@ -152,10 +147,11 @@ export async function createWorkflowFromTemplate(
     return updatedNode;
   });
 
+  // Create the workflow (callback URL uses a placeholder — patched after creation)
   const workflow = await n8nFetch<N8nWorkflow>("/workflows", {
     method: "POST",
     body: JSON.stringify({
-      name,
+      name: namespacedName,
       nodes,
       connections: template.connections,
       settings: {
@@ -164,6 +160,30 @@ export async function createWorkflowFromTemplate(
       },
     }),
   });
+
+  // Patch callback nodes to use the actual provisioned workflow ID and include HMAC signature header
+  const patchedNodes = workflow.nodes.map((node: any) => {
+    if (node.type === "n8n-nodes-base.httpRequest" && node.name?.includes("Callback")) {
+      return {
+        ...node,
+        parameters: {
+          ...node.parameters,
+          url: `${WEBHOOK_BASE_URL}/api/webhooks/n8n/${workflow.id}`,
+          sendHeaders: true,
+          headerParameters: {
+            parameters: [
+              { name: "x-webhook-signature", value: `={{$json.signature || "${webhookSecret}" }}` },
+            ],
+          },
+        },
+      };
+    }
+    return node;
+  });
+
+  if (patchedNodes !== workflow.nodes) {
+    await updateWorkflowNodes(workflow.id, { nodes: patchedNodes });
+  }
 
   return workflow;
 }

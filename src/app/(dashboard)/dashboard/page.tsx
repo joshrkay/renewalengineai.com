@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { prisma, getTenantDb } from "@/lib/db";
 import { Activity, Zap, Link2, TrendingUp } from "lucide-react";
 
 export default async function DashboardPage() {
@@ -12,16 +12,18 @@ export default async function DashboardPage() {
   let recentRuns: any[] = [];
 
   if (orgId) {
+    const tenantDb = getTenantDb(orgId);
+
     org = await prisma.organization.findUnique({
       where: { id: orgId },
     });
 
-    activeAutomations = await prisma.automationInstance.count({
-      where: { organizationId: orgId, status: "ACTIVE" },
+    activeAutomations = await tenantDb.automationInstance.count({
+      where: { status: "ACTIVE" },
     });
 
-    connectedIntegrations = await prisma.oAuthConnection.count({
-      where: { organizationId: orgId, status: "CONNECTED" },
+    connectedIntegrations = await tenantDb.oAuthConnection.count({
+      where: { status: "CONNECTED" },
     });
 
     recentRuns = await prisma.workflowRun.findMany({

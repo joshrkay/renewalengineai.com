@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { prisma } from "@/lib/db";
+import { prisma, getTenantDb } from "@/lib/db";
 import { RecipeCard } from "@/components/dashboard/RecipeCard";
 
 export default async function RecipesPage() {
@@ -15,11 +15,13 @@ export default async function RecipesPage() {
   let activeInstances: string[] = [];
 
   if (orgId) {
+    const tenantDb = getTenantDb(orgId);
+
     org = await prisma.organization.findUnique({
       where: { id: orgId },
     });
-    const instances = await prisma.automationInstance.findMany({
-      where: { organizationId: orgId },
+    const instances = await tenantDb.automationInstance.findMany({
+      where: {},
       select: { recipeId: true, status: true },
     });
     activeInstances = instances
@@ -29,8 +31,8 @@ export default async function RecipesPage() {
 
   const connectedProviders = orgId
     ? (
-        await prisma.oAuthConnection.findMany({
-          where: { organizationId: orgId, status: "CONNECTED" },
+        await getTenantDb(orgId).oAuthConnection.findMany({
+          where: { status: "CONNECTED" },
           select: { provider: true },
         })
       ).map((c) => c.provider.toLowerCase())

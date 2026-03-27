@@ -1,13 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { sendAutomationAlert } from "@/lib/email";
+import { verifyWebhookSignature } from "@/lib/webhook-auth";
 
 export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ workflowId: string }> }
 ) {
   const { workflowId } = await params;
-  const body = await req.json();
+  const bodyText = await req.text();
+  const signature = req.headers.get("x-webhook-signature");
+
+  if (!verifyWebhookSignature(bodyText, signature)) {
+    return NextResponse.json({ error: "invalid_signature" }, { status: 401 });
+  }
+
+  const body = JSON.parse(bodyText);
 
   const instance = await prisma.automationInstance.findFirst({
     where: { n8nWorkflowId: workflowId },
@@ -43,7 +51,6 @@ export async function POST(
     },
   });
 
-  // Email the org owner about the result
   const owner = instance.organization.users[0];
   if (owner?.email) {
     await sendAutomationAlert(
