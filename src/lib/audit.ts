@@ -53,9 +53,10 @@ export async function logAudit(params: {
 function sanitizeForAudit(data: Record<string, any>): Record<string, any> {
   const sanitized = { ...data };
   const sensitiveKeys = [
-    "password", "passwordHash", "accessToken", "refreshToken",
-    "secret", "token", "ssn", "socialSecurity", "driverLicense",
-    "creditCard", "accountNumber",
+    "password", "passwordhash", "accesstoken", "refreshtoken",
+    "secret", "token", "ssn", "socialsecurity", "driverlicense",
+    "creditcard", "accountnumber", "routingnumber", "taxid",
+    "dateofbirth", "dob",
   ];
 
   for (const key of Object.keys(sanitized)) {
