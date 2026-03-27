@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works — RenewalEngineAI</title>
+    <title>Service Request Automation — RenewalEngineAI</title>
     <style>
         * {
             margin: 0;
@@ -180,6 +180,44 @@
             transform: translateY(-3px);
         }
         
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .stat {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 4rem;
+        }
+        
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
@@ -202,60 +240,104 @@
 </head>
 <body>
     <header>
-        <div name="&#34;container&#34;">
-            <h1>How It Works</h1>
-            <p>RenewalEngineAI's proven 3-step process for implementing profitable AI automation in your insurance agency</p>
+        <div class="container">
+            <h1>Service Request Automation</h1>
+            <p>Eliminate service request overload with intelligent AI-powered workflows that work 24/7</p>
         </div>
     </header>
     
     <div class="container">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Reduction in service request processing time</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">First-contact resolution rate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Automated service coverage</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">Increase in team capacity for complex issues</div>
+            </div>
+        </div>
+        
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">🔍</div>
-                <h3>Step 1: Audit & Diagnose</h3>
-                <p>We implement AI-powered automation for your highest-impact workflows — renewals, lead response, quote follow-up, and service requests. Our AI analyzes your current processes to identify automation opportunities with the highest ROI.</p>
+                <div class="feature-icon">🤖</div>
+                <h3>Intelligent Request Classification</h3>
+                <p>Our AI automatically categorizes incoming service requests by type (endorsements, certificates, billing questions, claims-related) and priority level, ensuring each request gets routed to the right specialist immediately.</p>
             </div>
             
             <div class="feature">
-                <div class="feature-icon">🚀</div>
-                <h3>Step 2: Launch & Train</h3>
-                <p>We deploy the systems, train your team, and ensure everything integrates with your existing agency management system (AMS). Our turnkey implementation gets you up and running in days, not months.</p>
+                <div class="feature-icon">📋</div>
+                <h3>Smart Routing & Assignment</h3>
+                <p>Requests are automatically routed to the correct team member based on request type, agent expertise, workload balance, and geographic considerations - eliminating the "who handles this?" delay.</div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Acknowledgments</h3>
+                <p>Clients receive immediate, personalized acknowledgments with clear expectations for response time, reducing anxiety and improving satisfaction while your team focuses on resolution.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <h3>Automated Follow-ups & Escalations</h3>
+                <p>The system tracks response times and automatically sends follow-ups or escalates overdue requests to supervisors, ensuring nothing falls through the cracks.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <div class="feature-icon">📄</div>
+                <h3>Document Processing & Extraction</h3>
+                <p>Automatically extracts data from attached documents (PDFs, images) and populates relevant fields in your agency management system, eliminating manual data entry errors.</p>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">📈</div>
-                <h3>Step 3: Optimize & Scale</h3>
-                <p>We track KPIs weekly and continuously refine to maximize ROI, client satisfaction, and team efficiency. Our AI learns from every interaction to get smarter over time.</p>
+                <h3>Real-time Analytics & Insights</h3>
+                <p>Get instant visibility into service request trends, resolution times, common issue types, and team performance - enabling data-driven improvements to your service processes.</p>
             </div>
         </div>
         
         <div class="workflow">
-            <h2>Our Proven Automation Workflow</h2>
+            <h2>How Service Request Automation Works</h2>
             <div class="workflow-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Renewal Leak Audit</h3>
-                    <p>Our AI analyzes your current renewal processes to identify revenue leaks, gaps in follow-up, and opportunities for automation that directly impact your retention and profitability.</p>
+                    <h3>Smart Intake</h3>
+                    <p>Clients submit requests through your website, email, or portal. Our AI instantly classifies the request type, extracts key information, and determines priority level.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>AI Automation Build & Launch</h3>
-                    <p>We build and deploy custom AI automation systems for your highest-impact workflows — including service request automation, lead nurturing, and renewal reminders — all integrated with your existing systems.</p>
+                    <h3>Intelligent Routing</h3>
+                    <p>Based on request type, agent skills, and current workload, the system automatically assigns the request to the most qualified team member with clear instructions and context.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Managed Operations & Optimization</h3>
-                    <p>Our team provides ongoing operations, monitoring, and continuous improvement to ensure your automation systems deliver maximum ROI and scale with your agency's growth.</p>
+                    <h3>Automated Workflow</h3>
+                    <p>The assigned agent receives the request with all relevant information pre-filled. Automated reminders keep the process moving, and clients get status updates at key milestones.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Completion & Insights</h3>
+                    <p>Upon completion, the system updates your AMS, requests client feedback, and adds the resolved case to your knowledge base for continuous improvement.</p>
                 </div>
             </div>
         </div>
         
         <div class="cta-section">
-            <h2>Ready to Automate Your Agency's Most Profitable Workflows?</h2>
-            <p>Join insurance agencies who are already saving hours every day and increasing client satisfaction with our AI-powered automation systems.</p>
-            <a href="/book.html" class="btn">Book Your Free Automation Assessment</a>
+            <h2>Ready to Eliminate Service Request Overload?</h2>
+            <p>Transform your service desk from a cost center into a competitive advantage that delights clients and frees your team to focus on complex, high-value issues.</p>
+            <a href="/book.html" class="btn">Book Your Free Service Request Automation Assessment</a>
         </div>
     </div>
     
