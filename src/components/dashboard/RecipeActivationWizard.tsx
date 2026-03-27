@@ -504,6 +504,125 @@ export function RecipeActivationWizard({
                     />
                   </div>
                 )}
+
+                {/* Escalation threshold (claims-follow-up) */}
+                {config.escalateBelow !== undefined && (
+                  <div>
+                    <Label className="text-sm font-medium">Escalation Threshold</Label>
+                    <p className="text-xs text-neutral-500 mt-1 mb-3">
+                      Auto-create an agent task when customer satisfaction score drops below this value
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <Input
+                        type="number"
+                        min={1}
+                        max={5}
+                        value={config.escalateBelow}
+                        onChange={(e) =>
+                          setConfig({ ...config, escalateBelow: parseInt(e.target.value) || 3 })
+                        }
+                        className="w-24 rounded-xl"
+                      />
+                      <span className="text-sm text-neutral-500">out of 5 stars</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Auto re-quote toggle (win-back) */}
+                {config.autoRequote !== undefined && (
+                  <div>
+                    <Label className="text-sm font-medium">Auto Re-Quote</Label>
+                    <p className="text-xs text-neutral-500 mt-1 mb-3">
+                      Automatically pull fresh quotes to include savings data in win-back outreach
+                    </p>
+                    <label className="flex items-center gap-3 px-4 py-3 rounded-xl border-2 cursor-pointer transition-all border-neutral-200 hover:border-primary/30">
+                      <Switch
+                        checked={config.autoRequote}
+                        onCheckedChange={(checked) =>
+                          setConfig({ ...config, autoRequote: checked })
+                        }
+                      />
+                      <span className="text-sm font-medium">
+                        {config.autoRequote ? "Enabled — AI pulls fresh rates automatically" : "Disabled — send outreach without re-quoting"}
+                      </span>
+                    </label>
+                  </div>
+                )}
+
+                {/* Days before renewal (rate-shopping) */}
+                {config.daysBeforeRenewal !== undefined && (
+                  <div>
+                    <Label className="text-sm font-medium">Start Shopping (days before renewal)</Label>
+                    <div className="flex items-center gap-3 mt-2">
+                      <Input
+                        type="number"
+                        value={config.daysBeforeRenewal}
+                        onChange={(e) =>
+                          setConfig({ ...config, daysBeforeRenewal: parseInt(e.target.value) || 90 })
+                        }
+                        className="w-24 rounded-xl"
+                      />
+                      <span className="text-sm text-neutral-500">days before expiration</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Savings threshold (rate-shopping) */}
+                {config.savingsThreshold !== undefined && (
+                  <div>
+                    <Label className="text-sm font-medium">Savings Alert Threshold</Label>
+                    <div className="flex items-center gap-3 mt-2">
+                      <Input
+                        type="number"
+                        value={config.savingsThreshold}
+                        onChange={(e) =>
+                          setConfig({ ...config, savingsThreshold: parseInt(e.target.value) || 15 })
+                        }
+                        className="w-24 rounded-xl"
+                      />
+                      <span className="text-sm text-neutral-500">% savings triggers client outreach</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Inflation adjustment (coverage-gap) */}
+                {config.inflationAdjustment !== undefined && (
+                  <div>
+                    <Label className="text-sm font-medium">Inflation Adjustment</Label>
+                    <p className="text-xs text-neutral-500 mt-1 mb-3">
+                      Factor in construction cost increases when calculating replacement values
+                    </p>
+                    <label className="flex items-center gap-3 px-4 py-3 rounded-xl border-2 cursor-pointer transition-all border-neutral-200 hover:border-primary/30">
+                      <Switch
+                        checked={config.inflationAdjustment}
+                        onCheckedChange={(checked) =>
+                          setConfig({ ...config, inflationAdjustment: checked })
+                        }
+                      />
+                      <span className="text-sm font-medium">
+                        {config.inflationAdjustment ? "Enabled — uses current construction cost data" : "Disabled — uses policy declaration values only"}
+                      </span>
+                    </label>
+                  </div>
+                )}
+
+                {/* Analysis depth (coverage-gap) */}
+                {config.analysisDepth !== undefined && (
+                  <div>
+                    <Label className="text-sm font-medium">Analysis Depth</Label>
+                    <select
+                      className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm"
+                      value={config.analysisDepth}
+                      onChange={(e) =>
+                        setConfig({ ...config, analysisDepth: e.target.value })
+                      }
+                    >
+                      <option value="quick">Quick — limits and deductibles only</option>
+                      <option value="standard">Standard — limits, exclusions, and endorsements</option>
+                      <option value="full">Full — complete coverage audit with E&O recommendations</option>
+                    </select>
+                  </div>
+                )}
               </TabsContent>
 
               <TabsContent value="templates" className="space-y-6">
