@@ -7,6 +7,8 @@ const PII_PATTERNS = [
   { pattern: /sk_(test|live)_[A-Za-z0-9]+/g, replacement: "sk_$1_[REDACTED]" },
   { pattern: /whsec_[A-Za-z0-9]+/g, replacement: "whsec_[REDACTED]" },
   { pattern: /re_[A-Za-z0-9]+/g, replacement: "re_[REDACTED]" },
+  { pattern: /ya29\.[A-Za-z0-9\-._]+/g, replacement: "[GOOGLE_TOKEN]" },
+  { pattern: /eyJ[A-Za-z0-9\-_]+\.eyJ[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_.]+/g, replacement: "[JWT]" },
 ];
 
 function redactPii(message: string): string {
