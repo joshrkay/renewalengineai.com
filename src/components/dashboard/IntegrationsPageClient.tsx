@@ -26,6 +26,8 @@ interface Integration {
   category: string;
   icon: any;
   tags: string[];
+  authType: "oauth" | "credentials";
+  credentialFields?: { key: string; label: string; placeholder: string; type?: string }[];
 }
 
 const INTEGRATIONS: Integration[] = [
@@ -37,6 +39,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Email",
     icon: Mail,
     tags: ["google", "email", "campaigns", "outreach"],
+    authType: "oauth",
   },
   {
     provider: "OUTLOOK",
@@ -45,6 +48,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Email",
     icon: Mail,
     tags: ["microsoft", "office", "email", "campaigns", "o365"],
+    authType: "oauth",
   },
   // CRM
   {
@@ -54,6 +58,7 @@ const INTEGRATIONS: Integration[] = [
     category: "CRM",
     icon: Users,
     tags: ["crm", "contacts", "deals", "pipeline", "leads", "marketing"],
+    authType: "oauth",
   },
   {
     provider: "SALESFORCE",
@@ -62,6 +67,7 @@ const INTEGRATIONS: Integration[] = [
     category: "CRM",
     icon: Users,
     tags: ["crm", "contacts", "opportunities", "enterprise", "leads"],
+    authType: "oauth",
   },
   // Phone & SMS
   {
@@ -71,6 +77,11 @@ const INTEGRATIONS: Integration[] = [
     category: "Phone & SMS",
     icon: Phone,
     tags: ["sms", "voice", "calls", "text", "messaging", "phone"],
+    authType: "credentials",
+    credentialFields: [
+      { key: "accountSid", label: "Account SID", placeholder: "ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
+      { key: "authToken", label: "Auth Token", placeholder: "Your Twilio Auth Token", type: "password" },
+    ],
   },
   // AMS
   {
@@ -80,6 +91,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Agency Management System",
     icon: Database,
     tags: ["ams", "insurance", "policies", "renewals", "applied", "epic", "agency"],
+    authType: "oauth",
   },
   {
     provider: "HAWKSOFT",
@@ -88,6 +100,11 @@ const INTEGRATIONS: Integration[] = [
     category: "Agency Management System",
     icon: Database,
     tags: ["ams", "insurance", "policies", "renewals", "hawksoft", "agency"],
+    authType: "credentials",
+    credentialFields: [
+      { key: "clientId", label: "Client ID", placeholder: "Your HawkSoft Partner Client ID" },
+      { key: "clientSecret", label: "Client Secret", placeholder: "Your HawkSoft Client Secret", type: "password" },
+    ],
   },
   {
     provider: "EZLYNX",
@@ -96,6 +113,7 @@ const INTEGRATIONS: Integration[] = [
     category: "Agency Management System",
     icon: Database,
     tags: ["ams", "insurance", "rating", "policies", "ezlynx", "agency", "quoting"],
+    authType: "oauth",
   },
 ];
 
@@ -109,6 +127,9 @@ export function IntegrationsPageClient({ connectionMap }: IntegrationsPageClient
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [loadingProvider, setLoadingProvider] = useState<string | null>(null);
+  const [credentialForm, setCredentialForm] = useState<Integration | null>(null);
+  const [credentialValues, setCredentialValues] = useState<Record<string, string>>({});
+  const [credentialError, setCredentialError] = useState("");
 
   const connectedCount = Object.values(connectionMap).filter(
     (c) => c.status === "CONNECTED"
@@ -135,9 +156,45 @@ export function IntegrationsPageClient({ connectionMap }: IntegrationsPageClient
     return result;
   }, [search, activeCategory]);
 
-  const handleConnect = (provider: string) => {
-    setLoadingProvider(provider);
-    window.location.href = `/api/integrations/${provider.toLowerCase()}/authorize`;
+  const handleConnect = (integration: Integration) => {
+    if (integration.authType === "credentials") {
+      setCredentialForm(integration);
+      setCredentialValues({});
+      setCredentialError("");
+    } else {
+      setLoadingProvider(integration.provider);
+      window.location.href = `/api/integrations/${integration.provider.toLowerCase()}/authorize`;
+    }
+  };
+
+  const handleCredentialSubmit = async () => {
+    if (!credentialForm) return;
+    setLoadingProvider(credentialForm.provider);
+    setCredentialError("");
+
+    try {
+      const res = await fetch(
+        `/api/integrations/${credentialForm.provider.toLowerCase()}/connect-credentials`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(credentialValues),
+        }
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        setCredentialError(data.message || "Connection failed");
+        return;
+      }
+
+      setCredentialForm(null);
+      window.location.reload();
+    } catch {
+      setCredentialError("An error occurred. Please try again.");
+    } finally {
+      setLoadingProvider(null);
+    }
   };
 
   const handleDisconnect = async (provider: string) => {
@@ -317,7 +374,7 @@ export function IntegrationsPageClient({ connectionMap }: IntegrationsPageClient
                       ) : (
                         <Button
                           size="sm"
-                          onClick={() => handleConnect(integration.provider)}
+                          onClick={() => handleConnect(integration)}
                           disabled={isLoading}
                           className="rounded-xl gap-1.5"
                         >
@@ -335,6 +392,75 @@ export function IntegrationsPageClient({ connectionMap }: IntegrationsPageClient
               </div>
             );
           })}
+        </div>
+      )}
+      {/* Credential form dialog for non-OAuth providers */}
+      {credentialForm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <credentialForm.icon className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-lg font-bold">Connect {credentialForm.name}</h2>
+                <p className="text-sm text-neutral-500">
+                  Enter your API credentials below
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4 mb-6">
+              {credentialForm.credentialFields?.map((field) => (
+                <div key={field.key}>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1.5">
+                    {field.label}
+                  </label>
+                  <Input
+                    type={field.type || "text"}
+                    placeholder={field.placeholder}
+                    value={credentialValues[field.key] || ""}
+                    onChange={(e) =>
+                      setCredentialValues({
+                        ...credentialValues,
+                        [field.key]: e.target.value,
+                      })
+                    }
+                    className="rounded-xl"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {credentialError && (
+              <div className="mb-4 p-3 bg-red-50 rounded-xl border border-red-200 text-sm text-red-700">
+                {credentialError}
+              </div>
+            )}
+
+            <div className="flex gap-3">
+              <Button
+                variant="outline"
+                onClick={() => setCredentialForm(null)}
+                className="flex-1 rounded-xl"
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={handleCredentialSubmit}
+                disabled={loadingProvider === credentialForm.provider}
+                className="flex-1 rounded-xl"
+              >
+                {loadingProvider === credentialForm.provider
+                  ? "Verifying..."
+                  : "Connect & Verify"}
+              </Button>
+            </div>
+
+            <p className="text-xs text-neutral-400 text-center mt-4">
+              Credentials are encrypted with AES-256-GCM before storage
+            </p>
+          </div>
         </div>
       )}
     </div>

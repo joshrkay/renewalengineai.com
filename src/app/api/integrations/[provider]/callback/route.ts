@@ -4,17 +4,18 @@ import { prisma } from "@/lib/db";
 import { encrypt } from "@/lib/encryption";
 import { logAudit } from "@/lib/audit";
 import { log } from "@/lib/logger";
+import { cookies } from "next/headers";
 
-// Token endpoint configuration per provider
 const TOKEN_CONFIG: Record<
   string,
-  { tokenUrl: string; clientIdEnv: string; clientSecretEnv: string; redirectPath: string }
+  { tokenUrl: string; clientIdEnv: string; clientSecretEnv: string; redirectPath: string; usePkce?: boolean }
 > = {
   gmail: {
     tokenUrl: "https://oauth2.googleapis.com/token",
     clientIdEnv: "GMAIL_CLIENT_ID",
     clientSecretEnv: "GMAIL_CLIENT_SECRET",
     redirectPath: "/api/integrations/gmail/callback",
+    usePkce: true,
   },
   outlook: {
     tokenUrl: "https://login.microsoftonline.com/common/oauth2/v2.0/token",
@@ -33,6 +34,18 @@ const TOKEN_CONFIG: Record<
     clientIdEnv: "SALESFORCE_CLIENT_ID",
     clientSecretEnv: "SALESFORCE_CLIENT_SECRET",
     redirectPath: "/api/integrations/salesforce/callback",
+  },
+  applied_epic: {
+    tokenUrl: "https://login.myappliedproducts.com/identity/connect/token",
+    clientIdEnv: "APPLIED_EPIC_CLIENT_ID",
+    clientSecretEnv: "APPLIED_EPIC_CLIENT_SECRET",
+    redirectPath: "/api/integrations/applied_epic/callback",
+  },
+  ezlynx: {
+    tokenUrl: "https://app.ezlynx.com/oauth/token",
+    clientIdEnv: "EZLYNX_CLIENT_ID",
+    clientSecretEnv: "EZLYNX_CLIENT_SECRET",
+    redirectPath: "/api/integrations/ezlynx/callback",
   },
 };
 
@@ -57,61 +70,88 @@ export async function GET(
   }
 
   const { provider } = await params;
-  const config = TOKEN_CONFIG[provider.toLowerCase()];
+  const providerKey = provider.toLowerCase();
+  const config = TOKEN_CONFIG[providerKey];
 
   if (!config) {
     return NextResponse.redirect(
-      new URL("/dashboard/integrations?error=unsupported_provider", req.url)
+      new URL("/dashboard/settings/integrations?error=unsupported_provider", req.url)
     );
   }
 
   const code = req.nextUrl.searchParams.get("code");
   const state = req.nextUrl.searchParams.get("state");
+  const error = req.nextUrl.searchParams.get("error");
+
+  // Handle provider-side errors (user denied, etc.)
+  if (error) {
+    log.warn("OAuth denied by user for provider:", providerKey);
+    return NextResponse.redirect(
+      new URL(`/dashboard/settings/integrations?error=${error}`, req.url)
+    );
+  }
 
   if (!code) {
     return NextResponse.redirect(
-      new URL("/dashboard/integrations?error=no_code", req.url)
+      new URL("/dashboard/settings/integrations?error=no_code", req.url)
     );
   }
 
   const orgId = state || (session as any).organizationId;
   if (!orgId) {
     return NextResponse.redirect(
-      new URL("/dashboard/integrations?error=no_org", req.url)
+      new URL("/dashboard/settings/integrations?error=no_org", req.url)
     );
   }
 
   const clientId = process.env[config.clientIdEnv]!;
   const clientSecret = process.env[config.clientSecretEnv]!;
-  const origin = process.env.NEXTAUTH_URL || "http://localhost:3000";
-  const redirectUri = `${origin}${config.redirectPath}`;
+  const baseUrl = process.env.NEXTAUTH_URL;
+  if (!baseUrl) {
+    return NextResponse.redirect(
+      new URL("/dashboard/settings/integrations?error=config_missing", req.url)
+    );
+  }
+  const redirectUri = `${baseUrl}${config.redirectPath}`;
 
-  // Exchange code for tokens
   try {
+    // Build token exchange params
+    const tokenParams: Record<string, string> = {
+      grant_type: "authorization_code",
+      code,
+      redirect_uri: redirectUri,
+      client_id: clientId,
+      client_secret: clientSecret,
+    };
+
+    // Include PKCE code_verifier if this provider uses it
+    if (config.usePkce) {
+      const cookieStore = await cookies();
+      const codeVerifier = cookieStore.get(`pkce_${providerKey}`)?.value;
+      if (codeVerifier) {
+        tokenParams.code_verifier = codeVerifier;
+        // Clear the PKCE cookie
+        cookieStore.delete(`pkce_${providerKey}`);
+      }
+    }
+
     const tokenRes = await fetch(config.tokenUrl, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        grant_type: "authorization_code",
-        code,
-        redirect_uri: redirectUri,
-        client_id: clientId,
-        client_secret: clientSecret,
-      }),
+      body: new URLSearchParams(tokenParams),
     });
 
     const tokens = await tokenRes.json();
 
     if (!tokens.access_token) {
-      log.error("Token exchange failed for provider:", provider);
+      log.error("Token exchange failed for provider:", providerKey, "status:", tokenRes.status);
       return NextResponse.redirect(
-        new URL("/dashboard/integrations?error=token_exchange_failed", req.url)
+        new URL("/dashboard/settings/integrations?error=token_exchange_failed", req.url)
       );
     }
 
-    const providerEnum = PROVIDER_MAP[provider.toLowerCase()] as any;
+    const providerEnum = PROVIDER_MAP[providerKey] as any;
 
-    // Store encrypted tokens
     await prisma.oAuthConnection.upsert({
       where: {
         organizationId_provider: {
@@ -123,9 +163,7 @@ export async function GET(
         organizationId: orgId,
         provider: providerEnum,
         accessToken: encrypt(tokens.access_token),
-        refreshToken: tokens.refresh_token
-          ? encrypt(tokens.refresh_token)
-          : null,
+        refreshToken: tokens.refresh_token ? encrypt(tokens.refresh_token) : null,
         tokenExpiresAt: tokens.expires_in
           ? new Date(Date.now() + tokens.expires_in * 1000)
           : null,
@@ -134,9 +172,7 @@ export async function GET(
       },
       update: {
         accessToken: encrypt(tokens.access_token),
-        refreshToken: tokens.refresh_token
-          ? encrypt(tokens.refresh_token)
-          : undefined,
+        refreshToken: tokens.refresh_token ? encrypt(tokens.refresh_token) : undefined,
         tokenExpiresAt: tokens.expires_in
           ? new Date(Date.now() + tokens.expires_in * 1000)
           : null,
@@ -145,13 +181,21 @@ export async function GET(
       },
     });
 
+    await logAudit({
+      organizationId: orgId,
+      userId: (session.user as any).id,
+      action: "oauth.connected",
+      resource: "OAuthConnection",
+      metadata: { provider: providerKey },
+    });
+
     return NextResponse.redirect(
-      new URL("/dashboard/integrations?connected=" + provider, req.url)
+      new URL("/dashboard/settings/integrations?connected=" + providerKey, req.url)
     );
-  } catch (error) {
-    log.error("OAuth callback error for provider:", provider);
+  } catch (e) {
+    log.error("OAuth callback error for provider:", providerKey);
     return NextResponse.redirect(
-      new URL("/dashboard/integrations?error=callback_failed", req.url)
+      new URL("/dashboard/settings/integrations?error=callback_failed", req.url)
     );
   }
 }
