@@ -1,4 +1,18 @@
 {
-  "framework": null,
-  "cleanUrls": true
+  "framework": "nextjs",
+  "cleanUrls": true,
+  "crons": [
+    {
+      "path": "/api/cron/refresh-tokens",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/run-scheduled-recipes",
+      "schedule": "0 9 * * 1"
+    },
+    {
+      "path": "/api/cron/cleanup-expired-data",
+      "schedule": "0 3 * * 0"
+    }
+  ]
 }
