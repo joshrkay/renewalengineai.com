@@ -1,4 +1,4 @@
 {
-  "framework": null,
+  "framework": "nextjs",
   "cleanUrls": true
 }
