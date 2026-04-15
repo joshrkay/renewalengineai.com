@@ -47,6 +47,8 @@ The thinnest working stack for an agency is:
 2. **One workflow tool** — Zapier, Make, or n8n. $30-$100/month depending on volume.
 3. **One spreadsheet** — Google Sheets or Excel. Already in your stack.
 
+![The thinnest working stack: Chat AI → Workflow Tool → Spreadsheet, totalling $50-120 per month](/courses/bootcamp/thinnest-working-stack.svg)
+
 That is it. $50 to $120 a month. Every workflow in this course runs on this stack. Do not add anything else until you have those three wired together and producing value for at least 60 days.
 
 Agents who try to stack five tools before building one workflow always fail. Agents who build one workflow with three tools and scale from there always succeed. The discipline is knowing the difference.

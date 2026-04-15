@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">The Three Kinds of Lapse</title>
+  <desc id="desc">A stacked bar showing that 50 percent of lapses are neglect-driven, 30 percent price-driven, and 20 percent life-event driven.</desc>
+
+  <rect width="800" height="520" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="400" y="50" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The Three Kinds of Lapse</text>
+  <text x="400" y="78" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Where your book is actually bleeding from</text>
+
+  <!-- stacked bar: 600px wide = 100%, 50/30/20 split -->
+  <!-- 50% neglect — 300px -->
+  <rect x="100" y="140" width="300" height="90" rx="0" fill="#2563eb"/>
+  <text x="250" y="192" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="34" font-weight="900">50%</text>
+
+  <!-- 30% price — 180px -->
+  <rect x="400" y="140" width="180" height="90" fill="#475569"/>
+  <text x="490" y="192" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="30" font-weight="900">30%</text>
+
+  <!-- 20% life event — 120px -->
+  <rect x="580" y="140" width="120" height="90" fill="#334155"/>
+  <text x="640" y="192" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">20%</text>
+
+  <!-- connector lines from bars to labels -->
+  <line x1="250" y1="240" x2="250" y2="270" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="490" y1="240" x2="490" y2="270" stroke="#64748b" stroke-width="2"/>
+  <line x1="640" y1="240" x2="640" y2="270" stroke="#64748b" stroke-width="2"/>
+
+  <!-- NEGLECT label -->
+  <text x="250" y="295" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="15" font-weight="900" letter-spacing="1">NEGLECT LAPSE</text>
+  <text x="250" y="318" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">Client stopped hearing from you.</text>
+  <text x="250" y="336" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">No emotional tether at renewal.</text>
+
+  <!-- PRICE label -->
+  <text x="490" y="295" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="15" font-weight="900" letter-spacing="1">PRICE-DRIVEN</text>
+  <text x="490" y="318" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12">Found a cheaper quote.</text>
+
+  <!-- LIFE EVENT label -->
+  <text x="640" y="295" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="15" font-weight="900" letter-spacing="1">LIFE EVENT</text>
+  <text x="640" y="318" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12">Divorce, death, move.</text>
+
+  <!-- highlight callout for neglect -->
+  <rect x="150" y="380" width="500" height="90" rx="10" fill="#0c223d" stroke="#3b82f6" stroke-width="2"/>
+  <text x="400" y="413" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Half your lapse problem is a contact problem.</text>
+  <text x="400" y="438" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="14" font-style="italic">Not a pricing problem. Not a life problem.</text>
+  <text x="400" y="458" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="14" font-style="italic">That&apos;s the 50% AI-powered retention catches.</text>
+</svg>
