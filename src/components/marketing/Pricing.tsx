@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 import { useBooking } from "@/components/marketing/BookingContext";
+
+const AUDIT_CALENDLY_URL = "https://calendly.com/joshrkay-ch88/1-hour-audit";
 
 const offers = [
   {
@@ -60,28 +61,13 @@ const offers = [
 ];
 
 export function Pricing() {
-  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const { openBooking } = useBooking();
 
-  const startCheckout = async (plan: string) => {
-    try {
-      setLoadingPlan(plan);
-      const res = await fetch('/api/stripe/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan }),
-      });
-      const data = await res.json();
-      if (data?.url) {
-        window.location.href = data.url;
-        return;
-      }
-    } catch (e) {
-      // fallback below
-    } finally {
-      setLoadingPlan(null);
+  const handleCtaClick = (plan: string) => {
+    if (plan === "audit") {
+      window.open(AUDIT_CALENDLY_URL, "_blank", "noopener,noreferrer");
+      return;
     }
-
     openBooking();
   };
 
@@ -133,15 +119,14 @@ export function Pricing() {
                 </div>
 
                 <Button
-                  onClick={() => startCheckout(offer.key)}
-                  disabled={loadingPlan === offer.key}
+                  onClick={() => handleCtaClick(offer.key)}
                   className={`w-full text-lg py-7 rounded-full font-black transition-all ${
                     offer.popular
                       ? `bg-gradient-to-r ${offer.gradient} !text-white hover:scale-105 shadow-xl`
                       : "bg-black !text-white hover:bg-neutral-800"
                   }`}
                 >
-                  {loadingPlan === offer.key ? 'Redirecting…' : offer.cta}
+                  {offer.cta}
                 </Button>
               </div>
 
