@@ -21,7 +21,8 @@ export type AuditAction =
   | "user.login"
   | "user.password_reset"
   | "data.exported"
-  | "data.deleted";
+  | "data.deleted"
+  | "mastermind_invite.submitted";
 
 export async function logAudit(params: {
   organizationId?: string;

@@ -15,6 +15,9 @@ export type LessonFrontmatter = {
   module: number;
   order: number;
   duration: number;
+  // When true, this lesson is publicly readable without a paid subscription.
+  // Used to expose a teaser lesson at the top of module 1.
+  preview?: boolean;
 };
 
 export type Lesson = LessonFrontmatter & {
@@ -79,6 +82,7 @@ function loadCourse(courseDirName: string): Course | undefined {
       );
       return {
         ...l,
+        preview: l.preview === true,
         courseSlug: attributes.slug,
         moduleSlug,
         lessonSlug: fileName.replace(/\.md$/, ""),

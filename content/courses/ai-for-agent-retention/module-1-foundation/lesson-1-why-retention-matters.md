@@ -3,6 +3,7 @@ title: Why Retention Is the New Growth Lever
 module: 1
 order: 1
 duration: 14
+preview: true
 ---
 
 # Why Retention Is the New Growth Lever

@@ -29,7 +29,19 @@ export default function LoginPage() {
       setError("Invalid email or password");
       setLoading(false);
     } else {
-      router.push("/dashboard");
+      // Honor ?callbackUrl=... so users returning from a paywalled lesson
+      // land back on the page they were trying to read. Accept only
+      // same-origin relative paths to avoid open redirects.
+      let next = "/dashboard";
+      if (typeof window !== "undefined") {
+        const raw = new URLSearchParams(window.location.search).get(
+          "callbackUrl"
+        );
+        if (raw && raw.startsWith("/") && !raw.startsWith("//")) {
+          next = raw;
+        }
+      }
+      router.push(next);
     }
   };
 
