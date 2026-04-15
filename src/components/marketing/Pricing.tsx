@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 import { useBooking } from "@/components/marketing/BookingContext";
+
+const AUDIT_CALENDLY_URL = "https://calendly.com/joshrkay-ch88/1-hour-audit";
 
 const offers = [
   {
@@ -61,33 +62,14 @@ const offers = [
 
 export function Pricing() {
   const { openBooking } = useBooking();
-  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
 
-  const handleCtaClick = async (plan: string) => {
-    // Audit is self-serve via Stripe Checkout. After payment, the
-    // checkout success_url forwards customers to the 1-hour Calendly.
+  const handleCtaClick = (plan: string) => {
+    // Audit CTA goes directly to the 1-hour audit Calendly. Sprint and
+    // Managed plans open the 30-min consult booking modal.
     if (plan === "audit") {
-      try {
-        setLoadingPlan(plan);
-        const res = await fetch("/api/stripe/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ plan }),
-        });
-        const data = await res.json();
-        if (data?.url) {
-          window.location.href = data.url;
-          return;
-        }
-      } catch {
-        // fall through to booking modal as a safety net
-      } finally {
-        setLoadingPlan(null);
-      }
+      window.open(AUDIT_CALENDLY_URL, "_blank", "noopener,noreferrer");
+      return;
     }
-
-    // Sprint and Managed plans (and the audit fallback) open the
-    // 30-min consult booking modal.
     openBooking();
   };
 
@@ -140,14 +122,13 @@ export function Pricing() {
 
                 <Button
                   onClick={() => handleCtaClick(offer.key)}
-                  disabled={loadingPlan === offer.key}
                   className={`w-full text-lg py-7 rounded-full font-black transition-all ${
                     offer.popular
                       ? `bg-gradient-to-r ${offer.gradient} !text-white hover:scale-105 shadow-xl`
                       : "bg-black !text-white hover:bg-neutral-800"
                   }`}
                 >
-                  {loadingPlan === offer.key ? "Redirecting…" : offer.cta}
+                  {offer.cta}
                 </Button>
               </div>
 
