@@ -102,6 +102,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Start Humblytics Tracking Code */}
+        <script async src="https://app.humblytics.com/hmbl.min.js?id=a6c8b42" />
+        {/* End Humblytics Tracking Code */}
       </head>
       <body>
         {children}
