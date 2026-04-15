@@ -78,6 +78,8 @@ One more mental model before we move on. Any time you see a new AI tool pitched 
 
 Four walk-aways leave you with a very short shopping list. That is the point. Your time is the scarce resource, not your budget.
 
+![The AI tool hype filter: four sequential yes or no questions that every new tool must survive before it earns a 14-day trial — open API, free trial, public pricing, and a real pain you already feel](/courses/bootcamp/hype-filter.svg)
+
 ## Do this today
 
 Two concrete actions:

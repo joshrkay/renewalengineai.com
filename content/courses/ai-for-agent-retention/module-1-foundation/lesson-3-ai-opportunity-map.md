@@ -50,6 +50,8 @@ Every time you look at a task in your agency and wonder "should AI do this," run
 
 A task that is high volume, low judgment, low emotional weight, and high current hours is a perfect AI candidate. Automate it. A task that is high judgment or high emotional weight stays with you, even if AI could technically do it. The question is not "can AI do this," it is "should it."
 
+![The four-question filter: a decision flowchart that routes each recurring task through four yes/no questions about volume, judgment, emotional weight, and hours per week, ending in either Automate, AI Drafts You Edit, Stay Manual, or Skip For Now](/courses/retention/four-question-filter.svg)
+
 ## The four-column grid
 
 Draw four columns on a page or in a spreadsheet. Label them Volume, Judgment, Emotional weight, Current hours. In the rows, list the top ten recurring tasks in your agency. Rate each task 1 to 5 on each dimension.

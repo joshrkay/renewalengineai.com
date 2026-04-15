@@ -9,6 +9,8 @@ duration: 8
 
 Classifying a lead is useless if nobody responds to it. This lesson is about the two mechanics that turn a classified lead into a fast, consistent response: routing (who gets the lead) and SLAs (how fast they have to act).
 
+![The AI lead intake pipeline: five stages from capture through classify, enrich, route, and respond, each tagged with the elapsed seconds, ending in an SLA clock and an AMS log](/courses/bootcamp/lead-intake-pipeline.svg)
+
 ## The speed-to-lead reality
 Industry research on lead response times is brutal. A lead contacted within five minutes is roughly nine times more likely to convert than one contacted within an hour. A lead contacted within an hour is several times more likely to convert than one contacted the next day. Speed dominates almost every other factor.
 

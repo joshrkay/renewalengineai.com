@@ -43,6 +43,8 @@ Here is a starter menu. Pick three. Resist the urge to pick five. The fifth one 
 
 ## The three-week test
 
+![The three-week use-case test: Week 1 setup, Week 2 live pilot, Week 3 decide — ship, kill, or scale](/courses/bootcamp/three-week-test.svg)
+
 Once you pick three, give each one three weeks of runway. Week one is setup, prompt tuning, and training. Weeks two and three are running the workflow for real with the actual person who will own it.
 
 At the end of week three, measure three things:

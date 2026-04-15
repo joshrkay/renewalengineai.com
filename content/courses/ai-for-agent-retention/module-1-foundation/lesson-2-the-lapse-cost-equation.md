@@ -58,11 +58,15 @@ Worked example for our 800-policy agency, assuming 700 PL and 100 CL:
 
 You see what just happened. The naive formula said $17k. The real formula said $52k. The agency looks identical. The decision about how much to invest in retention just changed by 3x.
 
+![The Real Lapse Cost Equation: naive math of policies times commission times lapse rate equals $17,280, versus the real math that segments personal and commercial lines and applies a lifetime value multiplier, yielding roughly $52,500](/courses/retention/real-lapse-cost-equation.svg)
+
 ## Segment by premium size
 
 One more cut, and it is the most useful one. Break your book into three buckets by premium size. Take the top 20 percent, the middle 60 percent, and the bottom 20 percent. Your top 20 percent is almost always where the lapse cost concentrates.
 
 Run the math on just the top bucket. You will usually find that 60 to 70 percent of your total lapse cost lives in that one slice. That is the slice where you are going to reserve your most expensive retention moves in Modules 2 and 3 — personal calls, hand-written cards, same-day turnaround on questions. AI handles the other 80 percent of the book. You handle the top 20 percent with AI quietly doing the prep work behind you.
+
+![Book segmentation pyramid: the top 20 percent of clients drive 60 percent of lapse cost, the middle 60 percent drive 30 percent, and the bottom 20 percent drive only 10 percent](/courses/retention/book-segmentation.svg)
 
 ## Turn the number into a budget
 

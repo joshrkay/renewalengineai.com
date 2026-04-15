@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">The Four-Question Filter</title>
+  <desc id="desc">A vertical decision flowchart with four yes or no questions that determine whether a task should be automated, drafted by AI, or stay manual.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="620" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="450" y="44" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The Four-Question Filter</text>
+  <text x="450" y="70" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Run every recurring task through these four questions, in order</text>
+
+  <!-- Q1 -->
+  <rect x="300" y="100" width="300" height="68" rx="10" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="450" y="127" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="900" letter-spacing="2">QUESTION 1</text>
+  <text x="450" y="152" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Does it happen 10+ times a week?</text>
+
+  <!-- Q1 no branch -->
+  <line x1="300" y1="134" x2="170" y2="134" stroke="#475569" stroke-width="2"/>
+  <line x1="170" y1="134" x2="170" y2="185" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="230" y="126" fill="#737373" font-family="system-ui, sans-serif" font-size="11" font-weight="700">NO</text>
+  <rect x="70" y="190" width="200" height="50" rx="10" fill="#171717" stroke="#525252" stroke-width="2"/>
+  <text x="170" y="221" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="13" font-weight="900">SKIP FOR NOW</text>
+
+  <!-- Q1 yes -->
+  <line x1="450" y1="168" x2="450" y2="205" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="458" y="192" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">YES</text>
+
+  <!-- Q2 -->
+  <rect x="300" y="210" width="300" height="68" rx="10" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="450" y="237" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="900" letter-spacing="2">QUESTION 2</text>
+  <text x="450" y="262" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Could a checklist-trained intern do it?</text>
+
+  <!-- Q2 no branch -->
+  <line x1="600" y1="244" x2="730" y2="244" stroke="#ca8a04" stroke-width="2"/>
+  <line x1="730" y1="244" x2="730" y2="295" stroke="#ca8a04" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="660" y="236" fill="#facc15" font-family="system-ui, sans-serif" font-size="11" font-weight="700">NO</text>
+  <rect x="630" y="300" width="200" height="50" rx="10" fill="#171717" stroke="#ca8a04" stroke-width="2"/>
+  <text x="730" y="331" text-anchor="middle" fill="#facc15" font-family="system-ui, sans-serif" font-size="12" font-weight="900">AI DRAFTS, YOU EDIT</text>
+
+  <!-- Q2 yes -->
+  <line x1="450" y1="278" x2="450" y2="315" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="458" y="302" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">YES</text>
+
+  <!-- Q3 -->
+  <rect x="300" y="320" width="300" height="68" rx="10" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="450" y="347" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="900" letter-spacing="2">QUESTION 3</text>
+  <text x="450" y="372" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Would clients feel hurt if a machine did it?</text>
+
+  <!-- Q3 yes branch -->
+  <line x1="300" y1="354" x2="170" y2="354" stroke="#7f1d1d" stroke-width="2"/>
+  <line x1="170" y1="354" x2="170" y2="405" stroke="#7f1d1d" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="228" y="346" fill="#f87171" font-family="system-ui, sans-serif" font-size="11" font-weight="700">YES</text>
+  <rect x="70" y="410" width="200" height="50" rx="10" fill="#171717" stroke="#7f1d1d" stroke-width="2"/>
+  <text x="170" y="441" text-anchor="middle" fill="#f87171" font-family="system-ui, sans-serif" font-size="13" font-weight="900">STAY MANUAL</text>
+
+  <!-- Q3 no -->
+  <line x1="450" y1="388" x2="450" y2="425" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="458" y="412" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">NO</text>
+
+  <!-- Q4 -->
+  <rect x="300" y="430" width="300" height="68" rx="10" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="450" y="457" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="900" letter-spacing="2">QUESTION 4</text>
+  <text x="450" y="482" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Is it eating 3+ hours of your week?</text>
+
+  <!-- Q4 yes -->
+  <line x1="450" y1="498" x2="450" y2="535" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="458" y="522" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">YES</text>
+
+  <!-- verdict -->
+  <rect x="260" y="540" width="380" height="60" rx="30" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="450" y="569" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="900">AUTOMATE IT. FIRST USE CASE.</text>
+  <text x="450" y="587" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="12" font-style="italic">Four yeses = the task pays for your automation this quarter</text>
+</svg>

@@ -24,6 +24,8 @@ After testing this with dozens of agents, the rhythm below produces the best res
 
 **Day X minus 7:** Escalation for the top 20 percent of the book. A phone call, a text, a direct human touch. This is where you stop automating and pick up the phone.
 
+![Trigger-based renewal sequence timeline: seven touches from X-90 through X+1, each one fired by a date field on the policy and delivered through the right channel at the right moment](/courses/retention/trigger-sequence-timeline.svg)
+
 ## What each trigger fires
 Behind the schedule sits a simple event system. The trigger is always the X-date minus some number of days. The action is always to send a specific message through a specific channel (email, SMS, or a task on your calendar).
 

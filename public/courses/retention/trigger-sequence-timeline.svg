@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 520" role="img" aria-labelledby="title desc">
+  <title id="title">Trigger-Based Renewal Sequence Timeline</title>
+  <desc id="desc">A horizontal timeline showing which message fires at each trigger point before a client's renewal date, from 90 days out through the day after.</desc>
+
+  <rect width="950" height="520" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="475" y="48" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">Trigger-Based Renewal Sequence</text>
+  <text x="475" y="76" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Seven touches from X-90 through X+1, each one triggered by a date field</text>
+
+  <!-- timeline bar -->
+  <line x1="70" y1="260" x2="880" y2="260" stroke="#2563eb" stroke-width="4"/>
+
+  <!-- X marker (renewal date) -->
+  <circle cx="780" cy="260" r="14" fill="#2563eb" stroke="#ffffff" stroke-width="3"/>
+  <text x="780" y="265" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="900">X</text>
+  <text x="780" y="300" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="900" letter-spacing="1">RENEWAL DATE</text>
+
+  <!-- tick marks with day offsets -->
+  <!-- X-90 -->
+  <circle cx="95" cy="260" r="9" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="95" y="300" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">X-90</text>
+  <line x1="95" y1="251" x2="95" y2="180" stroke="#262626" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="40" y="130" width="110" height="50" rx="6" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="95" y="152" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900">HEADS-UP</text>
+  <text x="95" y="168" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="10">Email · soft</text>
+
+  <!-- X-60 -->
+  <circle cx="208" cy="260" r="9" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="208" y="300" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">X-60</text>
+  <line x1="208" y1="269" x2="208" y2="340" stroke="#262626" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="153" y="345" width="110" height="50" rx="6" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="208" y="367" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900">CHECK-IN</text>
+  <text x="208" y="383" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="10">Email · policy Q</text>
+
+  <!-- X-45 -->
+  <circle cx="322" cy="260" r="9" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="322" y="300" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">X-45</text>
+  <line x1="322" y1="251" x2="322" y2="180" stroke="#262626" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="267" y="130" width="110" height="50" rx="6" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="322" y="152" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900">VALUE RECAP</text>
+  <text x="322" y="168" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="10">Email · claims</text>
+
+  <!-- X-30 -->
+  <circle cx="435" cy="260" r="9" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="435" y="300" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">X-30</text>
+  <line x1="435" y1="269" x2="435" y2="340" stroke="#262626" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="380" y="345" width="110" height="50" rx="6" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="435" y="367" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900">RATE PREVIEW</text>
+  <text x="435" y="383" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="10">Email · the why</text>
+
+  <!-- X-14 -->
+  <circle cx="548" cy="260" r="9" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="548" y="300" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">X-14</text>
+  <line x1="548" y1="251" x2="548" y2="180" stroke="#262626" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="493" y="130" width="110" height="50" rx="6" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="548" y="152" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900">PHONE CALL</text>
+  <text x="548" y="168" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="10">Voice · top 20%</text>
+
+  <!-- X-7 -->
+  <circle cx="662" cy="260" r="9" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="662" y="300" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">X-7</text>
+  <line x1="662" y1="269" x2="662" y2="340" stroke="#262626" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="607" y="345" width="110" height="50" rx="6" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="662" y="367" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900">SMS NUDGE</text>
+  <text x="662" y="383" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="10">Text · confirm</text>
+
+  <!-- X+1 -->
+  <circle cx="870" cy="260" r="9" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="870" y="300" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">X+1</text>
+  <line x1="870" y1="251" x2="870" y2="180" stroke="#262626" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="810" y="130" width="120" height="50" rx="6" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="870" y="152" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900">THANK-YOU</text>
+  <text x="870" y="168" text-anchor="middle" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="10">Email · gratitude</text>
+
+  <!-- footer callout -->
+  <rect x="150" y="420" width="650" height="70" rx="12" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="475" y="448" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Each trigger fires from one AMS date field. Zero human scheduling.</text>
+  <text x="475" y="472" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="13" font-style="italic">AI drafts each message with policy details. You approve or skip in under 10 seconds.</text>
+</svg>

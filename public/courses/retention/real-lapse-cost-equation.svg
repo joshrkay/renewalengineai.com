@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">The Real Lapse Cost Equation</title>
+  <desc id="desc">Side by side breakdown showing why the naive lapse cost of $17,280 undercounts the real number, $52,500, once you factor in segment-specific commission, lifetime value, and the correct book split.</desc>
+
+  <rect width="900" height="560" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="450" y="48" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The Real Lapse Cost Equation</text>
+  <text x="450" y="76" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Why the number in your head is about 3x too small</text>
+
+  <!-- LEFT: naive box -->
+  <rect x="50" y="110" width="380" height="380" rx="14" fill="#171717" stroke="#404040" stroke-width="2"/>
+  <text x="240" y="145" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="13" font-weight="900" letter-spacing="2">NAIVE MATH</text>
+  <text x="240" y="168" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="12">What most agents calculate</text>
+  <line x1="90" y1="185" x2="390" y2="185" stroke="#262626" stroke-width="1"/>
+
+  <!-- naive formula rows -->
+  <text x="80" y="220" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="14">Policies on book</text>
+  <text x="400" y="220" text-anchor="end" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">800</text>
+
+  <text x="80" y="250" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="14">× Avg commission</text>
+  <text x="400" y="250" text-anchor="end" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">$180</text>
+
+  <text x="80" y="280" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="14">× Lapse rate</text>
+  <text x="400" y="280" text-anchor="end" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">12%</text>
+
+  <line x1="80" y1="300" x2="400" y2="300" stroke="#404040" stroke-width="1"/>
+
+  <text x="80" y="335" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="13">= Annual revenue lost</text>
+  <text x="400" y="335" text-anchor="end" fill="#ffffff" font-family="system-ui, sans-serif" font-size="22" font-weight="900">$17,280</text>
+
+  <!-- naive verdict -->
+  <rect x="80" y="370" width="320" height="90" rx="8" fill="#1a0c0c" stroke="#7f1d1d" stroke-width="1"/>
+  <text x="240" y="398" text-anchor="middle" fill="#f87171" font-family="system-ui, sans-serif" font-size="13" font-weight="900" letter-spacing="1">MISSING 3 THINGS</text>
+  <text x="240" y="420" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="11">No segment split · No LTV multiplier</text>
+  <text x="240" y="438" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="11">No commercial-vs-personal weighting</text>
+
+  <!-- arrow between boxes -->
+  <line x1="445" y1="295" x2="475" y2="295" stroke="#2563eb" stroke-width="3"/>
+  <polygon points="475,289 490,295 475,301" fill="#2563eb"/>
+
+  <!-- RIGHT: real box -->
+  <rect x="505" y="110" width="380" height="380" rx="14" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="695" y="145" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="13" font-weight="900" letter-spacing="2">REAL MATH</text>
+  <text x="695" y="168" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="12">What actually leaves your P&amp;L</text>
+  <line x1="540" y1="185" x2="850" y2="185" stroke="#1e40af" stroke-width="1"/>
+
+  <!-- PL row -->
+  <text x="535" y="215" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1">PERSONAL LINES (640 policies)</text>
+  <text x="535" y="238" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="13">640 × $140 × 12% × 2.5 LTV</text>
+  <text x="855" y="238" text-anchor="end" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">$26,880</text>
+
+  <!-- CL row -->
+  <text x="535" y="275" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1">COMMERCIAL LINES (160 policies)</text>
+  <text x="535" y="298" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="13">160 × $380 × 12% × 3.5 LTV</text>
+  <text x="855" y="298" text-anchor="end" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">$25,536</text>
+
+  <line x1="535" y1="318" x2="855" y2="318" stroke="#1e40af" stroke-width="1"/>
+
+  <!-- total -->
+  <text x="535" y="355" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="13">= True annual lapse cost</text>
+  <text x="855" y="355" text-anchor="end" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">$52,416</text>
+
+  <!-- verdict -->
+  <rect x="535" y="385" width="320" height="85" rx="8" fill="#0a0a0a" stroke="#2563eb" stroke-width="1"/>
+  <text x="695" y="412" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="13" font-weight="900" letter-spacing="1">≈ 3x THE NAIVE NUMBER</text>
+  <text x="695" y="434" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="11">This is your retention budget ceiling.</text>
+  <text x="695" y="452" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="11">Spend up to 20% of it to save 50%.</text>
+
+  <!-- footer -->
+  <text x="450" y="525" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="12" font-style="italic">Run the real math before you set your retention budget — not the naive version.</text>
+</svg>
