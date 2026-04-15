@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
-import { BookAuditButton } from "@/components/courses/BookAuditButton";
+import { MastermindInviteForm } from "@/components/marketing/MastermindInviteForm";
 
 export const metadata: Metadata = {
   title: "AI Mastermind & Community | RenewalEngineAI",
@@ -85,10 +85,7 @@ export default function MastermindPage() {
                 same work. Not for passive consumption — mastermind members show
                 up.
               </p>
-              <BookAuditButton
-                label="Request an invite"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-8 py-4 transition-colors"
-              />
+              <MastermindInviteForm />
             </div>
           </div>
         </main>

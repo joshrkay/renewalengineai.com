@@ -5,29 +5,20 @@ import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { LessonBody } from "@/components/courses/LessonBody";
-import { getLesson, listCourses } from "@/lib/courses";
+import { LessonPaywall } from "@/components/courses/LessonPaywall";
+import { getLesson } from "@/lib/courses";
+import { getCourseAccess } from "@/lib/entitlements";
+
+// The lesson page depends on the signed-in session for paywall checks, so
+// it can't be prerendered. Force dynamic rendering so access checks run on
+// every request.
+export const dynamic = "force-dynamic";
 
 type Params = {
   courseSlug: string;
   moduleSlug: string;
   lessonSlug: string;
 };
-
-export function generateStaticParams() {
-  const params: Params[] = [];
-  for (const course of listCourses()) {
-    for (const mod of course.modules) {
-      for (const lesson of mod.lessons) {
-        params.push({
-          courseSlug: course.slug,
-          moduleSlug: mod.moduleSlug,
-          lessonSlug: lesson.lessonSlug,
-        });
-      }
-    }
-  }
-  return params;
-}
 
 export async function generateMetadata({
   params,
@@ -57,12 +48,17 @@ export default async function LessonPage({
 
   const { course, module: mod, lesson } = result;
 
+  // Gate everything that isn't explicitly marked as a free teaser.
+  const access = lesson.preview ? null : await getCourseAccess();
+  const locked = access !== null && !access.allowed;
+
   // Build flat lesson list for prev/next navigation across the whole course.
   const flat = course.modules.flatMap((m) =>
     m.lessons.map((l) => ({
       moduleSlug: m.moduleSlug,
       lessonSlug: l.lessonSlug,
       title: l.title,
+      preview: Boolean(l.preview),
     }))
   );
   const idx = flat.findIndex(
@@ -87,15 +83,36 @@ export default async function LessonPage({
             <div className="mb-10">
               <p className="text-sm text-neutral-500 font-semibold uppercase tracking-wider mb-3">
                 Module {mod.number} · {mod.title} · {lesson.duration} min read
+                {lesson.preview && (
+                  <span className="ml-3 inline-block bg-blue-600/20 text-blue-400 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full align-middle">
+                    Free preview
+                  </span>
+                )}
               </p>
               <h1 className="text-4xl md:text-5xl font-black mb-4">
                 {lesson.title}
               </h1>
             </div>
 
-            <article>
-              <LessonBody body={lesson.body} />
-            </article>
+            {locked && access && !access.allowed ? (
+              <LessonPaywall
+                courseTitle={course.title}
+                coursePrice={course.price}
+                courseHref={`/courses/${course.slug}`}
+                returnHref={`/courses/${course.slug}/${mod.moduleSlug}/${lesson.lessonSlug}`}
+                reason={
+                  access.reason === "unauthenticated"
+                    ? "unauthenticated"
+                    : access.reason === "no_organization"
+                      ? "no_organization"
+                      : "inactive_subscription"
+                }
+              />
+            ) : (
+              <article>
+                <LessonBody body={lesson.body} />
+              </article>
+            )}
 
             <div className="mt-16 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row gap-4 justify-between">
               {prev ? (

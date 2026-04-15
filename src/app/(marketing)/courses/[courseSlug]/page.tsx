@@ -118,12 +118,22 @@ export default async function CourseLandingPage({
                         <li key={l.lessonSlug}>
                           <Link
                             href={`/courses/${course.slug}/${m.moduleSlug}/${l.lessonSlug}`}
-                            className="flex items-center justify-between text-neutral-300 hover:text-white py-2 border-b border-neutral-800"
+                            className="flex items-center justify-between text-neutral-300 hover:text-white py-2 border-b border-neutral-800 gap-4"
                           >
-                            <span className="font-semibold">
-                              {l.order}. {l.title}
+                            <span className="font-semibold flex items-center gap-2 min-w-0">
+                              <span className="flex-shrink-0" aria-hidden="true">
+                                {l.preview ? "🔓" : "🔒"}
+                              </span>
+                              <span className="truncate">
+                                {l.order}. {l.title}
+                              </span>
+                              {l.preview && (
+                                <span className="flex-shrink-0 bg-blue-600/20 text-blue-400 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                                  Free
+                                </span>
+                              )}
                             </span>
-                            <span className="text-sm text-neutral-500">
+                            <span className="text-sm text-neutral-500 flex-shrink-0">
                               {l.duration} min
                             </span>
                           </Link>

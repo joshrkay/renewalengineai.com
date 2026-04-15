@@ -121,6 +121,44 @@ export async function sendAutomationAlert(
   });
 }
 
+export async function sendMastermindInviteNotification(
+  email: string,
+  name: string | null,
+  source: string
+): Promise<void> {
+  const to = process.env.MASTERMIND_INVITES_TO || "josh@renewalengineai.com";
+
+  await sendEmail({
+    to,
+    subject: `New Mastermind invite request — ${email}`,
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+        <h2 style="color: #0a0a0a; font-size: 20px;">New Mastermind invite request</h2>
+        <p style="color: #525252; font-size: 16px; line-height: 1.6;">
+          A new prospect just asked to be invited to the AI Mastermind &amp; Community.
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px;">
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Email</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${email}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Name</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${name || "—"}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Source</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${source}</td>
+          </tr>
+        </table>
+        <p style="color: #a3a3a3; font-size: 13px;">
+          Reach out within 24 hours. The full list lives in the MastermindInvite table.
+        </p>
+      </div>
+    `,
+  });
+}
+
 export async function sendTokenExpiryWarning(
   email: string,
   provider: string

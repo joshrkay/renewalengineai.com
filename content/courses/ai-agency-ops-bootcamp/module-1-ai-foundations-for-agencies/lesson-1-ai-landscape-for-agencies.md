@@ -3,6 +3,7 @@ title: The AI Landscape for Agencies
 module: 1
 order: 1
 duration: 15
+preview: true
 ---
 
 # The AI Landscape for Agencies

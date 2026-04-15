@@ -69,6 +69,22 @@ model PasswordResetToken {
   createdAt DateTime @default(now())
 }
 
+// Captures email sign-ups from the public Mastermind / community waitlist
+// form. These are leads to contact directly — they haven't paid yet and are
+// not linked to an Organization until/unless they convert via Stripe.
+model MastermindInvite {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  name      String?
+  source    String    @default("mastermind_page")
+  notes     String?
+  contacted Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@index([createdAt])
+}
+
 model AuditLog {
   id             String   @id @default(cuid())
   organizationId String?
