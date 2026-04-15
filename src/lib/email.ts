@@ -37,7 +37,8 @@ export async function sendWelcomeEmail(
   email: string,
   name: string | null,
   tier: string,
-  resetToken: string
+  resetToken: string,
+  callbackUrl?: string
 ): Promise<void> {
   const tierLabels: Record<string, string> = {
     AUDIT: "AI-Powered Renewal Audit",
@@ -45,7 +46,14 @@ export async function sendWelcomeEmail(
     MANAGED: "Managed AI Operations",
   };
 
-  const resetUrl = `${APP_URL}/set-password?token=${resetToken}`;
+  // When provided, the set-password page forwards the callback to /login
+  // so the buyer lands on the page they bought (e.g. a course) rather
+  // than the generic dashboard after setting their password.
+  const callbackParam =
+    callbackUrl && callbackUrl.startsWith("/") && !callbackUrl.startsWith("//")
+      ? `&callbackUrl=${encodeURIComponent(callbackUrl)}`
+      : "";
+  const resetUrl = `${APP_URL}/set-password?token=${resetToken}${callbackParam}`;
 
   await sendEmail({
     to: email,

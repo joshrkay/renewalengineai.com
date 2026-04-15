@@ -6,10 +6,7 @@ type Props = {
   coursePrice: number;
   courseHref: string;
   returnHref: string;
-  reason:
-    | "unauthenticated"
-    | "no_organization"
-    | "inactive_subscription";
+  reason: "unauthenticated" | "not_entitled";
 };
 
 export function LessonPaywall({
@@ -34,9 +31,7 @@ export function LessonPaywall({
       <p className="text-neutral-300 text-lg mb-6 max-w-2xl">
         {isLoggedOut
           ? "Sign in with the account you used to enroll, or grab the course below to unlock every lesson, template, and prompt."
-          : reason === "inactive_subscription"
-            ? "Your subscription isn't active right now. Reactivate it to pick up where you left off."
-            : "We couldn't find an active subscription on your account. Enroll below to unlock every lesson, template, and prompt."}
+          : `Your account doesn't include ${courseTitle} yet. Enroll below to unlock every lesson, template, and prompt.`}
       </p>
 
       <div className="flex flex-wrap items-center gap-4 mb-8">

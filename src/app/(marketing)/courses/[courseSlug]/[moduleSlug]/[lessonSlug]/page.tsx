@@ -48,8 +48,9 @@ export default async function LessonPage({
 
   const { course, module: mod, lesson } = result;
 
-  // Gate everything that isn't explicitly marked as a free teaser.
-  const access = lesson.preview ? null : await getCourseAccess();
+  // Gate everything that isn't explicitly marked as a free teaser. Access
+  // is strictly per-course — service-tier buyers do not unlock courses.
+  const access = lesson.preview ? null : await getCourseAccess(course.slug);
   const locked = access !== null && !access.allowed;
 
   // Build flat lesson list for prev/next navigation across the whole course.
@@ -103,9 +104,7 @@ export default async function LessonPage({
                 reason={
                   access.reason === "unauthenticated"
                     ? "unauthenticated"
-                    : access.reason === "no_organization"
-                      ? "no_organization"
-                      : "inactive_subscription"
+                    : "not_entitled"
                 }
               />
             ) : (

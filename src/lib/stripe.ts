@@ -60,6 +60,7 @@ export const PLAN_CONFIG = {
     name: "AI for Agent Retention",
     interval: null,
     tier: "AUDIT" as const,
+    courseSlug: "ai-for-agent-retention",
   },
   "bootcamp-course": {
     productId: "prod_ULHbSayZppnUZZ",
@@ -68,7 +69,24 @@ export const PLAN_CONFIG = {
     name: "AI Agency Operations Bootcamp",
     interval: null,
     tier: "AUDIT" as const,
+    courseSlug: "ai-agency-ops-bootcamp",
   },
 } as const;
 
 export type PlanKey = keyof typeof PLAN_CONFIG;
+
+// Returns the course slug unlocked by a plan, or undefined if the plan
+// isn't a course purchase. Used by the webhook to decide when to create
+// a CourseEntitlement row and by the course page to pick a plan key.
+export function courseSlugForPlan(key: PlanKey): string | undefined {
+  const cfg = PLAN_CONFIG[key] as { courseSlug?: string };
+  return cfg.courseSlug;
+}
+
+export function planKeyForCourseSlug(slug: string): PlanKey | undefined {
+  for (const key of Object.keys(PLAN_CONFIG) as PlanKey[]) {
+    const cfg = PLAN_CONFIG[key] as { courseSlug?: string };
+    if (cfg.courseSlug === slug) return key;
+  }
+  return undefined;
+}
