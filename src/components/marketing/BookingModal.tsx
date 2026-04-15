@@ -2,8 +2,7 @@
 import { useEffect } from "react";
 import { X } from "lucide-react";
 
-// PLACEHOLDER: Replace this URL with your actual Calendly or Cal.com link
-const CALENDLY_URL = "https://calendly.com/renewalengineai/renewal-audit";
+const CALENDLY_URL = "https://calendly.com/joshrkay-ch88/30min";
 
 interface BookingModalProps {
   isOpen: boolean;
