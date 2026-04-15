@@ -140,22 +140,12 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
   };
   const status = statusMap[subscription.status] || "ACTIVE";
 
-  // On API version 2025-02-24.acacia the period fields live on the
-  // subscription item, not the subscription itself.
-  const item = subscription.items?.data?.[0];
-  const currentPeriodStart = item?.current_period_start
-    ? new Date(item.current_period_start * 1000)
-    : null;
-  const currentPeriodEnd = item?.current_period_end
-    ? new Date(item.current_period_end * 1000)
-    : null;
-
   await prisma.subscription.update({
     where: { id: sub.id },
     data: {
       status,
-      ...(currentPeriodStart ? { currentPeriodStart } : {}),
-      ...(currentPeriodEnd ? { currentPeriodEnd } : {}),
+      currentPeriodStart: new Date(subscription.current_period_start * 1000),
+      currentPeriodEnd: new Date(subscription.current_period_end * 1000),
     },
   });
 
