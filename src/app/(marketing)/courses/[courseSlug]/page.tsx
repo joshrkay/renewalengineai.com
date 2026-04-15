@@ -6,7 +6,15 @@ import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { LessonBody } from "@/components/courses/LessonBody";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
+import { EnrollButton } from "@/components/courses/EnrollButton";
 import { getCourse, listCourses, formatPrice } from "@/lib/courses";
+
+// Course slugs that are live on Stripe get a direct Enroll Now button.
+// Anything not in this map keeps the "talk to us about enrolling" flow.
+const COURSE_PLAN_BY_SLUG: Record<string, string> = {
+  "ai-for-agent-retention": "retention-course",
+  "ai-agency-ops-bootcamp": "bootcamp-course",
+};
 
 export function generateStaticParams() {
   return listCourses().map((c) => ({ courseSlug: c.slug }));
@@ -42,6 +50,8 @@ export default async function CourseLandingPage({
     (sum, m) => sum + m.lessons.length,
     0
   );
+
+  const coursePlan = COURSE_PLAN_BY_SLUG[course.slug];
 
   return (
     <BookingProvider>
@@ -85,13 +95,28 @@ export default async function CourseLandingPage({
                 <p className="text-4xl font-black text-white mb-6">
                   {formatPrice(course.price)}
                 </p>
-                <BookAuditButton
-                  label="Talk to us about enrolling"
-                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-6 py-3 text-center transition-colors"
-                />
-                <p className="text-xs text-neutral-500 mt-4 text-center">
-                  Enrollment opens Q2 2026. Book a call to get on the waitlist.
-                </p>
+                {coursePlan ? (
+                  <>
+                    <EnrollButton
+                      plan={coursePlan}
+                      label="Enroll now"
+                      className="block w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 disabled:cursor-not-allowed text-white font-bold rounded-full px-6 py-3 text-center transition-colors"
+                    />
+                    <p className="text-xs text-neutral-500 mt-4 text-center">
+                      Secure checkout via Stripe · 30-day money-back guarantee
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <BookAuditButton
+                      label="Talk to us about enrolling"
+                      className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-6 py-3 text-center transition-colors"
+                    />
+                    <p className="text-xs text-neutral-500 mt-4 text-center">
+                      Enrollment opens Q2 2026. Book a call to get on the waitlist.
+                    </p>
+                  </>
+                )}
               </aside>
             </div>
 
