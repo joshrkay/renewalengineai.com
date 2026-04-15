@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 540" role="img" aria-labelledby="title desc">
+  <title id="title">The 90-Day Retention Rollout</title>
+  <desc id="desc">A three-phase Gantt-style plan showing what you build in days 1 through 30, 31 through 60, and 61 through 90, with a measurement window at day 91.</desc>
+
+  <rect width="950" height="540" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="475" y="48" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The 90-Day Retention Rollout</text>
+  <text x="475" y="76" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Build the system in three focused phases. Measure at day 91.</text>
+
+  <!-- axis -->
+  <line x1="80" y1="440" x2="900" y2="440" stroke="#525252" stroke-width="2"/>
+  <text x="80" y="465" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11">Day 0</text>
+  <text x="355" y="465" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11">Day 30</text>
+  <text x="625" y="465" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11">Day 60</text>
+  <text x="895" y="465" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11">Day 90</text>
+
+  <!-- tick marks -->
+  <line x1="80" y1="435" x2="80" y2="445" stroke="#525252" stroke-width="2"/>
+  <line x1="355" y1="435" x2="355" y2="445" stroke="#525252" stroke-width="2"/>
+  <line x1="625" y1="435" x2="625" y2="445" stroke="#525252" stroke-width="2"/>
+  <line x1="895" y1="435" x2="895" y2="445" stroke="#525252" stroke-width="2"/>
+
+  <!-- PHASE 1: Days 1-30 - Foundation -->
+  <rect x="80" y="120" width="275" height="70" rx="8" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="217" y="147" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="900" letter-spacing="2">PHASE 1  ·  FOUNDATION</text>
+  <text x="217" y="175" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13">Days 1 – 30</text>
+
+  <!-- Phase 1 tasks -->
+  <text x="90" y="215" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Export and clean AMS book</text>
+  <text x="90" y="233" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Compute lapse cost number</text>
+  <text x="90" y="251" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Set up chat AI + Zapier</text>
+  <text x="90" y="269" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Build book health sheet</text>
+  <text x="90" y="287" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Segment top 20%</text>
+  <text x="90" y="305" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Draft voice-mimic prompts</text>
+
+  <!-- PHASE 2: Days 31-60 - Launch -->
+  <rect x="360" y="120" width="262" height="70" rx="8" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="491" y="147" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="900" letter-spacing="2">PHASE 2  ·  LAUNCH</text>
+  <text x="491" y="175" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13">Days 31 – 60</text>
+
+  <text x="370" y="215" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Wire X-90 trigger → draft</text>
+  <text x="370" y="233" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Wire X-60 / X-45 / X-30</text>
+  <text x="370" y="251" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Approval inbox in Gmail</text>
+  <text x="370" y="269" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Ship first week to top 20</text>
+  <text x="370" y="287" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Tune drafts daily</text>
+  <text x="370" y="305" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Expand to full book</text>
+
+  <!-- PHASE 3: Days 61-90 - Scale -->
+  <rect x="627" y="120" width="268" height="70" rx="8" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="761" y="147" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="900" letter-spacing="2">PHASE 3  ·  SCALE</text>
+  <text x="761" y="175" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13">Days 61 – 90</text>
+
+  <text x="637" y="215" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Add SMS + voice touches</text>
+  <text x="637" y="233" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Lapse-risk scoring live</text>
+  <text x="637" y="251" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Weekly save-rate review</text>
+  <text x="637" y="269" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Hand off approvals to CSR</text>
+  <text x="637" y="287" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Document the SOP</text>
+  <text x="637" y="305" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="11">• Lock the dashboard</text>
+
+  <!-- bar connectors on axis -->
+  <rect x="80" y="355" width="275" height="24" rx="4" fill="#1e3a8a" stroke="#2563eb" stroke-width="1"/>
+  <text x="217" y="372" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700">BUILD</text>
+
+  <rect x="360" y="385" width="262" height="24" rx="4" fill="#1e3a8a" stroke="#2563eb" stroke-width="1"/>
+  <text x="491" y="402" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700">SHIP</text>
+
+  <rect x="627" y="415" width="268" height="24" rx="4" fill="#1e3a8a" stroke="#2563eb" stroke-width="1"/>
+  <text x="761" y="432" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700">SCALE</text>
+
+  <!-- day 91 measurement -->
+  <circle cx="895" cy="367" r="12" fill="#2563eb" stroke="#93c5fd" stroke-width="2"/>
+  <text x="895" y="372" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="900">91</text>
+  <text x="895" y="398" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="10" font-weight="700">MEASURE</text>
+
+  <!-- bottom callout -->
+  <rect x="150" y="490" width="650" height="38" rx="19" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="475" y="515" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Day 91: read the save rate. If it moved, keep going. If not, fix the one weakest touch.</text>
+</svg>

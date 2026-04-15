@@ -53,6 +53,24 @@ const components: Components = {
     </a>
   ),
   hr: () => <hr className="border-neutral-800 my-10" />,
+  img: ({ src, alt }) => (
+    // span elements (not div) so react-markdown can legally nest them
+    // inside the implicit <p> wrapper without a hydration warning.
+    <span className="block my-10">
+      <span className="block rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800 p-6">
+        <img
+          src={typeof src === "string" ? src : ""}
+          alt={alt ?? ""}
+          className="w-full h-auto block"
+        />
+      </span>
+      {alt && (
+        <span className="block text-sm text-neutral-500 text-center mt-3 italic">
+          {alt}
+        </span>
+      )}
+    </span>
+  ),
 };
 
 export function LessonBody({ body }: { body: string }) {
