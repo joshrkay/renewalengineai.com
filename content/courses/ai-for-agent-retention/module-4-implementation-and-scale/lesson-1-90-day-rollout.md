@@ -9,6 +9,8 @@ duration: 10
 
 Everything in the first three modules is easy to understand and hard to implement while also running a full agency. This lesson gives you a 90-day plan that respects reality.
 
+![The 90-day retention rollout: three phases of Foundation, Launch, and Scale, each mapping to a 30-day window, with a measurement checkpoint at day 91](/courses/retention/90-day-rollout.svg)
+
 ## Days 1 to 14: Setup
 Block two hours on your calendar. Not two hours this month. Two hours this week. In those two hours you do exactly three things.
 

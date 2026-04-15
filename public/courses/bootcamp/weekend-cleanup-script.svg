@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 520" role="img" aria-labelledby="title desc">
+  <title id="title">The Weekend Data Cleanup Script</title>
+  <desc id="desc">A five-step weekend timeline showing how to clean your AMS export in roughly six focused hours without paying a consultant.</desc>
+
+  <rect width="950" height="520" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="475" y="48" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The Weekend Data Cleanup Script</text>
+  <text x="475" y="76" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">One weekend. Six hours. Your book is ready for AI.</text>
+
+  <!-- horizontal connector line -->
+  <line x1="100" y1="250" x2="860" y2="250" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- Step 1: Friday PM -->
+  <circle cx="130" cy="250" r="28" fill="#171717" stroke="#2563eb" stroke-width="3"/>
+  <text x="130" y="255" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="15" font-weight="900">1</text>
+  <rect x="40" y="110" width="180" height="110" rx="10" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="130" y="135" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">FRI 4 PM</text>
+  <text x="130" y="160" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Export the book</text>
+  <text x="130" y="183" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">AMS → CSV</text>
+  <text x="130" y="198" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">All active policies</text>
+  <text x="130" y="213" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-style="italic">~30 min</text>
+
+  <!-- Step 2: Fri Eve -->
+  <circle cx="300" cy="250" r="28" fill="#171717" stroke="#2563eb" stroke-width="3"/>
+  <text x="300" y="255" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="15" font-weight="900">2</text>
+  <rect x="210" y="290" width="180" height="115" rx="10" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="300" y="315" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">FRI 8 PM</text>
+  <text x="300" y="340" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Audit with AI</text>
+  <text x="300" y="363" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Claude reads 200 rows</text>
+  <text x="300" y="378" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Flags every issue</text>
+  <text x="300" y="393" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-style="italic">~45 min</text>
+
+  <!-- Step 3: Sat AM -->
+  <circle cx="470" cy="250" r="28" fill="#171717" stroke="#2563eb" stroke-width="3"/>
+  <text x="470" y="255" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="15" font-weight="900">3</text>
+  <rect x="380" y="110" width="180" height="110" rx="10" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="470" y="135" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">SAT 9 AM</text>
+  <text x="470" y="160" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Dedupe</text>
+  <text x="470" y="183" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">AI merges Smith/J Smith</text>
+  <text x="470" y="198" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">You confirm each</text>
+  <text x="470" y="213" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-style="italic">~2 hours</text>
+
+  <!-- Step 4: Sat PM -->
+  <circle cx="640" cy="250" r="28" fill="#171717" stroke="#2563eb" stroke-width="3"/>
+  <text x="640" y="255" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="15" font-weight="900">4</text>
+  <rect x="550" y="290" width="180" height="115" rx="10" fill="#171717" stroke="#1e40af" stroke-width="1"/>
+  <text x="640" y="315" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">SAT 2 PM</text>
+  <text x="640" y="340" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Normalize dates</text>
+  <text x="640" y="363" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">All x-dates → ISO</text>
+  <text x="640" y="378" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Emails → lowercase</text>
+  <text x="640" y="393" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-style="italic">~90 min</text>
+
+  <!-- Step 5: Sunday -->
+  <circle cx="820" cy="250" r="32" fill="#0c223d" stroke="#2563eb" stroke-width="3"/>
+  <text x="820" y="255" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="15" font-weight="900">5</text>
+  <rect x="720" y="110" width="200" height="110" rx="10" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="820" y="135" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">SUN 10 AM</text>
+  <text x="820" y="160" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Spot-check 20 rows</text>
+  <text x="820" y="183" text-anchor="middle" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="10">Pick random sample</text>
+  <text x="820" y="198" text-anchor="middle" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="10">Eyeball every field</text>
+  <text x="820" y="213" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-style="italic">~60 min</text>
+
+  <!-- bottom callout -->
+  <rect x="150" y="440" width="650" height="60" rx="30" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="475" y="468" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Total: ~6 hours.  Cost: $0 (you already own the tools).</text>
+  <text x="475" y="488" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="12" font-style="italic">Monday morning you have a clean book and nothing to apologize for.</text>
+</svg>

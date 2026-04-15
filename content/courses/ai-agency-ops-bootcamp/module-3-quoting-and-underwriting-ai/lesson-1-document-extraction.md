@@ -9,6 +9,8 @@ duration: 9
 
 Independent agents spend hours every week retyping information from PDFs into quoting systems. Declaration pages, loss runs, ACORD forms, carrier statements. This lesson shows you how to cut that work by 80 percent with AI document extraction.
 
+![The document extraction pipeline: a PDF carrier statement flows through AI extraction into structured rows and lands in the AMS in about 90 seconds, with a human reviewer spot-checking flagged rows](/courses/bootcamp/document-extraction-pipeline.svg)
+
 ## What to extract
 Start with the three document types that produce the highest volume of manual retyping in a typical agency.
 

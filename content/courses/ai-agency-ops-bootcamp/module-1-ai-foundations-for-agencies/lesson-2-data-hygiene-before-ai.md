@@ -25,6 +25,8 @@ Duplicates usually happen when a client moves from one producer to another insid
 
 Inconsistent fields are the hardest data problem to spot because nothing looks wrong at first glance. You only find it when your workflow returns "0 matching records" for a filter that should match hundreds.
 
+![The three data sins: missing fields, duplicate records, and inconsistent formatting — the three most common AMS export problems that break AI workflows before they start](/courses/bootcamp/three-data-sins.svg)
+
 The work to fix each of these is simple but tedious. Budget half a day. Do it before you touch any of the workflow lessons.
 
 ## A weekend cleanup script
@@ -54,6 +56,8 @@ Find-and-replace everything. Double-check the top 20 rows by eye before committi
 **Sunday: privacy sweep.** Add one more column flagging any row that contains what looks like an SSN, driver's license number, or banking detail in a free-text notes field. You are looking for rows where somebody pasted sensitive data into a "notes" or "comments" column because the AMS had nowhere better to put it. Those cells need to be scrubbed before the file goes into any AI tool. We cover why in the Privacy note below.
 
 **Sunday evening: save the clean file.** Save two copies. One is your working cleaned file. The other is your backup, dated. Do not touch the backup.
+
+![The weekend cleanup script: five timed steps from Friday 4 PM export through Sunday morning spot-check, totalling roughly six hours](/courses/bootcamp/weekend-cleanup-script.svg)
 
 ## What "good enough" looks like
 
