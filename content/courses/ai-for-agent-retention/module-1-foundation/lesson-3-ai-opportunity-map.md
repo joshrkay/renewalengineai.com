@@ -37,6 +37,8 @@ Just as important as the five zones above is a clear list of places where you wi
 
 **Do not use AI for any conversation that requires nuanced human judgment.** A sympathy note after a claim, a birthday message for a ten-year client, a personal call after a rate increase, a conversation about a family death, a delicate remarket conversation where the client is nervous — these are the moments clients remember. Let AI handle the 80 percent of volume so you have time for the 20 percent of moments. An agency that automates the wrong things gets faster, colder, and more forgettable. An agency that automates the right things gets faster, warmer, and more memorable.
 
+![The AI Opportunity Map: a 2x2 grid plotting tasks by volume and judgment required, showing where to automate, where to use AI for drafts, where to stay manual, and where to skip.](/courses/retention/ai-opportunity-map.svg)
+
 ## A simple test for any task
 
 Every time you look at a task in your agency and wonder "should AI do this," run it through four questions:

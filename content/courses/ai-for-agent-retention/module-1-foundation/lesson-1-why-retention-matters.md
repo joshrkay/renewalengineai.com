@@ -36,6 +36,8 @@ Real lifetime value on a lost policy is usually two to four times the first-year
 
 Not every lapse is the same, and the solution depends on the category. In our data across hundreds of agency books, lapses break down roughly like this:
 
+![Three kinds of lapse: 50% neglect, 30% price-driven, 20% life event](/courses/retention/three-kinds-of-lapse.svg)
+
 1. **Price-driven lapse (about 30 percent).** The client found a cheaper quote. Sometimes this is real competitive pressure. More often it is the client feeling uncertain about value and using price as a proxy for an unspoken concern.
 2. **Life-event lapse (about 20 percent).** Divorce, death, move out of state, business sold, car totaled and not replaced. These are mostly unrecoverable, but many of them could have been caught earlier and converted into a different product.
 3. **Neglect lapse (about 50 percent).** The client stopped hearing from you. They did not feel seen. When the renewal bill arrived, there was nothing emotionally tethering them to staying. These are the lapses that AI-powered retention catches.

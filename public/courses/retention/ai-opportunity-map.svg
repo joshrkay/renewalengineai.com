@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" role="img" aria-labelledby="title desc">
+  <title id="title">The AI Opportunity Map</title>
+  <desc id="desc">A 2x2 framework showing where AI belongs in an independent insurance agency, plotted by volume and human judgment required.</desc>
+
+  <rect width="800" height="620" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="400" y="45" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The AI Opportunity Map</text>
+  <text x="400" y="72" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Where AI belongs inside an independent agency</text>
+
+  <!-- axes -->
+  <line x1="110" y1="520" x2="720" y2="520" stroke="#525252" stroke-width="2"/>
+  <line x1="110" y1="120" x2="110" y2="520" stroke="#525252" stroke-width="2"/>
+
+  <!-- axis labels -->
+  <text x="415" y="570" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1">VOLUME &amp; HOURS EATEN  →</text>
+  <text x="55" y="320" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1" transform="rotate(-90 55 320)">HUMAN JUDGMENT NEEDED  ↑</text>
+
+  <!-- tick labels -->
+  <text x="265" y="545" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11">low</text>
+  <text x="565" y="545" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11">high</text>
+  <text x="95" y="445" text-anchor="end" fill="#737373" font-family="system-ui, sans-serif" font-size="11">low</text>
+  <text x="95" y="215" text-anchor="end" fill="#737373" font-family="system-ui, sans-serif" font-size="11">high</text>
+
+  <!-- dividing lines (dashed) -->
+  <line x1="415" y1="125" x2="415" y2="520" stroke="#262626" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="110" y1="320" x2="720" y2="320" stroke="#262626" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- TL: low volume, high judgment — STAY MANUAL -->
+  <rect x="120" y="135" width="285" height="175" rx="10" fill="#171717" stroke="#7f1d1d" stroke-width="2"/>
+  <text x="262" y="168" text-anchor="middle" fill="#f87171" font-family="system-ui, sans-serif" font-size="14" font-weight="900" letter-spacing="1">STAY MANUAL</text>
+  <line x1="195" y1="180" x2="330" y2="180" stroke="#404040" stroke-width="1"/>
+  <text x="262" y="205" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Sympathy notes after a claim</text>
+  <text x="262" y="226" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Rate-increase conversations</text>
+  <text x="262" y="247" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Coverage advice calls</text>
+  <text x="262" y="285" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11" font-style="italic">Client relationships live here</text>
+
+  <!-- TR: high volume, high judgment — AI DRAFTS, YOU EDIT -->
+  <rect x="425" y="135" width="285" height="175" rx="10" fill="#171717" stroke="#ca8a04" stroke-width="2"/>
+  <text x="567" y="168" text-anchor="middle" fill="#facc15" font-family="system-ui, sans-serif" font-size="14" font-weight="900" letter-spacing="1">AI DRAFTS, YOU EDIT</text>
+  <line x1="485" y1="180" x2="650" y2="180" stroke="#404040" stroke-width="1"/>
+  <text x="567" y="205" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Quote remarketing messages</text>
+  <text x="567" y="226" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Coverage Q&amp;A drafts</text>
+  <text x="567" y="247" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Cross-sell outreach</text>
+  <text x="567" y="285" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11" font-style="italic">Human in the loop, AI does prep</text>
+
+  <!-- BL: low volume, low judgment — SKIP FOR NOW -->
+  <rect x="120" y="335" width="285" height="175" rx="10" fill="#171717" stroke="#404040" stroke-width="2"/>
+  <text x="262" y="368" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="14" font-weight="900" letter-spacing="1">SKIP FOR NOW</text>
+  <line x1="200" y1="380" x2="325" y2="380" stroke="#404040" stroke-width="1"/>
+  <text x="262" y="405" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Quarterly reports</text>
+  <text x="262" y="426" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Annual carrier reviews</text>
+  <text x="262" y="447" text-anchor="middle" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">Rare document types</text>
+  <text x="262" y="485" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="11" font-style="italic">Not worth the setup effort yet</text>
+
+  <!-- BR: high volume, low judgment — AUTOMATE (the money zone) -->
+  <rect x="425" y="335" width="285" height="175" rx="10" fill="#0c223d" stroke="#3b82f6" stroke-width="3"/>
+  <text x="567" y="368" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="15" font-weight="900" letter-spacing="1">AUTOMATE  ✓</text>
+  <line x1="485" y1="380" x2="650" y2="380" stroke="#1e40af" stroke-width="1"/>
+  <text x="567" y="405" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12">Renewal reminder sequences</text>
+  <text x="567" y="426" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12">COI request responses</text>
+  <text x="567" y="447" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12">ACORD form data entry</text>
+  <text x="567" y="485" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-style="italic">Your first use cases go here</text>
+</svg>
