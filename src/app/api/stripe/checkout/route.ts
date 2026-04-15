@@ -24,10 +24,17 @@ export async function POST(req: NextRequest) {
       },
     };
 
+    // After paying for the audit, send customers straight to the 1-hour
+    // audit Calendly so they can schedule their session immediately.
+    const successUrl =
+      plan === "audit"
+        ? "https://calendly.com/joshrkay-ch88/1-hour-audit"
+        : `${origin}/?checkout=success&plan=${plan}`;
+
     const session = await getStripe().checkout.sessions.create({
       mode: cfg.mode,
       line_items: [lineItem],
-      success_url: `${origin}/?checkout=success&plan=${plan}`,
+      success_url: successUrl,
       cancel_url: `${origin}/?checkout=cancel&plan=${plan}`,
       allow_promotion_codes: true,
       billing_address_collection: "auto",
