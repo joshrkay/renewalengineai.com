@@ -22,7 +22,7 @@
   <text x="640" y="192" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">20%</text>
 
   <!-- connector lines from bars to labels -->
-  <line x1="250" y1="240" x2="250" y2="270" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="250" y1="240" x2="250" y2="270" stroke="#2563eb" stroke-width="2"/>
   <line x1="490" y1="240" x2="490" y2="270" stroke="#64748b" stroke-width="2"/>
   <line x1="640" y1="240" x2="640" y2="270" stroke="#64748b" stroke-width="2"/>
 
@@ -40,7 +40,7 @@
   <text x="640" y="318" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12">Divorce, death, move.</text>
 
   <!-- highlight callout for neglect -->
-  <rect x="150" y="380" width="500" height="90" rx="10" fill="#0c223d" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="150" y="380" width="500" height="90" rx="10" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
   <text x="400" y="413" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Half your lapse problem is a contact problem.</text>
   <text x="400" y="438" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="14" font-style="italic">Not a pricing problem. Not a life problem.</text>
   <text x="400" y="458" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="14" font-style="italic">That&apos;s the 50% AI-powered retention catches.</text>

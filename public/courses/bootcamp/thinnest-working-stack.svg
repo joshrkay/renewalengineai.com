@@ -4,7 +4,7 @@
 
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
     </marker>
   </defs>
 
@@ -15,7 +15,7 @@
   <text x="450" y="78" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Every workflow in this course runs on these three things</text>
 
   <!-- Box 1: Chat AI -->
-  <rect x="50" y="140" width="240" height="160" rx="14" fill="#171717" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="50" y="140" width="240" height="160" rx="14" fill="#171717" stroke="#2563eb" stroke-width="2"/>
   <text x="170" y="180" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">1. CHAT AI</text>
   <text x="170" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="20" font-weight="900">Claude</text>
   <text x="170" y="238" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14">or ChatGPT · or Gemini</text>
@@ -24,10 +24,10 @@
   <text x="170" y="291" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12">classification, extraction</text>
 
   <!-- arrow 1→2 -->
-  <line x1="295" y1="220" x2="325" y2="220" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="295" y1="220" x2="325" y2="220" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- Box 2: Workflow Tool -->
-  <rect x="330" y="140" width="240" height="160" rx="14" fill="#171717" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="330" y="140" width="240" height="160" rx="14" fill="#171717" stroke="#2563eb" stroke-width="2"/>
   <text x="450" y="180" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">2. WORKFLOW TOOL</text>
   <text x="450" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="20" font-weight="900">Zapier</text>
   <text x="450" y="238" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14">or Make · or n8n</text>
@@ -36,10 +36,10 @@
   <text x="450" y="291" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="12">and multi-step workflows</text>
 
   <!-- arrow 2→3 -->
-  <line x1="575" y1="220" x2="605" y2="220" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="575" y1="220" x2="605" y2="220" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- Box 3: Spreadsheet -->
-  <rect x="610" y="140" width="240" height="160" rx="14" fill="#171717" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="610" y="140" width="240" height="160" rx="14" fill="#171717" stroke="#2563eb" stroke-width="2"/>
   <text x="730" y="180" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">3. SPREADSHEET</text>
   <text x="730" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="20" font-weight="900">Google Sheets</text>
   <text x="730" y="238" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14">or Excel</text>
@@ -53,6 +53,6 @@
   <text x="730" y="340" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="13">already paid for</text>
 
   <!-- total callout -->
-  <rect x="220" y="370" width="460" height="50" rx="25" fill="#0c223d" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="220" y="370" width="460" height="50" rx="25" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
   <text x="450" y="402" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">=  $50 – 120 / month. Your entire foundation.</text>
 </svg>
