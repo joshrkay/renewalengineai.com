@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getStripe } from "@/lib/stripe";
+import { getStripe, PLAN_CONFIG, courseSlugForPlan, type PlanKey } from "@/lib/stripe";
 import { prisma } from "@/lib/db";
 import { randomBytes } from "crypto";
 import { sendWelcomeEmail } from "@/lib/email";
@@ -58,9 +58,19 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   if (!email) return;
 
   const tier = (session.metadata?.tier || "AUDIT") as "AUDIT" | "SPRINT" | "MANAGED";
+  const planKey = (session.metadata?.plan || "") as PlanKey;
+  const planCfg = PLAN_CONFIG[planKey] as
+    | (typeof PLAN_CONFIG)[PlanKey]
+    | undefined;
   const name = session.customer_details?.name || null;
 
+  // Which course (if any) this purchase should unlock, and where to send
+  // the buyer after they set their password.
+  const courseSlug = planCfg ? courseSlugForPlan(planKey) : undefined;
+  const postPasswordCallbackUrl = courseSlug ? `/courses/${courseSlug}` : undefined;
+
   let user = await prisma.user.findUnique({ where: { email } });
+  let organizationId: string | null = null;
 
   if (!user) {
     // Create org and user without storing a plaintext password
@@ -72,6 +82,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
         subscriptionStatus: "ACTIVE",
       },
     });
+    organizationId = org.id;
 
     user = await prisma.user.create({
       data: {
@@ -101,8 +112,10 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       },
     });
 
-    // Send welcome email with secure reset link (no password in email)
-    await sendWelcomeEmail(email, name, tier, resetToken);
+    // Send welcome email with secure reset link (no password in email).
+    // For course purchases we include a callbackUrl so the buyer lands
+    // back on the course they just paid for after setting their password.
+    await sendWelcomeEmail(email, name, tier, resetToken, postPasswordCallbackUrl);
 
     await logAudit({
       organizationId: org.id,
@@ -110,10 +123,11 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       action: "user.created",
       resource: "User",
       resourceId: user.id,
-      metadata: { tier, source: "stripe_checkout" },
+      metadata: { tier, plan: planKey, source: "stripe_checkout" },
     });
   } else {
     if (user.organizationId) {
+      organizationId = user.organizationId;
       await prisma.organization.update({
         where: { id: user.organizationId },
         data: {
@@ -123,6 +137,26 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
         },
       });
     }
+  }
+
+  // Grant the course entitlement last, after the org definitely exists.
+  // Course purchases are strictly per-course — service-tier buyers do
+  // not pick up course access from this code path.
+  if (courseSlug && organizationId) {
+    await prisma.courseEntitlement.upsert({
+      where: {
+        organizationId_courseSlug: {
+          organizationId,
+          courseSlug,
+        },
+      },
+      create: {
+        organizationId,
+        courseSlug,
+        source: "stripe_checkout",
+      },
+      update: {},
+    });
   }
 }
 

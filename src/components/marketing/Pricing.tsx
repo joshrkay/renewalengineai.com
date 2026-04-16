@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 import { useBooking } from "@/components/marketing/BookingContext";
@@ -62,14 +63,51 @@ const offers = [
 
 export function Pricing() {
   const { openBooking } = useBooking();
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleCtaClick = (plan: string) => {
-    // Audit CTA goes directly to the 1-hour audit Calendly. Sprint and
-    // Managed plans open the 30-min consult booking modal.
+  const handleCtaClick = async (plan: string) => {
+    // Audit CTA goes directly to the 1-hour audit Calendly — clients
+    // still book the consult first and pay via the audit Stripe product
+    // on their own flow.
     if (plan === "audit") {
       window.open(AUDIT_CALENDLY_URL, "_blank", "noopener,noreferrer");
       return;
     }
+
+    // Sprint and Managed send the buyer straight to a Stripe Checkout
+    // session created from the live Stripe product's default price.
+    if (plan === "sprint" || plan === "managed") {
+      if (loadingPlan) return;
+      setError(null);
+      setLoadingPlan(plan);
+      try {
+        const res = await fetch("/api/stripe/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ plan }),
+        });
+        const data = (await res.json().catch(() => ({}))) as {
+          url?: string;
+          error?: string;
+        };
+        if (!res.ok || !data.url) {
+          setError(
+            "We couldn't open checkout. Please try again or book a call below."
+          );
+          setLoadingPlan(null);
+          return;
+        }
+        window.location.href = data.url;
+      } catch {
+        setError(
+          "We couldn't open checkout. Please try again or book a call below."
+        );
+        setLoadingPlan(null);
+      }
+      return;
+    }
+
     openBooking();
   };
 
@@ -122,13 +160,14 @@ export function Pricing() {
 
                 <Button
                   onClick={() => handleCtaClick(offer.key)}
+                  disabled={loadingPlan === offer.key}
                   className={`w-full text-lg py-7 rounded-full font-black transition-all ${
                     offer.popular
                       ? `bg-gradient-to-r ${offer.gradient} !text-white hover:scale-105 shadow-xl`
                       : "bg-black !text-white hover:bg-neutral-800"
                   }`}
                 >
-                  {offer.cta}
+                  {loadingPlan === offer.key ? "Opening checkout…" : offer.cta}
                 </Button>
               </div>
 
@@ -158,6 +197,15 @@ export function Pricing() {
             </div>
           ))}
         </div>
+
+        {error && (
+          <p
+            role="alert"
+            className="text-center text-red-600 font-semibold mt-8"
+          >
+            {error}
+          </p>
+        )}
 
         {/* Bottom CTA */}
         <div className="text-center mt-20">

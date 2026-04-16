@@ -1,21 +1,19 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/db";
-import type { SubscriptionStatus, SubscriptionTier } from "@prisma/client";
 
 export type CourseAccess =
-  | { allowed: true; reason: "active_subscription"; tier: SubscriptionTier }
+  | { allowed: true; reason: "entitled" }
   | { allowed: false; reason: "unauthenticated" }
   | { allowed: false; reason: "no_organization" }
-  | { allowed: false; reason: "inactive_subscription"; status: SubscriptionStatus };
+  | { allowed: false; reason: "not_entitled" };
 
-// A user has access to paid course content if they are signed in and their
-// organization has a subscription in a state that should grant access.
-// We intentionally treat ACTIVE and TRIALING as entitled. CANCELED and
-// PAST_DUE are not. Any paid tier (AUDIT / SPRINT / MANAGED) currently
-// includes the course library — if that changes, narrow the check here.
-const ENTITLED_STATUSES: SubscriptionStatus[] = ["ACTIVE", "TRIALING"];
-
-export async function getCourseAccess(): Promise<CourseAccess> {
+// Access to paid course content is strictly per-course. A user unlocks a
+// course by purchasing it through Stripe — the webhook records a row in
+// `CourseEntitlement` that this helper reads. Service-tier subscriptions
+// (audit / sprint / managed) do NOT imply course access.
+export async function getCourseAccess(
+  courseSlug: string
+): Promise<CourseAccess> {
   const session = await auth();
   if (!session?.user?.id) {
     return { allowed: false, reason: "unauthenticated" };
@@ -27,26 +25,19 @@ export async function getCourseAccess(): Promise<CourseAccess> {
     return { allowed: false, reason: "no_organization" };
   }
 
-  const org = await prisma.organization.findUnique({
-    where: { id: organizationId },
-    select: { subscriptionTier: true, subscriptionStatus: true },
+  const entitlement = await prisma.courseEntitlement.findUnique({
+    where: {
+      organizationId_courseSlug: {
+        organizationId,
+        courseSlug,
+      },
+    },
+    select: { id: true },
   });
 
-  if (!org) {
-    return { allowed: false, reason: "no_organization" };
+  if (!entitlement) {
+    return { allowed: false, reason: "not_entitled" };
   }
 
-  if (!ENTITLED_STATUSES.includes(org.subscriptionStatus)) {
-    return {
-      allowed: false,
-      reason: "inactive_subscription",
-      status: org.subscriptionStatus,
-    };
-  }
-
-  return {
-    allowed: true,
-    reason: "active_subscription",
-    tier: org.subscriptionTier,
-  };
+  return { allowed: true, reason: "entitled" };
 }

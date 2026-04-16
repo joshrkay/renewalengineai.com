@@ -18,6 +18,14 @@ function SetPasswordForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  // Preserved through the welcome-email link so course buyers land back
+  // on the course they purchased after login. Only same-origin relative
+  // paths are honored (open-redirect guard).
+  const rawCallbackUrl = searchParams.get("callbackUrl");
+  const callbackUrl =
+    rawCallbackUrl && rawCallbackUrl.startsWith("/") && !rawCallbackUrl.startsWith("//")
+      ? rawCallbackUrl
+      : null;
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -53,7 +61,10 @@ function SetPasswordForm() {
       }
 
       setSuccess(true);
-      setTimeout(() => router.push("/login"), 2000);
+      const loginHref = callbackUrl
+        ? `/login?callbackUrl=${encodeURIComponent(callbackUrl)}`
+        : "/login";
+      setTimeout(() => router.push(loginHref), 2000);
     } catch {
       setError("An error occurred. Please try again.");
     } finally {

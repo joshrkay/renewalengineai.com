@@ -69,6 +69,24 @@ model PasswordResetToken {
   createdAt DateTime @default(now())
 }
 
+// Grants a specific organization access to a specific course. Written
+// by the Stripe webhook on successful course purchases and read by
+// `getCourseAccess()` when gating lesson content. Service-tier purchases
+// (audit / sprint / managed) do NOT create rows here — course access is
+// strictly pay-per-course.
+model CourseEntitlement {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  courseSlug     String
+  source         String       @default("stripe_checkout")
+  stripePriceId  String?
+  grantedAt      DateTime     @default(now())
+
+  @@unique([organizationId, courseSlug])
+  @@index([courseSlug])
+}
+
 // Captures email sign-ups from the public Mastermind / community waitlist
 // form. These are leads to contact directly — they haven't paid yet and are
 // not linked to an Organization until/unless they convert via Stripe.
@@ -124,6 +142,7 @@ model Organization {
   subscriptionStatus SubscriptionStatus @default(ACTIVE)
   users              User[]
   subscriptions      Subscription[]
+  courseEntitlements CourseEntitlement[]
   oauthConnections   OAuthConnection[]
   automationInstances AutomationInstance[]
   createdAt          DateTime           @default(now())
