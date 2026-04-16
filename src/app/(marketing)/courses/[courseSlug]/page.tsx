@@ -8,13 +8,7 @@ import { LessonBody } from "@/components/courses/LessonBody";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 import { EnrollButton } from "@/components/courses/EnrollButton";
 import { getCourse, listCourses, formatPrice } from "@/lib/courses";
-
-// Course slugs that are live on Stripe get a direct Enroll Now button.
-// Anything not in this map keeps the "talk to us about enrolling" flow.
-const COURSE_PLAN_BY_SLUG: Record<string, string> = {
-  "ai-for-agent-retention": "retention-course",
-  "ai-agency-ops-bootcamp": "bootcamp-course",
-};
+import { planKeyForCourseSlug } from "@/lib/stripe";
 
 export function generateStaticParams() {
   return listCourses().map((c) => ({ courseSlug: c.slug }));
@@ -51,7 +45,7 @@ export default async function CourseLandingPage({
     0
   );
 
-  const coursePlan = COURSE_PLAN_BY_SLUG[course.slug];
+  const coursePlan = planKeyForCourseSlug(course.slug);
 
   return (
     <BookingProvider>
