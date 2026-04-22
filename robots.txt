@@ -1,0 +1,41 @@
+# https://renewalengineai.com/robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://renewalengineai.com/sitemap.xml
+Sitemap: https://renewalengineai.com/llms.txt
+
+# AI Crawlers (Allow all)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: MistralAI
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
