@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 540" role="img" aria-labelledby="title desc">
+  <title id="title">The AI Lead Intake Pipeline</title>
+  <desc id="desc">A five-stage pipeline showing how a new lead flows from web form through AI classification, routing, SLA response, and AMS logging.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="950" height="540" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="475" y="48" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The AI Lead Intake Pipeline</text>
+  <text x="475" y="76" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">From form submit to producer desk in under 5 minutes</text>
+
+  <!-- stages -->
+  <!-- Stage 1: Web form -->
+  <rect x="40" y="160" width="155" height="120" rx="12" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="117" y="188" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">STAGE 1</text>
+  <text x="117" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Capture</text>
+  <line x1="60" y1="225" x2="174" y2="225" stroke="#262626" stroke-width="1"/>
+  <text x="117" y="245" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Web form</text>
+  <text x="117" y="259" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Chat widget</text>
+  <text x="117" y="273" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Inbound email</text>
+
+  <line x1="195" y1="220" x2="230" y2="220" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Classify -->
+  <rect x="235" y="160" width="155" height="120" rx="12" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="312" y="188" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">STAGE 2</text>
+  <text x="312" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Classify</text>
+  <line x1="255" y1="225" x2="369" y2="225" stroke="#262626" stroke-width="1"/>
+  <text x="312" y="245" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">AI reads intent</text>
+  <text x="312" y="259" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Auto / Home / CL</text>
+  <text x="312" y="273" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Hot / warm / cold</text>
+
+  <line x1="390" y1="220" x2="425" y2="220" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Enrich -->
+  <rect x="430" y="160" width="155" height="120" rx="12" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="507" y="188" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">STAGE 3</text>
+  <text x="507" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Enrich</text>
+  <line x1="450" y1="225" x2="564" y2="225" stroke="#262626" stroke-width="1"/>
+  <text x="507" y="245" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Lookup address</text>
+  <text x="507" y="259" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Household match</text>
+  <text x="507" y="273" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Score fit</text>
+
+  <line x1="585" y1="220" x2="620" y2="220" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: Route -->
+  <rect x="625" y="160" width="155" height="120" rx="12" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="702" y="188" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">STAGE 4</text>
+  <text x="702" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Route</text>
+  <line x1="645" y1="225" x2="759" y2="225" stroke="#262626" stroke-width="1"/>
+  <text x="702" y="245" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">PL → CSR queue</text>
+  <text x="702" y="259" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">CL → producer</text>
+  <text x="702" y="273" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="10">Slack ping</text>
+
+  <line x1="780" y1="220" x2="815" y2="220" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 5: Respond -->
+  <rect x="820" y="160" width="120" height="120" rx="12" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="880" y="188" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="10" font-weight="900" letter-spacing="1">STAGE 5</text>
+  <text x="880" y="215" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Respond</text>
+  <line x1="835" y1="225" x2="925" y2="225" stroke="#1e40af" stroke-width="1"/>
+  <text x="880" y="245" text-anchor="middle" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="10">Auto-reply</text>
+  <text x="880" y="259" text-anchor="middle" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="10">SLA clock starts</text>
+  <text x="880" y="273" text-anchor="middle" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="10">Log in AMS</text>
+
+  <!-- time annotations under each stage -->
+  <text x="117" y="310" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="10">0s</text>
+  <text x="312" y="310" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="10">+3s</text>
+  <text x="507" y="310" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="10">+8s</text>
+  <text x="702" y="310" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="10">+12s</text>
+  <text x="880" y="310" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="10">+15s</text>
+
+  <!-- divider -->
+  <line x1="80" y1="345" x2="870" y2="345" stroke="#262626" stroke-width="1"/>
+
+  <!-- stats row -->
+  <text x="170" y="395" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="26" font-weight="900">15 sec</text>
+  <text x="170" y="418" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">auto-reply latency</text>
+
+  <text x="475" y="395" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="26" font-weight="900">3 min</text>
+  <text x="475" y="418" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">producer SLA target</text>
+
+  <text x="780" y="395" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="26" font-weight="900">100%</text>
+  <text x="780" y="418" text-anchor="middle" fill="#a3a3a3" font-family="system-ui, sans-serif" font-size="11">logged, nothing dropped</text>
+
+  <!-- bottom -->
+  <rect x="130" y="450" width="690" height="60" rx="30" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="475" y="478" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Every lead gets a response in 15 seconds. Every producer gets context before the callback.</text>
+  <text x="475" y="498" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="12" font-style="italic">The fastest agency in the zip code wins the quote.</text>
+</svg>

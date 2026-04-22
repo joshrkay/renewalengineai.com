@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 500" role="img" aria-labelledby="title desc">
+  <title id="title">The Three-Week Use-Case Test</title>
+  <desc id="desc">Three weeks of activity showing how to pilot a single AI use case: week one setup, week two live, week three measurement.</desc>
+
+  <rect width="950" height="500" fill="#0a0a0a"/>
+
+  <!-- header -->
+  <text x="475" y="48" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="900">The Three-Week Use-Case Test</text>
+  <text x="475" y="76" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="14">Pick one use case. Pilot it in 21 days. Decide to keep, kill, or scale.</text>
+
+  <!-- Week 1 -->
+  <rect x="60" y="120" width="270" height="280" rx="14" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="195" y="155" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="900" letter-spacing="2">WEEK 1</text>
+  <text x="195" y="182" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="900">SETUP</text>
+  <line x1="100" y1="195" x2="290" y2="195" stroke="#262626" stroke-width="1"/>
+
+  <text x="80" y="225" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Pick ONE use case</text>
+  <text x="80" y="247" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Write the prompt</text>
+  <text x="80" y="269" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Wire the Zap trigger</text>
+  <text x="80" y="291" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Set baseline metric</text>
+  <text x="80" y="313" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Test on 5 records</text>
+  <text x="80" y="335" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Fix obvious errors</text>
+
+  <rect x="80" y="355" width="230" height="30" rx="6" fill="#0a0a0a" stroke="#1e40af" stroke-width="1"/>
+  <text x="195" y="374" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-style="italic">No clients touched yet</text>
+
+  <!-- arrow 1 -->
+  <polygon points="335,260 370,245 370,275" fill="#2563eb"/>
+
+  <!-- Week 2 -->
+  <rect x="380" y="120" width="270" height="280" rx="14" fill="#171717" stroke="#2563eb" stroke-width="2"/>
+  <text x="515" y="155" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="900" letter-spacing="2">WEEK 2</text>
+  <text x="515" y="182" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="900">LIVE PILOT</text>
+  <line x1="420" y1="195" x2="610" y2="195" stroke="#262626" stroke-width="1"/>
+
+  <text x="400" y="225" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Turn on real triggers</text>
+  <text x="400" y="247" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• AI drafts → your inbox</text>
+  <text x="400" y="269" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• You approve / reject</text>
+  <text x="400" y="291" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Log approval rate</text>
+  <text x="400" y="313" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Note every manual edit</text>
+  <text x="400" y="335" fill="#d4d4d4" font-family="system-ui, sans-serif" font-size="12">• Tune the prompt daily</text>
+
+  <rect x="400" y="355" width="230" height="30" rx="6" fill="#0a0a0a" stroke="#1e40af" stroke-width="1"/>
+  <text x="515" y="374" text-anchor="middle" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-style="italic">Clients get real messages</text>
+
+  <!-- arrow 2 -->
+  <polygon points="655,260 690,245 690,275" fill="#2563eb"/>
+
+  <!-- Week 3 -->
+  <rect x="700" y="120" width="270" height="280" rx="14" fill="#0c223d" stroke="#2563eb" stroke-width="2"/>
+  <text x="835" y="155" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="900" letter-spacing="2">WEEK 3</text>
+  <text x="835" y="182" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="900">DECIDE</text>
+  <line x1="740" y1="195" x2="930" y2="195" stroke="#1e40af" stroke-width="1"/>
+
+  <text x="720" y="225" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">• Measure vs baseline</text>
+  <text x="720" y="247" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">• Count hours saved</text>
+  <text x="720" y="269" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">• Count approval rate</text>
+  <text x="720" y="291" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">• Read client replies</text>
+  <text x="720" y="313" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">• Go / kill / scale call</text>
+  <text x="720" y="335" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="12">• Document the SOP</text>
+
+  <rect x="720" y="355" width="230" height="30" rx="6" fill="#0a0a0a" stroke="#2563eb" stroke-width="1"/>
+  <text x="835" y="374" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Ship it, or start over</text>
+
+  <!-- footer -->
+  <text x="475" y="445" text-anchor="middle" fill="#737373" font-family="system-ui, sans-serif" font-size="13" font-style="italic">21 days is long enough to prove it works and short enough that the wrong bet doesn't hurt.</text>
+  <text x="475" y="472" text-anchor="middle" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Rule: never run two pilots at once. One at a time, always.</text>
+</svg>

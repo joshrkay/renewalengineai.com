@@ -1,0 +1,117 @@
+{
+  "name": "Template: Coverage Gap Detection",
+  "nodes": [
+    {
+      "id": "trigger",
+      "name": "Monthly Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [0, 0],
+      "parameters": { "rule": { "interval": [{ "field": "cronExpression", "expression": "0 6 1 * *" }] } },
+      "typeVersion": 1
+    },
+    {
+      "id": "config",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "position": [200, 0],
+      "parameters": {
+        "values": {
+          "analysisDepth": "full",
+          "inflationAdjustment": true,
+          "_orgId": ""
+        }
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "fetch_book",
+      "name": "Fetch Full Book of Business",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [400, 0],
+      "parameters": {
+        "method": "POST",
+        "url": "={{$env.NEXTAUTH_URL}}/api/internal/org-data",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [{ "name": "Authorization", "value": "Bearer {{$env.INTERNAL_API_KEY}}" }] },
+        "sendBody": true,
+        "bodyParameters": {
+          "jsonBody": "{ \"orgId\": \"{{$node.Config.json.values._orgId}}\", \"dataType\": \"policies\", \"filters\": { \"status\": \"active\" } }"
+        }
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "analyze_gaps",
+      "name": "Analyze Coverage Gaps",
+      "type": "n8n-nodes-base.function",
+      "position": [600, 0],
+      "parameters": {
+        "functionCode": "const policies = $input.first().json.data || [];\nconst inflate = $node.Config.json.values.inflationAdjustment;\nconst inflationFactor = inflate ? 1.08 : 1.0;\nconst gaps = [];\n\nfor (const policy of policies) {\n  const premium = policy.premium || 0;\n  const limits = policy.limits || '';\n  \n  // Parse limits (simplified — real implementation would parse the full limits string)\n  const limitValue = parseInt(limits.replace(/[^0-9]/g, '')) || premium * 100;\n  const estimatedReplacement = Math.round(limitValue * inflationFactor * 1.15);\n  \n  if (estimatedReplacement > limitValue * 1.1) {\n    const gapAmount = estimatedReplacement - limitValue;\n    gaps.push({ json: {\n      ...policy,\n      currentLimits: '$' + limitValue.toLocaleString(),\n      replacementCost: '$' + estimatedReplacement.toLocaleString(),\n      gapAmount: '$' + gapAmount.toLocaleString(),\n      gapPercent: Math.round((gapAmount / limitValue) * 100),\n      recommendation: `Increase limits from $${limitValue.toLocaleString()} to $${estimatedReplacement.toLocaleString()} to match current replacement value`\n    }});\n  }\n}\n\nreturn gaps.length > 0 ? gaps : [{ json: { _empty: true, summary: 'No coverage gaps detected' } }];"
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "skip_empty",
+      "name": "Skip If No Gaps",
+      "type": "n8n-nodes-base.if",
+      "position": [800, 0],
+      "parameters": { "conditions": { "boolean": [{ "value1": "={{$json._empty}}", "value2": true, "operation": "notEqual" }] } },
+      "typeVersion": 1
+    },
+    {
+      "id": "build_letter",
+      "name": "Build Coverage Gap Letter",
+      "type": "n8n-nodes-base.function",
+      "position": [1000, 0],
+      "parameters": {
+        "functionCode": "const p = $json;\nreturn [{ json: { ...p, emailSubject: `Important: Your ${p.policyType} coverage may need an update`, emailBody: `<p>Dear Client,</p><p>As part of our annual coverage review, we identified a potential gap in your <strong>${p.policyType}</strong> policy.</p><p><strong>Current coverage limits:</strong> ${p.currentLimits}<br/><strong>Estimated replacement cost:</strong> ${p.replacementCost}<br/><strong>Coverage gap:</strong> ${p.gapAmount} (${p.gapPercent}%)</p><p><strong>Recommendation:</strong> ${p.recommendation}</p><p>We recommend scheduling a coverage review to discuss adjusting your limits. This is part of our standard client care — there's no cost or obligation.</p><p>This notice is provided as part of our professional duty of care. Please contact us to discuss.</p>` } }];"
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "send_email",
+      "name": "Send Gap Report Email",
+      "type": "n8n-nodes-base.gmail",
+      "position": [1200, 0],
+      "parameters": { "sendTo": "={{$json.email || ''}}", "subject": "={{$json.emailSubject}}", "message": "={{$json.emailBody}}" },
+      "credentials": { "gmailOAuth2": { "id": "", "name": "Gmail" } },
+      "typeVersion": 2
+    },
+    {
+      "id": "aggregate",
+      "name": "Aggregate Results",
+      "type": "n8n-nodes-base.function",
+      "position": [1400, 0],
+      "parameters": {
+        "functionCode": "const items = $input.all();\nconst gapCount = items.filter(i => !i.json._empty).length;\nreturn [{ json: { summary: `Coverage gap analysis: ${gapCount} underinsured policies identified out of ${items.length} analyzed`, gapsFound: gapCount, policiesAnalyzed: items.length, status: 'success' } }];"
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "callback",
+      "name": "Callback",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1600, 0],
+      "parameters": {
+        "method": "POST",
+        "url": "",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [{ "name": "x-webhook-signature", "value": "" }] },
+        "sendBody": true,
+        "bodyParameters": { "jsonBody": "={{JSON.stringify({ status: 'success', summary: $json.summary, data: { gapsFound: $json.gapsFound, policiesAnalyzed: $json.policiesAnalyzed } })}}" }
+      },
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Monthly Schedule": { "main": [[{ "node": "Config", "type": "main", "index": 0 }]] },
+    "Config": { "main": [[{ "node": "Fetch Full Book of Business", "type": "main", "index": 0 }]] },
+    "Fetch Full Book of Business": { "main": [[{ "node": "Analyze Coverage Gaps", "type": "main", "index": 0 }]] },
+    "Analyze Coverage Gaps": { "main": [[{ "node": "Skip If No Gaps", "type": "main", "index": 0 }]] },
+    "Skip If No Gaps": { "main": [[{ "node": "Build Coverage Gap Letter", "type": "main", "index": 0 }], [{ "node": "Aggregate Results", "type": "main", "index": 0 }]] },
+    "Build Coverage Gap Letter": { "main": [[{ "node": "Send Gap Report Email", "type": "main", "index": 0 }]] },
+    "Send Gap Report Email": { "main": [[{ "node": "Aggregate Results", "type": "main", "index": 0 }]] },
+    "Aggregate Results": { "main": [[{ "node": "Callback", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true, "callerPolicy": "workflowsFromSameOwner" }
+}
