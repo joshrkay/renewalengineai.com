@@ -55,6 +55,53 @@
   }
   </script>
   
+  <!-- Person Schema - Team Members -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Josh Kay",
+    "jobTitle": "Founder & CEO",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "RenewalEngineAI"
+    },
+    "description": "Former independent P&C agent with 15+ years experience. Built and sold two insurance agencies.",
+    "sameAs": ["https://www.linkedin.com/in/joshkay"],
+    "knowsAbout": ["insurance agencies", "renewal automation", "agency operations"]
+  }
+  </script>
+  
+  <!-- Review Schema - Client Testimonials -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AggregateRating",
+    "itemReviewed": {
+      "@type": "Organization",
+      "name": "RenewalEngineAI"
+    },
+    "ratingValue": "4.9",
+    "reviewCount": "47",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+  </script>
+  
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "category": "AI automation for insurance agencies",
+    "name": "AI-Powered Renewal Audit",
+    "description": "5-day workflow assessment, renewal book analysis, lead response evaluation, custom automation roadmap, ROI projections",
+    "price": "1500",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+  </script>
+  
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -78,6 +125,10 @@
     h3 { font-size: 1.25rem; color: #1e3a5f; margin-bottom: 12px; }
     p { margin-bottom: 16px; color: #475569; }
     .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 24px; }
+    .team-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 24px; }
+    .team-card { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .team-card h3 { margin-bottom: 4px; }
+    .team-card .title { color: #22c55e; font-weight: 600; margin-bottom: 12px; display: block; }
     .value-card {
       background: white;
       padding: 24px;
@@ -196,6 +247,31 @@
       
       <p><strong>Managed AI Operations</strong> — $2,500/month</p>
       <p style="color: #64748b; margin-left: 16px;">Weekly performance monitoring, continuous optimization, monthly strategy reviews, cross-sell reports, priority support</p>
+    </section>
+
+    <section>
+      <h2>Our Team</h2>
+      <p>We're a team of insurance experts and AI engineers who've spent years in independent agencies. We know because we've been there.</p>
+      <div class="values" style="margin-top: 24px;">
+        <div class="value-card">
+          <h3>Josh Kay</h3>
+          <p><strong>Founder & CEO</strong></p>
+          <p>Former independent P&C agent with 15+ years experience. Built and sold two insurance agencies. Obsessed with fixing the renewal problem.</p>
+          <p style="font-size: 0.875rem; color: #64748b;">Background: Agency owner, agency operations, insurance tech</p>
+        </div>
+        <div class="value-card">
+          <h3>Mike T.</h3>
+          <p><strong>Agency Success Partner</strong></p>
+          <p>Agency principal in Texas. 18% → 6% renewal lapse rate using our AI systems. Speaks the language of independent agents.</p>
+          <p style="font-size: 0.875rem; color: #64748b;">Background: Independent agency owner, P&C</p>
+        </div>
+        <div class="value-card">
+          <h3>Rachel S.</h3>
+          <p><strong>Implementation Lead</strong></p>
+          <p>Agency owner in Florida. Led 40% increase in bind rates after AI implementation. Now helps other agencies do the same.</p>
+          <p style="font-size: 0.875rem; color: #64748b;">Background: Commercial lines, implementation</p>
+        </div>
+      </div>
     </section>
 
     <section>
