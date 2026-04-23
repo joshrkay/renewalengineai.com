@@ -23,8 +23,8 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="/#solutions" className="text-neutral-300 hover:text-white transition-colors font-semibold">Solutions</a>
+          <nav className="hidden md:flex items-center space-x-7">
+            <Link href="/for-independent-agencies" className="text-neutral-300 hover:text-white transition-colors font-semibold">Who It&rsquo;s For</Link>
             <Link href="/how-it-works" className="text-neutral-300 hover:text-white transition-colors font-semibold">How It Works</Link>
             <Link href="/resources" className="text-neutral-300 hover:text-white transition-colors font-semibold">Resources</Link>
             <Link href="/courses" className="text-neutral-300 hover:text-white transition-colors font-semibold">Courses</Link>
@@ -55,7 +55,13 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-neutral-800 bg-black/95 backdrop-blur-xl">
           <div className="px-6 py-6 space-y-4">
-            <a href="/#solutions" className="block text-white hover:text-blue-600 py-3 font-semibold text-lg">Solutions</a>
+            <Link
+              href="/for-independent-agencies"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-white hover:text-blue-600 py-3 font-semibold text-lg"
+            >
+              Who It&rsquo;s For
+            </Link>
             <Link
               href="/how-it-works"
               onClick={() => setMobileMenuOpen(false)}

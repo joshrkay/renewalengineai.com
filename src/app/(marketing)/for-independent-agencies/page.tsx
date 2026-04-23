@@ -6,18 +6,18 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 
 export const metadata: Metadata = {
-  title: "AI Automation for Independent Insurance Agencies",
+  title: "AI Automation for Independent P&C Agencies (Epic, HawkSoft, EZLynx)",
   description:
-    "Built specifically for independent P&C agencies running on Applied Epic, HawkSoft, or EZLynx. Done-for-you AI that lifts retention 15-20% and rebuilds your lead-response funnel.",
+    "For independent P&C agencies on Applied Epic, HawkSoft, or EZLynx. AI renewal automation and lead response built around your AMS. 15-20% retention lift, sub-60-second lead response.",
   alternates: {
     canonical: "https://renewalengineai.com/for-independent-agencies",
   },
   openGraph: {
     type: "website",
     url: "https://renewalengineai.com/for-independent-agencies",
-    title: "AI Automation for Independent Insurance Agencies | RenewalEngineAI",
+    title: "AI Automation for Independent P&C Agencies | RenewalEngineAI",
     description:
-      "Built specifically for independent P&C agencies running on Applied Epic, HawkSoft, or EZLynx.",
+      "For independent P&C agencies on Applied Epic, HawkSoft, or EZLynx.",
     siteName: "RenewalEngineAI",
   },
 };
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const reasons = [
   {
     title: "You have 200+ policies and you know you're leaking some of them",
-    body: "Most independents lose 8-12% of the book every year. The math only works when you keep the profitable complex renewals — which is exactly the segment reactive workflows lose first.",
+    body: "Most independents lose 8-12% of the book every year. The math only works when you keep the profitable complex renewals - which is exactly the segment reactive workflows lose first.",
   },
   {
     title: "Your producers are at capacity but you're not ready to hire",
@@ -37,7 +37,7 @@ const reasons = [
   },
   {
     title: "Your competitors are getting faster on inbound",
-    body: "When agencies start responding in under 60 seconds, the rest of the market loses winnable leads by default. This is the rising-tide problem — even if you keep doing what you're doing, the bar moves.",
+    body: "When agencies start responding in under 60 seconds, the rest of the market loses winnable leads by default. This is the rising-tide problem - even if you keep doing what you're doing, the bar moves.",
   },
 ];
 
@@ -48,7 +48,7 @@ const notForYou = [
   },
   {
     title: "Your AMS data is broken",
-    body: "If client emails are blank on 40%+ of records, fix data hygiene first. We'll tell you that in the audit — don't pay us $6,000 to write on top of broken data.",
+    body: "If client emails are blank on 40%+ of records, fix data hygiene first. We'll tell you that in the audit - don't pay us $6,000 to write on top of broken data.",
   },
   {
     title: "You want a software license you run yourself",
@@ -62,15 +62,13 @@ export default function ForIndependentAgenciesPage() {
     "@graph": [
       {
         "@type": "Service",
+        "@id": "https://renewalengineai.com/for-independent-agencies#Service",
+        name: "AI automation for independent insurance agencies",
         serviceType: "AI automation for independent insurance agencies",
-        provider: {
-          "@type": "Organization",
-          name: "RenewalEngineAI",
-          url: "https://renewalengineai.com",
-        },
-        areaServed: "United States",
+        provider: { "@id": "https://renewalengineai.com#Organization" },
+        areaServed: { "@type": "Country", name: "United States" },
         audience: {
-          "@type": "Audience",
+          "@type": "BusinessAudience",
           audienceType: "Independent insurance agencies",
         },
         description:
@@ -118,14 +116,15 @@ export default function ForIndependentAgenciesPage() {
                 For independent insurance agencies
               </p>
               <h1 className="text-5xl md:text-6xl font-black mb-6">
-                AI that fits your agency, not the other way around
+                AI Automation for Independent Insurance Agencies
               </h1>
               <p className="text-xl text-neutral-300 leading-relaxed">
-                We build AI automation specifically for independent P&amp;C
-                agencies running on Applied Epic, HawkSoft, or EZLynx. No
-                captive agency playbooks. No enterprise-only features
-                you&rsquo;ll never use. Done-for-you retention and lead-response
-                systems that lift retention 15-20% without adding headcount.
+                AI that fits your agency, not the other way around. We build
+                AI automation specifically for independent P&amp;C agencies
+                running on Applied Epic, HawkSoft, or EZLynx. No captive
+                agency playbooks. No enterprise-only features you&rsquo;ll
+                never use. Done-for-you retention and lead-response systems
+                that lift retention 15-20% without adding headcount.
               </p>
             </div>
 
@@ -172,14 +171,14 @@ export default function ForIndependentAgenciesPage() {
               </h2>
               <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-10 space-y-4 text-neutral-300 leading-relaxed">
                 <p>
-                  <strong className="text-white">Week 0 — Audit.</strong>{" "}
+                  <strong className="text-white">Week 0 - Audit.</strong>{" "}
                   Five-day deep-dive on your agency. We pull the renewal list,
                   lead-source mix, AMS data quality, and current touch cadence.
                   You get a written roadmap with ROI projections.
                 </p>
                 <p>
                   <strong className="text-white">
-                    Weeks 1-2 — Build & Launch (phase 1).
+                    Weeks 1-2 - Build & Launch (phase 1).
                   </strong>{" "}
                   We stand up AMS integration, the AI renewal engine, and the
                   instant lead-response stack. By end of week 2, both systems
@@ -187,14 +186,14 @@ export default function ForIndependentAgenciesPage() {
                 </p>
                 <p>
                   <strong className="text-white">
-                    Week 3 — Build & Launch (phase 2).
+                    Week 3 - Build & Launch (phase 2).
                   </strong>{" "}
                   Quote follow-up automation, cross-sell classifier, and the
                   operations dashboard. Team training. Go-live.
                 </p>
                 <p>
                   <strong className="text-white">
-                    Week 4 onward — Managed Ops.
+                    Week 4 onward - Managed Ops.
                   </strong>{" "}
                   We monitor every week, tune classifiers, and surface what the
                   data is telling you about your book. Monthly strategy call
@@ -229,7 +228,7 @@ export default function ForIndependentAgenciesPage() {
                   >
                     How it works
                   </Link>{" "}
-                  — the three phases in detail.
+                  - the three phases in detail.
                 </li>
                 <li>
                   <Link
@@ -238,7 +237,7 @@ export default function ForIndependentAgenciesPage() {
                   >
                     AMS + AI Integration Guide
                   </Link>{" "}
-                  — Applied Epic, HawkSoft, EZLynx specifics.
+                  - Applied Epic, HawkSoft, EZLynx specifics.
                 </li>
                 <li>
                   <Link
@@ -247,7 +246,7 @@ export default function ForIndependentAgenciesPage() {
                   >
                     The Insurance Renewal Automation Playbook
                   </Link>{" "}
-                  — the retention engine we build.
+                  - the retention engine we build.
                 </li>
               </ul>
             </section>

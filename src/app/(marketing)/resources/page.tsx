@@ -6,16 +6,16 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listResources } from "@/lib/resources";
 
 export const metadata: Metadata = {
-  title: "Resources for Insurance Agency Leaders",
+  title: "Insurance AI Automation Guides & Playbooks | Renewals, Leads, AMS",
   description:
-    "Practical guides on running AI automation inside independent insurance agencies — renewal cadences, lead response, AMS integration, and more.",
+    "Practical guides on AI renewal automation, sub-60-second lead response, and AMS integration (Applied Epic, HawkSoft, EZLynx) for independent agencies.",
   alternates: { canonical: "https://renewalengineai.com/resources" },
   openGraph: {
     type: "website",
     url: "https://renewalengineai.com/resources",
-    title: "Resources for Insurance Agency Leaders | RenewalEngineAI",
+    title: "Insurance AI Automation Guides & Playbooks | RenewalEngineAI",
     description:
-      "Practical guides on running AI automation inside independent insurance agencies.",
+      "Practical guides on AI renewal automation, sub-60-second lead response, and AMS integration for independent insurance agencies.",
     siteName: "RenewalEngineAI",
   },
 };
@@ -80,7 +80,7 @@ export default function ResourcesIndexPage() {
                 How to run AI in an independent insurance agency
               </h1>
               <p className="text-xl text-neutral-300">
-                Guides from the engagements we run — renewal cadences, instant
+                Guides from the engagements we run - renewal cadences, instant
                 lead response, AMS integration. Written for agency owners and
                 operations leads who need to know how this actually works before
                 they commit.

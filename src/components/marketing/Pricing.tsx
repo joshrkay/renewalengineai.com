@@ -17,11 +17,12 @@ const offers = [
       "Renewal book & pipeline analysis",
       "Lead response time evaluation",
       "Custom AI automation roadmap",
-      "ROI projections & executive report"
+      "ROI projections & executive report",
+      "Fully credited toward Build & Launch if you continue",
     ],
-    cta: "Start Audit",
+    cta: "Find My Revenue Leaks",
     popular: false,
-    gradient: "from-blue-600 to-cyan-600"
+    gradient: "from-emerald-500 to-blue-500",
   },
   {
     key: "sprint",
@@ -34,12 +35,12 @@ const offers = [
       "Instant lead response automation",
       "Quote follow-up sequences",
       "Agency operations dashboard",
-      "AMS integration setup",
-      "Full team training"
+      "AMS integration (Applied Epic / HawkSoft / EZLynx)",
+      "Full team training",
     ],
-    cta: "Get Started",
+    cta: "Launch My AI Engine",
     popular: true,
-    gradient: "from-purple-600 to-pink-600"
+    gradient: "from-emerald-500 to-emerald-600",
   },
   {
     key: "managed",
@@ -53,12 +54,12 @@ const offers = [
       "Continuous campaign optimization",
       "Monthly strategy reviews",
       "Cross-sell intelligence reports",
-      "Priority support & quarterly planning"
+      "Month-to-month. Cancel with 30 days' notice.",
     ],
-    cta: "Schedule Call",
+    cta: "Hand Me the Keys",
     popular: false,
-    gradient: "from-orange-600 to-pink-600"
-  }
+    gradient: "from-blue-500 to-emerald-500",
+  },
 ];
 
 export function Pricing() {

@@ -6,16 +6,16 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listCourses, formatPrice } from "@/lib/courses";
 
 export const metadata: Metadata = {
-  title: "DIY Courses for Insurance Agents",
+  title: "AI Courses for Insurance Agents - Retention, Ops & Prompting",
   description:
-    "Self-paced courses that teach independent insurance agents how to build their own AI-powered retention and agency operations systems.",
+    "Self-paced courses that teach insurance agents how to build AI retention engines, agency-ops automations, and production prompts - taught by operators.",
   alternates: { canonical: "https://renewalengineai.com/courses" },
   openGraph: {
     type: "website",
     url: "https://renewalengineai.com/courses",
-    title: "DIY Courses for Insurance Agents | RenewalEngineAI",
+    title: "AI Courses for Insurance Agents | RenewalEngineAI",
     description:
-      "Self-paced courses that teach independent insurance agents how to build their own AI-powered retention and agency operations systems.",
+      "Self-paced courses on building AI retention engines and agency operations automation for insurance agents.",
     siteName: "RenewalEngineAI",
   },
 };
@@ -119,7 +119,7 @@ export default function CoursesCatalogPage() {
                 Learn by doing
               </p>
               <h1 className="text-5xl md:text-6xl font-black mb-6">
-                Courses for independent agents
+                AI Courses for Independent Insurance Agents
               </h1>
               <p className="text-xl text-neutral-300">
                 Short, practical, no-fluff training on how to use AI to keep more

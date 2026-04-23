@@ -23,15 +23,15 @@ export function CTA() {
 
         {/* Headline */}
         <h2 className="text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
-          How Much Revenue Is<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-            Your Agency Leaving on the Table?
+          Find $300K You&rsquo;re<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+            Losing Every Year.
           </span>
         </h2>
 
         {/* Subheadline */}
         <p className="text-2xl lg:text-3xl text-neutral-300 mb-12 max-w-3xl mx-auto font-medium">
-          Book a free Renewal Leak Audit. We'll show you exactly where AI automation can recover lost revenue, speed up lead response, and retain more clients.
+          Book a free Renewal Leak Audit. We&rsquo;ll show you exactly where AI automation can recover lost revenue, speed up lead response, and retain more clients.
         </p>
 
         {/* CTA Buttons */}
@@ -39,9 +39,9 @@ export function CTA() {
           <Button
             size="lg"
             onClick={() => openBooking("bottom_cta")}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-blue-600/50 hover:scale-105 transition-all font-black"
+            className="bg-emerald-500 hover:bg-emerald-600 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-emerald-500/50 hover:scale-105 transition-all font-black"
           >
-            Book Free Renewal Audit
+            Get My Free Revenue Leak Report
             <ArrowRight className="ml-3 h-6 w-6" />
           </Button>
           <Button
@@ -57,16 +57,16 @@ export function CTA() {
         {/* Stats */}
         <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto pt-12 border-t border-neutral-700">
           <div>
-            <div className="text-5xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+            <div className="text-5xl font-black bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent mb-2">
               8X ROI
             </div>
             <div className="text-lg text-neutral-400 font-bold">Average First Year</div>
           </div>
           <div>
-            <div className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
-              3 Days
+            <div className="text-5xl font-black bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent mb-2">
+              5 Days
             </div>
-            <div className="text-lg text-neutral-400 font-bold">To Get Your Audit Results</div>
+            <div className="text-lg text-neutral-400 font-bold">From kickoff to roadmap</div>
           </div>
         </div>
       </div>

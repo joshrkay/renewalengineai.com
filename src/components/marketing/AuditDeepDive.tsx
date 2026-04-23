@@ -13,7 +13,7 @@ const deliverables = [
   {
     icon: BarChart3,
     title: "Lead Response Audit",
-    description: "We measure how fast your agency responds to new leads — web forms, phone calls, referrals. Most agencies discover they're 10-100x slower than the 60-second benchmark that converts.",
+    description: "We measure how fast your agency responds to new leads - web forms, phone calls, referrals. Most agencies discover they're 10-100x slower than the 60-second benchmark that converts.",
     detail: "Includes: Average response time by channel, after-hours lead capture rate, and estimated revenue lost to slow response."
   },
   {
@@ -25,13 +25,13 @@ const deliverables = [
   {
     icon: Lightbulb,
     title: "Cross-Sell Opportunity Map",
-    description: "AI scans your book to identify clients with coverage gaps — single-policy households, missing umbrella coverage, life insurance opportunities, and commercial accounts with incomplete programs.",
+    description: "AI scans your book to identify clients with coverage gaps - single-policy households, missing umbrella coverage, life insurance opportunities, and commercial accounts with incomplete programs.",
     detail: "Includes: Top 50 cross-sell prospects ranked by likelihood, estimated additional premium per account."
   },
   {
     icon: Presentation,
     title: "Custom Automation Roadmap",
-    description: "Based on your data, we build a prioritized implementation plan: which automations to deploy first, expected impact, and a realistic timeline. This isn't generic — it's built from your actual numbers.",
+    description: "Based on your data, we build a prioritized implementation plan: which automations to deploy first, expected impact, and a realistic timeline. This isn't generic - it's built from your actual numbers.",
     detail: "Includes: 90-day implementation plan, expected ROI per automation, and resource requirements."
   },
   {
@@ -43,11 +43,11 @@ const deliverables = [
 ];
 
 const timeline = [
-  { day: "Day 1", task: "Kickoff call — we review your current systems, AMS setup, and team structure" },
-  { day: "Day 1-2", task: "Data extraction — we pull policy data, lead logs, and follow-up records from your AMS" },
-  { day: "Day 2-3", task: "AI analysis — our systems process your data to identify patterns, gaps, and opportunities" },
-  { day: "Day 3-4", task: "Roadmap building — we create your custom automation plan with ROI projections" },
-  { day: "Day 5", task: "Presentation call — we walk you through every finding and recommendation" },
+  { day: "Day 1", task: "Kickoff call - we review your current systems, AMS setup, and team structure" },
+  { day: "Day 1-2", task: "Data extraction - we pull policy data, lead logs, and follow-up records from your AMS" },
+  { day: "Day 2-3", task: "AI analysis - our systems process your data to identify patterns, gaps, and opportunities" },
+  { day: "Day 3-4", task: "Roadmap building - we create your custom automation plan with ROI projections" },
+  { day: "Day 5", task: "Presentation call - we walk you through every finding and recommendation" },
 ];
 
 export function AuditDeepDive() {
@@ -65,7 +65,7 @@ export function AuditDeepDive() {
             What Do You Get in the Renewal Leak Audit?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            In 5 days, we analyze your agency's data and deliver a complete picture of where revenue is leaking — and exactly how to fix it with AI automation.
+            In 5 days, we analyze your agency's data and deliver a complete picture of where revenue is leaking - and exactly how to fix it with AI automation.
           </p>
         </div>
 

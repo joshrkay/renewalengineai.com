@@ -159,8 +159,23 @@ export default async function ResourceArticlePage({
               <h1 className="text-4xl md:text-6xl font-black mb-5 leading-tight">
                 {resource.title}
               </h1>
-              <p className="text-xl text-neutral-400">
+              <p className="text-xl text-neutral-400 mb-4">
                 {resource.description}
+              </p>
+              <p className="text-sm text-neutral-500">
+                By{" "}
+                <Link
+                  href={`/team/${author.slug}`}
+                  className="text-blue-500 hover:text-blue-400 underline underline-offset-4"
+                >
+                  {author.name}
+                </Link>
+                , {author.jobTitle} · Published{" "}
+                {new Date(resource.publishedAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </p>
             </div>
 
@@ -192,20 +207,34 @@ export default async function ResourceArticlePage({
               </section>
             )}
 
-            <section className="mt-16 bg-neutral-900 border border-neutral-800 rounded-2xl p-10 text-center">
+            <section className="mt-16 bg-gradient-to-br from-emerald-600/10 to-blue-600/10 border border-emerald-500/30 rounded-2xl p-10">
+              <p className="text-emerald-400 font-bold uppercase tracking-wider text-sm mb-3">
+                Free guide
+              </p>
               <h2 className="text-3xl font-black mb-3">
-                Want this running in your agency?
+                5 AI Automations Every Insurance Agent Should Set Up This Week
               </h2>
-              <p className="text-neutral-400 mb-6">
-                Book a free Operations Audit and we&rsquo;ll show you exactly
-                where AI can move the number first.
+              <p className="text-neutral-300 mb-6 leading-relaxed">
+                The five automations we install in the first two weeks of a
+                Build &amp; Launch engagement. Set them up yourself, or use
+                this as the scoping doc for a conversation with us.
               </p>
               <Link
-                href="/#pricing"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-8 py-4 transition-colors"
+                href="/guides/5-ai-automations"
+                className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-full px-8 py-4 transition-colors"
               >
-                See pricing →
+                Get my free guide →
               </Link>
+              <p className="text-sm text-neutral-500 mt-6">
+                Ready to talk instead?{" "}
+                <Link
+                  href="/#pricing"
+                  className="text-blue-500 hover:text-blue-400 underline underline-offset-4"
+                >
+                  See audit pricing and packages
+                </Link>
+                .
+              </p>
             </section>
           </div>
         </main>

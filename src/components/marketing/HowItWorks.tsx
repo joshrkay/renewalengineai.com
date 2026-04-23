@@ -14,7 +14,7 @@ const steps = [
     number: "02",
     title: "Custom Build",
     duration: "1-2 Weeks",
-    description: "Our team builds your AI automation systems — renewal campaigns, lead response workflows, and follow-up sequences — configured to your agency's AMS and processes.",
+    description: "Our team builds your AI automation systems - renewal campaigns, lead response workflows, and follow-up sequences - configured to your agency's AMS and processes.",
     gradient: "from-purple-600 to-blue-600"
   },
   {
@@ -30,7 +30,7 @@ const steps = [
     number: "04",
     title: "Manage & Optimize",
     duration: "Ongoing",
-    description: "We monitor performance weekly, optimize campaigns, and expand automation as your agency grows. You focus on selling — we handle the systems.",
+    description: "We monitor performance weekly, optimize campaigns, and expand automation as your agency grows. You focus on selling - we handle the systems.",
     gradient: "from-orange-600 to-pink-600"
   }
 ];
@@ -48,7 +48,7 @@ export function HowItWorks() {
             How Do You Get Started with AI Automation?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            From audit to optimization — we handle everything so you can focus on growing your agency
+            From audit to optimization - we handle everything so you can focus on growing your agency
           </p>
         </div>
 
