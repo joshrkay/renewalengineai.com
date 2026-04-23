@@ -3,6 +3,7 @@ import { CheckoutStatus } from "@/components/marketing/CheckoutStatus";
 import { Header } from "@/components/marketing/Header";
 import { Hero } from "@/components/marketing/Hero";
 import { TrustBar } from "@/components/marketing/TrustBar";
+import { RetentionLeakAudit } from "@/components/marketing/RetentionLeakAudit";
 import { PainPoints } from "@/components/marketing/PainPoints";
 import { RenewalChallenges } from "@/components/marketing/RenewalChallenges";
 import { Features } from "@/components/marketing/Features";
@@ -33,6 +34,7 @@ export default function HomePage() {
         <main>
           <Hero />
           <TrustBar />
+          <RetentionLeakAudit source="home" />
           <PainPoints />
           <RenewalChallenges />
           <Features />
