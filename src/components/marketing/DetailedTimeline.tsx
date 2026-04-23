@@ -8,12 +8,12 @@ const phases = [
     phase: "Week 0",
     title: "Free Discovery Call",
     duration: "30 minutes",
-    description: "Before you invest a dollar, we jump on a call to understand your agency — size of your book, AMS system, team structure, and biggest pain points. We'll give you an honest assessment of whether AI automation is right for you right now.",
+    description: "Before you invest a dollar, we jump on a call to understand your agency - size of your book, AMS system, team structure, and biggest pain points. We'll give you an honest assessment of whether AI automation is right for you right now.",
     deliverables: [
       "Preliminary assessment of automation fit",
       "High-level ROI estimate based on your book size",
       "Recommended package and scope",
-      "Answers to all your questions — no hard sell"
+      "Answers to all your questions - no hard sell"
     ],
     milestone: "Decision point: proceed with the audit or wait",
     color: "blue"
@@ -38,7 +38,7 @@ const phases = [
     phase: "Weeks 2-3",
     title: "Build & Launch ($6,000)",
     duration: "10-12 business days",
-    description: "Our team builds your custom AI automation systems. Not templates — actual workflows configured to your agency's data, branding, and processes. We test everything before going live.",
+    description: "Our team builds your custom AI automation systems. Not templates - actual workflows configured to your agency's data, branding, and processes. We test everything before going live.",
     deliverables: [
       "AI renewal campaign system with 60-day sequences",
       "Instant lead response automation (<60 second reply)",
@@ -55,7 +55,7 @@ const phases = [
     phase: "Month 2+",
     title: "Managed Operations ($2,500/mo)",
     duration: "Ongoing",
-    description: "This is where the compounding value kicks in. We monitor your systems weekly, optimize messaging and timing based on performance data, and expand automation as your agency grows. You focus on relationships and growth — we run the systems.",
+    description: "This is where the compounding value kicks in. We monitor your systems weekly, optimize messaging and timing based on performance data, and expand automation as your agency grows. You focus on relationships and growth - we run the systems.",
     deliverables: [
       "Weekly performance monitoring and optimization",
       "Monthly strategy review calls with your team",
@@ -71,12 +71,12 @@ const phases = [
 ];
 
 const expectations = [
-  { timeframe: "Week 1", expectation: "You know your exact revenue leak: lapse rate, response gaps, and follow-up holes — with dollar amounts" },
+  { timeframe: "Week 1", expectation: "You know your exact revenue leak: lapse rate, response gaps, and follow-up holes - with dollar amounts" },
   { timeframe: "Week 3", expectation: "AI systems go live. Renewal campaigns start running. Lead response drops to under 60 seconds." },
   { timeframe: "Month 1", expectation: "First measurable results: leads captured after hours, renewal touchpoints completed, quotes followed up" },
   { timeframe: "Month 3", expectation: "Retention improvement visible in your numbers. Quote-to-bind ratio increasing. Team reporting less busywork." },
   { timeframe: "Month 6", expectation: "Full ROI realization. Most agencies recover the entire investment and see net-positive returns by this point." },
-  { timeframe: "Month 12", expectation: "Compounding gains: larger book, higher retention, more new business — all without adding headcount." }
+  { timeframe: "Month 12", expectation: "Compounding gains: larger book, higher retention, more new business - all without adding headcount." }
 ];
 
 export function DetailedTimeline() {
@@ -95,7 +95,7 @@ export function DetailedTimeline() {
             What Happens After You Sign Up?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            A clear, week-by-week breakdown of every phase — what you pay, what you get, and when you see results
+            A clear, week-by-week breakdown of every phase - what you pay, what you get, and when you see results
           </p>
         </div>
 
@@ -176,7 +176,7 @@ export function DetailedTimeline() {
         {/* CTA */}
         <div className="text-center">
           <Button
-            onClick={openBooking}
+            onClick={() => openBooking("detailed_timeline")}
             className="bg-blue-600 hover:bg-blue-700 !text-white text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
           >
             Start with a Free Discovery Call

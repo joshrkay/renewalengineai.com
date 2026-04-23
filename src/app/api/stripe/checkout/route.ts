@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripe, PLAN_CONFIG, type PlanKey } from "@/lib/stripe";
 import { log } from "@/lib/logger";
+import { readGaClientIdFromCookie } from "@/lib/analytics";
 
 // Per-plan success URL overrides. Keys that aren't listed here fall back
 // to a generic success query-string on the homepage.
@@ -76,6 +77,10 @@ export async function POST(req: NextRequest) {
       SUCCESS_URLS[plan as PlanKey]?.(origin) ??
       `${origin}/?checkout=success&plan=${plan}`;
 
+    // Capture the GA4 client_id so the server-side purchase event in the
+    // Stripe webhook can attribute back to the originating session.
+    const gaClientId = readGaClientIdFromCookie(req.headers.get("cookie"));
+
     const session = await stripe.checkout.sessions.create({
       mode: effectiveMode,
       line_items: [lineItem],
@@ -87,6 +92,7 @@ export async function POST(req: NextRequest) {
       metadata: {
         plan,
         tier: cfg.tier,
+        ...(gaClientId ? { ga_client_id: gaClientId } : {}),
       },
     });
 

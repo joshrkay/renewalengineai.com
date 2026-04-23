@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
+import { PLAN_CONFIG, type PlanKey } from "@/lib/stripe";
 
 type Props = {
   plan: string;
@@ -19,6 +21,14 @@ export function EnrollButton({ plan, label, className }: Props) {
     if (loading) return;
     setError(null);
     setLoading(true);
+    const cfg = PLAN_CONFIG[plan as PlanKey];
+    if (cfg) {
+      trackEvent("begin_checkout", {
+        plan,
+        value: cfg.amount / 100,
+        currency: "USD",
+      });
+    }
     try {
       const res = await fetch("/api/stripe/checkout", {
         method: "POST",

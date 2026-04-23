@@ -56,7 +56,7 @@ export function Features() {
             How Does AI Automation Work for Insurance Agencies?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            Five done-for-you AI systems built, managed, and optimized by our team — specifically for independent insurance agencies
+            Five done-for-you AI systems built, managed, and optimized by our team - specifically for independent insurance agencies
           </p>
         </div>
 

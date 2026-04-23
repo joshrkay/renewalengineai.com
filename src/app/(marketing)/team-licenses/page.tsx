@@ -6,10 +6,18 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 
 export const metadata: Metadata = {
-  title: "Agency Team Licenses | RenewalEngineAI",
+  title: "Agency Team Licenses for Insurance Agencies (3-50 Seats)",
   description:
-    "Multi-seat access to the full RenewalEngineAI course library for agencies with 3 to 50 seats. Bulk enrollment, shared playbooks, and live onboarding.",
+    "Multi-seat access to the full RenewalEngineAI course library for independent insurance agencies with 3 to 50 seats. Bulk enrollment, shared playbooks, live onboarding.",
   alternates: { canonical: "https://renewalengineai.com/team-licenses" },
+  openGraph: {
+    type: "website",
+    url: "https://renewalengineai.com/team-licenses",
+    title: "Agency Team Licenses for Insurance Agencies (3-50 Seats) | RenewalEngineAI",
+    description:
+      "Multi-seat course licenses for insurance agencies. Bulk enrollment, shared playbooks, live onboarding.",
+    siteName: "RenewalEngineAI",
+  },
 };
 
 const includes = [
@@ -21,9 +29,67 @@ const includes = [
   "Priority access to new mastermind cohorts",
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://renewalengineai.com/team-licenses#Service",
+      name: "RenewalEngineAI Agency Team Licenses",
+      serviceType: "Multi-seat course licensing for insurance agencies",
+      provider: { "@id": "https://renewalengineai.com#Organization" },
+      areaServed: { "@type": "Country", name: "United States" },
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Independent insurance agencies with 3-50 seats",
+      },
+      description:
+        "Multi-seat access to the full RenewalEngineAI course library for agencies with 3 to 50 seats. Bulk enrollment, shared playbooks, quarterly instructor check-ins.",
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://renewalengineai.com/team-licenses",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "USD",
+          description: "Custom pricing based on seat count",
+        },
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://renewalengineai.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Courses",
+          item: "https://renewalengineai.com/courses",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Team Licenses",
+          item: "https://renewalengineai.com/team-licenses",
+        },
+      ],
+    },
+  ],
+};
+
 export default function TeamLicensesPage() {
   return (
     <BookingProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="min-h-screen bg-black">
         <Header />
         <main className="bg-black text-white min-h-screen pt-32 pb-24">

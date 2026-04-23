@@ -83,7 +83,7 @@ export function PainPoints() {
         {/* Bottom Statement */}
         <div className="mt-20 text-center">
           <div className="inline-block bg-black text-white px-12 py-6 rounded-full">
-            <p className="text-2xl font-bold">These problems have a solution. It's not more hiring — it's AI automation.</p>
+            <p className="text-2xl font-bold">These problems have a solution. It's not more hiring - it's AI automation.</p>
           </div>
         </div>
       </div>

@@ -1,72 +1,53 @@
-# RenewalEngineAI - AI Automation for Insurance Agencies
+# RenewalEngineAI
 
-https://renewalengineai.com
+> Done-for-you AI automation for independent insurance agencies. We build and run AI renewal campaigns, instant lead response, quote follow-up, and cross-sell automation inside agencies running on Applied Epic, HawkSoft, or EZLynx. Outcomes: 15-20% higher retention, sub-60-second lead response, 391% more lead conversions.
 
-Done-for-you AI automation systems built specifically for independent insurance agencies.
+## Core pages
 
-## Pages
+- [Home](https://renewalengineai.com/): Product overview, pricing, ROI calculator, FAQ.
+- [How It Works](https://renewalengineai.com/how-it-works): The three-phase engagement — Audit, Build & Launch, Managed Ops.
+- [For Independent Agencies](https://renewalengineai.com/for-independent-agencies): Audience landing page — who this is built for.
 
-### Home (https://renewalengineai.com/)
-AI automation platform for insurance agencies. Services include:
-- AI-Powered Renewal Campaigns (95%+ retention rate)
-- Instant Lead Response System (<60 second response time)
-- Quote Follow-Up Automation (50%+ more binds)
-- Client Retention & Cross-Sell Intelligence (8X ROI potential)
-- Agency Operations Dashboard (100% visibility)
+## Services
 
-### Courses (https://renewalengineai.com/courses)
-DIY training courses for insurance agents:
-- AI Agency Operations Bootcamp ($797, 15 lessons)
-- AI for Agent Retention ($397, 12 lessons)
-- AI Mastermind & Community ($97-197/month)
-- Agency Team Licenses (custom pricing)
+- [AI Renewal Audit](https://renewalengineai.com/#pricing): $1,500 five-day assessment.
+- [AI Build & Launch](https://renewalengineai.com/#pricing): $6,000 two-to-three-week implementation.
+- [Managed AI Operations](https://renewalengineai.com/#pricing): $2,500/month ongoing optimization.
 
-### Pricing (https://renewalengineai.com/#pricing)
-- AI-Powered Renewal Audit: $1,500 (5-day workflow assessment)
-- Build & Launch: $6,000 (go live in 2-3 weeks)
-- Managed AI Operations: $2,500/month (ongoing optimization)
+## Courses
 
-## Services Detail
+- [All Courses](https://renewalengineai.com/courses): Self-paced training catalog.
+- [AI for Agent Retention](https://renewalengineai.com/courses/ai-for-agent-retention): $397 course on building a renewal automation system.
+- [AI Agency Operations Bootcamp](https://renewalengineai.com/courses/ai-agency-ops-bootcamp): $797 course on running agency operations on AI.
+- [Mastermind & Community](https://renewalengineai.com/mastermind): $97-197/month ongoing membership for agents running AI.
+- [Team Licenses](https://renewalengineai.com/team-licenses): Multi-seat course access for 3-50 seat agencies.
 
-### AI Renewal Campaigns
-Proactive 60-day outreach sequences contact clients via email, text, and voice before renewal dates. Personalized to each client's policy details and history.
+## Pillar resources
 
-### Instant Lead Response
-AI receptionist answers calls and messages 24/7. New leads get a response in under 60 seconds via text, email, or AI-powered call-back.
+- [The Insurance Renewal Automation Playbook](https://renewalengineai.com/resources/ai-renewal-automation-playbook): The four-touch cadence, personalization rules, and metrics that actually lift retention.
+- [Instant Lead Response Under 60 Seconds](https://renewalengineai.com/resources/instant-lead-response-under-60-seconds): The workflow that rebuilds the top of an agency's funnel.
+- [AMS + AI Integration Guide](https://renewalengineai.com/resources/ams-ai-integration-guide): Integration patterns for Applied Epic, HawkSoft, and EZLynx.
 
-### Quote Follow-Up Automation
-Every quoted prospect receives a personalized multi-touch sequence until they bind or decline. No lead falls through the cracks.
+## Case studies (composite)
 
-### Cross-Sell Intelligence
-AI analyzes your book to predict churn risk and identify cross-sell opportunities. Surface hidden revenue in your existing client base automatically.
+- [Pacific Agency Group — 350-policy personal lines on Applied Epic](https://renewalengineai.com/case-studies/pacific-agency-group-personal-lines): 82% → 94% retention, 47 hrs → 38 sec lead response, $187K recovered annual premium.
+- [Ridgeline Commercial Insurance — 180 accounts on HawkSoft](https://renewalengineai.com/case-studies/ridgeline-commercial-insurance): 86% → 95% retention, $312K cross-sell opportunities surfaced, 2.3 → 4.1 policies per household.
 
-### Dashboard
-Real-time visibility into renewal pipelines, lead response metrics, campaign performance, and team productivity. Weekly reports delivered to inbox.
+## Comparisons
 
-## Results
+- [RenewalEngineAI vs. hiring a CSR](https://renewalengineai.com/compare/renewalengineai-vs-hiring-csr): Year-1 cost math of AI automation vs the $60-80K CSR hire.
+- [RenewalEngineAI vs. Strada](https://renewalengineai.com/compare/renewalengineai-vs-strada): Done-for-you service vs self-serve software.
+- [RenewalEngineAI vs. Sonant AI](https://renewalengineai.com/compare/renewalengineai-vs-sonant-ai): Voice-first AI vs multi-channel renewal automation.
 
-- 391% More Conversions
-- 15-20% Higher Retention
-- 75% Lower Costs
-- <60s Response Time
-- 95%+ Retention Rate
-- 8X ROI Potential
+## Team
 
-## Pricing
-
-| Package | Price | What's Included |
-|---------|-------|-----------------|
-| Audit | $1,500 one-time | 5-day workflow assessment, renewal book analysis, lead response evaluation, custom automation roadmap, ROI projections |
-| Build & Launch | $6,000 one-time | AI renewal campaigns, instant lead response, quote follow-up sequences, operations dashboard, AMS integration, team training |
-| Managed Operations | $2,500/month | Weekly performance monitoring, continuous optimization, monthly strategy reviews, cross-sell reports, priority support |
-
-## Company
-
-RenewalEngineAI provides done-for-you AI automation services for independent insurance agencies, including renewal campaigns, instant lead response systems, quote follow-up automation, and agency operations management.
-
-Contact: hello@renewalengineai.com
+- [Josh Kay, Founder](https://renewalengineai.com/team/josh-kay): Writes most of the content on this site and personally runs audit engagements.
 
 ## Legal
 
-- Privacy Policy: https://renewalengineai.com/privacy.html
-- Terms of Service: https://renewalengineai.com/terms.html
+- [Privacy Policy](https://renewalengineai.com/privacy)
+- [Terms of Service](https://renewalengineai.com/terms)
+
+## Contact
+
+Email: hello@renewalengineai.com

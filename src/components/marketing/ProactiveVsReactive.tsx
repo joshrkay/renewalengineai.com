@@ -18,7 +18,7 @@ const comparisons = [
     },
     proactive: {
       title: "AI responds in 60 seconds",
-      description: "The prospect gets an immediate text, email, and option to schedule a call — before they even finish browsing competitors."
+      description: "The prospect gets an immediate text, email, and option to schedule a call - before they even finish browsing competitors."
     }
   },
   {
@@ -28,7 +28,7 @@ const comparisons = [
     },
     proactive: {
       title: "Automated 21-day sequence",
-      description: "AI sends 5-7 personalized touchpoints with different angles — coverage value, risk scenarios, testimonials — until the prospect binds or explicitly declines."
+      description: "AI sends 5-7 personalized touchpoints with different angles - coverage value, risk scenarios, testimonials - until the prospect binds or explicitly declines."
     }
   },
   {
@@ -44,7 +44,7 @@ const comparisons = [
   {
     reactive: {
       title: "Hiring when you're already overwhelmed",
-      description: "You realize you need help when service quality drops and clients start complaining. Recruiting and training takes months — months you don't have."
+      description: "You realize you need help when service quality drops and clients start complaining. Recruiting and training takes months - months you don't have."
     },
     proactive: {
       title: "AI scales with you instantly",
@@ -66,7 +66,7 @@ export function ProactiveVsReactive() {
             What Changes When You Go from Reactive to Proactive?
           </h2>
           <p className="text-2xl text-neutral-600 max-w-3xl mx-auto font-medium">
-            Most agencies run on a reactive model — putting out fires instead of preventing them. AI automation flips that equation.
+            Most agencies run on a reactive model - putting out fires instead of preventing them. AI automation flips that equation.
           </p>
         </div>
 

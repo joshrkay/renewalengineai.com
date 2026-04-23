@@ -65,7 +65,7 @@ export function CheckoutStatus() {
                   Checkout Cancelled
                 </h3>
                 <p className="text-amber-700">
-                  No worries — no charge was made. If you have questions about{" "}
+                  No worries - no charge was made. If you have questions about{" "}
                   <strong>{planNames[plan || ""] || "our plans"}</strong>, we're
                   happy to help. Scroll down to schedule a free consultation.
                 </p>

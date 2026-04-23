@@ -2,7 +2,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const testimonials = [
   {
-    quote: "Our renewal lapse rate dropped from 18% to under 6% in the first quarter. The AI system catches every expiring policy and runs outreach automatically — nothing slips through.",
+    quote: "Our renewal lapse rate dropped from 18% to under 6% in the first quarter. The AI system catches every expiring policy and runs outreach automatically - nothing slips through.",
     author: "Mike T.",
     title: "Agency Principal, Texas",
     result: "18% → 6%",

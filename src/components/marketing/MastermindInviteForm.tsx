@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -39,13 +40,14 @@ export function MastermindInviteForm() {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
         setError(
           data.error === "invalid_email"
-            ? "That email doesn't look right — please double-check it."
+            ? "That email doesn't look right - please double-check it."
             : "Something went wrong. Please try again in a moment."
         );
         setStatus("error");
         return;
       }
 
+      trackEvent("lead_submit", { source: "mastermind_page" });
       setStatus("success");
       setEmail("");
       setName("");

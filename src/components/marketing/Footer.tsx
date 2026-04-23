@@ -27,21 +27,25 @@ export function Footer() {
           <div>
             <h4 className="text-white font-black mb-4">Services</h4>
             <ul className="space-y-3">
-              <li><a href="#pricing" className="hover:text-white transition-colors">AI Renewal Audit</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Build & Launch</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Managed AI Operations</a></li>
-              <li><a href="#solutions" className="hover:text-white transition-colors">All Solutions</a></li>
+              <li><a href="/how-it-works#phase-1" className="hover:text-white transition-colors">AI Renewal Audit ($1,500)</a></li>
+              <li><a href="/how-it-works#phase-2" className="hover:text-white transition-colors">Build &amp; Launch ($6,000)</a></li>
+              <li><a href="/how-it-works#phase-3" className="hover:text-white transition-colors">Managed AI Operations ($2,500/mo)</a></li>
+              <li><a href="/for-independent-agencies" className="hover:text-white transition-colors">For Independent Agencies</a></li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Resources */}
           <div>
-            <h4 className="text-white font-black mb-4">Company</h4>
+            <h4 className="text-white font-black mb-4">Resources</h4>
             <ul className="space-y-3">
-              <li><a href="#results" className="hover:text-white transition-colors">Results</a></li>
-              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="mailto:hello@renewalengineai.com" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="/resources" className="hover:text-white transition-colors">Guides &amp; Playbooks</a></li>
+              <li><a href="/case-studies" className="hover:text-white transition-colors">Case Studies</a></li>
+              <li><a href="/compare" className="hover:text-white transition-colors">Compare</a></li>
+              <li><a href="/guides/5-ai-automations" className="hover:text-white transition-colors">Free: 5 AI Automations Guide</a></li>
+              <li><a href="/courses" className="hover:text-white transition-colors">Courses</a></li>
+              <li><a href="/mastermind" className="hover:text-white transition-colors">Mastermind</a></li>
+              <li><a href="/team/josh-kay" className="hover:text-white transition-colors">Team</a></li>
             </ul>
           </div>
 
@@ -49,8 +53,8 @@ export function Footer() {
           <div>
             <h4 className="text-white font-black mb-4">Legal</h4>
             <ul className="space-y-3">
-              <li><a href="/privacy.html" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms.html" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>

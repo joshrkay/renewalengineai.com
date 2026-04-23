@@ -6,10 +6,18 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { MastermindInviteForm } from "@/components/marketing/MastermindInviteForm";
 
 export const metadata: Metadata = {
-  title: "AI Mastermind & Community | RenewalEngineAI",
+  title: "Insurance Agency AI Mastermind - Monthly Calls & Prompt Library",
   description:
-    "Ongoing membership for insurance agents running AI in production — monthly live calls, an evolving prompt library, and a private peer community.",
+    "Ongoing membership for insurance agents running AI in production. Monthly live calls, an evolving prompt library, and a private peer community.",
   alternates: { canonical: "https://renewalengineai.com/mastermind" },
+  openGraph: {
+    type: "website",
+    url: "https://renewalengineai.com/mastermind",
+    title: "AI Mastermind & Community | RenewalEngineAI",
+    description:
+      "Monthly live calls, prompt library, and a private community of insurance agents running AI in production.",
+    siteName: "RenewalEngineAI",
+  },
 };
 
 const features = [
@@ -19,7 +27,7 @@ const features = [
   },
   {
     title: "Evolving prompt library",
-    body: "Every new prompt we develop internally lands in the member library. Classifiers, drafters, extractors, risk flaggers — all tested, all ready to copy.",
+    body: "Every new prompt we develop internally lands in the member library. Classifiers, drafters, extractors, risk flaggers - all tested, all ready to copy.",
   },
   {
     title: "Peer community",
@@ -31,9 +39,80 @@ const features = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://renewalengineai.com/mastermind#Service",
+      name: "RenewalEngineAI Mastermind & Community",
+      serviceType: "Professional community for insurance agents running AI",
+      provider: { "@id": "https://renewalengineai.com#Organization" },
+      areaServed: { "@type": "Country", name: "United States" },
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Independent insurance agency owners",
+      },
+      description:
+        "Ongoing membership for insurance agents running AI in production. Monthly live calls, an evolving prompt library, and a private peer community.",
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://renewalengineai.com/mastermind",
+        priceSpecification: [
+          {
+            "@type": "UnitPriceSpecification",
+            price: "97.00",
+            priceCurrency: "USD",
+            unitCode: "MON",
+            billingDuration: "P1M",
+            name: "Individual membership",
+          },
+          {
+            "@type": "UnitPriceSpecification",
+            price: "197.00",
+            priceCurrency: "USD",
+            unitCode: "MON",
+            billingDuration: "P1M",
+            name: "Premium membership",
+          },
+        ],
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://renewalengineai.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Courses",
+          item: "https://renewalengineai.com/courses",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Mastermind",
+          item: "https://renewalengineai.com/mastermind",
+        },
+      ],
+    },
+  ],
+};
+
 export default function MastermindPage() {
   return (
     <BookingProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="min-h-screen bg-black">
         <Header />
         <main className="bg-black text-white min-h-screen pt-32 pb-24">
@@ -82,7 +161,7 @@ export default function MastermindPage() {
               <p className="text-neutral-300 mb-8 max-w-2xl mx-auto">
                 Best fit for agency owners who have completed at least one of
                 the DIY courses and want to stay in a room with people doing the
-                same work. Not for passive consumption — mastermind members show
+                same work. Not for passive consumption - mastermind members show
                 up.
               </p>
               <MastermindInviteForm />

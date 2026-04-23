@@ -3,7 +3,7 @@ import { AlertTriangle } from "lucide-react";
 const challenges = [
   {
     title: "The Renewal Blind Spot",
-    problem: "Most agencies don't know a policy is at risk until the client calls to cancel — or worse, just lets it lapse without a word.",
+    problem: "Most agencies don't know a policy is at risk until the client calls to cancel. Or worse, just lets it lapse without a word.",
     reality: "By the time you notice a renewal gap, the client has already gotten 3 quotes from competitors. The window to retain them closed weeks ago.",
     impact: "Average agency loses 15-20% of their book annually. On a $2M book, that's $300,000-$400,000 in premium walking out the door every year.",
     stat: "$300K+",
@@ -12,24 +12,24 @@ const challenges = [
   {
     title: "The Lead Response Death Spiral",
     problem: "A new lead comes in at 6:47 PM on a Tuesday. Your team left at 5. The lead fills out three more forms that night. By Wednesday morning, they've already talked to two other agents.",
-    reality: "78% of insurance consumers buy from the first agent to respond. The average agency takes 47 hours to respond to a web lead. That's not a gap — it's a canyon.",
-    impact: "For every 100 leads you generate, you're losing 30-50 of them to response time alone — regardless of how good your rates or service are.",
+    reality: "78% of insurance consumers buy from the first agent to respond. The average agency takes 47 hours to respond to a web lead. That's not a gap. It's a canyon.",
+    impact: "For every 100 leads you generate, you're losing 30-50 of them to response time alone. Regardless of how good your rates or service are.",
     stat: "47 hrs",
     statLabel: "Average agency response time"
   },
   {
     title: "The Follow-Up Falloff",
     problem: "Your producer quotes a prospect. They say they need to \"think about it.\" A week goes by. Then two. Then the prospect goes to someone who followed up.",
-    reality: "80% of sales require 5+ follow-up touches, but most insurance agents stop after 1-2. It's not laziness — it's capacity. When you're juggling 400+ policies, manual follow-up is the first thing that falls off.",
+    reality: "80% of sales require 5+ follow-up touches, but most insurance agents stop after 1-2. It's not laziness. It's capacity. When you're juggling 400+ policies, manual follow-up is the first thing that falls off.",
     impact: "The average agency's quote-to-bind ratio is 25-35%. With systematic follow-up, top agencies hit 50%+. That's double the new business from the same leads.",
-    stat: "50%",
-    statLabel: "Of quotes never get followed up"
+    stat: "2X",
+    statLabel: "Bind rate with systematic follow-up"
   },
   {
     title: "The Service Trap",
-    problem: "Your CSRs spend their entire day on certificate requests, endorsements, payment questions, and policy changes. Important work — but it's keeping them from revenue-generating activities.",
+    problem: "Your CSRs spend their entire day on certificate requests, endorsements, payment questions, and policy changes. Important work. But it's keeping them from revenue-generating activities.",
     reality: "Insurance agency staff spend 40%+ of their time on administrative tasks that don't directly generate revenue. That's 2+ days per week per employee lost to busywork.",
-    impact: "A CSR costs $45,000-$65,000/year. If 40% of their time goes to automatable tasks, that's $18,000-$26,000 per employee in wasted capacity — every year.",
+    impact: "A CSR costs $45,000-$65,000/year. If 40% of their time goes to automatable tasks, that's $18,000-$26,000 per employee in wasted capacity, every year.",
     stat: "40%+",
     statLabel: "Time spent on non-revenue tasks"
   },
@@ -113,7 +113,7 @@ export function RenewalChallenges() {
             Every one of these problems has the same solution.
           </p>
           <p className="text-xl text-neutral-400">
-            AI automation that runs proactively — not reactively — so revenue stops leaking while you focus on growing.
+            AI automation that runs proactively, not reactively. Revenue stops leaking while you focus on growing.
           </p>
         </div>
       </div>

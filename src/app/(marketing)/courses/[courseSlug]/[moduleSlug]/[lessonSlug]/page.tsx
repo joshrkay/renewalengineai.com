@@ -27,13 +27,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { courseSlug, moduleSlug, lessonSlug } = await params;
   const result = getLesson(courseSlug, moduleSlug, lessonSlug);
-  if (!result) return { title: "Lesson not found" };
+  if (!result) return { title: "Lesson not found", robots: { index: false } };
+  // Paywalled lessons are noindex to avoid thin-content / cloaking signals.
+  // Free preview lessons are indexable.
+  const indexable = Boolean(result.lesson.preview);
   return {
-    title: `${result.lesson.title} | ${result.course.title} | RenewalEngineAI`,
+    title: `${result.lesson.title} | ${result.course.title}`,
     description: `Module ${result.module.number}: ${result.module.title}`,
     alternates: {
       canonical: `https://renewalengineai.com/courses/${courseSlug}/${moduleSlug}/${lessonSlug}`,
     },
+    robots: indexable
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   };
 }
 
