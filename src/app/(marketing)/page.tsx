@@ -18,10 +18,15 @@ import { Pricing } from "@/components/marketing/Pricing";
 import { FAQ } from "@/components/marketing/FAQ";
 import { CTA } from "@/components/marketing/CTA";
 import { Footer } from "@/components/marketing/Footer";
+import { faqJsonLd, homeFaqs } from "@/lib/faqs";
 
 export default function HomePage() {
   return (
     <BookingProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(homeFaqs)) }}
+      />
       <div className="min-h-screen bg-white">
         <CheckoutStatus />
         <Header />

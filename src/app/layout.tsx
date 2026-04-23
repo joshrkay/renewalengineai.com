@@ -1,15 +1,34 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Toaster } from "sonner";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Automation for Insurance Agents | RenewalEngineAI",
+  metadataBase: new URL("https://renewalengineai.com"),
+  title: {
+    default: "AI Automation for Insurance Agents | RenewalEngineAI",
+    template: "%s | RenewalEngineAI",
+  },
   description:
     "RenewalEngineAI builds done-for-you AI automation systems for insurance agencies. Automate renewals, lead response, quote follow-ups, and client retention.",
-  keywords:
-    "AI automation insurance agents, insurance renewal automation, AI lead response insurance, insurance agency workflow automation, AI for insurance agencies, renewal engine AI",
+  keywords: [
+    "AI automation for insurance agents",
+    "insurance renewal automation",
+    "AI lead response insurance",
+    "insurance agency workflow automation",
+    "AI for insurance agencies",
+    "independent insurance agency software",
+    "AMS automation",
+    "Applied Epic AI",
+    "HawkSoft AI",
+    "EZLynx automation",
+  ],
+  authors: [{ name: "RenewalEngineAI" }],
+  creator: "RenewalEngineAI",
+  publisher: "RenewalEngineAI",
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: "website",
+    locale: "en_US",
     url: "https://renewalengineai.com/",
     title: "AI Automation for Insurance Agents | RenewalEngineAI",
     description:
@@ -25,6 +44,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://renewalengineai.com/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
 };
 
 const jsonLd = {

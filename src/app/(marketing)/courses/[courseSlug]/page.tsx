@@ -22,11 +22,22 @@ export async function generateMetadata({
   const { courseSlug } = await params;
   const course = getCourse(courseSlug);
   if (!course) return { title: "Course not found" };
+  const url = `https://renewalengineai.com/courses/${course.slug}`;
   return {
-    title: `${course.title} | RenewalEngineAI`,
+    title: course.title,
     description: course.tagline,
-    alternates: {
-      canonical: `https://renewalengineai.com/courses/${course.slug}`,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      url,
+      title: course.title,
+      description: course.tagline,
+      siteName: "RenewalEngineAI",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: course.title,
+      description: course.tagline,
     },
   };
 }
@@ -47,8 +58,70 @@ export default async function CourseLandingPage({
 
   const coursePlan = planKeyForCourseSlug(course.slug);
 
+  const courseUrl = `https://renewalengineai.com/courses/${course.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        name: course.title,
+        description: course.tagline,
+        url: courseUrl,
+        provider: {
+          "@type": "Organization",
+          name: "RenewalEngineAI",
+          url: "https://renewalengineai.com",
+          sameAs: "https://renewalengineai.com",
+        },
+        offers: {
+          "@type": "Offer",
+          price: course.price.toFixed(2),
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: courseUrl,
+          category: "Paid",
+        },
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: `PT${course.duration}H`,
+        },
+        educationalLevel: "Professional",
+        inLanguage: "en",
+        numberOfCredits: totalLessons,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://renewalengineai.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Courses",
+            item: "https://renewalengineai.com/courses",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: course.title,
+            item: courseUrl,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <BookingProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="min-h-screen bg-black">
         <Header />
         <main className="bg-black text-white min-h-screen pt-32 pb-24">

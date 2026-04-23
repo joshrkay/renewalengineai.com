@@ -68,5 +68,5 @@ Contact: hello@renewalengineai.com
 
 ## Legal
 
-- Privacy Policy: https://renewalengineai.com/privacy.html
-- Terms of Service: https://renewalengineai.com/terms.html
+- Privacy Policy: https://renewalengineai.com/privacy
+- Terms of Service: https://renewalengineai.com/terms

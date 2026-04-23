@@ -6,10 +6,18 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listCourses, formatPrice } from "@/lib/courses";
 
 export const metadata: Metadata = {
-  title: "DIY Courses for Insurance Agents | RenewalEngineAI",
+  title: "DIY Courses for Insurance Agents",
   description:
     "Self-paced courses that teach independent insurance agents how to build their own AI-powered retention and agency operations systems.",
   alternates: { canonical: "https://renewalengineai.com/courses" },
+  openGraph: {
+    type: "website",
+    url: "https://renewalengineai.com/courses",
+    title: "DIY Courses for Insurance Agents | RenewalEngineAI",
+    description:
+      "Self-paced courses that teach independent insurance agents how to build their own AI-powered retention and agency operations systems.",
+    siteName: "RenewalEngineAI",
+  },
 };
 
 type CatalogItem = {
@@ -57,8 +65,51 @@ export default function CoursesCatalogPage() {
 
   const items: CatalogItem[] = [...courseItems, ...extras];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "DIY Courses for Insurance Agents",
+        url: "https://renewalengineai.com/courses",
+        description:
+          "Self-paced courses that teach independent insurance agents how to build their own AI-powered retention and agency operations systems.",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://renewalengineai.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Courses",
+            item: "https://renewalengineai.com/courses",
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        itemListElement: courseItems.map((item, idx) => ({
+          "@type": "ListItem",
+          position: idx + 1,
+          url: `https://renewalengineai.com${item.href}`,
+          name: item.title,
+        })),
+      },
+    ],
+  };
+
   return (
     <BookingProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="min-h-screen bg-black">
         <Header />
         <main className="bg-black text-white min-h-screen pt-32 pb-24">

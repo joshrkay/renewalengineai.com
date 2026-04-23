@@ -38,8 +38,9 @@ export function Footer() {
           <div>
             <h4 className="text-white font-black mb-4">Company</h4>
             <ul className="space-y-3">
-              <li><a href="#results" className="hover:text-white transition-colors">Results</a></li>
-              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="/courses" className="hover:text-white transition-colors">Courses</a></li>
+              <li><a href="/mastermind" className="hover:text-white transition-colors">Mastermind</a></li>
+              <li><a href="/team-licenses" className="hover:text-white transition-colors">Team Licenses</a></li>
               <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
               <li><a href="mailto:hello@renewalengineai.com" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
@@ -49,8 +50,8 @@ export function Footer() {
           <div>
             <h4 className="text-white font-black mb-4">Legal</h4>
             <ul className="space-y-3">
-              <li><a href="/privacy.html" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms.html" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>

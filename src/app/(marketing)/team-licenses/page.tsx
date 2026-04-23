@@ -6,10 +6,18 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 
 export const metadata: Metadata = {
-  title: "Agency Team Licenses | RenewalEngineAI",
+  title: "Agency Team Licenses",
   description:
     "Multi-seat access to the full RenewalEngineAI course library for agencies with 3 to 50 seats. Bulk enrollment, shared playbooks, and live onboarding.",
   alternates: { canonical: "https://renewalengineai.com/team-licenses" },
+  openGraph: {
+    type: "website",
+    url: "https://renewalengineai.com/team-licenses",
+    title: "Agency Team Licenses | RenewalEngineAI",
+    description:
+      "Multi-seat course licenses for insurance agencies — bulk enrollment, shared playbooks, live onboarding.",
+    siteName: "RenewalEngineAI",
+  },
 };
 
 const includes = [

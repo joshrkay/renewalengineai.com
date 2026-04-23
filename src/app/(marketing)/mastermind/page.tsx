@@ -6,10 +6,18 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { MastermindInviteForm } from "@/components/marketing/MastermindInviteForm";
 
 export const metadata: Metadata = {
-  title: "AI Mastermind & Community | RenewalEngineAI",
+  title: "AI Mastermind & Community for Insurance Agents",
   description:
     "Ongoing membership for insurance agents running AI in production — monthly live calls, an evolving prompt library, and a private peer community.",
   alternates: { canonical: "https://renewalengineai.com/mastermind" },
+  openGraph: {
+    type: "website",
+    url: "https://renewalengineai.com/mastermind",
+    title: "AI Mastermind & Community | RenewalEngineAI",
+    description:
+      "Monthly live calls, prompt library, and a private community of insurance agents running AI in production.",
+    siteName: "RenewalEngineAI",
+  },
 };
 
 const features = [
