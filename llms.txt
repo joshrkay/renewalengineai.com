@@ -28,6 +28,11 @@
 - [Instant Lead Response Under 60 Seconds](https://renewalengineai.com/resources/instant-lead-response-under-60-seconds): The workflow that rebuilds the top of an agency's funnel.
 - [AMS + AI Integration Guide](https://renewalengineai.com/resources/ams-ai-integration-guide): Integration patterns for Applied Epic, HawkSoft, and EZLynx.
 
+## Case studies (composite)
+
+- [Pacific Agency Group — 350-policy personal lines on Applied Epic](https://renewalengineai.com/case-studies/pacific-agency-group-personal-lines): 82% → 94% retention, 47 hrs → 38 sec lead response, $187K recovered annual premium.
+- [Ridgeline Commercial Insurance — 180 accounts on HawkSoft](https://renewalengineai.com/case-studies/ridgeline-commercial-insurance): 86% → 95% retention, $312K cross-sell opportunities surfaced, 2.3 → 4.1 policies per household.
+
 ## Team
 
 - [Josh Kay, Founder](https://renewalengineai.com/team/josh-kay): Writes most of the content on this site and personally runs audit engagements.

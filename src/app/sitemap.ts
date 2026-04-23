@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { listCourses } from "@/lib/courses";
 import { listResources } from "@/lib/resources";
+import { listCaseStudies } from "@/lib/case-studies";
 import { team } from "@/lib/team";
 
 const SITE_URL = "https://renewalengineai.com";
@@ -31,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/resources`,
       lastModified: now,
       changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/case-studies`,
+      lastModified: now,
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
@@ -84,6 +91,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const caseStudyRoutes: MetadataRoute.Sitemap = listCaseStudies().map((c) => ({
+    url: `${SITE_URL}/case-studies/${c.slug}`,
+    lastModified: c.updatedAt ? new Date(c.updatedAt) : new Date(c.publishedAt),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   const courses = listCourses();
 
   const courseRoutes: MetadataRoute.Sitemap = courses.map((c) => ({
@@ -117,6 +131,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...resourceRoutes,
+    ...caseStudyRoutes,
     ...courseRoutes,
     ...teamRoutes,
     ...previewLessonRoutes,

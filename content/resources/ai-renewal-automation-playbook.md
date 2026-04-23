@@ -5,7 +5,8 @@ description: "How independent insurance agencies use AI to run proactive, person
 publishedAt: "2026-04-23"
 category: "Retention"
 primaryKeyword: "insurance renewal automation"
-readTime: 14
+readTime: 17
+updatedAt: "2026-04-23"
 related:
   - "instant-lead-response-under-60-seconds"
   - "ams-ai-integration-guide"
@@ -13,11 +14,27 @@ related:
 
 # The Insurance Renewal Automation Playbook
 
-Most independent agencies lose 8-12% of their book every year. The work that stops that loss — touching every renewing client, flagging at-risk policies, personalizing outreach by policy history and life event — is exactly the work that gets cut when the team is stretched. AI automation closes the gap: it runs the outreach the team keeps meaning to run, at the scale the team can't hit manually, and it does it without the brittle drip-campaign feel that clients instantly tune out.
+> **TL;DR:** Insurance renewal automation is a four-touch, multi-channel outreach system triggered 60, 30, 14, and 7 days before each policy's expiration. Built correctly on top of your AMS (Applied Epic, HawkSoft, EZLynx), it lifts retention 15-20% without adding headcount. This playbook covers the cadence, personalization rules, AMS integration patterns, cost model, and metrics that prove it's working.
 
-This playbook is how we build it for agencies — the trigger dates, the channel mix, the content templates, the handoff to producers, and the metrics that tell you whether it's actually working.
+Most independent agencies lose 8-12% of their book every year. The work that stops that loss &mdash; touching every renewing client, flagging at-risk policies, personalizing outreach by policy history and life event &mdash; is exactly the work that gets cut when the team is stretched. AI automation closes the gap: it runs the outreach the team keeps meaning to run, at the scale the team can't hit manually, and it does it without the brittle drip-campaign feel that clients instantly tune out.
 
-## Why proactive beats reactive — and why most agencies are still reactive
+This playbook is how we build it for agencies &mdash; the trigger dates, the channel mix, the content templates, the handoff to producers, and the metrics that tell you whether it's actually working.
+
+## What is insurance renewal automation?
+
+**Insurance renewal automation is a software system that triggers personalized outreach to policyholders ahead of their renewal date, using AI to draft the messages, segment the book, and decide which renewals need a human touch versus which can confirm without one.**
+
+A good renewal automation system has five components:
+
+1. **A scheduled job against your AMS** that pulls every policy expiring in the next 60-90 days.
+2. **A classifier** that scores each renewal on retention risk using claim history, engagement signal, rate delta, and life events.
+3. **A message drafter** that produces personalized outreach in the agency's voice.
+4. **An orchestration layer** that delivers messages across email, text, and voice and tracks responses.
+5. **A write-back channel** that records every interaction back in the AMS as an activity so producers see the full history.
+
+It's the opposite of a generic CRM drip campaign. Drip campaigns send the same three emails to everyone on the list. Renewal automation writes a different message to every household, every renewal, every year.
+
+## Why proactive beats reactive (and why most agencies are still reactive)
 
 Reactive renewal work looks like this: a producer gets a carrier-generated expiration list, works the top of it, the shop runs out of time, and the bottom of the list quietly re-ups (or doesn't) on autopilot. The clients who actually need a conversation — the ones with rate shock, the ones who just had a baby, the ones who opened six emails about a competitor — get the same treatment as the ones who were always going to re-sign.
 
@@ -92,6 +109,131 @@ Most agencies track renewal rate and stop. That number hides whether the system 
 - **At-risk conversion.** Of the policies flagged at-risk by Touch 2, what % retained? This is where the AI earns its keep. Target: 70%+.
 - **Producer-handled share.** What % of renewals ended up needing a human call? 10-15% is the sweet spot. If you're under 5%, you're letting clients churn silently. If you're over 25%, the classifier needs retraining.
 - **Net revenue retention.** Not just policy count — premium dollars retained year over year. This is the number that matters for the P&L.
+
+## How AMS integration actually works for renewal automation
+
+The system only works if the AMS layer is clean. Each major platform has a different integration pattern for renewal workflows:
+
+### Applied Epic
+
+The Applied API exposes clients, policies, activities, and claim history. For renewal automation specifically:
+
+- **Daily batch pull:** use Applied DataBridge to export policies expiring 60/30/14/7 days out. Batch is faster and doesn't count against API throttling.
+- **Event feeds:** AppliedNet event subscriptions detect claim events and policy changes in near-real-time so the classifier can re-score in-flight renewals.
+- **Write-back:** create an Activity on the client record for every AI-generated message. Use a dedicated Activity Type ("AI Contact") so producers can filter.
+
+Timeline to production integration: 2-3 weeks on a clean Applied tenant.
+
+### HawkSoft CMS
+
+HawkSoft's API (modernized through 2024-2025) covers clients, policies, and notes. Renewal workflow specifics:
+
+- **API pull:** hit the policy endpoint nightly with a window filter. HawkSoft's export builder is a reasonable CSV fallback for full-book pulls.
+- **Write-back:** write AI interactions as Notes on the Client record, never on the Policy. HawkSoft's policy data comes from carrier downloads and overwriting it creates sync nightmares.
+- **Opt-out enforcement:** HawkSoft has a native consent field; the automation must check it on every send.
+
+Timeline: 2 weeks on a modern HawkSoft setup.
+
+### EZLynx
+
+EZLynx Management System API covers clients, policies, and accounts. Watch the `client` vs `account` vs `household` distinction &mdash; pulling "clients" without understanding EZLynx's hierarchy surprises people.
+
+- **API pull:** policy endpoint with expiration window filter. Reporting exports as fallback.
+- **Write-back:** Notes + Tasks on the Account.
+- **Custom fields:** EZLynx custom fields are available but require a small config project inside EZLynx's support team.
+
+Timeline: 2-3 weeks.
+
+Full integration specifics including authentication, rate limits, and write-back patterns are in [the AMS + AI Integration Guide](/resources/ams-ai-integration-guide).
+
+## How much does insurance renewal automation cost?
+
+**Done-for-you renewal automation typically runs $6,000-$8,000 for the initial build and $2,000-$3,000 per month for ongoing managed operations.** Cost depends on three things: book size, AMS complexity, and whether you want us to run the system or you'd rather run it yourself.
+
+Three cost models to consider:
+
+### 1. DIY with AI tools ($0-$200/month in tool cost)
+
+If your team has the time and enough technical comfort, you can build most of the four-touch cadence yourself using an AI email tool + your AMS's export features + a workflow tool like Zapier or Make.
+
+- **Realistic time investment:** 40-80 hours of initial setup, 5-10 hours a week ongoing for monitoring and tuning.
+- **Best for:** agencies with a principal who likes to tinker and a book under 200 policies.
+- **Limitation:** DIY setups usually stop at Touch 1 and 2 (email) and never add the multi-channel, classifier, or write-back layers &mdash; which is where the retention lift actually comes from.
+- **Resource:** the [AI for Agent Retention course](/courses/ai-for-agent-retention) walks through this approach step by step.
+
+### 2. Done-for-you Build & Launch ($6,000 one-time)
+
+We build the whole system &mdash; four-touch cadence, classifier, multi-channel, AMS integration, write-back, opt-out enforcement &mdash; inside your environment in 2-3 weeks. Full pricing is on the [Build & Launch offering](/#pricing).
+
+- **Includes:** Applied Epic / HawkSoft / EZLynx integration, producer training, operations dashboard, and go-live monitoring.
+- **Best for:** agencies with 200+ policies who want the outcome without the build.
+- **What the $6,000 buys you:** a finished system. Not a template. Not a CRM seat. A system that's running messages through your book from Week 3 onwards.
+- **Credit:** the $1,500 audit fee is fully credited toward this if you continue.
+
+### 3. Managed Operations ($2,500/month)
+
+Once the system is live, Managed Ops is the ongoing layer:
+
+- **Weekly classifier tuning** as your book evolves (new carriers, new coverage types, seasonal patterns).
+- **Prompt optimization** as your voice and offers evolve.
+- **Monthly strategy reviews** with the agency owner.
+- **Priority support** and new-automation requests within the same week.
+
+Month-to-month. Cancel with 30 days' notice.
+
+### The economics for a representative agency
+
+For a $2M personal lines book, the typical 12-month economics:
+
+| Line | Amount |
+|---|---|
+| Audit ($1,500) + Build & Launch ($6,000) | $7,500 |
+| Managed Ops (12 months &times; $2,500) | $30,000 |
+| **Total year 1 investment** | **$37,500** |
+| Expected retention lift (12-15 points) | $240,000-$300,000 in retained annual premium |
+| Agency commission on retained premium (~12%) | $28,800-$36,000 |
+| **Net return year 1** | roughly 1:1 on the pure retention line |
+| Plus: cross-sell, lead response, producer time recovered | additional 2-4&times; multiplier |
+
+The full 12-month ROI math across all four revenue lines (retention, lead response, cross-sell, producer time freed) typically lands at 4-8&times;. See [the Pacific Agency Group case study](/case-studies/pacific-agency-group-personal-lines) for the composite numbers on a $2.5M book.
+
+## A real-world example: 350-policy P&C agency on Applied Epic
+
+For a worked example of the full rollout &mdash; starting state, what we built, 90-day outcomes, 12-month projection &mdash; read [the Pacific Agency Group composite case study](/case-studies/pacific-agency-group-personal-lines). It covers:
+
+- 82% → 94% retention inside 90 days.
+- 47 hours → 38 seconds median lead response time.
+- $187K in recovered annual premium projected at month 12.
+- What the principal wishes they'd known before the build.
+
+For the commercial lines equivalent on HawkSoft, see [the Ridgeline Commercial case study](/case-studies/ridgeline-commercial-insurance).
+
+## Frequently asked questions
+
+### How long until I see retention lift?
+
+The first full four-touch cohort completes around month 4-5, which is when retention numbers start moving meaningfully. First 90 days: system is live and running; renewal outcomes still reflect pre-automation workflow. Month 4-6: first real signal. Month 12: full signal.
+
+### Will my team resist this?
+
+They might, at the start. Two patterns reduce resistance:
+(1) frame it as capacity reclamation for the work they actually want to do (service, relationship) rather than replacement of what they do; (2) include CSRs in the first-100-message tone review so the system learns their voice and they feel ownership of how it sounds.
+
+### What if my AMS data is messy?
+
+A book with 40%+ missing mobile numbers or 20%+ blank emails needs data cleanup before the automation layer. That's the honest answer. The audit surfaces this and we'll tell you whether to budget a cleanup sprint before the build. Some agencies do the cleanup themselves after the audit and come back ready.
+
+### Does this work for commercial lines?
+
+Yes, with a different cadence and an account-level classifier (see [the commercial case study](/case-studies/ridgeline-commercial-insurance)). The four-touch structure extends to 90/60/30/14 days out because commercial renewal conversations require more prep time from the client.
+
+### Can I do this without changing AMS?
+
+Yes. Applied Epic, HawkSoft, and EZLynx all support this via their APIs. The only situation that forces a change is if you're on a legacy system without any API access at all, and even then CSV-export workflows bridge the gap.
+
+### What happens if I cancel?
+
+Managed Ops is month-to-month. If you cancel, the automation stops sending new messages. The historical interaction data stays in your AMS (we wrote it there). You keep the system architecture &mdash; we just stop running it for you.
 
 ## What to build this quarter if you're starting from zero
 
