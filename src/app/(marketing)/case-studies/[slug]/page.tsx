@@ -64,6 +64,7 @@ export default async function CaseStudyPage({
         articleSection: "Case study",
         headline: caseStudy.title,
         description: caseStudy.description,
+        // Article.image resolved via Next.js auto-generated og:image.
         datePublished: caseStudy.publishedAt,
         dateModified: caseStudy.updatedAt ?? caseStudy.publishedAt,
         url,

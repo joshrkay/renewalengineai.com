@@ -64,6 +64,7 @@ export default async function ComparisonPage({
         articleSection: "Comparison",
         headline: comparison.title,
         description: comparison.description,
+        // Article.image resolved via Next.js auto-generated og:image.
         datePublished: comparison.publishedAt,
         dateModified: comparison.updatedAt ?? comparison.publishedAt,
         url,

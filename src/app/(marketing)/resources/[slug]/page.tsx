@@ -95,6 +95,10 @@ export default async function ResourceArticlePage({
         "@id": `${url}#Article`,
         headline: resource.title,
         description: resource.description,
+        // Article.image is populated via Next.js auto-generated og:image
+        // meta tag (from opengraph-image.tsx in this route). Hardcoding
+        // the URL here would 404 because Next.js embeds a content hash
+        // in the OG image path segment. Google falls back to og:image.
         datePublished: resource.publishedAt,
         dateModified: resource.updatedAt ?? resource.publishedAt,
         url,
