@@ -1,0 +1,112 @@
+{
+  "topics": [
+    {
+      "slug": "ams-data-export-checklist",
+      "title": "AMS Data Export Checklist: What to Pull Before Your First AI Audit",
+      "description": "The exact tables, fields, and export schedule to pull from Applied Epic, HawkSoft, or EZLynx before an AI automation audit — so the audit team starts with clean data and you get a real roadmap, not a generic template.",
+      "primaryKeyword": "AMS data export insurance",
+      "category": "Integrations",
+      "priority": 10,
+      "status": "pending"
+    },
+    {
+      "slug": "renewal-retention-math-for-p-and-c-agencies",
+      "title": "Renewal Retention Math: How to Calculate the True Cost of Every Lost Policy",
+      "description": "The formula independent P&C agencies should use to quantify renewal leakage — with book-size, commission, and LTV inputs — and a worksheet you can hand a producer on Monday morning.",
+      "primaryKeyword": "insurance renewal retention calculation",
+      "category": "Retention",
+      "priority": 10,
+      "status": "pending"
+    },
+    {
+      "slug": "lead-response-time-benchmarks-insurance",
+      "title": "Lead Response Time Benchmarks for Independent Insurance Agencies",
+      "description": "What 'fast' actually means for insurance lead response in 2026, broken down by line of business, lead source, and channel — with the sub-60-second targets that move conversion.",
+      "primaryKeyword": "insurance lead response time benchmarks",
+      "category": "Growth",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "ai-tools-vs-hiring-a-csr",
+      "title": "AI Automation vs. Hiring Another CSR: A Cost-Benefit Walkthrough",
+      "description": "A practical comparison of the all-in cost, ramp time, and retention impact of hiring another CSR versus shipping AI automation — written for agency owners sizing the next growth decision.",
+      "primaryKeyword": "AI automation vs hiring CSR insurance agency",
+      "category": "Strategy",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "cross-sell-triggers-for-independent-agencies",
+      "title": "The 7 Cross-Sell Triggers Every Independent Agency Should Automate",
+      "description": "Life and policy events that predict cross-sell opportunities — and the automation patterns that surface them before the client shops elsewhere.",
+      "primaryKeyword": "insurance cross-sell automation",
+      "category": "Retention",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "pii-compliance-ai-insurance-agencies",
+      "title": "PII, HIPAA, and AI: Compliance for Insurance Agencies Running Automation",
+      "description": "What independent agencies need to know about PII handling, opt-out enforcement, and state-level privacy laws when running AI-driven outreach — with a defensible operating checklist.",
+      "primaryKeyword": "PII compliance insurance AI automation",
+      "category": "Operations",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "quote-follow-up-sequences-that-actually-bind",
+      "title": "Quote Follow-Up Sequences That Actually Bind",
+      "description": "The seven-touch, multi-channel follow-up cadence we build for quoted prospects — and the small personalization details that lift bind rate by double digits.",
+      "primaryKeyword": "insurance quote follow-up sequence",
+      "category": "Growth",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "book-segmentation-for-ai-outreach",
+      "title": "Book Segmentation for AI Outreach: Beyond Personal vs. Commercial",
+      "description": "How to slice your book for AI-driven renewal and cross-sell campaigns so the right clients get the right outreach — not a mail-merge flattening every relationship.",
+      "primaryKeyword": "insurance book segmentation AI",
+      "category": "Retention",
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "evaluating-ai-vendors-insurance-agencies",
+      "title": "How to Evaluate an AI Vendor as an Independent Insurance Agency",
+      "description": "The seven questions to ask any AI vendor pitching an insurance agency — and the red flags that separate real operators from demoware.",
+      "primaryKeyword": "evaluating AI vendors insurance agency",
+      "category": "Strategy",
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "producer-workflows-post-ai",
+      "title": "What Producers Actually Do When AI Handles the Follow-Up",
+      "description": "A realistic picture of the producer workday after AI automation takes over renewal outreach and lead response — and why the best producers lean into the shift.",
+      "primaryKeyword": "insurance producer workflow AI",
+      "category": "Operations",
+      "priority": 6,
+      "status": "pending"
+    },
+    {
+      "slug": "commercial-lines-ai-renewal-automation",
+      "title": "Commercial Lines Renewal Automation: Where AI Earns Its Keep",
+      "description": "Commercial P&C renewal workflows have more touchpoints and more stakeholders than personal lines — here's where AI genuinely compresses the cycle and where humans still win.",
+      "primaryKeyword": "commercial insurance renewal automation",
+      "category": "Retention",
+      "priority": 6,
+      "status": "pending"
+    },
+    {
+      "slug": "30-60-90-day-ai-rollout-plan",
+      "title": "The 30-60-90 Day AI Rollout Plan for Independent Agencies",
+      "description": "A realistic 90-day schedule for going from zero AI to live renewal, lead-response, and cross-sell automation in an independent insurance agency.",
+      "primaryKeyword": "AI rollout plan insurance agency",
+      "category": "Strategy",
+      "priority": 6,
+      "status": "pending"
+    }
+  ]
+}

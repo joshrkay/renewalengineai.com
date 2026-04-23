@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { listCourses } from "@/lib/courses";
+import { listResources } from "@/lib/resources";
 
 const SITE_URL = "https://renewalengineai.com";
 
@@ -12,6 +13,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${SITE_URL}/how-it-works`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/for-independent-agencies`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/resources`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${SITE_URL}/courses`,
@@ -45,6 +64,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const resourceRoutes: MetadataRoute.Sitemap = listResources().map((r) => ({
+    url: `${SITE_URL}/resources/${r.slug}`,
+    lastModified: r.updatedAt ? new Date(r.updatedAt) : new Date(r.publishedAt),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   const courses = listCourses();
 
   const courseRoutes: MetadataRoute.Sitemap = courses.map((c) => ({
@@ -68,5 +94,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     )
   );
 
-  return [...staticRoutes, ...courseRoutes, ...previewLessonRoutes];
+  return [
+    ...staticRoutes,
+    ...resourceRoutes,
+    ...courseRoutes,
+    ...previewLessonRoutes,
+  ];
 }

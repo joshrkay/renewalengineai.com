@@ -41,7 +41,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Button
               size="lg"
-              onClick={openBooking}
+              onClick={() => openBooking("hero")}
               className="bg-blue-600 hover:bg-blue-700 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-blue-600/50 transition-all hover:scale-105 font-bold"
             >
               Book Your Free Renewal Audit

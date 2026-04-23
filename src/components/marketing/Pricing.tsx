@@ -108,7 +108,7 @@ export function Pricing() {
       return;
     }
 
-    openBooking();
+    openBooking(`pricing_${plan}`);
   };
 
   return (
@@ -217,7 +217,7 @@ export function Pricing() {
               All packages include a free initial consultation. See ROI before you commit.
             </p>
             <Button
-              onClick={openBooking}
+              onClick={() => openBooking("pricing_bottom")}
               className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
             >
               Schedule Free Consultation

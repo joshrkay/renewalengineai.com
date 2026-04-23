@@ -38,7 +38,7 @@ export function CTA() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <Button
             size="lg"
-            onClick={openBooking}
+            onClick={() => openBooking("bottom_cta")}
             className="bg-gradient-to-r from-blue-600 to-purple-600 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-blue-600/50 hover:scale-105 transition-all font-black"
           >
             Book Free Renewal Audit

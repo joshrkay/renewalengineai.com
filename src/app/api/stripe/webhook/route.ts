@@ -5,6 +5,7 @@ import { randomBytes } from "crypto";
 import { sendWelcomeEmail } from "@/lib/email";
 import { logAudit } from "@/lib/audit";
 import { log } from "@/lib/logger";
+import { trackServerEvent } from "@/lib/analytics";
 import type Stripe from "stripe";
 
 // Stripe signature verification needs the raw request body, so this route
@@ -156,6 +157,28 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
         source: "stripe_checkout",
       },
       update: {},
+    });
+  }
+
+  // Fire purchase event server-side so GA4 gets an authoritative record
+  // even if the buyer closes the tab before the client-side purchase
+  // handler runs. Falls back to a customer-derived id when no GA4
+  // client_id was captured at checkout creation time.
+  const gaClientId =
+    session.metadata?.ga_client_id ||
+    (session.customer ? `stripe.${session.customer as string}` : null);
+  if (gaClientId && planCfg) {
+    const amountCents = session.amount_total ?? planCfg.amount;
+    await trackServerEvent({
+      name: "purchase",
+      clientId: gaClientId,
+      userId: user.id,
+      params: {
+        transaction_id: session.id,
+        plan: planKey,
+        value: amountCents / 100,
+        currency: (session.currency ?? "usd").toUpperCase(),
+      },
     });
   }
 }

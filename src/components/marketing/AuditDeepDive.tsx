@@ -132,7 +132,7 @@ export function AuditDeepDive() {
             Most agencies discover they're leaving $50,000–$200,000+ in recoverable revenue on the table. The audit pays for itself the moment you act on the findings.
           </p>
           <Button
-            onClick={openBooking}
+            onClick={() => openBooking("audit_deep_dive")}
             className="bg-white !text-blue-600 hover:bg-blue-50 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
           >
             Book Your Free Audit Consultation

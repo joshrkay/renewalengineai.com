@@ -34,15 +34,15 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Resources */}
           <div>
-            <h4 className="text-white font-black mb-4">Company</h4>
+            <h4 className="text-white font-black mb-4">Resources</h4>
             <ul className="space-y-3">
+              <li><a href="/how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="/for-independent-agencies" className="hover:text-white transition-colors">For Independent Agencies</a></li>
+              <li><a href="/resources" className="hover:text-white transition-colors">Guides &amp; Playbooks</a></li>
               <li><a href="/courses" className="hover:text-white transition-colors">Courses</a></li>
               <li><a href="/mastermind" className="hover:text-white transition-colors">Mastermind</a></li>
-              <li><a href="/team-licenses" className="hover:text-white transition-colors">Team Licenses</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="mailto:hello@renewalengineai.com" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 

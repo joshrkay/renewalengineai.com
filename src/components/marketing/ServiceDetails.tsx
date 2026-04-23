@@ -177,7 +177,7 @@ export function ServiceDetails() {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <Button
-            onClick={openBooking}
+            onClick={() => openBooking("service_details")}
             className="bg-blue-600 hover:bg-blue-700 !text-white text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
           >
             See Which Services Fit Your Agency

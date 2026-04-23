@@ -156,7 +156,7 @@ export function ROICalculator() {
                   Based on industry averages: 12% commission rate, 15% baseline lead conversion improving to 25% with instant response, and 15-point retention improvement with AI automation.
                 </p>
                 <Button
-                  onClick={openBooking}
+                  onClick={() => openBooking("roi_calculator")}
                   className="bg-black !text-white hover:bg-neutral-800 text-lg px-10 py-6 rounded-full font-black transition-all hover:scale-105"
                 >
                   Book Free Audit to Get Your Exact Numbers

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -46,6 +47,7 @@ export function MastermindInviteForm() {
         return;
       }
 
+      trackEvent("lead_submit", { source: "mastermind_page" });
       setStatus("success");
       setEmail("");
       setName("");

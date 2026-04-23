@@ -176,7 +176,7 @@ export function DetailedTimeline() {
         {/* CTA */}
         <div className="text-center">
           <Button
-            onClick={openBooking}
+            onClick={() => openBooking("detailed_timeline")}
             className="bg-blue-600 hover:bg-blue-700 !text-white text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
           >
             Start with a Free Discovery Call
