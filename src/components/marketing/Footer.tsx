@@ -41,6 +41,7 @@ export function Footer() {
               <li><a href="/how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
               <li><a href="/resources" className="hover:text-white transition-colors">Guides &amp; Playbooks</a></li>
               <li><a href="/case-studies" className="hover:text-white transition-colors">Case Studies</a></li>
+              <li><a href="/compare" className="hover:text-white transition-colors">Compare</a></li>
               <li><a href="/guides/5-ai-automations" className="hover:text-white transition-colors">Free: 5 AI Automations Guide</a></li>
               <li><a href="/courses" className="hover:text-white transition-colors">Courses</a></li>
               <li><a href="/mastermind" className="hover:text-white transition-colors">Mastermind</a></li>
