@@ -3,10 +3,10 @@ import { prisma } from "@/lib/db";
 import { runLangGraphRecipe } from "@/lib/recipe-engine";
 import * as n8n from "@/lib/n8n";
 import { log } from "@/lib/logger";
+import { isAuthorizedCron } from "@/lib/cron-auth";
 
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  if (!isAuthorizedCron(req)) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

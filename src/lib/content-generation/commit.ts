@@ -176,10 +176,14 @@ export async function openPullRequestViaAPI(
       sha: baseSha,
     });
   } catch (err) {
-    if (
-      !(err instanceof Error) ||
-      !err.message.toLowerCase().includes("reference already exists")
-    ) {
+    // GitHub returns 422 Unprocessable Entity when the ref already exists.
+    // Check the status code rather than the error message so the branch
+    // doesn't break if Octokit or the API changes the message text.
+    const status =
+      err && typeof err === "object" && "status" in err
+        ? (err as { status?: number }).status
+        : undefined;
+    if (status !== 422) {
       throw err;
     }
   }

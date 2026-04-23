@@ -51,7 +51,9 @@ export function renderOgCard(args: Args) {
           background:
             "linear-gradient(135deg, #000000 0%, #0a0a0a 42%, #0b1a3a 100%)",
           color: "white",
-          fontFamily: "system-ui, -apple-system, sans-serif",
+          // Do not set fontFamily — Satori ships a default font with
+          // next/og; naming `system-ui` on Vercel's runtime resolves
+          // to nothing and can break rendering.
         }}
       >
         {/* Header: logo + brand */}

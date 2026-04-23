@@ -41,8 +41,18 @@ export async function generateWeeklyContent(
   );
 
   if (opts.dryRun || !opts.github) {
-    const filePath = writeLocal(article);
-    console.log(`[run] dry-run: wrote ${filePath}`);
+    // Serverless file systems (Vercel) are read-only; skip the local write
+    // in that environment and return the article in memory. The local /loop
+    // and GitHub Actions paths still write to disk for easy review.
+    const canWriteLocal = opts.trigger !== "vercel-cron";
+    const filePath = canWriteLocal
+      ? writeLocal(article)
+      : `content/resources/${article.slug}.md`;
+    console.log(
+      canWriteLocal
+        ? `[run] dry-run: wrote ${filePath}`
+        : `[run] dry-run (serverless): skipped local write; article held in memory`
+    );
     return {
       trigger: opts.trigger,
       article,

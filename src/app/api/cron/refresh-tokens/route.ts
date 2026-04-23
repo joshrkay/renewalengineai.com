@@ -3,6 +3,7 @@ import { prisma } from "@/lib/db";
 import { decrypt, encrypt } from "@/lib/encryption";
 import { sendTokenExpiryWarning } from "@/lib/email";
 import { log } from "@/lib/logger";
+import { isAuthorizedCron } from "@/lib/cron-auth";
 
 // Token endpoint configuration per provider
 const TOKEN_REFRESH_CONFIG: Record<string, { tokenUrl: string; clientIdEnv: string; clientSecretEnv: string }> = {
@@ -29,9 +30,7 @@ const TOKEN_REFRESH_CONFIG: Record<string, { tokenUrl: string; clientIdEnv: stri
 };
 
 export async function GET(req: NextRequest) {
-  // Verify cron secret to prevent unauthorized access
-  const authHeader = req.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  if (!isAuthorizedCron(req)) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

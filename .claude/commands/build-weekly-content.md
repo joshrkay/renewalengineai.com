@@ -14,7 +14,7 @@ You are running the weekly content engine for renewalengineai.com.
 
    ```bash
    CLAUDE_CODE_RESEARCH='<findings json>' npx tsx -e '
-     import("./src/lib/content-generation/run.js").then(({ generateWeeklyContent }) =>
+     import("./src/lib/content-generation/run.ts").then(({ generateWeeklyContent }) =>
        generateWeeklyContent({ trigger: "loop", dryRun: true, searchProvider: "claude-code" })
      );
    '

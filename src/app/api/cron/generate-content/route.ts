@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { log } from "@/lib/logger";
 import { generateWeeklyContent } from "@/lib/content-generation/run";
+import { isAuthorizedCron } from "@/lib/cron-auth";
 
 // Serverless cron path for the weekly content engine. Redundant with the
 // GitHub Actions workflow — the kill-switch env var lets you disable one
@@ -12,8 +13,7 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 300;
 
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  if (!isAuthorizedCron(req)) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
@@ -23,25 +23,37 @@ export async function GET(req: NextRequest) {
 
   const dryRun = req.nextUrl.searchParams.get("dry-run") === "1";
 
-  const githubRepo = process.env.GITHUB_REPOSITORY ?? "joshrkay/renewalengineai.com";
+  const githubRepo = process.env.GITHUB_REPOSITORY;
   const githubToken = process.env.GH_PAT;
   const baseBranch = process.env.CONTENT_BASE_BRANCH ?? "main";
 
+  // In non-dry-run mode, fail fast if either piece of the GitHub config is
+  // missing. A hardcoded repo fallback would silently push to the wrong
+  // repository if the env var got dropped in a misconfigured deploy.
+  if (!dryRun) {
+    if (!githubRepo) {
+      log.error("generate-content cron: GITHUB_REPOSITORY not set");
+      return NextResponse.json(
+        { error: "missing_github_repository" },
+        { status: 500 }
+      );
+    }
+    if (!githubToken) {
+      log.error("generate-content cron: GH_PAT not set");
+      return NextResponse.json(
+        { error: "missing_gh_pat" },
+        { status: 500 }
+      );
+    }
+  }
+
   const github =
-    !dryRun && githubToken
+    !dryRun && githubRepo && githubToken
       ? (() => {
           const [owner, repo] = githubRepo.split("/");
           return { owner, repo, token: githubToken, baseBranch };
         })()
       : undefined;
-
-  if (!dryRun && !github) {
-    log.error("generate-content cron: GH_PAT not set; refusing to run");
-    return NextResponse.json(
-      { error: "missing_gh_pat" },
-      { status: 500 }
-    );
-  }
 
   try {
     const result = await generateWeeklyContent({
