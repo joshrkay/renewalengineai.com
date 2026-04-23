@@ -9,6 +9,7 @@ import { BookAuditButton } from "@/components/courses/BookAuditButton";
 import { EnrollButton } from "@/components/courses/EnrollButton";
 import { getCourse, listCourses, formatPrice } from "@/lib/courses";
 import { planKeyForCourseSlug } from "@/lib/stripe";
+import { team, personJsonLd, personJsonLdId } from "@/lib/team";
 
 export function generateStaticParams() {
   return listCourses().map((c) => ({ courseSlug: c.slug }));
@@ -59,20 +60,17 @@ export default async function CourseLandingPage({
   const coursePlan = planKeyForCourseSlug(course.slug);
 
   const courseUrl = `https://renewalengineai.com/courses/${course.slug}`;
+  const instructor = team[0];
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Course",
+        "@id": `${courseUrl}#Course`,
         name: course.title,
         description: course.tagline,
         url: courseUrl,
-        provider: {
-          "@type": "Organization",
-          name: "RenewalEngineAI",
-          url: "https://renewalengineai.com",
-          sameAs: "https://renewalengineai.com",
-        },
+        provider: { "@id": "https://renewalengineai.com#Organization" },
         offers: {
           "@type": "Offer",
           price: course.price.toFixed(2),
@@ -83,13 +81,31 @@ export default async function CourseLandingPage({
         },
         hasCourseInstance: {
           "@type": "CourseInstance",
-          courseMode: "online",
+          courseMode: "Online",
           courseWorkload: `PT${course.duration}H`,
+          inLanguage: "en-US",
+          instructor: { "@id": personJsonLdId(instructor.slug) },
         },
+        about: [
+          {
+            "@type": "Thing",
+            name: "AI automation for insurance agencies",
+          },
+          {
+            "@type": "Thing",
+            name: "Insurance agency operations",
+          },
+        ],
         educationalLevel: "Professional",
-        inLanguage: "en",
+        inLanguage: "en-US",
         numberOfCredits: totalLessons,
+        audience: {
+          "@type": "EducationalAudience",
+          audienceType:
+            "Independent insurance agency owners, producers, and CSRs",
+        },
       },
+      personJsonLd(instructor),
       {
         "@type": "BreadcrumbList",
         itemListElement: [

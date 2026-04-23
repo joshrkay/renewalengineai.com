@@ -39,9 +39,80 @@ const features = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://renewalengineai.com/mastermind#Service",
+      name: "RenewalEngineAI Mastermind & Community",
+      serviceType: "Professional community for insurance agents running AI",
+      provider: { "@id": "https://renewalengineai.com#Organization" },
+      areaServed: { "@type": "Country", name: "United States" },
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Independent insurance agency owners",
+      },
+      description:
+        "Ongoing membership for insurance agents running AI in production. Monthly live calls, an evolving prompt library, and a private peer community.",
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://renewalengineai.com/mastermind",
+        priceSpecification: [
+          {
+            "@type": "UnitPriceSpecification",
+            price: "97.00",
+            priceCurrency: "USD",
+            unitCode: "MON",
+            billingDuration: "P1M",
+            name: "Individual membership",
+          },
+          {
+            "@type": "UnitPriceSpecification",
+            price: "197.00",
+            priceCurrency: "USD",
+            unitCode: "MON",
+            billingDuration: "P1M",
+            name: "Premium membership",
+          },
+        ],
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://renewalengineai.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Courses",
+          item: "https://renewalengineai.com/courses",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Mastermind",
+          item: "https://renewalengineai.com/mastermind",
+        },
+      ],
+    },
+  ],
+};
+
 export default function MastermindPage() {
   return (
     <BookingProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="min-h-screen bg-black">
         <Header />
         <main className="bg-black text-white min-h-screen pt-32 pb-24">

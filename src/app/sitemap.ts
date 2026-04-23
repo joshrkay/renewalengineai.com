@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { listCourses } from "@/lib/courses";
 import { listResources } from "@/lib/resources";
+import { team } from "@/lib/team";
 
 const SITE_URL = "https://renewalengineai.com";
 
@@ -94,10 +95,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     )
   );
 
+  const teamRoutes: MetadataRoute.Sitemap = team.map((m) => ({
+    url: `${SITE_URL}/team/${m.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
   return [
     ...staticRoutes,
     ...resourceRoutes,
     ...courseRoutes,
+    ...teamRoutes,
     ...previewLessonRoutes,
   ];
 }

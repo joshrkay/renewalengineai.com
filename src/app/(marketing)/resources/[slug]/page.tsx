@@ -6,6 +6,7 @@ import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { ResourceBody } from "@/components/resources/ResourceBody";
 import { getResource, listResources } from "@/lib/resources";
+import { team, personJsonLd, personJsonLdId } from "@/lib/team";
 
 export function generateStaticParams() {
   return listResources().map((r) => ({ slug: r.slug }));
@@ -57,30 +58,57 @@ export default async function ResourceArticlePage({
     .filter((r): r is NonNullable<typeof r> => Boolean(r));
 
   const url = `https://renewalengineai.com/resources/${resource.slug}`;
+  // Author defaults to the founder; a future "byline" frontmatter field
+  // can override this per article when we have additional team members.
+  const author = team[0];
+  // Entity references — AMS platforms mentioned in the article get
+  // explicit SoftwareApplication nodes so AI answer engines can resolve
+  // "does X work with Applied Epic" queries back to our content.
+  const amsMentions = [
+    {
+      "@type": "SoftwareApplication",
+      name: "Applied Epic",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "HawkSoft CMS",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "EZLynx",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+    },
+  ];
+  const mentionsAms = /applied epic|hawksoft|ezlynx|ams/i.test(
+    resource.body + " " + resource.title
+  );
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
+        "@id": `${url}#Article`,
         headline: resource.title,
         description: resource.description,
         datePublished: resource.publishedAt,
         dateModified: resource.updatedAt ?? resource.publishedAt,
         url,
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
-        author: {
-          "@type": "Organization",
-          name: "RenewalEngineAI",
-          url: "https://renewalengineai.com",
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "RenewalEngineAI",
-          url: "https://renewalengineai.com",
-        },
+        author: { "@id": personJsonLdId(author.slug) },
+        reviewedBy: { "@id": personJsonLdId(author.slug) },
+        publisher: { "@id": "https://renewalengineai.com#Organization" },
         articleSection: resource.category,
         keywords: resource.primaryKeyword,
+        inLanguage: "en-US",
+        isAccessibleForFree: true,
+        ...(mentionsAms ? { mentions: amsMentions } : {}),
       },
+      personJsonLd(author),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
