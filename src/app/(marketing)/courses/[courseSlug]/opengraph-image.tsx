@@ -1,13 +1,9 @@
-import { getCourse, listCourses } from "@/lib/courses";
+import { getCourse } from "@/lib/courses";
 import { OG_SIZE, renderOgCard } from "@/lib/og-image";
 
 export const alt = "RenewalEngineAI course";
 export const size = OG_SIZE;
 export const contentType = "image/png";
-
-export function generateStaticParams() {
-  return listCourses().map((c) => ({ courseSlug: c.slug }));
-}
 
 export default async function CourseOgImage({
   params,

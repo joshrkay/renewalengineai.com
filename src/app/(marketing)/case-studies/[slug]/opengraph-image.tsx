@@ -1,13 +1,9 @@
-import { getCaseStudy, listCaseStudies } from "@/lib/case-studies";
+import { getCaseStudy } from "@/lib/case-studies";
 import { OG_SIZE, renderOgCard } from "@/lib/og-image";
 
 export const alt = "RenewalEngineAI case study";
 export const size = OG_SIZE;
 export const contentType = "image/png";
-
-export function generateStaticParams() {
-  return listCaseStudies().map((c) => ({ slug: c.slug }));
-}
 
 export default async function CaseStudyOgImage({
   params,

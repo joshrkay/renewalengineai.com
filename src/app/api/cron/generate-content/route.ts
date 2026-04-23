@@ -8,9 +8,12 @@ import { isAuthorizedCron } from "@/lib/cron-auth";
 // side without a deploy.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-// Generating an article with adaptive thinking can take ~60-90s; bump the
-// Vercel function duration ceiling above the default.
-export const maxDuration = 300;
+// Vercel Pro tier default is 60s; higher values require Fluid Compute
+// to be enabled on the project and fail the deploy when it isn't.
+// If generation times out, enable Fluid Compute in the Vercel dashboard
+// and raise this to 300. GitHub Actions is the primary trigger anyway;
+// this cron is a backup and only runs once per week.
+export const maxDuration = 60;
 
 export async function GET(req: NextRequest) {
   if (!isAuthorizedCron(req)) {

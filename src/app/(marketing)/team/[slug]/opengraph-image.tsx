@@ -1,13 +1,9 @@
-import { getTeamMember, team } from "@/lib/team";
+import { getTeamMember } from "@/lib/team";
 import { OG_SIZE, renderOgCard } from "@/lib/og-image";
 
 export const alt = "RenewalEngineAI team member";
 export const size = OG_SIZE;
 export const contentType = "image/png";
-
-export function generateStaticParams() {
-  return team.map((m) => ({ slug: m.slug }));
-}
 
 export default async function TeamOgImage({
   params,

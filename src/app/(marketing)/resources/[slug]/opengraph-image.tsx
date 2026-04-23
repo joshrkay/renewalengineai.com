@@ -1,16 +1,14 @@
-import { getResource, listResources } from "@/lib/resources";
+import { getResource } from "@/lib/resources";
 import { OG_SIZE, renderOgCard } from "@/lib/og-image";
 
 export const alt = "RenewalEngineAI resource article";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
-// Pre-render OG images alongside the page at build time so the
-// image URL (used in Article JSON-LD) is stable and cacheable.
-export function generateStaticParams() {
-  return listResources().map((r) => ({ slug: r.slug }));
-}
-
+// Render on demand (cached by Vercel's edge) rather than pre-rendering
+// every slug at build time. Satori's Node runtime is memory-hungry;
+// build-time generation of many images in parallel can exhaust the
+// build container. Per-slug first-request cost is ~200ms, then cached.
 export default async function ResourceOgImage({
   params,
 }: {
