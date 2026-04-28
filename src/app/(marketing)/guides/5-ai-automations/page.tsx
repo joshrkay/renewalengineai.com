@@ -8,7 +8,19 @@ import { LeadMagnetForm } from "@/components/marketing/LeadMagnetForm";
 export const metadata: Metadata = {
   title: "5 AI Automations Every Insurance Agent Should Set Up This Week",
   description:
-    "Free guide: the five AI automations that save independent insurance agents 15+ hours a week and lift retention. Send to your inbox. No spam.",
+    "Free guide: the five AI automations that save independent insurance agents 15+ hours a week and lift retention — renewal sequences, cross-sell scoring, instant lead response, quote follow-up, and service triage.",
+  keywords: [
+    "AI automations for insurance agents",
+    "insurance agent AI setup guide",
+    "AI automation insurance agency free guide",
+    "insurance renewal automation setup",
+    "instant lead response insurance",
+    "insurance quote follow-up automation",
+    "insurance AI tools free",
+    "insurance agent AI productivity",
+    "insurance cross-sell automation",
+    "insurance service request triage AI",
+  ],
   alternates: {
     canonical: "https://renewalengineai.com/guides/5-ai-automations",
   },
@@ -17,8 +29,14 @@ export const metadata: Metadata = {
     url: "https://renewalengineai.com/guides/5-ai-automations",
     title: "5 AI Automations Every Insurance Agent Should Set Up This Week",
     description:
-      "Free guide: five AI automations that save independent insurance agents 15+ hours a week.",
+      "Free guide: five AI automations that save independent insurance agents 15+ hours a week and lift retention.",
     siteName: "RenewalEngineAI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "5 AI Automations Every Insurance Agent Should Set Up This Week",
+    description:
+      "Free guide: renewal sequences, cross-sell scoring, instant lead response, quote follow-up, service triage. Saves 15+ hrs/week.",
   },
 };
 
@@ -73,6 +91,41 @@ export default function LeadMagnetPage() {
           "Free guide for independent insurance agents on the five AI automations that save 15+ hours per week.",
         isPartOf: { "@id": "https://renewalengineai.com#WebSite" },
         inLanguage: "en-US",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", ".guide-intro"],
+        },
+      },
+      {
+        "@type": "HowTo",
+        "@id":
+          "https://renewalengineai.com/guides/5-ai-automations#HowTo",
+        name: "5 AI Automations Every Insurance Agent Should Set Up",
+        description:
+          "Five AI automations that save independent insurance agents 15+ hours a week and lift policy retention.",
+        totalTime: "PT2H",
+        estimatedCost: {
+          "@type": "MonetaryAmount",
+          currency: "USD",
+          value: "0",
+        },
+        supply: [
+          {
+            "@type": "HowToSupply",
+            name: "Agency Management System (Applied Epic, HawkSoft, or EZLynx)",
+          },
+          {
+            "@type": "HowToSupply",
+            name: "AI automation platform or no-code workflow tool",
+          },
+        ],
+        step: automations.map((a, idx) => ({
+          "@type": "HowToStep",
+          position: idx + 1,
+          name: a.title,
+          text: a.blurb,
+          url: `https://renewalengineai.com/guides/5-ai-automations#step-${idx + 1}`,
+        })),
       },
       {
         "@type": "BreadcrumbList",

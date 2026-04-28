@@ -9,6 +9,18 @@ export const metadata: Metadata = {
   title: "AI Automation for Independent P&C Agencies (Epic, HawkSoft, EZLynx)",
   description:
     "For independent P&C agencies on Applied Epic, HawkSoft, or EZLynx. AI renewal automation and lead response built around your AMS. 15-20% retention lift, sub-60-second lead response.",
+  keywords: [
+    "AI automation independent insurance agency",
+    "P&C agency AI automation",
+    "Applied Epic AI integration",
+    "HawkSoft AI automation",
+    "EZLynx AI integration",
+    "independent insurance agency software",
+    "insurance retention automation",
+    "done-for-you AI insurance",
+    "insurance agency AI tools",
+    "insurance renewal automation independent agency",
+  ],
   alternates: {
     canonical: "https://renewalengineai.com/for-independent-agencies",
   },
@@ -17,8 +29,14 @@ export const metadata: Metadata = {
     url: "https://renewalengineai.com/for-independent-agencies",
     title: "AI Automation for Independent P&C Agencies | RenewalEngineAI",
     description:
-      "For independent P&C agencies on Applied Epic, HawkSoft, or EZLynx.",
+      "For independent P&C agencies on Applied Epic, HawkSoft, or EZLynx. 15-20% retention lift, sub-60-second lead response, done for you.",
     siteName: "RenewalEngineAI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Automation for Independent P&C Agencies | RenewalEngineAI",
+    description:
+      "For independent P&C agencies on Applied Epic, HawkSoft, or EZLynx. 15-20% retention lift, sub-60-second lead response.",
   },
 };
 

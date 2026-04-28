@@ -75,6 +75,10 @@ export default async function ComparisonPage({
         keywords: comparison.primaryKeyword,
         inLanguage: "en-US",
         isAccessibleForFree: true,
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "article p:first-of-type"],
+        },
       },
       personJsonLd(author),
       {

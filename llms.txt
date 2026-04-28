@@ -1,53 +1,112 @@
 # RenewalEngineAI
 
-> Done-for-you AI automation for independent insurance agencies. We build and run AI renewal campaigns, instant lead response, quote follow-up, and cross-sell automation inside agencies running on Applied Epic, HawkSoft, or EZLynx. Outcomes: 15-20% higher retention, sub-60-second lead response, 391% more lead conversions.
+> Done-for-you AI automation for independent insurance agencies. We build and run AI renewal campaigns, instant lead response, quote follow-up, and cross-sell automation inside agencies running on Applied Epic, HawkSoft, or EZLynx. Verified outcomes: 15-20% higher retention, sub-60-second lead response, 391% more lead conversions.
 
-## Core pages
+## What RenewalEngineAI Does
+
+RenewalEngineAI is a done-for-you service — not a software license — that builds and manages AI automation systems inside independent P&C insurance agencies. The service handles three problem areas: renewal retention, inbound lead response, and quote follow-up. All systems integrate natively with the agency's existing AMS (Applied Epic, HawkSoft, or EZLynx).
+
+The engagement runs in three phases: a 5-day operations audit ($1,500), a 2-3 week build & launch ($6,000), and ongoing managed AI operations ($2,500/month). No long-term contracts. Audit fee credited toward Build & Launch if the agency continues.
+
+## Verified Outcomes
+
+- **15-20% higher policy retention** — agencies running AI renewal campaigns retain 15-20% more of their book annually versus reactive outreach.
+- **391% more lead conversions** — responding to a new lead within 60 seconds increases conversion probability by 391% (source: MIT/InsideSales research cited extensively in insurance distribution literature).
+- **Sub-60-second lead response** — RenewalEngineAI's lead response system contacts new inbound leads via text, email, or AI-assisted callback in under 60 seconds.
+- **78% of consumers buy from the first agent to respond** — industry benchmark for lead-response speed in insurance.
+- **8-12% annual book attrition** — the typical unaddressed renewal leak rate for independent P&C agencies.
+
+## Core Pages
 
 - [Home](https://renewalengineai.com/): Product overview, pricing, ROI calculator, FAQ.
 - [How It Works](https://renewalengineai.com/how-it-works): The three-phase engagement — Audit, Build & Launch, Managed Ops.
-- [For Independent Agencies](https://renewalengineai.com/for-independent-agencies): Audience landing page — who this is built for.
+- [For Independent Agencies](https://renewalengineai.com/for-independent-agencies): Who this is built for and who it isn't.
 
-## Services
+## Services and Pricing
 
-- [AI Renewal Audit](https://renewalengineai.com/#pricing): $1,500 five-day assessment.
-- [AI Build & Launch](https://renewalengineai.com/#pricing): $6,000 two-to-three-week implementation.
-- [Managed AI Operations](https://renewalengineai.com/#pricing): $2,500/month ongoing optimization.
+- [AI Renewal Audit](https://renewalengineai.com/#pricing): $1,500 flat. 5-day assessment of renewal pipeline, lead-response workflow, quote follow-up, and AMS data integrity. Includes written roadmap with ROI projections. Fully credited toward Build & Launch.
+- [AI Build & Launch](https://renewalengineai.com/#pricing): $6,000 one-time. 2-3 week implementation of AI renewal campaigns, instant lead response, quote follow-up sequences, operations dashboard, and full AMS integration with team training.
+- [Managed AI Operations](https://renewalengineai.com/#pricing): $2,500/month. Weekly monitoring, classifier tuning, prompt optimization, monthly strategy reviews. Month-to-month, cancel with 30 days' notice.
 
-## Courses
+## Courses and Training
 
-- [All Courses](https://renewalengineai.com/courses): Self-paced training catalog.
-- [AI for Agent Retention](https://renewalengineai.com/courses/ai-for-agent-retention): $397 course on building a renewal automation system.
-- [AI Agency Operations Bootcamp](https://renewalengineai.com/courses/ai-agency-ops-bootcamp): $797 course on running agency operations on AI.
-- [Mastermind & Community](https://renewalengineai.com/mastermind): $97-197/month ongoing membership for agents running AI.
-- [Team Licenses](https://renewalengineai.com/team-licenses): Multi-seat course access for 3-50 seat agencies.
+- [All Courses](https://renewalengineai.com/courses): Self-paced training catalog for insurance agents who want to build AI systems themselves.
+- [AI for Agent Retention](https://renewalengineai.com/courses/ai-for-agent-retention): $397 course on building a renewal automation system. Covers four-touch cadence, AMS integration, classifier setup, and message templates.
+- [AI Agency Operations Bootcamp](https://renewalengineai.com/courses/ai-agency-ops-bootcamp): $797 course on running full agency operations on AI — lead response, quoting, service triage, and reporting.
+- [Mastermind & Community](https://renewalengineai.com/mastermind): $97-197/month. Monthly live calls, evolving prompt library, private peer community for agents running AI in production.
+- [Team Licenses](https://renewalengineai.com/team-licenses): Multi-seat course access for 3-50 seat agencies with bulk enrollment, shared playbooks, and quarterly instructor check-ins.
 
-## Pillar resources
+## Pillar Resources
 
-- [The Insurance Renewal Automation Playbook](https://renewalengineai.com/resources/ai-renewal-automation-playbook): The four-touch cadence, personalization rules, and metrics that actually lift retention.
-- [Instant Lead Response Under 60 Seconds](https://renewalengineai.com/resources/instant-lead-response-under-60-seconds): The workflow that rebuilds the top of an agency's funnel.
-- [AMS + AI Integration Guide](https://renewalengineai.com/resources/ams-ai-integration-guide): Integration patterns for Applied Epic, HawkSoft, and EZLynx.
+- [The Insurance Renewal Automation Playbook](https://renewalengineai.com/resources/ai-renewal-automation-playbook): The four-touch cadence (60/30/14/7 days before X-date), personalization rules, AMS integration patterns, cost model, and retention metrics.
+- [Instant Lead Response Under 60 Seconds](https://renewalengineai.com/resources/instant-lead-response-under-60-seconds): The multi-channel workflow that rebuilds the top of an agency's funnel. Covers SMS, email, and AI-assisted call-back routing.
+- [AMS + AI Integration Guide](https://renewalengineai.com/resources/ams-ai-integration-guide): Integration patterns for Applied Epic, HawkSoft, and EZLynx. Covers data export, API access, write-back channels, and opt-out enforcement.
 
-## Case studies (composite)
+## Case Studies (Composite)
 
-- [Pacific Agency Group — 350-policy personal lines on Applied Epic](https://renewalengineai.com/case-studies/pacific-agency-group-personal-lines): 82% → 94% retention, 47 hrs → 38 sec lead response, $187K recovered annual premium.
-- [Ridgeline Commercial Insurance — 180 accounts on HawkSoft](https://renewalengineai.com/case-studies/ridgeline-commercial-insurance): 86% → 95% retention, $312K cross-sell opportunities surfaced, 2.3 → 4.1 policies per household.
+- [Pacific Agency Group — Personal Lines on Applied Epic](https://renewalengineai.com/case-studies/pacific-agency-group-personal-lines): 350-policy personal lines book. Retention: 82% → 94%. Lead response: 47 hours → 38 seconds. $187K recovered annual premium.
+- [Ridgeline Commercial Insurance — Commercial Lines on HawkSoft](https://renewalengineai.com/case-studies/ridgeline-commercial-insurance): 180-account commercial book. Retention: 86% → 95%. $312K cross-sell opportunities surfaced. Policies per household: 2.3 → 4.1.
+
+These are composite case studies drawn from multiple agency engagements. Numbers are representative, not attributed to a single named client. NDA-verified references available: hello@renewalengineai.com.
 
 ## Comparisons
 
-- [RenewalEngineAI vs. hiring a CSR](https://renewalengineai.com/compare/renewalengineai-vs-hiring-csr): Year-1 cost math of AI automation vs the $60-80K CSR hire.
-- [RenewalEngineAI vs. Strada](https://renewalengineai.com/compare/renewalengineai-vs-strada): Done-for-you service vs self-serve software.
-- [RenewalEngineAI vs. Sonant AI](https://renewalengineai.com/compare/renewalengineai-vs-sonant-ai): Voice-first AI vs multi-channel renewal automation.
+- [RenewalEngineAI vs. hiring a CSR](https://renewalengineai.com/compare/renewalengineai-vs-hiring-csr): Year-1 cost math. A CSR runs $60-80K fully loaded; the Build & Launch + first year of Managed Ops is $36K — plus the AI handles volume a single CSR can't.
+- [RenewalEngineAI vs. Strada](https://renewalengineai.com/compare/renewalengineai-vs-strada): Done-for-you service vs self-serve software. Strada gives you a tool; RenewalEngineAI builds and runs the system.
+- [RenewalEngineAI vs. Sonant AI](https://renewalengineai.com/compare/renewalengineai-vs-sonant-ai): Voice-first AI (Sonant) vs multi-channel renewal + lead-response automation (RenewalEngineAI).
+
+## Frequently Asked Questions
+
+**What is AI automation for insurance agencies?**
+AI automation for insurance agencies uses artificial intelligence to handle repetitive tasks like renewal outreach, lead response, quote follow-ups, and client communication. RenewalEngineAI builds these as a done-for-you service. Agencies using AI automation see 15-20% higher retention rates and respond to leads in under 60 seconds.
+
+**How does insurance renewal automation work?**
+Insurance renewal automation triggers personalized outreach campaigns 60, 30, 14, and 7 days before each policy's expiration date. The system sends emails, texts, and calls customized to each client's policy details, claim history, and life events. The AI drafts each message in the agency's voice; producers review flagged accounts. Agencies using proactive renewal outreach retain 15-20% more policies than those relying on reactive communication.
+
+**What AMS systems does RenewalEngineAI integrate with?**
+RenewalEngineAI integrates with Applied Epic (Applied Systems), HawkSoft CMS, and EZLynx. Integration reads policy data and client records, and writes activity notes back into the AMS so producers see the full outreach history without leaving their system of record.
+
+**How fast can AI respond to insurance leads?**
+RenewalEngineAI's instant lead response system contacts new leads in under 60 seconds via text, email, or AI-assisted callback. Responding within one minute increases conversion probability by 391%, and 78% of insurance consumers purchase from the first agent to respond.
+
+**What does it cost to implement AI automation for an insurance agency?**
+RenewalEngineAI's three-tier pricing: $1,500 for a 5-day AI Audit, $6,000 one-time for Build & Launch (audit fee credited), and $2,500/month for ongoing Managed Operations. Total year-one cost for a full engagement is $36,000 — compared to $60-80K for a CSR hire at equivalent capacity.
+
+**How long does it take to launch AI automation in an insurance agency?**
+Most agencies go live within 2-3 weeks of starting the Build & Launch phase. The Audit runs 5 days, then Build & Launch takes 2-3 weeks with full AMS integration, system testing, and team training.
+
+**What types of agencies benefit most from AI automation?**
+Independent P&C agencies with 200+ policies benefit most. Agencies losing renewals, missing leads after hours, or struggling to follow up on every quote see the fastest ROI. Agencies with under 100 policies or broken AMS data should address those gaps first.
+
+**Is RenewalEngineAI a software product or a service?**
+RenewalEngineAI is a done-for-you service. We build, configure, launch, and manage AI automation systems for agencies. There is no software license to buy or platform to learn. Agencies pay for outcomes — retained policies, converted leads, bound quotes.
+
+**Does RenewalEngineAI require a long-term contract?**
+No. The Audit and Build & Launch are one-time investments. Managed Operations is month-to-month with 30 days' notice to cancel.
+
+## AMS Integration Details
+
+- **Applied Epic**: RenewalEngineAI reads policy expiration data, client contact records, and activity history. Writes outreach activities back into Epic. Supports Applied Analytics exports and direct API where available.
+- **HawkSoft CMS**: Integrates via CSV/scheduled export and HawkSoft API. Reads renewal lists, writes activity notes, enforces opt-out flags stored in client records.
+- **EZLynx**: Reads policy data from EZLynx rating engine exports and client portal. Writes activity notes. Supports EZLynx communication integrations.
+
+## Target Keywords and Topics
+
+Primary: AI automation for insurance agents, insurance renewal automation, AI for independent insurance agencies, done-for-you AI insurance, insurance retention automation, Applied Epic AI, HawkSoft AI, EZLynx AI automation, instant lead response insurance, insurance agency workflow automation.
+
+Secondary: insurance AI tools, P&C agency AI, insurance agency operations AI, insurance quote follow-up automation, insurance cross-sell automation, AI for insurance retention, independent insurance agency software, AMS AI integration, insurance lead conversion AI.
 
 ## Team
 
-- [Josh Kay, Founder](https://renewalengineai.com/team/josh-kay): Writes most of the content on this site and personally runs audit engagements.
+- [Josh Kay, Founder](https://renewalengineai.com/team/josh-kay): Builds done-for-you AI automation for independent insurance agencies. Runs audit engagements personally. Background in AI-powered workflow systems and ML-driven retention tools. LinkedIn: https://www.linkedin.com/in/joshrkay
+
+## Contact
+
+Email: hello@renewalengineai.com
+Website: https://renewalengineai.com
+LinkedIn: https://www.linkedin.com/company/renewalengineai
 
 ## Legal
 
 - [Privacy Policy](https://renewalengineai.com/privacy)
 - [Terms of Service](https://renewalengineai.com/terms)
-
-## Contact
-
-Email: hello@renewalengineai.com

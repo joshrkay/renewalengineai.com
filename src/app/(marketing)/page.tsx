@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { CheckoutStatus } from "@/components/marketing/CheckoutStatus";
 import { Header } from "@/components/marketing/Header";
@@ -19,6 +20,30 @@ import { FAQ } from "@/components/marketing/FAQ";
 import { CTA } from "@/components/marketing/CTA";
 import { Footer } from "@/components/marketing/Footer";
 import { faqJsonLd, homeFaqs } from "@/lib/faqs";
+
+export const metadata: Metadata = {
+  title: "AI Automation for Insurance Agents | RenewalEngineAI",
+  description:
+    "RenewalEngineAI builds done-for-you AI automation for independent insurance agencies. Automate renewals, lead response, and quote follow-ups. 15-20% higher retention, 391% more lead conversions, sub-60-second response.",
+  alternates: {
+    canonical: "https://renewalengineai.com/",
+  },
+  keywords: [
+    "AI automation for insurance agents",
+    "insurance renewal automation",
+    "done-for-you AI insurance agency",
+    "insurance lead response automation",
+    "AI for independent insurance agents",
+    "insurance agency retention software",
+    "Applied Epic AI automation",
+    "HawkSoft AI automation",
+    "EZLynx AI automation",
+    "insurance agency workflow automation",
+    "AI renewal campaigns insurance",
+    "sub 60 second lead response insurance",
+    "insurance renewal retention lift",
+  ],
+};
 
 export default function HomePage() {
   return (
