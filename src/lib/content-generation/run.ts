@@ -1,6 +1,7 @@
 import { nextPendingTopic, readBacklog, updateTopicStatus } from "./backlog";
 import { researchTopic } from "./search";
 import { draftArticle } from "./draft";
+import { draftLinkedInPost } from "./linkedin";
 import { writeLocal, openPullRequest, openPullRequestViaAPI } from "./commit";
 import type { GenerationResult, Trigger } from "./types";
 
@@ -39,6 +40,15 @@ export async function generateWeeklyContent(
   console.log(
     `[run] drafted ${article.wordCount} words (${article.readTime} min read)`
   );
+
+  // Draft LinkedIn post alongside the article. Errors are non-fatal —
+  // the article ships regardless, and the PR body will show a placeholder.
+  try {
+    article.linkedInPost = await draftLinkedInPost(article);
+    console.log("[run] LinkedIn post drafted");
+  } catch (err) {
+    console.warn("[run] LinkedIn post draft failed (non-fatal):", err);
+  }
 
   if (opts.dryRun || !opts.github) {
     // Serverless file systems (Vercel) are read-only; skip the local write

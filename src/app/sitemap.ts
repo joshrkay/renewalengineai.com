@@ -150,5 +150,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...courseRoutes,
     ...teamRoutes,
     ...previewLessonRoutes,
+    {
+      url: `${SITE_URL}/feed.xml`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.5,
+    },
   ];
 }

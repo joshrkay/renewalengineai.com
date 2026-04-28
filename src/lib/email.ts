@@ -167,6 +167,132 @@ export async function sendMastermindInviteNotification(
   });
 }
 
+export async function sendNewsletterWelcome(
+  email: string,
+  name: string | null,
+  unsubscribeToken: string
+): Promise<void> {
+  const unsubUrl = `${APP_URL}/api/newsletter/unsubscribe?token=${unsubscribeToken}`;
+  const firstName = name?.split(" ")[0] ?? null;
+
+  await sendEmail({
+    to: email,
+    subject: "5 AI Automations Every Insurance Agent Should Set Up This Week",
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; background: #ffffff;">
+        <p style="color: #2563eb; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 24px;">RenewalEngineAI</p>
+
+        <h1 style="color: #0a0a0a; font-size: 22px; font-weight: 900; margin: 0 0 16px; line-height: 1.25;">
+          Your free guide is ready.
+        </h1>
+
+        ${firstName ? `<p style="color: #525252; font-size: 16px; margin: 0 0 16px;">Hey ${firstName} &mdash;</p>` : ""}
+
+        <p style="color: #525252; font-size: 16px; line-height: 1.65; margin: 0 0 16px;">
+          Here are the <strong>5 AI automations</strong> that save independent P&amp;C agents 15+ hours
+          a week and stop renewal leaks before they happen. These are the same five we install for
+          agency clients in the first two weeks of a Build &amp; Launch engagement.
+        </p>
+
+        <div style="text-align: center; margin: 32px 0;">
+          <a href="${APP_URL}/guides/5-ai-automations"
+             style="display: inline-block; background: #059669; color: white; padding: 14px 36px;
+                    border-radius: 9999px; text-decoration: none; font-weight: 900; font-size: 16px;">
+            Read the guide &rarr;
+          </a>
+        </div>
+
+        <p style="color: #525252; font-size: 15px; line-height: 1.65; margin: 0 0 16px;">
+          You'll also get new resources from us when we publish them &mdash; renewal playbooks,
+          AMS integration guides, lead-response workflows. All written for independent P&amp;C agencies.
+          Nothing you can find with a generic Google search.
+        </p>
+
+        <p style="color: #525252; font-size: 15px; line-height: 1.65; margin: 0 0 24px;">
+          If you'd rather have us build and run the automations for you, the fastest path is the
+          <a href="${APP_URL}/#pricing" style="color: #2563eb; text-decoration: none; font-weight: 600;">$1,500 audit</a>.
+          Five days, written roadmap, full credit toward Build &amp; Launch.
+        </p>
+
+        <p style="color: #525252; font-size: 15px; margin: 0;">
+          &mdash; Josh Kay, RenewalEngineAI
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
+        <p style="color: #a3a3a3; font-size: 12px; line-height: 1.5; margin: 0;">
+          RenewalEngineAI &middot; AI Automation for Insurance Agencies<br>
+          <a href="${unsubUrl}" style="color: #a3a3a3;">Unsubscribe</a>
+        </p>
+      </div>
+    `,
+  });
+}
+
+export async function sendNewsletterIssue(
+  email: string,
+  name: string | null,
+  unsubscribeToken: string,
+  article: {
+    title: string;
+    slug: string;
+    description: string;
+    category: string;
+    readTime: number;
+  }
+): Promise<void> {
+  const unsubUrl = `${APP_URL}/api/newsletter/unsubscribe?token=${unsubscribeToken}`;
+  const articleUrl = `${APP_URL}/resources/${article.slug}`;
+  const firstName = name?.split(" ")[0] ?? null;
+
+  await sendEmail({
+    to: email,
+    subject: article.title,
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; background: #ffffff;">
+        <p style="color: #2563eb; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px;">
+          RenewalEngineAI &middot; ${article.category} &middot; ${article.readTime} min read
+        </p>
+
+        ${firstName ? `<p style="color: #525252; font-size: 16px; margin: 0 0 16px;">Hey ${firstName} &mdash;</p>` : ""}
+
+        <h1 style="margin: 0 0 16px; line-height: 1.2;">
+          <a href="${articleUrl}" style="color: #0a0a0a; text-decoration: none; font-size: 22px; font-weight: 900;">
+            ${article.title}
+          </a>
+        </h1>
+
+        <p style="color: #525252; font-size: 16px; line-height: 1.65; margin: 0 0 24px;">
+          ${article.description}
+        </p>
+
+        <div style="text-align: center; margin: 32px 0;">
+          <a href="${articleUrl}"
+             style="display: inline-block; background: #2563eb; color: white; padding: 14px 36px;
+                    border-radius: 9999px; text-decoration: none; font-weight: 900; font-size: 16px;">
+            Read the full article &rarr;
+          </a>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
+
+        <p style="color: #737373; font-size: 14px; line-height: 1.65; margin: 0 0 8px;">
+          Running AI in your agency and want a room to compare notes?
+          The <a href="${APP_URL}/mastermind" style="color: #2563eb; text-decoration: none;">Mastermind</a>
+          is monthly live calls plus an evolving prompt library.
+          Or if you want us to build it for you,
+          <a href="${APP_URL}/#pricing" style="color: #2563eb; text-decoration: none;">here's the audit</a>.
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 24px 0;" />
+        <p style="color: #a3a3a3; font-size: 12px; line-height: 1.5; margin: 0;">
+          RenewalEngineAI &middot; AI Automation for Insurance Agencies<br>
+          <a href="${unsubUrl}" style="color: #a3a3a3;">Unsubscribe</a>
+        </p>
+      </div>
+    `,
+  });
+}
+
 export async function sendTokenExpiryWarning(
   email: string,
   provider: string

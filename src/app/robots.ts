@@ -45,7 +45,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "TurnitinBot", allow: "/" },
       { userAgent: "facebookexternalhit", allow: "/" },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: [`${SITE_URL}/sitemap.xml`, `${SITE_URL}/feed.xml`],
     host: SITE_URL,
   };
 }

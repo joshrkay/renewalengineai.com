@@ -17,6 +17,10 @@
     {
       "path": "/api/cron/generate-content",
       "schedule": "0 14 * * 1"
+    },
+    {
+      "path": "/api/cron/send-newsletter",
+      "schedule": "0 10 * * 3"
     }
   ]
 }

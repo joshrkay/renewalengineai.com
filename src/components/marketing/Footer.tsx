@@ -1,5 +1,6 @@
 import { Linkedin, Mail } from "lucide-react";
 import { Logo } from "@/components/marketing/Logo";
+import { NewsletterSignupForm } from "@/components/marketing/NewsletterSignupForm";
 
 export function Footer() {
   return (
@@ -56,6 +57,23 @@ export function Footer() {
               <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
               <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
             </ul>
+          </div>
+        </div>
+
+        {/* Newsletter strip */}
+        <div className="border-t border-neutral-800 pt-10 mb-10">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="flex-1 min-w-0">
+              <p className="text-white font-black text-lg mb-1">
+                Get new resources when they ship.
+              </p>
+              <p className="text-neutral-500 text-sm">
+                Renewal playbooks, AMS guides, lead-response workflows &mdash; for independent P&amp;C agencies. No fluff.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <NewsletterSignupForm source="footer" compact />
+            </div>
           </div>
         </div>
 

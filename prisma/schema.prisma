@@ -103,6 +103,31 @@ model MastermindInvite {
   @@index([createdAt])
 }
 
+// Email list for newsletter + content distribution.
+// Separate from MastermindInvite — these are content subscribers,
+// not mastermind applicants.
+model NewsletterSubscriber {
+  id               String    @id @default(cuid())
+  email            String    @unique
+  name             String?
+  source           String    @default("newsletter")
+  unsubscribeToken String    @unique
+  subscribedAt     DateTime  @default(now())
+  unsubscribedAt   DateTime?
+
+  @@index([subscribedAt])
+  @@index([unsubscribedAt])
+}
+
+// Tracks which resource slugs have already been sent as newsletter issues
+// so the cron never double-sends.
+model NewsletterSend {
+  id             String   @id @default(cuid())
+  resourceSlug   String   @unique
+  sentAt         DateTime @default(now())
+  recipientCount Int      @default(0)
+}
+
 model AuditLog {
   id             String   @id @default(cuid())
   organizationId String?

@@ -106,6 +106,19 @@ function prBody(article: DraftedArticle, trigger: Trigger): string {
     ? article.sources.map((s, i) => `${i + 1}. [${s.title}](${s.url})`).join("\n")
     : "(no external sources — drafted from house knowledge)";
 
+  const linkedInSection = article.linkedInPost
+    ? [
+        `## LinkedIn post (ready to copy-paste)`,
+        ``,
+        `> Copy this after the article is merged and live. Edit before posting if needed.`,
+        ``,
+        "```",
+        article.linkedInPost,
+        "```",
+        ``,
+      ].join("\n")
+    : "";
+
   return [
     `Auto-drafted resource article.`,
     ``,
@@ -124,7 +137,9 @@ function prBody(article: DraftedArticle, trigger: Trigger): string {
     `- [ ] No em-dashes / banned cliches`,
     `- [ ] Table/list/comparison present`,
     `- [ ] CTA sits naturally in the closing`,
+    `- [ ] LinkedIn post reviewed and saved for publishing`,
     ``,
+    linkedInSection,
     `## Sources`,
     sources,
     ``,

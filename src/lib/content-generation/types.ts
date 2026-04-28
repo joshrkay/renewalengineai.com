@@ -43,6 +43,8 @@ export type DraftedArticle = {
   rawMarkdown: string;
   sources: ResearchFinding[];
   wordCount: number;
+  /** Ready-to-paste LinkedIn post, drafted alongside the article. */
+  linkedInPost?: string;
 };
 
 export type GenerationResult = {

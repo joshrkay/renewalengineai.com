@@ -26,7 +26,7 @@ export function LeadMagnetForm({ source }: { source: string }) {
     setError(null);
 
     try {
-      const res = await fetch("/api/mastermind/invite", {
+      const res = await fetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
