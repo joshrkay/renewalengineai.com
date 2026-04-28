@@ -6,17 +6,33 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { MastermindInviteForm } from "@/components/marketing/MastermindInviteForm";
 
 export const metadata: Metadata = {
-  title: "Insurance Agency AI Mastermind - Monthly Calls & Prompt Library",
+  title: "Insurance Agency AI Mastermind — Monthly Calls & Prompt Library",
   description:
-    "Ongoing membership for insurance agents running AI in production. Monthly live calls, an evolving prompt library, and a private peer community.",
+    "Ongoing membership for insurance agents running AI in production. Monthly live calls, an evolving prompt library, and a private peer community. $97–$197/month, cancel anytime.",
+  keywords: [
+    "insurance agency AI mastermind",
+    "AI community for insurance agents",
+    "insurance agent AI training membership",
+    "insurance AI prompt library",
+    "insurance agency AI coaching",
+    "independent insurance agent community",
+    "AI mastermind insurance",
+    "insurance agency AI peer group",
+  ],
   alternates: { canonical: "https://renewalengineai.com/mastermind" },
   openGraph: {
     type: "website",
     url: "https://renewalengineai.com/mastermind",
-    title: "AI Mastermind & Community | RenewalEngineAI",
+    title: "Insurance Agency AI Mastermind | RenewalEngineAI",
     description:
-      "Monthly live calls, prompt library, and a private community of insurance agents running AI in production.",
+      "Monthly live calls, prompt library, and a private community of insurance agents running AI in production. $97–$197/month.",
     siteName: "RenewalEngineAI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Insurance Agency AI Mastermind | RenewalEngineAI",
+    description:
+      "Monthly calls, prompt library, and peer community for insurance agents running AI. Cancel anytime.",
   },
 };
 

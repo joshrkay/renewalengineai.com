@@ -6,10 +6,24 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { team } from "@/lib/team";
 
 export const metadata: Metadata = {
-  title: "Team",
+  title: "Team — Operators Building AI Automation for Insurance Agencies",
   description:
-    "The people behind RenewalEngineAI - operators building AI automation for independent insurance agencies.",
+    "Meet the operators behind RenewalEngineAI. We build, launch, and manage AI automation systems for independent insurance agencies — renewal campaigns, instant lead response, and AMS integration.",
   alternates: { canonical: "https://renewalengineai.com/team" },
+  openGraph: {
+    type: "website",
+    url: "https://renewalengineai.com/team",
+    title: "Team | RenewalEngineAI",
+    description:
+      "The operators behind RenewalEngineAI — building AI automation for independent insurance agencies.",
+    siteName: "RenewalEngineAI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Team | RenewalEngineAI",
+    description:
+      "Operators building done-for-you AI automation for independent insurance agencies.",
+  },
 };
 
 export default function TeamIndexPage() {

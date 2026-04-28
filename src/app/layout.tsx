@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     "Applied Epic AI",
     "HawkSoft AI",
     "EZLynx automation",
+    "done-for-you AI insurance agency",
+    "insurance retention automation",
+    "insurance AI tools",
+    "insurance agency AI software",
+    "insurance lead follow-up automation",
   ],
   authors: [{ name: "RenewalEngineAI" }],
   creator: "RenewalEngineAI",
@@ -98,6 +103,18 @@ const jsonLd = {
         "EZLynx integration",
       ],
       sameAs: ["https://www.linkedin.com/company/renewalengineai"],
+      potentialAction: {
+        "@type": "ReserveAction",
+        name: "Book a free AI discovery call",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://renewalengineai.com/#pricing",
+          actionPlatform: [
+            "https://schema.org/DesktopWebPlatform",
+            "https://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -123,6 +140,15 @@ const jsonLd = {
       url: "https://renewalengineai.com",
       publisher: { "@id": "https://renewalengineai.com#Organization" },
       inLanguage: "en-US",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate:
+            "https://renewalengineai.com/resources?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
     {
       "@type": "Service",

@@ -6,17 +6,35 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 
 export const metadata: Metadata = {
-  title: "How It Works - Audit, Build & Launch, Managed Ops",
+  title: "How RenewalEngineAI Works — Audit, Build & Launch, Managed Ops",
   description:
-    "The three-phase process we use to get AI automation live inside independent insurance agencies - a 5-day audit, a 2-3 week build & launch, and ongoing managed operations.",
+    "The three-phase process: a 5-day AI automation audit ($1,500), a 2-3 week build & launch ($6,000), and ongoing managed AI operations ($2,500/month) for independent insurance agencies.",
+  keywords: [
+    "insurance AI automation process",
+    "AI automation audit insurance agency",
+    "insurance agency AI implementation",
+    "how AI automation works insurance",
+    "AI build launch insurance agency",
+    "managed AI operations insurance",
+    "insurance agency automation onboarding",
+    "Applied Epic AI setup",
+    "HawkSoft automation setup",
+    "EZLynx AI integration process",
+  ],
   alternates: { canonical: "https://renewalengineai.com/how-it-works" },
   openGraph: {
     type: "website",
     url: "https://renewalengineai.com/how-it-works",
+    title: "How RenewalEngineAI Works — Audit, Build & Launch, Managed Ops",
+    description:
+      "A 5-day audit, 2-3 week build & launch, and ongoing managed AI operations for independent insurance agencies.",
+    siteName: "RenewalEngineAI",
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "How RenewalEngineAI Works | RenewalEngineAI",
     description:
-      "The three-phase process we use to get AI automation live inside independent insurance agencies.",
-    siteName: "RenewalEngineAI",
+      "Three phases: 5-day audit, 2-3 week build & launch, ongoing managed ops. No long-term contracts.",
   },
 };
 

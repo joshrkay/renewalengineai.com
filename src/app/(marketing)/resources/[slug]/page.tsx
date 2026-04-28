@@ -110,6 +110,12 @@ export default async function ResourceArticlePage({
         keywords: resource.primaryKeyword,
         inLanguage: "en-US",
         isAccessibleForFree: true,
+        // speakable targets h1 + the lead paragraph so voice assistants
+        // and AI answer engines pull the most authoritative summary.
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "article p:first-of-type", "blockquote"],
+        },
         ...(mentionsAms ? { mentions: amsMentions } : {}),
       },
       personJsonLd(author),

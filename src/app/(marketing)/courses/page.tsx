@@ -6,17 +6,34 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listCourses, formatPrice } from "@/lib/courses";
 
 export const metadata: Metadata = {
-  title: "AI Courses for Insurance Agents - Retention, Ops & Prompting",
+  title: "AI Courses for Insurance Agents — Retention, Ops & Prompting",
   description:
-    "Self-paced courses that teach insurance agents how to build AI retention engines, agency-ops automations, and production prompts - taught by operators.",
+    "Self-paced courses that teach insurance agents how to build AI retention engines, agency-ops automations, and production prompts. Taught by operators who run these systems for real agencies.",
+  keywords: [
+    "AI courses for insurance agents",
+    "insurance agency AI training",
+    "insurance renewal automation course",
+    "AI for insurance agents online course",
+    "insurance agency operations AI",
+    "insurance agent prompting course",
+    "AI retention course insurance",
+    "independent insurance agent AI training",
+    "insurance AI certification",
+  ],
   alternates: { canonical: "https://renewalengineai.com/courses" },
   openGraph: {
     type: "website",
     url: "https://renewalengineai.com/courses",
     title: "AI Courses for Insurance Agents | RenewalEngineAI",
     description:
-      "Self-paced courses on building AI retention engines and agency operations automation for insurance agents.",
+      "Self-paced courses on building AI retention engines and agency operations automation. Taught by operators.",
     siteName: "RenewalEngineAI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Courses for Insurance Agents | RenewalEngineAI",
+    description:
+      "Self-paced courses on AI retention, agency ops automation, and prompting for insurance agents.",
   },
 };
 

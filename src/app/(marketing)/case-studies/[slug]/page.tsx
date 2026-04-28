@@ -75,6 +75,10 @@ export default async function CaseStudyPage({
         keywords: caseStudy.primaryKeyword,
         inLanguage: "en-US",
         isAccessibleForFree: true,
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "article p:first-of-type"],
+        },
         about: {
           "@type": "Service",
           "@id": "https://renewalengineai.com#BuildLaunchService",
