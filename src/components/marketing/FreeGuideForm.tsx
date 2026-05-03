@@ -9,12 +9,14 @@ interface FreeGuideFormProps {
   theme?: "dark" | "light";
   source?: string;
   ctaLabel?: string;
+  redirectPath?: string;
 }
 
 export function FreeGuideForm({
   theme = "dark",
   source = "free_guide",
   ctaLabel = "Get My Free Automation Guide",
+  redirectPath = "/free-guide/thank-you",
 }: FreeGuideFormProps) {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -62,7 +64,7 @@ export function FreeGuideForm({
         email: trimmedEmail,
         ...(name.trim() ? { name: name.trim() } : {}),
       });
-      router.push(`/free-guide/thank-you?${params.toString()}`);
+      router.push(`${redirectPath}?${params.toString()}`);
     } catch {
       setError("Something went wrong. Please try again in a moment.");
       setStatus("error");
