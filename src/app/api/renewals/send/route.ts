@@ -44,16 +44,25 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  const sentAt = new Date();
   const tenantDb = getTenantDb(orgId);
-  const updated = await tenantDb.renewalDraft.update({
-    where: { id: draftId },
-    data: {
-      status: "SENT",
-      sentAt: new Date(),
-      subject,
-      body,
-    },
-  });
+
+  const [updated] = await prisma.$transaction([
+    prisma.renewalDraft.update({
+      where: { id: draftId },
+      data: { status: "SENT", sentAt, subject, body },
+    }),
+    prisma.emailSendLog.create({
+      data: {
+        organizationId: orgId,
+        policyId: draft.policyId,
+        draftId,
+        recipientEmail: draft.policy.clientEmail,
+        subject,
+        sentAt,
+      },
+    }),
+  ]);
 
   return NextResponse.json(updated);
 }

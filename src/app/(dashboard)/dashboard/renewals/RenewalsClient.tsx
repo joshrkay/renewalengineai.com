@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Sparkles, Send, Edit2, X, Loader2, FileUp, Trash2 } from "lucide-react";
+import { Plus, Sparkles, Send, Edit2, X, Loader2, FileUp, Trash2, CheckSquare, Square } from "lucide-react";
 
 interface RenewalDraft {
   id: string;
@@ -67,10 +67,29 @@ export default function RenewalsClient({
   const [importLoading, setImportLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState(EMPTY_FORM);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [bulkGenerating, setBulkGenerating] = useState(false);
+  const [bulkSending, setBulkSending] = useState(false);
 
   function updatePolicies(next: Policy[]) {
     setPolicies(next);
     onPoliciesChange?.(next);
+  }
+
+  function toggleSelect(id: string) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  }
+
+  function toggleSelectAll() {
+    if (selected.size === policies.length) {
+      setSelected(new Set());
+    } else {
+      setSelected(new Set(policies.map((p) => p.id)));
+    }
   }
 
   async function handleAddPolicy(e: React.FormEvent) {
@@ -103,6 +122,11 @@ export default function RenewalsClient({
       const res = await fetch(`/api/renewals/policies/${policyId}`, { method: "DELETE" });
       if (!res.ok) throw new Error(await res.text());
       updatePolicies(policies.filter((p) => p.id !== policyId));
+      setSelected((prev) => {
+        const next = new Set(prev);
+        next.delete(policyId);
+        return next;
+      });
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -180,6 +204,78 @@ export default function RenewalsClient({
       e.target.value = "";
     }
   }
+
+  async function handleBulkGenerate() {
+    const ids = Array.from(selected);
+    if (ids.length === 0) return;
+    setBulkGenerating(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/renewals/bulk-generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ policyIds: ids }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const { drafts } = await res.json();
+      const draftsByPolicy: Record<string, RenewalDraft> = {};
+      for (const d of drafts) draftsByPolicy[d.policyId] = d;
+      updatePolicies(
+        policies.map((p) =>
+          draftsByPolicy[p.id]
+            ? { ...p, renewalDrafts: [draftsByPolicy[p.id], ...p.renewalDrafts] }
+            : p
+        )
+      );
+      setSelected(new Set());
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setBulkGenerating(false);
+    }
+  }
+
+  async function handleBulkSend() {
+    const ids = Array.from(selected);
+    if (ids.length === 0) return;
+    if (!confirm(`Send renewal emails for ${ids.length} selected polic${ids.length === 1 ? "y" : "ies"}?`)) return;
+    setBulkSending(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/renewals/bulk-send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ policyIds: ids }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const { sentCount, results } = await res.json();
+      const sentDraftIds = new Set(
+        results.filter((r: any) => r.success).map((r: any) => r.draftId)
+      );
+      updatePolicies(
+        policies.map((p) => ({
+          ...p,
+          renewalDrafts: p.renewalDrafts.map((d) =>
+            sentDraftIds.has(d.id) ? { ...d, status: "SENT" as const, sentAt: new Date().toISOString() } : d
+          ),
+        }))
+      );
+      setSelected(new Set());
+      if (sentCount < ids.length) {
+        setError(`Sent ${sentCount} of ${ids.length}. Some emails failed — check individual status.`);
+      }
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setBulkSending(false);
+    }
+  }
+
+  // Count selected policies with a pending draft
+  const selectedWithPending = Array.from(selected).filter((id) => {
+    const p = policies.find((pol) => pol.id === id);
+    return p?.renewalDrafts[0]?.status === "PENDING";
+  });
 
   // Actions-only mode: just render the Add/Import buttons (no table)
   if (actionsOnly) {
@@ -314,11 +410,50 @@ export default function RenewalsClient({
         </div>
       )}
 
+      {/* Bulk action bar */}
+      {selected.size > 0 && (
+        <div className="mb-4 flex items-center gap-3 p-3 bg-neutral-900 text-white rounded-xl text-sm">
+          <span className="font-semibold">{selected.size} selected</span>
+          <div className="flex-1" />
+          <button
+            onClick={handleBulkGenerate}
+            disabled={bulkGenerating}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 font-semibold transition-colors"
+          >
+            {bulkGenerating ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5" />}
+            Generate Drafts
+          </button>
+          {selectedWithPending.length > 0 && (
+            <button
+              onClick={handleBulkSend}
+              disabled={bulkSending}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-black hover:bg-neutral-100 font-semibold transition-colors"
+            >
+              {bulkSending ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
+              Send {selectedWithPending.length} Draft{selectedWithPending.length !== 1 ? "s" : ""}
+            </button>
+          )}
+          <button
+            onClick={() => setSelected(new Set())}
+            className="p-1 rounded hover:bg-white/10"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
       {policies.length > 0 && (
         <div className="bg-white rounded-2xl border border-neutral-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-neutral-100 text-neutral-500 text-xs font-semibold uppercase tracking-wide">
+                <th className="px-4 py-3 w-10">
+                  <button onClick={toggleSelectAll} className="text-neutral-400 hover:text-neutral-600">
+                    {selected.size === policies.length && policies.length > 0
+                      ? <CheckSquare className="w-4 h-4" />
+                      : <Square className="w-4 h-4" />}
+                  </button>
+                </th>
                 <th className="text-left px-4 py-3">Client</th>
                 <th className="text-left px-4 py-3">Policy</th>
                 <th className="text-left px-4 py-3">Expires</th>
@@ -330,8 +465,14 @@ export default function RenewalsClient({
               {policies.map((policy) => {
                 const days = daysUntil(policy.expiresAt);
                 const latestDraft = policy.renewalDrafts[0] ?? null;
+                const isSelected = selected.has(policy.id);
                 return (
-                  <tr key={policy.id} className="border-b border-neutral-50 hover:bg-neutral-50">
+                  <tr key={policy.id} className={`border-b border-neutral-50 hover:bg-neutral-50 ${isSelected ? "bg-neutral-50" : ""}`}>
+                    <td className="px-4 py-3">
+                      <button onClick={() => toggleSelect(policy.id)} className="text-neutral-400 hover:text-neutral-600">
+                        {isSelected ? <CheckSquare className="w-4 h-4 text-black" /> : <Square className="w-4 h-4" />}
+                      </button>
+                    </td>
                     <td className="px-4 py-3">
                       <p className="font-semibold">{policy.clientName}</p>
                       <p className="text-neutral-500 text-xs">{policy.clientEmail}</p>

@@ -146,6 +146,24 @@ export function getTenantDb(organizationId: string) {
           return query(args);
         },
       },
+      emailSendLog: {
+        async findMany({ args, query }) {
+          args.where = { ...args.where, organizationId };
+          return query(args);
+        },
+        async findFirst({ args, query }) {
+          args.where = { ...args.where, organizationId };
+          return query(args);
+        },
+        async count({ args, query }) {
+          args.where = { ...args.where, organizationId };
+          return query(args);
+        },
+        async create({ args, query }) {
+          args.data = { ...args.data, organizationId } as any;
+          return query(args);
+        },
+      },
     },
   });
 }

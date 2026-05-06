@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
-import { getTenantDb } from "@/lib/db";
-import { AlertCircle, Clock, CheckCircle } from "lucide-react";
+import { getTenantDb, prisma } from "@/lib/db";
+import { AlertCircle, Clock, CheckCircle, History } from "lucide-react";
+import Link from "next/link";
 import RenewalsClient from "./RenewalsClient";
 
 export const metadata = { title: "Policy Renewals | RenewalEngineAI" };
@@ -14,22 +15,26 @@ export default async function RenewalsPage() {
   const orgId = (session as any)?.organizationId;
 
   let policies: any[] = [];
+  let orgName: string | null = null;
 
   if (orgId) {
     const tenantDb = getTenantDb(orgId);
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() + 90);
 
-    policies = await tenantDb.policy.findMany({
-      where: { expiresAt: { lte: cutoff } },
-      include: {
-        renewalDrafts: {
-          orderBy: { createdAt: "desc" },
-          take: 1,
+    [policies, orgName] = await Promise.all([
+      tenantDb.policy.findMany({
+        where: { expiresAt: { lte: cutoff } },
+        include: {
+          renewalDrafts: {
+            orderBy: { createdAt: "desc" },
+            take: 1,
+          },
         },
-      },
-      orderBy: { expiresAt: "asc" },
-    });
+        orderBy: { expiresAt: "asc" },
+      }),
+      prisma.organization.findUnique({ where: { id: orgId }, select: { name: true } }).then((o) => o?.name ?? null),
+    ]);
   }
 
   const urgent = policies.filter((p) => daysUntil(p.expiresAt) <= 30);
@@ -40,6 +45,14 @@ export default async function RenewalsPage() {
 
   return (
     <div className="max-w-6xl mx-auto">
+      {/* Agency banner */}
+      {orgName && (
+        <div className="mb-4 px-4 py-2 bg-neutral-900 text-white rounded-xl text-sm font-semibold inline-flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
+          {orgName}
+        </div>
+      )}
+
       {/* Header */}
       <div className="mb-8 flex items-start justify-between gap-4">
         <div>
@@ -48,8 +61,16 @@ export default async function RenewalsPage() {
             AI-powered renewal outreach for your agency
           </p>
         </div>
-        {/* Action buttons only — no table rendered here */}
-        <RenewalsClient initialPolicies={[]} actionsOnly />
+        <div className="flex items-center gap-2">
+          <Link
+            href="/dashboard/renewals/audit"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm bg-white border border-neutral-200 text-black hover:bg-neutral-50 transition-colors"
+          >
+            <History className="w-4 h-4" /> Audit Log
+          </Link>
+          {/* Action buttons only — no table rendered here */}
+          <RenewalsClient initialPolicies={[]} actionsOnly />
+        </div>
       </div>
 
       {/* Stats */}
@@ -91,10 +112,15 @@ export default async function RenewalsPage() {
       {/* Empty state */}
       {policies.length === 0 && (
         <div className="bg-white rounded-2xl border border-neutral-200 p-16 text-center">
-          <AlertCircle className="w-12 h-12 mx-auto mb-4 text-neutral-300" />
-          <p className="text-xl font-bold text-black mb-2">No policies tracked yet</p>
-          <p className="text-neutral-500 mb-6">
-            Add your first policy or import from a CSV to start tracking renewals.
+          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-neutral-50 border border-neutral-200 flex items-center justify-center">
+            <CheckCircle className="w-8 h-8 text-neutral-300" />
+          </div>
+          <p className="text-xl font-bold text-black mb-2">Start tracking your renewals</p>
+          <p className="text-neutral-500 mb-2 max-w-md mx-auto">
+            Add policies expiring in the next 90 days and let AI draft personalized renewal emails — ready to send in one click.
+          </p>
+          <p className="text-xs text-neutral-400 mb-8">
+            Most agencies recover 15–30% more renewals with proactive outreach.
           </p>
           <div className="flex justify-center">
             <RenewalsClient initialPolicies={[]} actionsOnly primaryCta />

@@ -291,6 +291,7 @@ model Policy {
   expiresAt      DateTime
   notes          String?
   renewalDrafts  RenewalDraft[]
+  sendLogs       EmailSendLog[]
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
 
@@ -298,16 +299,33 @@ model Policy {
 }
 
 model RenewalDraft {
+  id             String         @id @default(cuid())
+  organizationId String
+  policyId       String
+  policy         Policy         @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  subject        String
+  body           String         @db.Text
+  status         DraftStatus    @default(PENDING)
+  sentAt         DateTime?
+  sendLogs       EmailSendLog[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([organizationId, status])
+}
+
+model EmailSendLog {
   id             String      @id @default(cuid())
   organizationId String
   policyId       String
   policy         Policy      @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  draftId        String
+  draft          RenewalDraft @relation(fields: [draftId], references: [id], onDelete: Cascade)
+  recipientEmail String
   subject        String
-  body           String      @db.Text
-  status         DraftStatus @default(PENDING)
-  sentAt         DateTime?
+  sentAt         DateTime    @default(now())
   createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @updatedAt
 
-  @@index([organizationId, status])
+  @@index([organizationId, sentAt])
+  @@index([policyId])
 }
