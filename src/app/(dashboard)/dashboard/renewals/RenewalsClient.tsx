@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Sparkles, Send, Edit2, X, Loader2, FileUp } from "lucide-react";
+import { Plus, Sparkles, Send, Edit2, X, Loader2, FileUp, Trash2 } from "lucide-react";
 
 interface RenewalDraft {
   id: string;
@@ -33,35 +33,45 @@ function urgencyClass(days: number): string {
   return "bg-amber-100 text-amber-800";
 }
 
+const EMPTY_FORM = {
+  clientName: "",
+  clientEmail: "",
+  policyNumber: "",
+  policyType: "Auto",
+  carrier: "",
+  premiumAmount: "",
+  expiresAt: "",
+  notes: "",
+};
+
 export default function RenewalsClient({
   initialPolicies,
   showAddButton = false,
   primaryCta = false,
+  actionsOnly = false,
+  onPoliciesChange,
 }: {
   initialPolicies: Policy[];
   showAddButton?: boolean;
   primaryCta?: boolean;
+  actionsOnly?: boolean;
+  onPoliciesChange?: (policies: Policy[]) => void;
 }) {
   const [policies, setPolicies] = useState<Policy[]>(initialPolicies);
   const [showAddForm, setShowAddForm] = useState(false);
   const [addLoading, setAddLoading] = useState(false);
   const [generating, setGenerating] = useState<string | null>(null);
   const [sending, setSending] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [editDraft, setEditDraft] = useState<{ policyId: string; draft: RenewalDraft } | null>(null);
   const [importLoading, setImportLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
 
-  // Add policy form state
-  const [form, setForm] = useState({
-    clientName: "",
-    clientEmail: "",
-    policyNumber: "",
-    policyType: "Auto",
-    carrier: "",
-    premiumAmount: "",
-    expiresAt: "",
-    notes: "",
-  });
+  function updatePolicies(next: Policy[]) {
+    setPolicies(next);
+    onPoliciesChange?.(next);
+  }
 
   async function handleAddPolicy(e: React.FormEvent) {
     e.preventDefault();
@@ -75,13 +85,28 @@ export default function RenewalsClient({
       });
       if (!res.ok) throw new Error(await res.text());
       const policy = await res.json();
-      setPolicies((prev) => [...prev, { ...policy, renewalDrafts: [] }]);
+      updatePolicies([...policies, { ...policy, renewalDrafts: [] }]);
       setShowAddForm(false);
-      setForm({ clientName: "", clientEmail: "", policyNumber: "", policyType: "Auto", carrier: "", premiumAmount: "", expiresAt: "", notes: "" });
+      setForm(EMPTY_FORM);
     } catch (err: any) {
       setError(err.message);
     } finally {
       setAddLoading(false);
+    }
+  }
+
+  async function handleDelete(policyId: string) {
+    if (!confirm("Delete this policy? This cannot be undone.")) return;
+    setDeleting(policyId);
+    setError(null);
+    try {
+      const res = await fetch(`/api/renewals/policies/${policyId}`, { method: "DELETE" });
+      if (!res.ok) throw new Error(await res.text());
+      updatePolicies(policies.filter((p) => p.id !== policyId));
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setDeleting(null);
     }
   }
 
@@ -96,12 +121,13 @@ export default function RenewalsClient({
       });
       if (!res.ok) throw new Error(await res.text());
       const draft = await res.json();
-      setPolicies((prev) =>
-        prev.map((p) =>
+      updatePolicies(
+        policies.map((p) =>
           p.id === policyId ? { ...p, renewalDrafts: [draft, ...p.renewalDrafts] } : p
         )
       );
-      setEditDraft({ policyId, draft });
+      const policy = policies.find((p) => p.id === policyId);
+      if (policy) setEditDraft({ policyId, draft });
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -120,8 +146,8 @@ export default function RenewalsClient({
       });
       if (!res.ok) throw new Error(await res.text());
       const updated = await res.json();
-      setPolicies((prev) =>
-        prev.map((p) =>
+      updatePolicies(
+        policies.map((p) =>
           p.id === policyId
             ? { ...p, renewalDrafts: p.renewalDrafts.map((d) => (d.id === draftId ? updated : d)) }
             : p
@@ -146,7 +172,7 @@ export default function RenewalsClient({
       const res = await fetch("/api/renewals/policies/import", { method: "POST", body: fd });
       if (!res.ok) throw new Error(await res.text());
       const { policies: imported } = await res.json();
-      setPolicies((prev) => [...prev, ...imported.map((p: Policy) => ({ ...p, renewalDrafts: [] }))]);
+      updatePolicies([...policies, ...imported.map((p: Policy) => ({ ...p, renewalDrafts: [] }))]);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -155,9 +181,77 @@ export default function RenewalsClient({
     }
   }
 
+  // Actions-only mode: just render the Add/Import buttons (no table)
+  if (actionsOnly) {
+    return (
+      <div>
+        <div className="flex gap-2">
+          <button
+            onClick={() => setShowAddForm(true)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-colors ${
+              primaryCta
+                ? "bg-black text-white hover:bg-neutral-800"
+                : "bg-white border border-neutral-200 text-black hover:bg-neutral-50"
+            }`}
+          >
+            <Plus className="w-4 h-4" /> Add Policy
+          </button>
+          <label className="flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm bg-white border border-neutral-200 text-black hover:bg-neutral-50 cursor-pointer transition-colors">
+            {importLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileUp className="w-4 h-4" />}
+            Import CSV
+            <input type="file" accept=".csv" className="hidden" onChange={handleCsvImport} />
+          </label>
+        </div>
+
+        {error && (
+          <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700">
+            {error}
+          </div>
+        )}
+
+        {showAddForm && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+              <div className="flex items-center justify-between p-6 border-b border-neutral-100">
+                <h3 className="font-bold text-lg">Add Policy</h3>
+                <button onClick={() => setShowAddForm(false)}><X className="w-5 h-5" /></button>
+              </div>
+              <form onSubmit={handleAddPolicy} className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Field label="Client Name *" value={form.clientName} onChange={(v) => setForm((f) => ({ ...f, clientName: v }))} />
+                <Field label="Client Email *" type="email" value={form.clientEmail} onChange={(v) => setForm((f) => ({ ...f, clientEmail: v }))} />
+                <Field label="Policy Number *" value={form.policyNumber} onChange={(v) => setForm((f) => ({ ...f, policyNumber: v }))} />
+                <div>
+                  <label className="block text-sm font-semibold mb-1">Policy Type *</label>
+                  <select
+                    value={form.policyType}
+                    onChange={(e) => setForm((f) => ({ ...f, policyType: e.target.value }))}
+                    className="w-full border border-neutral-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
+                  >
+                    {["Auto", "Home", "Commercial", "Life", "Health", "Umbrella", "Other"].map((t) => (
+                      <option key={t}>{t}</option>
+                    ))}
+                  </select>
+                </div>
+                <Field label="Carrier" value={form.carrier} onChange={(v) => setForm((f) => ({ ...f, carrier: v }))} />
+                <Field label="Premium ($)" type="number" value={form.premiumAmount} onChange={(v) => setForm((f) => ({ ...f, premiumAmount: v }))} />
+                <Field label="Expiry Date *" type="date" value={form.expiresAt} onChange={(v) => setForm((f) => ({ ...f, expiresAt: v }))} />
+                <Field label="Notes" value={form.notes} onChange={(v) => setForm((f) => ({ ...f, notes: v }))} />
+                <div className="md:col-span-2 flex justify-end gap-2">
+                  <button type="button" onClick={() => setShowAddForm(false)} className="px-4 py-2 rounded-xl border border-neutral-200 text-sm font-semibold">Cancel</button>
+                  <button type="submit" disabled={addLoading} className="px-4 py-2 rounded-xl bg-black text-white text-sm font-bold flex items-center gap-2">
+                    {addLoading && <Loader2 className="w-4 h-4 animate-spin" />} Add Policy
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div>
-      {/* Action buttons */}
       {showAddButton && (
         <div className="flex gap-2 mb-4">
           <button
@@ -184,7 +278,6 @@ export default function RenewalsClient({
         </div>
       )}
 
-      {/* Add policy form */}
       {showAddForm && (
         <div className="mb-6 bg-white rounded-2xl border border-neutral-200 p-6">
           <div className="flex items-center justify-between mb-4">
@@ -221,7 +314,6 @@ export default function RenewalsClient({
         </div>
       )}
 
-      {/* Policies table */}
       {policies.length > 0 && (
         <div className="bg-white rounded-2xl border border-neutral-200 overflow-hidden">
           <table className="w-full text-sm">
@@ -273,7 +365,7 @@ export default function RenewalsClient({
                       )}
                     </td>
                     <td className="px-4 py-3 text-right">
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex items-center justify-end gap-1">
                         {latestDraft && latestDraft.status === "PENDING" && (
                           <>
                             <button
@@ -311,6 +403,18 @@ export default function RenewalsClient({
                             {latestDraft ? "Re-generate" : "Generate Draft"}
                           </button>
                         )}
+                        <button
+                          onClick={() => handleDelete(policy.id)}
+                          disabled={deleting === policy.id}
+                          className="p-1.5 rounded-lg hover:bg-red-50 text-neutral-400 hover:text-red-500 transition-colors"
+                          title="Delete policy"
+                        >
+                          {deleting === policy.id ? (
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Trash2 className="w-4 h-4" />
+                          )}
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -321,7 +425,6 @@ export default function RenewalsClient({
         </div>
       )}
 
-      {/* Edit draft modal */}
       {editDraft && (
         <DraftModal
           draft={editDraft.draft}
@@ -402,7 +505,9 @@ function DraftModal({
           </div>
         </div>
         <div className="flex justify-end gap-2 p-6 border-t border-neutral-100">
-          <button onClick={onClose} className="px-4 py-2 rounded-xl border border-neutral-200 text-sm font-semibold">Cancel</button>
+          <button onClick={onClose} className="px-4 py-2 rounded-xl border border-neutral-200 text-sm font-semibold">
+            Cancel
+          </button>
           <button
             onClick={() => onSend(draft.id, policyId, subject, body)}
             disabled={sending === draft.id}

@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth";
-import { prisma, getTenantDb } from "@/lib/db";
-import { AlertCircle, Clock, CheckCircle, Plus } from "lucide-react";
+import { getTenantDb } from "@/lib/db";
+import { AlertCircle, Clock, CheckCircle } from "lucide-react";
 import RenewalsClient from "./RenewalsClient";
 
 export const metadata = { title: "Policy Renewals | RenewalEngineAI" };
@@ -40,14 +40,16 @@ export default async function RenewalsPage() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="mb-8 flex items-center justify-between">
+      {/* Header */}
+      <div className="mb-8 flex items-start justify-between gap-4">
         <div>
           <h1 className="text-3xl font-black text-black">Policy Renewals</h1>
           <p className="text-neutral-600 mt-1">
             AI-powered renewal outreach for your agency
           </p>
         </div>
-        <RenewalsClient initialPolicies={policies} showAddButton />
+        {/* Action buttons only — no table rendered here */}
+        <RenewalsClient initialPolicies={[]} actionsOnly />
       </div>
 
       {/* Stats */}
@@ -72,20 +74,21 @@ export default async function RenewalsPage() {
         />
       </div>
 
-      {/* Urgent */}
+      {/* Urgent renewals */}
       {urgent.length > 0 && (
-        <Section title="Urgent Renewals" subtitle="Expiring within 30 days" badge="urgent">
+        <Section title="Urgent Renewals" subtitle="Expiring within 30 days">
           <RenewalsClient initialPolicies={urgent} />
         </Section>
       )}
 
-      {/* Upcoming */}
+      {/* Upcoming renewals */}
       {upcoming.length > 0 && (
-        <Section title="Upcoming Renewals" subtitle="Expiring in 31–90 days" badge="upcoming">
+        <Section title="Upcoming Renewals" subtitle="Expiring in 31–90 days">
           <RenewalsClient initialPolicies={upcoming} />
         </Section>
       )}
 
+      {/* Empty state */}
       {policies.length === 0 && (
         <div className="bg-white rounded-2xl border border-neutral-200 p-16 text-center">
           <AlertCircle className="w-12 h-12 mx-auto mb-4 text-neutral-300" />
@@ -93,7 +96,9 @@ export default async function RenewalsPage() {
           <p className="text-neutral-500 mb-6">
             Add your first policy or import from a CSV to start tracking renewals.
           </p>
-          <RenewalsClient initialPolicies={[]} showAddButton primaryCta />
+          <div className="flex justify-center">
+            <RenewalsClient initialPolicies={[]} actionsOnly primaryCta />
+          </div>
         </div>
       )}
     </div>
@@ -124,12 +129,10 @@ function StatCard({
 function Section({
   title,
   subtitle,
-  badge,
   children,
 }: {
   title: string;
   subtitle: string;
-  badge: string;
   children: React.ReactNode;
 }) {
   return (
