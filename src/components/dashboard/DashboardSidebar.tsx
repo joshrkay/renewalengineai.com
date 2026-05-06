@@ -9,11 +9,13 @@ import {
   Activity,
   Settings,
   LogOut,
+  RefreshCw,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 
 const navItems = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
+  { href: "/dashboard/renewals", label: "Renewals", icon: RefreshCw },
   { href: "/dashboard/recipes", label: "Recipes", icon: Zap },
   { href: "/dashboard/automations", label: "Automations", icon: Activity },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },

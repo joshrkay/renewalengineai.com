@@ -270,3 +270,44 @@ model WorkflowRun {
   errorMessage            String?
   expiresAt               DateTime?
 }
+
+// ─── Renewal Models ──────────────────────────────────────────
+
+enum DraftStatus {
+  PENDING
+  SENT
+  CANCELLED
+}
+
+model Policy {
+  id             String         @id @default(cuid())
+  organizationId String
+  clientName     String
+  clientEmail    String
+  policyNumber   String
+  policyType     String
+  carrier        String?
+  premiumAmount  Float?
+  expiresAt      DateTime
+  notes          String?
+  renewalDrafts  RenewalDraft[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([organizationId, expiresAt])
+}
+
+model RenewalDraft {
+  id             String      @id @default(cuid())
+  organizationId String
+  policyId       String
+  policy         Policy      @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  subject        String
+  body           String      @db.Text
+  status         DraftStatus @default(PENDING)
+  sentAt         DateTime?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  @@index([organizationId, status])
+}
