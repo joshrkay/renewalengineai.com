@@ -329,3 +329,12 @@ model EmailSendLog {
   @@index([organizationId, sentAt])
   @@index([policyId])
 }
+
+model LeadMagnetSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String   @default("lead_magnet")
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}

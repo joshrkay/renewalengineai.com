@@ -208,6 +208,22 @@ export function Pricing() {
           </p>
         )}
 
+        {/* Risk Reversal */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mt-12 py-6 border-t border-neutral-200">
+          <div className="flex items-center gap-3 text-neutral-600">
+            <span className="text-green-600 font-black text-xl">✓</span>
+            <span className="font-semibold">Audit fee credited toward setup</span>
+          </div>
+          <div className="flex items-center gap-3 text-neutral-600">
+            <span className="text-green-600 font-black text-xl">✓</span>
+            <span className="font-semibold">No contracts</span>
+          </div>
+          <div className="flex items-center gap-3 text-neutral-600">
+            <span className="text-green-600 font-black text-xl">✓</span>
+            <span className="font-semibold">Month-to-month Managed Ops</span>
+          </div>
+        </div>
+
         {/* Bottom CTA */}
         <div className="text-center mt-20">
           <div className="bg-gradient-to-r from-black to-neutral-800 p-12 rounded-3xl">
@@ -221,7 +237,7 @@ export function Pricing() {
               onClick={() => openBooking("pricing_bottom")}
               className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
             >
-              Schedule Free Consultation
+              Get My Free Renewal Audit
             </Button>
           </div>
         </div>

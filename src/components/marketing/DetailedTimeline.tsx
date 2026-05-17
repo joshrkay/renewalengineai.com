@@ -179,7 +179,7 @@ export function DetailedTimeline() {
             onClick={() => openBooking("detailed_timeline")}
             className="bg-blue-600 hover:bg-blue-700 !text-white text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
           >
-            Start with a Free Discovery Call
+            Get My Free Renewal Audit
           </Button>
           <p className="text-neutral-500 mt-4">
             30 minutes. No commitment. We'll tell you honestly if AI automation is right for your agency right now.

@@ -135,7 +135,7 @@ export function AuditDeepDive() {
             onClick={() => openBooking("audit_deep_dive")}
             className="bg-white !text-blue-600 hover:bg-blue-50 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
           >
-            Book Your Free Audit Consultation
+            Get My Free Renewal Audit
           </Button>
         </div>
       </div>

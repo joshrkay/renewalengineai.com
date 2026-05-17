@@ -10,11 +10,13 @@ import { Features } from "@/components/marketing/Features";
 import { ProactiveVsReactive } from "@/components/marketing/ProactiveVsReactive";
 import { ServiceDetails } from "@/components/marketing/ServiceDetails";
 import { ComparisonTable } from "@/components/marketing/ComparisonTable";
+import { Testimonials } from "@/components/marketing/Testimonials";
 import { Benefits } from "@/components/marketing/Benefits";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { AuditDeepDive } from "@/components/marketing/AuditDeepDive";
 import { DetailedTimeline } from "@/components/marketing/DetailedTimeline";
 import { ROICalculator } from "@/components/marketing/ROICalculator";
+import { LeadMagnet } from "@/components/marketing/LeadMagnet";
 import { Pricing } from "@/components/marketing/Pricing";
 import { FAQ } from "@/components/marketing/FAQ";
 import { CTA } from "@/components/marketing/CTA";
@@ -64,11 +66,13 @@ export default function HomePage() {
           <ProactiveVsReactive />
           <ServiceDetails />
           <ComparisonTable />
+          <Testimonials />
           <Benefits />
           <HowItWorks />
           <AuditDeepDive />
           <DetailedTimeline />
           <ROICalculator />
+          <LeadMagnet />
           <Pricing />
           <FAQ />
           <CTA />
