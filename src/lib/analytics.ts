@@ -24,7 +24,17 @@ export type AnalyticsEvent =
       };
     }
   | { name: "book_audit_click"; params: { cta_location: string } }
-  | { name: "course_view"; params: { course_slug: string } };
+  | { name: "course_view"; params: { course_slug: string } }
+  | {
+      name: "retention_leak_audit_submit";
+      params: {
+        source: string;
+        ams: string;
+        policy_count: number;
+        current_retention: number;
+        annual_leakage: number;
+      };
+    };
 
 type GtagFn = (
   command: "event" | "config" | "set" | "consent" | "js",

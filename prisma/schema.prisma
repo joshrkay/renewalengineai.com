@@ -103,6 +103,30 @@ model MastermindInvite {
   @@index([createdAt])
 }
 
+// Submissions to the free Retention Leak Audit tool (the TOFU widget on
+// the home page). Inputs are the agency's book numbers; output is the
+// computed annual commission leakage. Rows are leads to follow up on —
+// not unique-per-email because a broker or principal may audit multiple
+// agencies or re-run the tool as numbers change.
+model RetentionLeakAudit {
+  id                String    @id @default(cuid())
+  email             String
+  name              String?
+  agencyName        String?
+  policyCount       Int
+  currentRetention  Int
+  avgPremium        Int
+  ams               String
+  annualLeakage     Int
+  source            String    @default("home")
+  contacted         Boolean   @default(false)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([createdAt])
+  @@index([email])
+}
+
 model AuditLog {
   id             String   @id @default(cuid())
   organizationId String?

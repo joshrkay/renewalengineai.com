@@ -107,6 +107,87 @@
       "category": "Strategy",
       "priority": 6,
       "status": "pending"
+    },
+    {
+      "slug": "sonant-ai-vs-liberate",
+      "title": "Sonant AI vs. Liberate: Which AI Voice Partner Fits Your Agency?",
+      "description": "A neutral comparison for independent P&C agencies evaluating voice-first AI: Sonant's AMS-native receptionist vs. Liberate's end-to-end system-of-action. When each wins, when each is overkill, and what the right-sized implementation looks like.",
+      "primaryKeyword": "Sonant AI vs Liberate",
+      "category": "Vendor Evaluation",
+      "priority": 10,
+      "status": "pending"
+    },
+    {
+      "slug": "better-agency-vs-glovebox",
+      "title": "Better Agency vs. GloveBox CRM: What the Acquisition Changed",
+      "description": "GloveBox acquired Better Agency — here's what that means for independent P&C agencies picking between the combined stack, what capabilities survived, and which alternatives belong in the comparison today.",
+      "primaryKeyword": "Better Agency vs GloveBox",
+      "category": "Vendor Evaluation",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "best-ai-tools-for-applied-epic-agencies",
+      "title": "Best AI Tools for Applied Epic Agencies in 2026",
+      "description": "A neutral, agency-principal-first roundup of AI tools that integrate with Applied Epic — voice, renewal, cross-sell, quote follow-up — with realistic fit criteria and the integration work each actually requires.",
+      "primaryKeyword": "best AI for Applied Epic insurance agency",
+      "category": "Vendor Evaluation",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "best-ai-tools-for-hawksoft-agencies",
+      "title": "Best AI Tools for HawkSoft Agencies in 2026",
+      "description": "Which AI tools actually integrate with HawkSoft — the Liberate native partnership, Sonant's AMS connector, and the cadence tools worth the integration effort — with honest fit criteria for small-to-mid independent agencies.",
+      "primaryKeyword": "best AI for HawkSoft insurance agency",
+      "category": "Vendor Evaluation",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "best-ai-tools-for-ezlynx-agencies",
+      "title": "Best AI Tools for EZLynx Agencies in 2026",
+      "description": "The AI tooling that actually writes back into EZLynx Automation Center vs. the tools that pretend to — neutral evaluation criteria for independent agencies on the Applied EZLynx stack.",
+      "primaryKeyword": "best AI for EZLynx insurance agency",
+      "category": "Vendor Evaluation",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "ai-stack-teardown-q2-2026",
+      "title": "AI Stack Teardown for Independent Insurance Agencies — Q2 2026",
+      "description": "Quarterly review of the insurance AI vendor landscape: who raised, who pivoted, who quietly changed pricing, and what the stack recommendation looks like this quarter for a 200-800 PIF independent agency.",
+      "primaryKeyword": "insurance AI vendor landscape 2026",
+      "category": "Vendor Evaluation",
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "renewalengineai-vs-gohighlevel-insurance-snapshot",
+      "title": "RenewalEngineAI vs. GoHighLevel for Insurance Agents",
+      "description": "The real comparison between a vendor-agnostic AI services partner and the GoHighLevel P&C Insurance Snapshot being resold by marketing agencies — on integration depth, AMS writeback, retention economics, and what 'automation' actually means.",
+      "primaryKeyword": "GoHighLevel insurance agent alternative",
+      "category": "Comparisons",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "renewalengineai-vs-liberate",
+      "title": "RenewalEngineAI vs. Liberate: Services Partner or Enterprise Platform?",
+      "description": "When Liberate's enterprise-grade voice platform is the right choice, when a services implementation partner is the right choice, and why most 200-800 PIF independent agencies sit on the services side of the line.",
+      "primaryKeyword": "Liberate alternative insurance agency",
+      "category": "Comparisons",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "when-not-to-buy-ai-for-your-agency",
+      "title": "When NOT to Buy AI for Your Insurance Agency",
+      "description": "The scenarios where AI adoption is premature for an independent P&C agency — book size, data quality, carrier mix, internal bandwidth — and what to do first instead.",
+      "primaryKeyword": "when to buy AI insurance agency",
+      "category": "Strategy",
+      "priority": 7,
+      "status": "pending"
     }
   ]
 }

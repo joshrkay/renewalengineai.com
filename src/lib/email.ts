@@ -167,6 +167,77 @@ export async function sendMastermindInviteNotification(
   });
 }
 
+export async function sendRetentionLeakAuditNotification(params: {
+  email: string;
+  name: string | null;
+  agencyName: string | null;
+  policyCount: number;
+  currentRetention: number;
+  avgPremium: number;
+  ams: string;
+  annualLeakage: number;
+  source: string;
+}): Promise<void> {
+  const to = process.env.MASTERMIND_INVITES_TO || "josh@renewalengineai.com";
+  const leakageFormatted = params.annualLeakage.toLocaleString("en-US");
+  const premiumFormatted = params.avgPremium.toLocaleString("en-US");
+
+  await sendEmail({
+    to,
+    subject: `Retention Leak Audit — ${params.email} ($${leakageFormatted}/yr)`,
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+        <h2 style="color: #0a0a0a; font-size: 20px;">New Retention Leak Audit submission</h2>
+        <p style="color: #525252; font-size: 16px; line-height: 1.6;">
+          Computed annual commission leakage: <strong>$${leakageFormatted}</strong>.
+          Follow up within 24 hours &mdash; this is the top of the qualified-lead funnel.
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px;">
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Email</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${params.email}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Name</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${params.name || "—"}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Agency</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${params.agencyName || "—"}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">AMS</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${params.ams}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Policies</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${params.policyCount.toLocaleString("en-US")}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Current retention</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${params.currentRetention}%</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Avg annual premium</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">$${premiumFormatted}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Annual leakage</td>
+            <td style="padding: 8px 0; color: #dc2626; font-weight: 700;">$${leakageFormatted}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color: #737373;">Source</td>
+            <td style="padding: 8px 0; color: #0a0a0a; font-weight: 600;">${params.source}</td>
+          </tr>
+        </table>
+        <p style="color: #a3a3a3; font-size: 13px;">
+          Full submission list lives in the RetentionLeakAudit table.
+        </p>
+      </div>
+    `,
+  });
+}
+
 export async function sendTokenExpiryWarning(
   email: string,
   provider: string
