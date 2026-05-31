@@ -3,6 +3,8 @@ import { log } from "@/lib/logger";
 const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 const FROM_EMAIL = process.env.FROM_EMAIL || "RenewalEngineAI <noreply@renewalengineai.com>";
 const APP_URL = process.env.NEXTAUTH_URL || "https://renewalengineai.com";
+const CALENDLY_AUDIT_URL =
+  process.env.CALENDLY_AUDIT_URL || "https://calendly.com/joshrkay-ch88/30min";
 
 interface SendEmailParams {
   to: string;
@@ -193,6 +195,61 @@ export async function sendTokenExpiryWarning(
 
         <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
         <p style="color: #a3a3a3; font-size: 12px;">RenewalEngineAI — AI Automation for Insurance Agencies</p>
+      </div>
+    `,
+  });
+}
+
+// Delivers the lead-magnet "playbook" after a homepage / in-content email
+// opt-in. Links to the on-site guide and offers the free audit as the
+// natural next step (the email itself is a conversion surface).
+export async function sendLeadMagnetEmail(email: string): Promise<void> {
+  const guideUrl = `${APP_URL}/guides/5-ai-automations`;
+
+  await sendEmail({
+    to: email,
+    subject: "Your AI Insurance Agency Playbook (5 automations inside)",
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <h1 style="color: #4f46e5; font-size: 24px; margin: 0;">RenewalEngineAI</h1>
+        </div>
+
+        <h2 style="color: #0a0a0a; font-size: 20px;">Here is your playbook</h2>
+
+        <p style="color: #525252; font-size: 16px; line-height: 1.6;">
+          Thanks for grabbing the Insurance Agency AI Playbook. It walks through the
+          five automations we install in the first two weeks of a Build &amp; Launch:
+          renewal outreach, instant lead response, quote follow-up, cross-sell triggers,
+          and after-hours capture. Most agencies spot 3-5 revenue leaks on the first read.
+        </p>
+
+        <div style="text-align: center; margin: 32px 0;">
+          <a href="${guideUrl}"
+             style="display: inline-block; background: #10b981; color: white; padding: 14px 32px;
+                    border-radius: 9999px; text-decoration: none; font-weight: bold; font-size: 16px;">
+            Read the Playbook
+          </a>
+        </div>
+
+        <p style="color: #525252; font-size: 16px; line-height: 1.6;">
+          Want us to find the leaks on <strong>your</strong> book instead? Book a free
+          30-minute renewal audit and we will pinpoint your top three in dollars.
+        </p>
+
+        <div style="text-align: center; margin: 24px 0;">
+          <a href="${CALENDLY_AUDIT_URL}"
+             style="display: inline-block; background: #4f46e5; color: white; padding: 12px 28px;
+                    border-radius: 9999px; text-decoration: none; font-weight: bold; font-size: 15px;">
+            Book My Free Audit
+          </a>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
+        <p style="color: #a3a3a3; font-size: 12px;">
+          RenewalEngineAI — AI Automation for Insurance Agencies. You are receiving this
+          because you requested the playbook at renewalengineai.com.
+        </p>
       </div>
     `,
   });

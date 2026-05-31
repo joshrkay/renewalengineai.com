@@ -107,6 +107,168 @@
       "category": "Strategy",
       "priority": 6,
       "status": "pending"
+    },
+    {
+      "slug": "ai-for-insurance-agencies-guide",
+      "title": "AI for Insurance Agencies: The 2026 Playbook for Independent Agents",
+      "description": "The pillar guide to AI for insurance agencies — what to automate first, where it pays off, what it costs, and how to roll it out without breaking your AMS or your team.",
+      "primaryKeyword": "AI for insurance agencies",
+      "category": "Strategy",
+      "priority": 10,
+      "status": "pending"
+    },
+    {
+      "slug": "applied-epic-ai-automation",
+      "title": "Applied Epic AI Automation: What You Can Wire Up and How",
+      "description": "A practical guide to Applied Epic AI automation — the data you can read and write back, the activity-log patterns, and the renewal and lead-response workflows that actually stick.",
+      "primaryKeyword": "Applied Epic AI automation",
+      "category": "Integrations",
+      "priority": 10,
+      "status": "pending"
+    },
+    {
+      "slug": "hawksoft-ai-automation",
+      "title": "HawkSoft AI Automation: A Practical Guide for Independent Agencies",
+      "description": "How to layer AI renewal, lead-response, and quote follow-up automation on top of HawkSoft CMS using exports and the API, with opt-out enforcement and write-back patterns.",
+      "primaryKeyword": "HawkSoft AI automation",
+      "category": "Integrations",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "ezlynx-ai-automation",
+      "title": "EZLynx AI Automation: Renewals, Leads, and Quote Follow-Up",
+      "description": "What AI automation looks like on EZLynx — pulling policy and rating data, automating renewal and quote follow-up sequences, and writing activity back to the client record.",
+      "primaryKeyword": "EZLynx AI automation",
+      "category": "Integrations",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "best-ai-tools-for-insurance-agencies",
+      "title": "The Best AI Tools for Insurance Agencies in 2026 (Honest Breakdown)",
+      "description": "An honest breakdown of the best AI tools for insurance agencies by job to be done — renewals, lead response, quoting, and service — with where each fits and where it falls short.",
+      "primaryKeyword": "best AI tools for insurance agencies",
+      "category": "Strategy",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "insurance-renewal-email-templates",
+      "title": "9 Insurance Renewal Email Templates (and the Cadence That Binds)",
+      "description": "Nine copy-and-paste insurance renewal email templates mapped to the 60/30/14/7-day cadence, with the personalization details that lift retention.",
+      "primaryKeyword": "insurance renewal email templates",
+      "category": "Retention",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "retention-benchmarks-independent-agencies-2026",
+      "title": "Insurance Retention Benchmarks for Independent Agencies (2026)",
+      "description": "What good retention looks like for independent P&C agencies in 2026, by line of business and book size, plus how to close the gap between your numbers and the benchmark.",
+      "primaryKeyword": "insurance retention benchmarks",
+      "category": "Retention",
+      "priority": 9,
+      "status": "pending"
+    },
+    {
+      "slug": "after-hours-insurance-lead-capture",
+      "title": "Stop Losing After-Hours Leads: The 24/7 Capture Playbook",
+      "description": "Most insurance leads arrive after hours and go to whoever answers first. The workflow for capturing and responding to after-hours insurance leads in under 60 seconds.",
+      "primaryKeyword": "after hours insurance lead capture",
+      "category": "Growth",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "x-date-marketing-strategy",
+      "title": "X-Date Marketing: How to Win Renewals Before the Incumbent Reacts",
+      "description": "An X-date marketing strategy for independent agencies — how to time outreach around expiration dates so you reach prospects before the incumbent agent does.",
+      "primaryKeyword": "insurance X-date marketing",
+      "category": "Growth",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "measuring-ai-roi-insurance-agency",
+      "title": "How to Measure AI ROI in an Insurance Agency (Without Fooling Yourself)",
+      "description": "A defensible way to measure AI ROI in an insurance agency — the baseline metrics to capture first, the attribution traps to avoid, and the math that holds up to an owner's scrutiny.",
+      "primaryKeyword": "AI ROI insurance agency",
+      "category": "Strategy",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "why-agencies-outgrow-gohighlevel",
+      "title": "Why Insurance Agencies Outgrow GoHighLevel (and What Comes Next)",
+      "description": "GoHighLevel gets agencies started, then the insurance-specific gaps show up. Where a generic CRM stops fitting P&C workflows and what a done-for-you alternative changes.",
+      "primaryKeyword": "GoHighLevel insurance agency alternative",
+      "category": "Strategy",
+      "priority": 8,
+      "status": "pending"
+    },
+    {
+      "slug": "certificate-of-insurance-automation",
+      "title": "Certificate of Insurance Automation: Cutting COI Turnaround to Minutes",
+      "description": "How AI and workflow automation cut certificate of insurance turnaround from hours to minutes, with the request-intake, template, and approval patterns that keep it compliant.",
+      "primaryKeyword": "certificate of insurance automation",
+      "category": "Operations",
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "ai-cross-sell-personal-to-commercial",
+      "title": "Cross-Selling Personal Lines Clients into Commercial with AI",
+      "description": "The signals that flag a personal-lines client who is also a business owner, and the AI-driven cross-sell sequence that opens the commercial conversation at the right moment.",
+      "primaryKeyword": "insurance cross-sell automation personal commercial",
+      "category": "Retention",
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "book-of-business-health-metrics",
+      "title": "The 6 Book-of-Business Health Metrics Every Agency Should Track",
+      "description": "The six book-of-business health metrics that predict where an independent agency is about to leak revenue — retention, policies per household, lapse rate, and more.",
+      "primaryKeyword": "book of business health metrics insurance",
+      "category": "Operations",
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "ai-for-small-insurance-agencies",
+      "title": "AI for Small Insurance Agencies: A Playbook for Books Under 500 Policies",
+      "description": "AI for small insurance agencies — where to start when you have under 500 policies and no ops team, and the two automations that pay for themselves first.",
+      "primaryKeyword": "AI for small insurance agency",
+      "category": "Strategy",
+      "priority": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "csr-capacity-without-hiring",
+      "title": "Add CSR Capacity Without Hiring: Where AI Actually Helps",
+      "description": "How to add CSR capacity without hiring by handing the repetitive renewal, follow-up, and service-triage work to AI — and where a human still has to stay in the loop.",
+      "primaryKeyword": "insurance CSR capacity AI",
+      "category": "Operations",
+      "priority": 6,
+      "status": "pending"
+    },
+    {
+      "slug": "building-client-trust-with-ai-outreach",
+      "title": "Keeping Outreach Human: Building Client Trust When AI Sends the Message",
+      "description": "How to keep AI-assisted insurance outreach feeling human — voice, review gates, and disclosure choices that build client trust instead of eroding it.",
+      "primaryKeyword": "AI insurance client communication trust",
+      "category": "Operations",
+      "priority": 6,
+      "status": "pending"
+    },
+    {
+      "slug": "how-ai-engines-recommend-insurance-software",
+      "title": "How AI Engines Decide Which Insurance Software to Recommend",
+      "description": "What ChatGPT, Perplexity, and Google AI Overviews look at when they recommend insurance software, and what that means for how agencies evaluate vendors in 2026.",
+      "primaryKeyword": "AI recommendations insurance software",
+      "category": "Strategy",
+      "priority": 6,
+      "status": "pending"
     }
   ]
 }

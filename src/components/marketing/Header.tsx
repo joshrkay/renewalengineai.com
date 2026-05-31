@@ -44,7 +44,7 @@ export function Header() {
           {/* Mobile: CTA visible in top bar + hamburger */}
           <div className="flex md:hidden items-center gap-2">
             <Button
-              onClick={openBooking}
+              onClick={() => openBooking("header_mobile_topbar")}
               className="bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full px-4 py-2 text-sm"
             >
               Free Audit

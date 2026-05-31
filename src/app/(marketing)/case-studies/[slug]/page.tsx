@@ -5,6 +5,7 @@ import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { ResourceBody } from "@/components/resources/ResourceBody";
+import { ContentCTA } from "@/components/marketing/ContentCTA";
 import { getCaseStudy, listCaseStudies } from "@/lib/case-studies";
 import { team, personJsonLd, personJsonLdId } from "@/lib/team";
 
@@ -207,26 +208,12 @@ export default async function CaseStudyPage({
               </section>
             )}
 
-            <section className="mt-16 bg-gradient-to-br from-emerald-600/10 to-blue-600/10 border border-emerald-500/30 rounded-2xl p-10">
-              <p className="text-emerald-400 font-bold uppercase tracking-wider text-sm mb-3">
-                Your numbers, not ours
-              </p>
-              <h2 className="text-3xl font-black mb-3">
-                Get a 5-day audit grounded in your agency&rsquo;s actual data
-              </h2>
-              <p className="text-neutral-300 mb-6 leading-relaxed">
-                The audit delivers a roadmap with projected retention lift,
-                cross-sell opportunity value, and ROI specific to your book.
-                $1,500 flat. Fully credited toward Build &amp; Launch if you
-                continue.
-              </p>
-              <Link
-                href="/#pricing"
-                className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-full px-8 py-4 transition-colors"
-              >
-                Find My Revenue Leaks →
-              </Link>
-            </section>
+            <ContentCTA
+              location="case_study_article"
+              eyebrow="Your numbers, not ours"
+              headline="Get an audit grounded in your real agency data"
+              subcopy="A roadmap with projected retention lift, cross-sell value, and ROI specific to your book. Or start with the free AI playbook."
+            />
           </div>
         </main>
         <Footer />
