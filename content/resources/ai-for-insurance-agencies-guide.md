@@ -1,7 +1,7 @@
 ---
 title: "AI for Insurance Agencies: The 2026 Playbook for Independent Agents"
 slug: "ai-for-insurance-agencies-guide"
-description: "What AI for insurance agencies actually does in 2026 — the use cases worth automating first, what it costs, how it fits your AMS, and the 90-day rollout that works."
+description: "What AI for insurance agencies actually does in 2026: the use cases worth automating first, what it costs, how it fits your AMS, and the 90-day rollout that works."
 publishedAt: "2026-05-31"
 category: "Strategy"
 primaryKeyword: "AI for insurance agencies"
@@ -91,6 +91,32 @@ The market is full of demos. A few questions separate the operators from the dem
 - **Is there a human accountable for the results?** Software with nobody behind it tends to drift.
 
 If you are sizing the build-versus-buy decision, our piece on [evaluating AI vendors](/resources/evaluating-ai-vendors-insurance-agencies) goes deeper on the red flags.
+
+## Frequently Asked Questions
+
+### What is AI for insurance agencies?
+
+AI for insurance agencies is software that reads your agency management system, drafts client outreach, and routes the right work to the right person automatically. In practice it runs renewal campaigns, responds to new leads in under 60 seconds, follows up on quotes, and flags cross-sell opportunities, while producers keep the judgment calls and relationships.
+
+### How much does AI cost for an insurance agency?
+
+It ranges from a few hundred dollars a month in tool subscriptions if you build it yourself, to a done-for-you engagement where you pay for the build and ongoing management. The number that matters is the comparison: a fully loaded CSR runs $60,000 to $80,000 a year and works one channel at a time, while AI handles many at once.
+
+### Will AI replace insurance agents or CSRs?
+
+No. AI removes the data entry and routine follow-up that eats most of the day. It does not handle the coverage conversation, the claim a client is panicking about, or the relationship that wins a referral. The agencies that do this well redeploy their people to that higher-value work, not out the door.
+
+### What should an agency automate first?
+
+Renewals and instant lead response. Renewals because 8 to 12% of the book lapses every year from simple lack of contact, and lead response because responding within a minute is associated with a large jump in conversions. Both have clear ROI and a clean way to measure it.
+
+### Does AI work with my AMS?
+
+Yes, on the major independent platforms. We have specific guides for [Applied Epic](/resources/applied-epic-ai-automation), [HawkSoft](/resources/hawksoft-ai-automation), and [EZLynx](/resources/ezlynx-ai-automation). The rule that matters is write-back: every automated touch should be logged to your AMS so producers see the full history in one place.
+
+### How long does it take to see results?
+
+A focused build goes live in two to three weeks. Lead-response improvements show up immediately because the change is mechanical. Retention lift takes longer to read, usually landing around month four or five once the first full renewal cohort has been through the cadence.
 
 ## Where to Start
 
