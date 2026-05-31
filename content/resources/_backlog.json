@@ -115,7 +115,7 @@
       "primaryKeyword": "AI for insurance agencies",
       "category": "Strategy",
       "priority": 10,
-      "status": "pending"
+      "status": "published"
     },
     {
       "slug": "applied-epic-ai-automation",
@@ -124,7 +124,7 @@
       "primaryKeyword": "Applied Epic AI automation",
       "category": "Integrations",
       "priority": 10,
-      "status": "pending"
+      "status": "published"
     },
     {
       "slug": "hawksoft-ai-automation",
@@ -133,7 +133,7 @@
       "primaryKeyword": "HawkSoft AI automation",
       "category": "Integrations",
       "priority": 9,
-      "status": "pending"
+      "status": "published"
     },
     {
       "slug": "ezlynx-ai-automation",
@@ -142,7 +142,7 @@
       "primaryKeyword": "EZLynx AI automation",
       "category": "Integrations",
       "priority": 9,
-      "status": "pending"
+      "status": "published"
     },
     {
       "slug": "best-ai-tools-for-insurance-agencies",
