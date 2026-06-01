@@ -90,7 +90,7 @@ The market is full of demos. A few questions separate the operators from the dem
 - **Can I see the outreach before it goes out?** You should be able to, at least until you trust it.
 - **Is there a human accountable for the results?** Software with nobody behind it tends to drift.
 
-If you are sizing the build-versus-buy decision, our piece on [evaluating AI vendors](/resources/evaluating-ai-vendors-insurance-agencies) goes deeper on the red flags.
+If you are weighing the build-versus-buy decision, our breakdown of [AI automation versus hiring another CSR](/compare/renewalengineai-vs-hiring-csr) runs the cost math.
 
 ## Frequently Asked Questions
 
