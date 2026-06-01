@@ -1,5 +1,6 @@
 import { after, NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { Prisma } from "@prisma/client";
 import { sendLeadMagnetEmail } from "@/lib/email";
 import { logAudit } from "@/lib/audit";
 import { log } from "@/lib/logger";
@@ -34,46 +35,59 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "invalid_email" }, { status: 400 });
     }
 
-    // Upsert so duplicate submissions return success without creating
-    // duplicate rows or re-spamming the welcome email path.
-    const subscriber = await prisma.leadMagnetSubscriber.upsert({
-      where: { email },
-      create: { email, source },
-      update: {},
-    });
+    // Insert with create + unique-violation catch rather than upsert, so we
+    // can tell a brand-new subscriber from a repeat submission. The DB's
+    // unique(email) constraint is the arbiter, so this stays correct under
+    // concurrent double-clicks without a read-then-write race.
+    let isNew = true;
+    let subscriberId: string | undefined;
+    try {
+      const created = await prisma.leadMagnetSubscriber.create({
+        data: { email, source },
+      });
+      subscriberId = created.id;
+    } catch (err) {
+      if (
+        err instanceof Prisma.PrismaClientKnownRequestError &&
+        err.code === "P2002"
+      ) {
+        isNew = false; // already subscribed — idempotent success, no re-send
+      } else {
+        throw err;
+      }
+    }
 
     await logAudit({
       action: "lead_magnet.subscribed",
       resource: "LeadMagnetSubscriber",
-      resourceId: subscriber.id,
-      metadata: { source },
+      resourceId: subscriberId,
+      metadata: { source, isNew },
     });
 
-    // Capture the GA client id from the request cookie now; it isn't
-    // available once we're inside `after()`.
-    const clientId = readGaClientIdFromCookie(req.headers.get("cookie"));
-
-    // Deliver the playbook and fire the lead event AFTER the response, but
-    // within the request lifetime via `after()` (Vercel keeps the function
-    // alive to finish it). A bare fire-and-forget promise can be frozen or
-    // dropped when the serverless function suspends post-response, and the
-    // playbook email is the whole point of this endpoint. The DB row above
-    // is already committed as the source of truth, so a failed send never
-    // fails the user's submission, and the GA4 event no-ops without env vars.
-    after(async () => {
-      try {
-        await sendLeadMagnetEmail(email);
-      } catch (err) {
-        log.error("[lead-magnet] playbook email failed:", err);
-      }
-      if (clientId) {
-        await trackServerEvent({
-          name: "lead_submit",
-          params: { source },
-          clientId,
-        });
-      }
-    });
+    // Side effects fire for first-time subscribers only. Repeat submissions
+    // (double-click, retries, or anyone re-posting the same address to this
+    // public endpoint) must not re-send the playbook or inflate GA lead
+    // counts. Run them via `after()` so they complete within the request
+    // lifetime instead of as a fire-and-forget promise the serverless
+    // function can drop after responding.
+    if (isNew) {
+      // Capture the GA client id now; it isn't available inside `after()`.
+      const clientId = readGaClientIdFromCookie(req.headers.get("cookie"));
+      after(async () => {
+        try {
+          await sendLeadMagnetEmail(email);
+        } catch (err) {
+          log.error("[lead-magnet] playbook email failed:", err);
+        }
+        if (clientId) {
+          await trackServerEvent({
+            name: "lead_submit",
+            params: { source },
+            clientId,
+          });
+        }
+      });
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
