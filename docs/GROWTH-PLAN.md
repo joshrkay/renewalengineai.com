@@ -12,7 +12,9 @@ and gets cited by AI engines (GEO).
 This document supersedes the stale root-level strategy files (`conversion-test-results.md`,
 `offer-funnel-iteration.md`, `scaling-winning-elements.md`, `ops/EXECUTION-BOARD.md`).
 Those reference pre-Next.js `.html` pages and contain fabricated A/B metrics — keep for
-history, but treat this as the source of truth.
+history, but treat this as the source of truth. One caveat: `scaling-winning-elements.md`
+is still wired into the live content generator (see the Housekeeping note in §2), so it
+cannot be deleted until that code is updated.
 
 ---
 
@@ -95,11 +97,16 @@ These are small, mostly-wired changes that stop losing the traffic we already ge
   `chatgpt.com`, `perplexity.ai`, `gemini.google.com`, `claude.ai`, `copilot.microsoft.com`,
   `bing.com/chat` as `ai_referral` (GA4 custom dimension). Log AI-crawler user-agents from
   middleware for a weekly "who's crawling us" report.
-- **Backlog expansion**: grow `_backlog.json` from 12 → 30+ topics (see §5) so the weekly
+- **Backlog expansion**: grow `_backlog.json` from 12 → 30+ topics (see §7) so the weekly
   engine never starves.
 - **Housekeeping**: move the stale `.html`-era docs into `docs/archive/` so they stop
-  contaminating the content engine's prompt context (the engine reads
-  `scaling-winning-elements.md`).
+  contaminating the content engine's prompt context. ⚠️ Paired code change required: the
+  generator hard-codes `scaling-winning-elements.md` into `buildSystemPrompt()`
+  (`src/lib/content-generation/system-prompt.ts`) as the PROVEN CONVERSION ELEMENTS block.
+  Moving that file without repointing the generator makes the prompt fall back to
+  "(scaling doc not found)" and silently lose all conversion guidance — so relocate the doc
+  **and** point the generator at its replacement (this plan, or a dedicated
+  conversion-elements file) in the same commit.
 
 ---
 
@@ -265,7 +272,7 @@ quote and competitors link to. This single asset can do more for GEO than 20 art
 | 2 | `/signup` + `/api/auth/signup` + `trialEndsAt` migration | P4 pillar: *AI for Insurance Agencies* | `sameAs` expansion; G2/Capterra listings |
 | 3 | Demo-data auto-seed + guided first-run | `/for/applied-epic` | Per-article FAQ schema live |
 | 4 | Trial gating + upgrade→Stripe + book-a-call→Calendly; lifecycle emails | `/for/hawksoft`, `/for/ezlynx` | Lesson JSON-LD; OG images |
-| 5 | "Start free trial" CTA across site; pricing experiment | `/compare/...-vs-gohighlevel` | CWV pass on hero |
+| 5 | "Start free trial" CTA across site; pricing experiment | `/compare/renewalengineai-vs-gohighlevel` | CWV pass on hero |
 | 6 | Trial analytics dashboard | `/tools/roi-calculator` standalone | `llms-full.txt`; auto-update llms.txt |
 | 7 | First CRO A/B (CTA primacy) | Solution page: renewal-automation | Internal-link/related rollout |
 | 8 | Iterate trial activation | Solution page: lead-response | Programmatic comparison metadata |

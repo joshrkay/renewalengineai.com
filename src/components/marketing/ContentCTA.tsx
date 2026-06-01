@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { ArrowRight, Calendar, CheckCircle } from "lucide-react";
 import { useBooking } from "@/components/marketing/BookingContext";
-import { trackEvent } from "@/lib/analytics";
 
 interface ContentCTAProps {
   /** Analytics label — flows into `book_audit_click` / `lead_submit` events. */
@@ -60,7 +59,9 @@ export function ContentCTA({
         setStatus("error");
         return;
       }
-      trackEvent("lead_submit", { source: location });
+      // The /api/lead-magnet route fires the GA4 `lead_submit` event
+      // server-side (single source of truth), so we don't fire it here too
+      // and double-count the conversion.
       setStatus("done");
     } catch {
       setError("Something went wrong. Please try again.");
