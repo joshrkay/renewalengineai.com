@@ -5,6 +5,7 @@ import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { ResourceBody } from "@/components/resources/ResourceBody";
+import { ContentCTA } from "@/components/marketing/ContentCTA";
 import { getComparison, listComparisons } from "@/lib/comparisons";
 import { team, personJsonLd, personJsonLdId } from "@/lib/team";
 
@@ -191,25 +192,12 @@ export default async function ComparisonPage({
               </section>
             )}
 
-            <section className="mt-16 bg-gradient-to-br from-emerald-600/10 to-blue-600/10 border border-emerald-500/30 rounded-2xl p-10">
-              <p className="text-emerald-400 font-bold uppercase tracking-wider text-sm mb-3">
-                The fastest way to decide
-              </p>
-              <h2 className="text-3xl font-black mb-3">
-                Skip the vendor evaluation. Start with an audit.
-              </h2>
-              <p className="text-neutral-300 mb-6 leading-relaxed">
-                Five days, $1,500, specific to your book. You walk away with
-                numbers you can compare to any option &mdash; ours or any
-                competitor&rsquo;s.
-              </p>
-              <Link
-                href="/#pricing"
-                className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-full px-8 py-4 transition-colors"
-              >
-                Find My Revenue Leaks →
-              </Link>
-            </section>
+            <ContentCTA
+              location="comparison_article"
+              eyebrow="The fastest way to decide"
+              headline="Skip the vendor evaluation. Start with an audit."
+              subcopy="Five days, specific to your book. You walk away with numbers you can compare to any option on the market. Or grab the playbook and start on your own."
+            />
           </div>
         </main>
         <Footer />

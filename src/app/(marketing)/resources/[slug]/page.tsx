@@ -5,6 +5,7 @@ import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { ResourceBody } from "@/components/resources/ResourceBody";
+import { ContentCTA } from "@/components/marketing/ContentCTA";
 import { getResource, listResources } from "@/lib/resources";
 import { team, personJsonLd, personJsonLdId } from "@/lib/team";
 
@@ -217,35 +218,12 @@ export default async function ResourceArticlePage({
               </section>
             )}
 
-            <section className="mt-16 bg-gradient-to-br from-emerald-600/10 to-blue-600/10 border border-emerald-500/30 rounded-2xl p-10">
-              <p className="text-emerald-400 font-bold uppercase tracking-wider text-sm mb-3">
-                Free guide
-              </p>
-              <h2 className="text-3xl font-black mb-3">
-                5 AI Automations Every Insurance Agent Should Set Up This Week
-              </h2>
-              <p className="text-neutral-300 mb-6 leading-relaxed">
-                The five automations we install in the first two weeks of a
-                Build &amp; Launch engagement. Set them up yourself, or use
-                this as the scoping doc for a conversation with us.
-              </p>
-              <Link
-                href="/guides/5-ai-automations"
-                className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-full px-8 py-4 transition-colors"
-              >
-                Get my free guide →
-              </Link>
-              <p className="text-sm text-neutral-500 mt-6">
-                Ready to talk instead?{" "}
-                <Link
-                  href="/#pricing"
-                  className="text-blue-500 hover:text-blue-400 underline underline-offset-4"
-                >
-                  See audit pricing and packages
-                </Link>
-                .
-              </p>
-            </section>
+            <ContentCTA
+              location="resource_article"
+              eyebrow="Put this to work"
+              headline="Want this built for your agency?"
+              subcopy="Book a free 30-minute renewal audit to see where your book is leaking, or grab the playbook and start on your own this week."
+            />
           </div>
         </main>
         <Footer />
