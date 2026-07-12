@@ -115,7 +115,8 @@
       "primaryKeyword": "AI rollout plan insurance agency",
       "category": "Strategy",
       "priority": 6,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T18:50:00Z"
     }
   ]
 }
