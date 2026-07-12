@@ -17,7 +17,8 @@
       "primaryKeyword": "insurance renewal retention calculation",
       "category": "Retention",
       "priority": 10,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T17:15:00Z"
     },
     {
       "slug": "lead-response-time-benchmarks-insurance",
