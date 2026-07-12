@@ -65,7 +65,8 @@
       "primaryKeyword": "insurance quote follow-up sequence",
       "category": "Growth",
       "priority": 8,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T17:50:00Z"
     },
     {
       "slug": "book-segmentation-for-ai-outreach",
