@@ -86,7 +86,8 @@
       "primaryKeyword": "evaluating AI vendors insurance agency",
       "category": "Strategy",
       "priority": 7,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T18:20:00Z"
     },
     {
       "slug": "producer-workflows-post-ai",
