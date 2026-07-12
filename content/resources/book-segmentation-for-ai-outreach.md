@@ -42,6 +42,8 @@ Five dimensions sounds like a data-science project. In practice you don't need 3
 | Maintain | Multi-line, low-risk, established | 45 days out, light confirmation cadence | Passive (annual review offer) | On reply |
 | Rescue | Any tier flagged high renewal-risk this cycle | 90 days out, front-loaded human call, automated persistence after | Paused until stabilized | High until risk clears |
 
+A worked example makes the table concrete. Take a 2,000-policy book of roughly 1,400 households. A typical first computation lands around: 140 households in Protect (the top decile), 550 in Grow (the monoline majority), 650 in Maintain, and 60 in Rescue this cycle. Now read the table against those counts: your producers owe 140 relationship-led renewals and 60 rescue calls a year, roughly four per producer per week at a three-producer shop, while automation carries the other 1,200 households completely. That's the workload arithmetic that makes 100% renewal coverage possible without anyone working weekends, and it's invisible until you run the segmentation.
+
 Two properties make this table work where fancier schemes fail. First, membership is computed, not remembered: every segment is derivable from AMS fields (premium, policy count, claims, touch logs, payment history), so clients re-segment themselves monthly without anyone maintaining a spreadsheet. Second, Rescue overrides everything: risk is a state, not a tier, and a Protect-segment account with a 22% premium increase belongs in Rescue this cycle no matter how the relationship feels.
 
 ## The operating rules
