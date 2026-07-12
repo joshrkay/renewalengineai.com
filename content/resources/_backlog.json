@@ -77,7 +77,8 @@
       "primaryKeyword": "insurance book segmentation AI",
       "category": "Retention",
       "priority": 7,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T18:35:00Z"
     },
     {
       "slug": "evaluating-ai-vendors-insurance-agencies",
