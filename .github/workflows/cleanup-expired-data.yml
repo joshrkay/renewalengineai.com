@@ -25,7 +25,8 @@ jobs:
             echo "CRON_SECRET repository secret is not set" >&2
             exit 1
           fi
-          status=$(curl -s -o /tmp/resp.txt -w "%{http_code}" \
+          status=$(curl -sS -L --max-time 300 --retry 3 --retry-delay 10 \
+            -o /tmp/resp.txt -w "%{http_code}" \
             -H "Authorization: Bearer $CRON_SECRET" \
             https://renewalengineai.com/api/cron/cleanup-expired-data)
           cat /tmp/resp.txt

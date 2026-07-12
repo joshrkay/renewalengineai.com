@@ -516,10 +516,11 @@ function testDataRetention() {
   assert(cleanupRoute.includes("auditLog.deleteMany"), "Cleanup cron deletes old audit logs");
   assert(cleanupRoute.includes("365"), "Audit logs retained for 1 year (365 days)");
   // Routes authenticate via the shared isAuthorizedCron() helper, which
-  // reads CRON_SECRET; accept either the helper or a direct env check.
+  // reads CRON_SECRET. Require an actual guard call on the request (an
+  // unused import must not satisfy this), or a direct env check.
   assert(
     cleanupRoute.includes("CRON_SECRET") ||
-      cleanupRoute.includes("isAuthorizedCron"),
+      /if\s*\(\s*!\s*isAuthorizedCron\s*\(/.test(cleanupRoute),
     "Cleanup endpoint requires CRON_SECRET auth"
   );
 
@@ -535,10 +536,15 @@ function testDataRetention() {
   } catch {
     // workflow file absent — vercel.json must carry the cron
   }
+  // The workflow must have a real `on.schedule` cron trigger, not just the
+  // words "schedule" or "cron" in a comment or workflow_dispatch block.
+  const workflowHasCron =
+    workflowConfig.includes("cleanup-expired-data") &&
+    /\n\s*schedule:\s*\n(\s*#[^\n]*\n)*\s*-\s*cron:\s*["']/.test(
+      workflowConfig
+    );
   assert(
-    vercelConfig.includes("cleanup-expired-data") ||
-      (workflowConfig.includes("cleanup-expired-data") &&
-        workflowConfig.includes("schedule")),
+    vercelConfig.includes("cleanup-expired-data") || workflowHasCron,
     "Cleanup cron is scheduled (vercel.json or GitHub Actions workflow)"
   );
 }

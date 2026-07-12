@@ -15,7 +15,15 @@ export function middleware(req: NextRequest) {
   }
 
   if (isOnLogin && isLoggedIn) {
-    return NextResponse.redirect(new URL("/dashboard", req.nextUrl));
+    // Honor a same-origin callbackUrl (e.g. a course lesson) instead of
+    // stranding an already-signed-in user on the dashboard. Only relative
+    // paths are followed to avoid an open redirect.
+    const callbackUrl = req.nextUrl.searchParams.get("callbackUrl");
+    const target =
+      callbackUrl && callbackUrl.startsWith("/") && !callbackUrl.startsWith("//")
+        ? callbackUrl
+        : "/dashboard";
+    return NextResponse.redirect(new URL(target, req.nextUrl));
   }
 
   return NextResponse.next();

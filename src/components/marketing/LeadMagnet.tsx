@@ -2,6 +2,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, CheckCircle, AlertCircle } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+
+// Map the capture API's machine codes to copy a visitor should see.
+const ERROR_COPY: Record<string, string> = {
+  invalid_email: "Please enter a valid email address.",
+  submission_failed: "Something went wrong. Please try again.",
+};
 
 export function LeadMagnet() {
   const [email, setEmail] = useState("");
@@ -26,10 +33,14 @@ export function LeadMagnet() {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({})) as { error?: string };
-        setError(data.error ?? "Something went wrong. Please try again.");
+        setError(
+          (data.error && ERROR_COPY[data.error]) ??
+            "Something went wrong. Please try again."
+        );
         setLoading(false);
         return;
       }
+      trackEvent("lead_submit", { source: "homepage_lead_magnet" });
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again.");
