@@ -37,7 +37,8 @@
       "primaryKeyword": "AI automation vs hiring CSR insurance agency",
       "category": "Strategy",
       "priority": 9,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T17:35:00Z"
     },
     {
       "slug": "cross-sell-triggers-for-independent-agencies",
