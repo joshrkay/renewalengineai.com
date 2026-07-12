@@ -38,6 +38,18 @@ describe("middleware /login redirects", () => {
     expect(location(res)).toBe("https://renewalengineai.com/dashboard");
   });
 
+  it("ignores a backslash-prefixed callbackUrl that resolves off-origin", () => {
+    // "/\evil.example" — URL parsers treat \ as /, so this resolves to
+    // https://evil.example/ despite starting with a single "/".
+    const res = middleware(
+      new NextRequest(
+        "https://renewalengineai.com/login?callbackUrl=%2F%5Cevil.example",
+        loggedIn
+      )
+    );
+    expect(location(res)).toBe("https://renewalengineai.com/dashboard");
+  });
+
   it("ignores a protocol-relative callbackUrl (open-redirect guard)", () => {
     const res = middleware(
       new NextRequest(
