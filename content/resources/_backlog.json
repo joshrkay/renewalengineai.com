@@ -107,7 +107,8 @@
       "primaryKeyword": "commercial insurance renewal automation",
       "category": "Retention",
       "priority": 6,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T19:15:00Z"
     },
     {
       "slug": "30-60-90-day-ai-rollout-plan",
