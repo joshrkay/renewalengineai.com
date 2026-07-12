@@ -71,6 +71,8 @@ For the wall next to the whiteboard, the whole rollout compresses to this:
 
 Three roles carry the whole table: an owner who runs the reviews, one producer who approves copy and takes the judgment conversations, and whoever builds (vendor or internal). If you can't name all three, that's the real gate, and it's failing before day one.
 
+And when a gate fails, which one will: do not advance anyway. A failed gate is the plan working, not the plan breaking. The playbook is always the same three moves: name the specific blocker (usually a data field, a missed sign-off, or an integration edge), assign it to one of the three roles with a date, and re-test the gate the following week. A rollout that slips two weeks because month one's data pass caught 400 missing expiration dates is a success story; the same rollout that advanced on schedule and fired 400 renewal sequences at the wrong dates is a client-facing incident. Slipping a gate costs a week. Skipping one costs the team's trust in the whole system, and that's the asset the ninety days exists to build.
+
 ## The honest budget conversation
 
 Ninety days of what's above is real work. Done-for-you, it's our $6,000 Build & Launch (weeks, not months, because the playbooks and integrations already exist) with the $1,500 audit as the paid week-one-and-two if you want the data pass and baselines done first and credited toward the build. Do-it-yourself, budget a committed internal owner at several hours a week for the quarter plus tool costs, and use the [vendor evaluation questions](/resources/evaluating-ai-vendors-insurance-agencies) on everything you buy, including us. The [AI Agency Operations Bootcamp](/courses/ai-agency-ops-bootcamp) is the self-serve companion for that path.
