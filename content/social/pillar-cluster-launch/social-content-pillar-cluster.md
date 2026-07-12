@@ -146,3 +146,229 @@ Neither replaces the other. The decision framework for which one your agency act
 5/ And the "should we just hire another CSR?" question, answered with actual math — loaded costs, ramp time, and what each option is genuinely good at: renewalengineai.com/resources/ai-tools-vs-hiring-a-csr
 
 6/ If you'd rather have the leak math run on your specific book: renewalengineai.com/#pricing
+
+---
+
+# Batch 2 — articles 5-12 (added after the full backlog was drafted)
+
+Same rules as batch 1: every figure comes from the published articles and
+their cited sources. Suggested cadence: continue one per week after batch 1.
+
+---
+
+## Article 5: Quote Follow-Up Sequences That Actually Bind
+Link: https://renewalengineai.com/resources/quote-follow-up-sequences-that-actually-bind
+
+### LinkedIn
+
+80% of insurance sales take five or more follow-up touches.
+44% of producers stop after one.
+
+That gap is not a talent problem. There are more follow-ups owed than hours available, so the tail gets dropped — and the tail is where roughly a fifth of unbound quotes were recoverable.
+
+We published the seven-touch cadence we build for quoted prospects: the day-by-day timing, the channel mix (phone+text beats phone alone by a wide margin), the personalization details that keep it out of the spam folder, and the halt conditions that stop everything the moment a prospect binds or replies. That last part is non-negotiable engineering: a "just checking in!" text an hour after the client bound torches more trust than the sequence earned.
+
+Also in there: what to do with quotes that never bind. You know their X-date — that's a standing appointment, not a dead lead.
+
+renewalengineai.com/resources/quote-follow-up-sequences-that-actually-bind
+
+#InsuranceSales #QuoteFollowUp #IndependentAgents
+
+### X / Twitter
+
+Agencies with structured quote follow-up: ~28% quote-to-bind.
+Industry average: ~15%.
+The difference is cadence, not talent.
+
+The 7-touch sequence with timing + halt conditions: renewalengineai.com/resources/quote-follow-up-sequences-that-actually-bind
+
+---
+
+## Article 6: The 7 Cross-Sell Triggers
+Link: https://renewalengineai.com/resources/cross-sell-triggers-for-independent-agencies
+
+### LinkedIn
+
+The average P&C household holds 1.4 policies with their primary agent.
+Above 2.0 policies per household, retention climbs to 95%+.
+
+So cross-selling isn't a sales tactic. It's a retention strategy wearing a sales costume — the second policy roughly doubles how long you keep the first.
+
+The reason agencies fail at it: cross-sell opportunities are events, and events expire. A move, a new driver, a mortgage payoff, a smoothly closed claim. Nobody reviews 1,400 households monthly looking for those signals. A system can.
+
+We published the seven triggers worth automating, the play for each, and the behavior rules that keep it from becoming spam (one conversation per household at a time, educate before quoting, judgment conversations routed to producers).
+
+Plus the three queries to run on your own book first. The second one — monoline households with a known competitor X-date — is usually the uncomfortable one.
+
+renewalengineai.com/resources/cross-sell-triggers-for-independent-agencies
+
+#CrossSell #InsuranceRetention #IndependentAgents
+
+### X / Twitter
+
+Your book at 1.4 policies/household is a churn risk.
+At 2.0+, retention runs 95%+.
+
+The 7 automatable triggers that close that gap (and the rules that keep them from being spam): renewalengineai.com/resources/cross-sell-triggers-for-independent-agencies
+
+---
+
+## Article 7: PII, HIPAA, and AI Compliance
+Link: https://renewalengineai.com/resources/pii-compliance-ai-insurance-agencies
+
+### LinkedIn
+
+Your book is regulated data wearing a spreadsheet costume.
+
+The moment you point automation at it — renewal outreach, lead response, cross-sell — filing-cabinet compliance becomes data-pipeline compliance, and "we take security seriously" stops being an answer.
+
+We published the operations guide: what GLBA, the ~20 state privacy laws, TCPA, and (narrowly) HIPAA actually require from an automated outreach stack, the six engineering requirements with the exact vendor questions ("walk me through the 60 seconds after a client texts STOP"), and a 9-point quarterly checklist.
+
+Most agencies pass four or five of the nine on first review. The gap to nine is a few focused weeks, not a transformation program. And for commercial clients who now ask their agents vendor-security questions, a defensible data posture is a differentiator you can say out loud.
+
+renewalengineai.com/resources/pii-compliance-ai-insurance-agencies
+
+#InsuranceCompliance #DataPrivacy #GLBA #IndependentAgents
+
+### X / Twitter
+
+Before you automate outreach, one question separates real vendors from demos:
+
+"What happens in the 60 seconds after a client texts STOP?"
+
+The full compliance checklist for agencies running AI: renewalengineai.com/resources/pii-compliance-ai-insurance-agencies
+
+---
+
+## Article 8: How to Evaluate an AI Vendor
+Link: https://renewalengineai.com/resources/evaluating-ai-vendors-insurance-agencies
+
+### LinkedIn
+
+Every AI pitch demos beautifully. The demo is the one part that always works.
+
+We're a vendor, so writing this was awkward: the seven questions that expose the difference between an operator and demoware. Including —
+
+"Show me the AMS integration writing back, live, in a sandbox."
+"Show me a customer who left, and tell me why."
+"What happens to my data if you disappear?"
+
+Plus the red flags that end conversations (guaranteed outcomes with no baseline, pressure pricing, no insurance vocabulary), a five-minute reference-call script, and a weighted scoring shortcut.
+
+Run it on everyone who pitches you. Including us — that's the point.
+
+renewalengineai.com/resources/evaluating-ai-vendors-insurance-agencies
+
+#InsurTech #VendorDueDiligence #IndependentAgents
+
+### X / Twitter
+
+7 questions that expose AI demoware, from a vendor who has to answer them too:
+
+renewalengineai.com/resources/evaluating-ai-vendors-insurance-agencies
+
+The fastest one: "show me the AMS write-back, live."
+
+---
+
+## Article 9: Book Segmentation for AI Outreach
+Link: https://renewalengineai.com/resources/book-segmentation-for-ai-outreach
+
+### LinkedIn
+
+The fastest way to ruin AI outreach: point one sequence at your whole book.
+
+Machine attention is free, so segmentation is no longer about who gets attention — it's about what kind of outreach each client gets, and how much human is in it.
+
+We published the model: five dimensions your AMS already holds (value tier, household depth, renewal risk, channel behavior, lifecycle), compressed into four operating segments — Protect, Grow, Maintain, Rescue — with computed membership that re-scores itself monthly.
+
+The workload math on a 2,000-policy book: producers own ~200 relationship renewals a year (about four per producer per week), automation carries the other 1,200 households completely. That's how 100% renewal coverage happens without weekends.
+
+Minimum viable version: two flags, four cells, two queries. Monoline-at-risk is your churn engine room.
+
+renewalengineai.com/resources/book-segmentation-for-ai-outreach
+
+#InsuranceRetention #Segmentation #IndependentAgents
+
+### X / Twitter
+
+Your book was never one audience. Stop messaging it like one.
+
+4 operating segments, computed from AMS fields, re-scored monthly — and the 2-query version you can run today: renewalengineai.com/resources/book-segmentation-for-ai-outreach
+
+---
+
+## Article 10: The 30-60-90 Day AI Rollout Plan
+Link: https://renewalengineai.com/resources/30-60-90-day-ai-rollout-plan
+
+### LinkedIn
+
+Every stalled AI rollout has the same autopsy: everything at once, a data problem in week two, and the initiative quietly becomes "that thing we tried."
+
+We published the 90-day schedule that avoids it — three gated phases:
+
+Days 1-30: data pass, baselines, ONE system live (instant lead response — smallest surface, fastest visible win).
+Days 31-60: the renewal engine — segments computed, sequences built and producer-approved, 100% expiration coverage.
+Days 61-90: quote follow-up, two cross-sell triggers, and the operating rhythm that survives busy season.
+
+With the one-page table (owners + gates), the mistake to refuse each month, and the rule that matters most: when a gate fails, don't advance anyway. A rollout that slips two weeks because the data pass caught 400 bad expiration dates is a success story.
+
+renewalengineai.com/resources/30-60-90-day-ai-rollout-plan
+
+#AIRollout #InsuranceAgency #IndependentAgents
+
+### X / Twitter
+
+90 days from zero to live renewal, lead-response, and cross-sell automation — with gates, owners, and the two mistakes that stall everyone else:
+
+renewalengineai.com/resources/30-60-90-day-ai-rollout-plan
+
+---
+
+## Article 11: What Producers Actually Do When AI Handles the Follow-Up
+Link: https://renewalengineai.com/resources/producer-workflows-post-ai
+
+### LinkedIn
+
+The question under every producer's crossed arms in an automation kickoff: "what's left for me?"
+
+The honest answer: everything that ever required your license, your judgment, or your relationship — delivered prepared, on time, with the chasing already done.
+
+We published the task-by-task after-picture: the morning queue that replaces inbox archaeology, the judgment work that finally gets the calendar it deserved, the two phone touches (of seven) the producer still owns in every quote sequence, and the scoreboard change — activity metrics become the system's job, conversion metrics become yours.
+
+Plus the two profiles every rollout produces: the conversation-heavy producers who thrive immediately, and the spreadsheet-system producers who struggle until you hand them ownership of the copy and the numbers review. Then they upgrade the machine instead of competing with it.
+
+renewalengineai.com/resources/producer-workflows-post-ai
+
+#InsuranceProducers #AgencyLife #IndependentAgents
+
+### X / Twitter
+
+"What's left for me?" — every producer, every AI kickoff.
+
+Answer: the job you were promised when you got licensed, minus the chasing. The task-by-task after-picture: renewalengineai.com/resources/producer-workflows-post-ai
+
+---
+
+## Article 12: Commercial Lines Renewal Automation
+Link: https://renewalengineai.com/resources/commercial-lines-ai-renewal-automation
+
+### LinkedIn
+
+Commercial renewal automation, scoped honestly: automation does not run a commercial renewal. It compresses the parts that are clocks and checklists — which consume most of the 120-day calendar — so humans can spend their time on the parts that are negotiations.
+
+We published the stage-by-stage split: kickoff at 120 days (automated), exposure-update chasing (automated, and clients read it as thoroughness), loss runs and submission tracking (automated), the strategy call and underwriter negotiation (never).
+
+Commercial accounts rarely leave over a premium number. They leave over process — the renewal that started 30 days out instead of 120. Process is calendars and checklists, and calendars and checklists are what systems never drop.
+
+Also in there: the commercial-lens AMS reality check, and why the kickoff clock ends the started-late renewal in month one.
+
+renewalengineai.com/resources/commercial-lines-ai-renewal-automation
+
+#CommercialInsurance #RenewalAutomation #IndependentAgents
+
+### X / Twitter
+
+Commercial accounts don't leave over price. They leave over process — the renewal that started 30 days out instead of 120.
+
+The 120-day cycle, split between system and human: renewalengineai.com/resources/commercial-lines-ai-renewal-automation
