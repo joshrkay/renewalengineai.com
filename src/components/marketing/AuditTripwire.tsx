@@ -80,7 +80,7 @@ export function AuditTripwire() {
             pressure. You leave with notes either way.
           </p>
           <button
-            onClick={openBooking}
+            onClick={() => openBooking("audit_tripwire")}
             className="bg-white text-black hover:bg-neutral-100 font-black text-lg rounded-full px-6 py-4 transition-all flex items-center justify-center gap-2"
           >
             Book My Free Call
