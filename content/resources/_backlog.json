@@ -57,7 +57,8 @@
       "primaryKeyword": "PII compliance insurance AI automation",
       "category": "Operations",
       "priority": 8,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T18:05:00Z"
     },
     {
       "slug": "quote-follow-up-sequences-that-actually-bind",
