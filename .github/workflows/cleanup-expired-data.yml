@@ -1,0 +1,35 @@
+name: Cleanup Expired Data
+
+# Replaces the Vercel cron for /api/cron/cleanup-expired-data. The Vercel
+# Hobby plan allows at most 2 cron jobs, so only the product-critical crons
+# (refresh-tokens, run-scheduled-recipes) stay in vercel.json; this weekly
+# compliance cleanup runs from GitHub Actions instead.
+
+on:
+  schedule:
+    # Sundays 03:00 UTC — same cadence the Vercel cron used.
+    - cron: "0 3 * * 0"
+  workflow_dispatch: {}
+
+permissions: {}
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call cleanup endpoint
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CRON_SECRET repository secret is not set" >&2
+            exit 1
+          fi
+          status=$(curl -s -o /tmp/resp.txt -w "%{http_code}" \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            https://renewalengineai.com/api/cron/cleanup-expired-data)
+          cat /tmp/resp.txt
+          if [ "$status" != "200" ]; then
+            echo "Cleanup endpoint returned HTTP $status" >&2
+            exit 1
+          fi
