@@ -27,7 +27,8 @@
       "primaryKeyword": "insurance lead response time benchmarks",
       "category": "Growth",
       "priority": 9,
-      "status": "pending"
+      "status": "drafted",
+      "draftedAt": "2026-07-12T17:25:00Z"
     },
     {
       "slug": "ai-tools-vs-hiring-a-csr",
