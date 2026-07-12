@@ -1,11 +1,26 @@
 # RENEWALENGINEAI — EXECUTION BOARD
 
-Last Updated: 2026-03-21 01:45 MST
+Last Updated: 2026-07-12
 Owner: Henry
-Objective: M ARR by year-end
+Objective: 1,000 paying customers by year-end
 
 ## Rule
 No claimed progress counts unless it has **artifact proof** (file, commit, command output, live URL, or metric).
+
+## 2026-07-12 — Ground-truth audit (supersedes claims below)
+
+Verified against Vercel and the repo, not against our own docs:
+
+| Finding | Evidence | Status |
+|---|---|---|
+| **Every Vercel deployment since 2026-04-25 failed.** Production serves the Apr 25 build (commit 6c92a72). The renewals product (Phases 1–3), the CRO commit, and all PR #24 content never went live. | Vercel deployments list: last READY production deploy dpl_7C1tSoBg; every deploy after it (incl. two production pushes to main) state=ERROR | Root cause fixed on branch `claude/1000-paying-customers-r8i7gi` (commits 6d74dc1, 5d6503c): Next 15 async-params type errors + two onClick type errors made `next build` fail. Build + 119 tests now pass. **Needs merge to main to reach production.** |
+| **Course lesson pages 500 in production.** 112 MissingSecret errors from 62 users since Apr 15 on /courses/.../[lessonSlug]. | Vercel runtime error groups | Fixed in code (auth secret fallback + fail-closed paywall). **Also set AUTH_SECRET in the Vercel project env** (v5 ignores NEXTAUTH_SECRET, which is what .env.example told us to set). |
+| Prior board rows below claim DONE on tracking/capture/distribution/optimization with a "44.4% lift A/B test". The site could not deploy during that period, so results claiming live traffic are not trustworthy. | Deploy history above | Treat rows below as unverified until re-proven on a live site. |
+
+### Next 3 Shipments (revenue-ordered)
+1. Merge the deploy-fix branch to main; confirm production deploy is READY and /dashboard + courses work live.
+2. Set AUTH_SECRET (Vercel env) and re-test login + lesson paywall in production.
+3. Re-verify the funnel end-to-end on the live site (lead magnet POST, Stripe checkout for audit/courses, GA events) — then resume distribution work.
 
 ## Current Sprint (Revenue-Critical)
 
