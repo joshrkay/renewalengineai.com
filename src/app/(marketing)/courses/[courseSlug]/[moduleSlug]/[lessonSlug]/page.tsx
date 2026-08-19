@@ -57,7 +57,6 @@ export default async function LessonPage({
   // Gate everything that isn't explicitly marked as a free teaser. Access
   // is strictly per-course — service-tier buyers do not unlock courses.
   const access = lesson.preview ? null : await getCourseAccess(course.slug);
-  const locked = access !== null && !access.allowed;
 
   // Build flat lesson list for prev/next navigation across the whole course.
   const flat = course.modules.flatMap((m) =>
@@ -101,7 +100,29 @@ export default async function LessonPage({
               </h1>
             </div>
 
-            {locked && access && !access.allowed ? (
+            {access && !access.allowed && access.reason === "error" ? (
+              // Infrastructure failure (auth or DB), not a missing
+              // entitlement — never show a purchase button here, or a
+              // paying customer mid-outage could buy the course twice.
+              <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 md:p-12 my-10">
+                <h2 className="text-2xl font-black mb-3">
+                  We couldn&apos;t check your access just now
+                </h2>
+                <p className="text-neutral-300 max-w-2xl">
+                  Something went wrong on our side while verifying your
+                  enrollment. Please refresh in a minute. If this keeps
+                  happening, email{" "}
+                  <a
+                    href="mailto:hello@renewalengineai.com"
+                    className="text-blue-500 hover:text-blue-400 underline underline-offset-4"
+                  >
+                    hello@renewalengineai.com
+                  </a>{" "}
+                  and we&apos;ll sort it out. If you already own this course,
+                  your access is safe.
+                </p>
+              </div>
+            ) : access && !access.allowed ? (
               <LessonPaywall
                 courseTitle={course.title}
                 coursePrice={course.price}

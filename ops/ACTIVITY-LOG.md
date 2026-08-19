@@ -47,3 +47,13 @@
 - 11:04 PM MST -- Updated EXECUTION-BOARD.md with correct date formatting
 - 12:10 AM MST -- Created next optimization cycle initiation record
 - 12:10 AM MST -- Updated execution board with offer/funnel task progress (DONE) - next cycle initiated
+
+## 2026-07-12
+- Audited real deploy state: every Vercel deployment since 2026-04-25 is ERROR; production serves commit 6c92a72 (Apr 25). Renewals product + CRO + PR #24 content never shipped.
+- Root-caused the failures: `next build` type errors (Next 15 async params in renewals/policies/[id] route; openBooking passed directly as onClick in AuditTripwire + Header). Fixed; build passes, 119/119 tests green (commit 6d74dc1).
+- Root-caused production 500s on course lesson pages (112 errors / 62 users since Apr 15): NextAuth v5 reads AUTH_SECRET but .env.example documented NEXTAUTH_SECRET. Added explicit secret fallback, made entitlement check fail closed to the paywall instead of crashing, updated .env.example (commit 5d6503c).
+- Marked pre-July board claims as unverified: the site could not deploy while those "live" results were logged.
+- Pushed branch claude/1000-paying-customers-r8i7gi. Outstanding for Josh: merge to main, set AUTH_SECRET in Vercel env.
+- Session ledger (later 07-12): adversarial review fixed 8 findings incl. double-charge guard (commit 82d30fe); tests 119->131 (cb1cb4a); 4 pillar articles shipped covering all P10+P9 backlog topics (6b9613d, 55709cb, 3604883, 8bf1041); homepage lead capture + analytics repaired (dd23c38); course purchase path (EnrollButton -> checkout -> webhook provisioning) traced and verified sound. Deploys still fail account-side ("Resource provisioning failed", diagnosis on PR #25). Zero confirmed customers; blocked on Josh's dashboard actions + merge.
+- Runtime verification (next start, production build): all 10 resource pages return 200 (7 new + 3 existing), all present in sitemap.xml and on the /resources index; homepage title renders single brand suffix (doubled-title fix confirmed rendered); article titles template correctly.
+- Content sprint complete: all 12 backlog topics drafted (P10 through P6), engine-verified, interlinked, and runtime-checked (12/12 new pages 200 on the production build; /resources index lists all 15). Backlog queue empty pending owner review of the batch. Codex reviewer out of quota; adversarial self-review + 132-test suite remain the verification layer.

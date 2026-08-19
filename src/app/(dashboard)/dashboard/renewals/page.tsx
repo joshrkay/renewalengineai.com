@@ -4,7 +4,7 @@ import { AlertCircle, Clock, CheckCircle, History } from "lucide-react";
 import Link from "next/link";
 import RenewalsClient from "./RenewalsClient";
 
-export const metadata = { title: "Policy Renewals | RenewalEngineAI" };
+export const metadata = { title: "Policy Renewals" };
 
 function daysUntil(date: Date): number {
   return Math.ceil((date.getTime() - Date.now()) / (1000 * 60 * 60 * 24));

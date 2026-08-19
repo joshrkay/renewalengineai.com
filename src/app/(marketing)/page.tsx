@@ -24,7 +24,7 @@ import { Footer } from "@/components/marketing/Footer";
 import { faqJsonLd, homeFaqs } from "@/lib/faqs";
 
 export const metadata: Metadata = {
-  title: "AI Automation for Insurance Agents | RenewalEngineAI",
+  title: "AI Automation for Insurance Agents",
   description:
     "RenewalEngineAI builds done-for-you AI automation for independent insurance agencies. Automate renewals, lead response, and quote follow-ups. 15-20% higher retention, 391% more lead conversions, sub-60-second response.",
   alternates: {

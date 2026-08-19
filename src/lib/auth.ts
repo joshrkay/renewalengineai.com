@@ -6,6 +6,12 @@ import bcrypt from "bcryptjs";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
+  // NextAuth v5 only reads AUTH_SECRET from the environment, but
+  // .env.example (and existing deployments) use the v4 name NEXTAUTH_SECRET.
+  // Accept either so a v4-style deployment doesn't crash with MissingSecret.
+  // `||` (not `??`) so an empty-string AUTH_SECRET can't shadow a valid
+  // NEXTAUTH_SECRET.
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET,
   session: { strategy: "jwt" },
   pages: {
     signIn: "/login",

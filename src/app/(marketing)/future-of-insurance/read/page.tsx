@@ -9,7 +9,7 @@ import { AuditTripwire } from "@/components/marketing/AuditTripwire";
 import { CheckCircle, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "The Next 30 Years of Insurance — Read Now | RenewalEngineAI",
+  title: "The Next 30 Years of Insurance — Read Now",
   description:
     "Your free 20-page field manual on the next 30 years of insurance and what AI changes for independent agents.",
   alternates: {

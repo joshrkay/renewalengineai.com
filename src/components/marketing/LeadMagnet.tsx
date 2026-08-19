@@ -2,6 +2,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, CheckCircle, AlertCircle } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+
+// Map the capture API's machine codes to copy a visitor should see.
+const ERROR_COPY: Record<string, string> = {
+  invalid_email: "Please enter a valid email address.",
+  submission_failed: "Something went wrong. Please try again.",
+};
 
 export function LeadMagnet() {
   const [email, setEmail] = useState("");
@@ -16,17 +23,24 @@ export function LeadMagnet() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/lead-magnet", {
+      const res = await fetch("/api/mastermind/invite", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim() }),
+        body: JSON.stringify({
+          email: email.trim(),
+          source: "homepage_lead_magnet",
+        }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({})) as { error?: string };
-        setError(data.error ?? "Something went wrong. Please try again.");
+        setError(
+          (data.error && ERROR_COPY[data.error]) ??
+            "Something went wrong. Please try again."
+        );
         setLoading(false);
         return;
       }
+      trackEvent("lead_submit", { source: "homepage_lead_magnet" });
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again.");
@@ -42,12 +56,18 @@ export function LeadMagnet() {
             <div className="text-center">
               <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-6" />
               <h2 className="text-4xl font-black text-white mb-4">
-                Check Your Inbox
+                You&apos;re In — Read It Now
               </h2>
-              <p className="text-xl text-blue-200 max-w-xl mx-auto">
-                Your free AI Renewal Automation Playbook is on its way. Most
+              <p className="text-xl text-blue-200 max-w-xl mx-auto mb-8">
+                Your free AI Renewal Automation Playbook is ready. Most
                 agencies find 3–5 revenue leaks in the first 10 minutes.
               </p>
+              <a
+                href="/resources/ai-renewal-automation-playbook"
+                className="inline-block bg-blue-500 hover:bg-blue-400 text-white font-black px-8 py-4 rounded-full text-lg transition-all hover:scale-105"
+              >
+                Open the Playbook →
+              </a>
             </div>
           ) : (
             <>

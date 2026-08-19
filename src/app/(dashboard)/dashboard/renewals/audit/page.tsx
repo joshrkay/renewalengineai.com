@@ -3,7 +3,7 @@ import { getTenantDb } from "@/lib/db";
 import { ArrowLeft, Mail } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Audit Log | Policy Renewals | RenewalEngineAI" };
+export const metadata = { title: "Audit Log | Policy Renewals" };
 
 export default async function AuditPage() {
   const session = await auth();

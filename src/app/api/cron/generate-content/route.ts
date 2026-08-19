@@ -3,9 +3,13 @@ import { log } from "@/lib/logger";
 import { generateWeeklyContent } from "@/lib/content-generation/run";
 import { isAuthorizedCron } from "@/lib/cron-auth";
 
-// Serverless cron path for the weekly content engine. Redundant with the
-// GitHub Actions workflow — the kill-switch env var lets you disable one
-// side without a deploy.
+// Serverless path for the weekly content engine. NOTE: no Vercel cron
+// invokes this anymore — the Hobby plan's 2-cron limit forced us to keep
+// only refresh-tokens and run-scheduled-recipes in vercel.json. The
+// GitHub Actions workflow (weekly-content.yml) is the sole scheduled
+// trigger; this route remains for manual/authorized invocation only.
+// Beware: GitHub disables scheduled workflows after 60 days without
+// repo activity, and nothing backs the schedule up now.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 // Vercel Pro tier default is 60s; higher values require Fluid Compute
