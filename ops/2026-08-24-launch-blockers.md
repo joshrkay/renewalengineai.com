@@ -41,6 +41,21 @@ Resend, but two one-time setup steps remain:
    Vercel project env. Until then the send is a logged no-op (by design)
    and on-page delivery carries the funnel.
 
+## Possible stranded leads (check before anything else)
+
+The live 2026-04-28 build includes the /free-guide funnel writing to the
+MastermindInvite table — but sendMastermindInviteNotification() no-ops
+without RESEND_API_KEY, and the Resend account had no key and no verified
+domain as of 2026-08-24. Leads submitted since late April were therefore
+likely captured but never surfaced to anyone. Owner: pull DATABASE_URL
+from Vercel env, open the table (npx prisma studio), and follow up with
+every row. Sessions: no production DB credentials exist in the repo or
+this environment — do not guess at them; ask the owner for a count.
+
+Also noted: Vercel Web Analytics is NOT enabled on the project (API
+returns not_found) and analytics is GA4-only — traffic claims can only be
+verified from the owner's GA4 property.
+
 ## What is already done (do not redo)
 
 - Search Console coverage fixes: merged (#26).
