@@ -10,8 +10,8 @@ const credibilityPoints = [
   {
     icon: TrendingUp,
     stat: "391%",
-    label: "avg. lift in lead-to-contact rate when response time drops below 60 seconds",
-    source: "InsideSales / HBR research",
+    label: "lift in conversion when leads are contacted within the first minute",
+    source: "Velocify research",
   },
   {
     icon: Clock,

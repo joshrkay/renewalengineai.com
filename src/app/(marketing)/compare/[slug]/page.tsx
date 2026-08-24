@@ -5,7 +5,7 @@ import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
 import { ResourceBody } from "@/components/resources/ResourceBody";
-import { getComparison, listComparisons } from "@/lib/comparisons";
+import { getComparison, listComparisons , competitorLabel } from "@/lib/comparisons";
 import { team, personJsonLd, personJsonLdId } from "@/lib/team";
 
 export function generateStaticParams() {
@@ -99,9 +99,7 @@ export default async function ComparisonPage({
           {
             "@type": "ListItem",
             position: 3,
-            name: comparison.competitor.includes("vs.")
-              ? comparison.competitor
-              : `vs. ${comparison.competitor}`,
+            name: competitorLabel(comparison.competitor),
             item: url,
           },
         ],
@@ -141,11 +139,7 @@ export default async function ComparisonPage({
             <div className="mb-12">
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="inline-block bg-blue-600/20 text-blue-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                  {/* Neutral two-vendor pages carry "vs." in the competitor
-                      field already; only prefix when it's a single name. */}
-                  {comparison.competitor.includes("vs.")
-                    ? comparison.competitor
-                    : `vs. ${comparison.competitor}`}
+                  {competitorLabel(comparison.competitor)}
                 </span>
                 <span className="text-neutral-500 text-sm">
                   {comparison.readTime} min read · Last reviewed {lastReviewed}
@@ -186,7 +180,7 @@ export default async function ComparisonPage({
                         className="block bg-neutral-900 border border-neutral-800 rounded-2xl p-6 hover:border-blue-600 transition-colors"
                       >
                         <p className="text-blue-400 font-bold uppercase tracking-wider text-xs mb-2">
-                          {r.competitor.includes("vs.") ? r.competitor : `vs. ${r.competitor}`}
+                          {competitorLabel(r.competitor)}
                         </p>
                         <p className="text-xl font-bold mb-1">{r.title}</p>
                         <p className="text-neutral-400 text-sm">{r.tagline}</p>

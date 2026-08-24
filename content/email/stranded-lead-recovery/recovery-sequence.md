@@ -8,7 +8,14 @@ Rules of engagement: send personally, from Josh's own address, one lead
 at a time — not through a campaign tool. These people asked us for
 something and we went quiet; the fix is a human note, not a blast.
 Merge fields: {first_name}, {requested} (e.g. "the 5 AI Automations
-guide"), {agency} if known from the name/email domain.
+guide"), {agency} if known from the name/email domain, and {link} — pick
+it from the row's `source` column:
+
+| source starts with       | {requested}                        | {link} |
+|--------------------------|------------------------------------|--------|
+| free_guide / lead_magnet | the 5 AI Automations guide         | https://renewalengineai.com/free-guide/thank-you |
+| future_of_insurance      | the Future of Insurance field manual | https://renewalengineai.com/future-of-insurance/read |
+| mastermind (or anything else) | a Mastermind / community invite | no link — reply personally with invite details instead of a guide |
 
 ---
 
@@ -24,7 +31,7 @@ request sat in our database without anyone seeing it. I'm the founder;
 I found it this week while auditing the system, and I'd rather own that
 plainly than pretend this is a "just checking in" email.
 
-Here's the guide, no strings: https://renewalengineai.com/free-guide/thank-you
+Here's what you asked for, no strings: {link}
 
 And if the problem that made you look for it — renewals slipping, leads
 going cold, follow-up eating your week — is still on your desk, I'll
@@ -51,11 +58,10 @@ about AI automation, one concrete thing worth stealing regardless of
 what tools you use:
 
 Set up renewal reminders at 60/30/14/7 days before every X-date, pulled
-straight from your AMS. It's the highest-impact automation in the guide
+straight from your AMS. It's the highest-impact automation we cover
 because it attacks the biggest silent leak in most books — policies that
-lapse from neglect, not price. The walkthrough is in the guide
-(https://renewalengineai.com/free-guide/thank-you), and the math on what
-lapse actually costs is here:
+lapse from neglect, not price. The walkthrough is in what I sent you
+({link}), and the math on what lapse actually costs is here:
 https://renewalengineai.com/resources/renewal-retention-math-for-p-and-c-agencies
 
 If you'd rather someone build it for you, that's literally what we do —

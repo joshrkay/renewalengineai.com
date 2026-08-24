@@ -16,10 +16,12 @@ export default function robots(): MetadataRoute.Robots {
         // Crawl-blocking and noindex are mutually exclusive; noindex is the
         // one that actually removes a URL.
         //
-        // /dashboard/ stays disallowed: it is auth-gated and middleware
+        // /dashboard (no trailing slash — robots matching is prefix-based,
+        // so this covers /dashboard and everything under /dashboard/) stays
+        // disallowed: it is auth-gated and middleware
         // redirects anonymous requests to /login, so there is no indexable
         // content behind it and blocking preserves crawl budget.
-        disallow: ["/api/", "/dashboard/"],
+        disallow: ["/api/", "/dashboard"],
       },
       // Explicit allowlist for reputable AI crawlers — we want our
       // content cited in LLM answers and AI-powered search. The list

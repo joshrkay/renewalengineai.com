@@ -28,7 +28,7 @@ export function LeadMagnet() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: email.trim(),
-          source: "homepage_lead_magnet",
+          source: "lead_magnet_homepage",
         }),
       });
       if (!res.ok) {
@@ -40,7 +40,7 @@ export function LeadMagnet() {
         setLoading(false);
         return;
       }
-      trackEvent("lead_submit", { source: "homepage_lead_magnet" });
+      trackEvent("lead_submit", { source: "lead_magnet_homepage" });
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again.");
@@ -59,14 +59,14 @@ export function LeadMagnet() {
                 You&apos;re In — Read It Now
               </h2>
               <p className="text-xl text-blue-200 max-w-xl mx-auto mb-8">
-                Your free AI Renewal Automation Playbook is ready. Most
-                agencies find 3–5 revenue leaks in the first 10 minutes.
+                Your guide — 5 AI Automations Every Insurance Agent Should
+                Set Up This Week — is ready to read right now.
               </p>
               <a
-                href="/resources/ai-renewal-automation-playbook"
+                href="/free-guide/thank-you"
                 className="inline-block bg-blue-500 hover:bg-blue-400 text-white font-black px-8 py-4 rounded-full text-lg transition-all hover:scale-105"
               >
-                Open the Playbook →
+                Open the Guide →
               </a>
             </div>
           ) : (

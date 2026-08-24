@@ -62,7 +62,7 @@ export function Hero() {
             <div className="border-l-4 border-emerald-500 pl-6">
               <div className="text-5xl font-black text-white mb-1">391%</div>
               <div className="text-neutral-400 font-medium text-sm">
-                Lift from &lt;1-min response
+                Conversion lift, &lt;1-min response
                 <span className="block text-neutral-600 text-xs mt-1">Velocify research</span>
               </div>
             </div>

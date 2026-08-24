@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
-import { listComparisons } from "@/lib/comparisons";
+import { listComparisons , competitorLabel } from "@/lib/comparisons";
 
 export const metadata: Metadata = {
   title: "Compare RenewalEngineAI to Other Insurance AI Options",
@@ -97,7 +97,7 @@ export default function CompareIndexPage() {
                 >
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span className="inline-block bg-blue-600/20 text-blue-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                      vs. {c.competitor}
+                      {competitorLabel(c.competitor)}
                     </span>
                     <span className="text-neutral-500 text-sm">
                       {c.readTime} min read

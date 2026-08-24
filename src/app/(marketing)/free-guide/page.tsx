@@ -36,7 +36,7 @@ const automations = [
     icon: Zap,
     title: "Instant Lead Response",
     hook: "Respond in under 60 seconds, 24/7",
-    payoff: "Up to 391% higher contact rates from sub-minute response (Velocify)",
+    payoff: "Up to 391% higher conversion from sub-minute response (Velocify)",
   },
   {
     icon: TrendingUp,
@@ -117,7 +117,7 @@ export default function FreeGuidePage() {
                     "Save 15+ hours weekly on manual renewal & follow-up tasks",
                     "Respond to every lead in under 60 seconds, 24/7",
                     "Run proactive renewal outreach on every X-date without hiring",
-                    "Lift lead contact rates up to 391% with sub-60-second response (Velocify)",
+                    "Lift conversion on inbound leads up to 391% with sub-60-second response (Velocify)",
                   ].map((bullet) => (
                     <li key={bullet} className="flex items-start gap-3">
                       <div

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { after } from "next/server";
 import { prisma } from "@/lib/db";
 import {
   sendMastermindInviteNotification,
@@ -40,6 +41,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "invalid_email" }, { status: 400 });
     }
 
+    // Whether this email is new decides delivery below: the guide email
+    // goes out at most once per address, ever. Without this, the public
+    // endpoint is a mail pump — repeat POSTs with a victim's address and
+    // a lead-magnet source would email them on every call.
+    const existing = await prisma.mastermindInvite.findUnique({
+      where: { email },
+      select: { id: true },
+    });
+
     // Upsert so duplicate submissions return success without creating
     // duplicate rows. Existing rows keep their `contacted` flag.
     const invite = await prisma.mastermindInvite.upsert({
@@ -58,17 +68,23 @@ export async function POST(req: NextRequest) {
       metadata: { source },
     });
 
-    // Fire-and-forget notification to the ops inbox. Do not block the
-    // response on email delivery — the DB row is the source of truth.
-    sendMastermindInviteNotification(email, name, source).catch((err) => {
-      log.error("[mastermind-invite] notification failed:", err);
-    });
-
-    // Lead-magnet requests also get the guide delivered to the lead
-    // (no-op for non-magnet sources, and for magnet sources it is a
-    // bonus on top of the on-page delivery — never load-bearing).
-    sendLeadMagnetDelivery(email, name, source).catch((err) => {
-      log.error("[mastermind-invite] lead delivery failed:", err);
+    // Emails run via after() so they survive the serverless response
+    // being sent (a bare floating promise can be frozen mid-flight on
+    // Vercel) without blocking the caller. The DB row is the source of
+    // truth either way; on-page delivery never depends on these.
+    after(async () => {
+      await sendMastermindInviteNotification(email, name, source).catch(
+        (err) => {
+          log.error("[mastermind-invite] notification failed:", err);
+        }
+      );
+      // Guide delivery: only for lead-magnet sources, and only on the
+      // first-ever submission for this address (see `existing` above).
+      if (!existing) {
+        await sendLeadMagnetDelivery(email, name, source).catch((err) => {
+          log.error("[mastermind-invite] lead delivery failed:", err);
+        });
+      }
     });
 
     return NextResponse.json({ ok: true });
