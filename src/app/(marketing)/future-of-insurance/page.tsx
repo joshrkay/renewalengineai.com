@@ -157,8 +157,8 @@ export default function FutureOfInsurancePage() {
                     Get the field manual
                   </h2>
                   <p className="text-neutral-400 mb-6 text-sm">
-                    Enter your email — we&apos;ll send the 20-page PDF to your
-                    inbox and show you the full manual on the next page.
+                    Enter your email and read the full 20-page field manual
+                    online, immediately, on the next page.
                   </p>
                   <FreeGuideForm
                     source="future_of_insurance_hero"
@@ -343,7 +343,7 @@ export default function FutureOfInsurancePage() {
                 Free download. Read in one sitting.
               </h2>
               <p className="text-lg text-neutral-400 mb-8">
-                One email, one PDF, zero spam. The agencies that figure this
+                One email, instant access, zero spam. The agencies that figure this
                 out in the next 24 months will own the next 24 years.
               </p>
               <div className="bg-neutral-900/80 border border-neutral-800 rounded-3xl p-8 shadow-2xl text-left">

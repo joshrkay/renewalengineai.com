@@ -61,13 +61,17 @@ export function LeadMagnetForm({ source }: { source: string }) {
     return (
       <div className="bg-emerald-500/10 border border-emerald-500/40 rounded-2xl p-8 text-center">
         <p className="text-white font-black text-2xl mb-2">
-          Check your inbox.
+          You&rsquo;re in.
         </p>
-        <p className="text-neutral-300">
-          The guide is on its way to{" "}
-          <span className="text-white font-semibold">your email</span>. If it
-          isn&rsquo;t there in 5 minutes, check spam.
+        <p className="text-neutral-300 mb-4">
+          The full guide is ready for you right now &mdash; no inbox required.
         </p>
+        <a
+          href="/free-guide/thank-you"
+          className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-xl px-6 py-3 transition-colors"
+        >
+          Read the guide now &rarr;
+        </a>
       </div>
     );
   }
