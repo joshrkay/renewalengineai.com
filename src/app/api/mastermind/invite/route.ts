@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { sendMastermindInviteNotification } from "@/lib/email";
+import {
+  sendMastermindInviteNotification,
+  sendLeadMagnetDelivery,
+} from "@/lib/email";
 import { logAudit } from "@/lib/audit";
 import { log } from "@/lib/logger";
 
@@ -59,6 +62,13 @@ export async function POST(req: NextRequest) {
     // response on email delivery — the DB row is the source of truth.
     sendMastermindInviteNotification(email, name, source).catch((err) => {
       log.error("[mastermind-invite] notification failed:", err);
+    });
+
+    // Lead-magnet requests also get the guide delivered to the lead
+    // (no-op for non-magnet sources, and for magnet sources it is a
+    // bonus on top of the on-page delivery — never load-bearing).
+    sendLeadMagnetDelivery(email, name, source).catch((err) => {
+      log.error("[mastermind-invite] lead delivery failed:", err);
     });
 
     return NextResponse.json({ ok: true });

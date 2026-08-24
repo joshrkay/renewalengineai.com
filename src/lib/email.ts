@@ -167,6 +167,81 @@ export async function sendMastermindInviteNotification(
   });
 }
 
+const LEAD_MAGNETS: Record<
+  string,
+  { title: string; path: string; readTime: string }
+> = {
+  future_of_insurance: {
+    title: "The Future of Insurance: A Field Manual for Independent Agents",
+    path: "/future-of-insurance/read",
+    readTime: "a 20-page read",
+  },
+  free_guide: {
+    title: "5 AI Automations Every Insurance Agent Should Set Up This Week",
+    path: "/free-guide/thank-you",
+    readTime: "a 12-minute read",
+  },
+};
+
+/** Resolve a form source (e.g. "future_of_insurance_hero") to its magnet. */
+export function leadMagnetForSource(
+  source: string
+): (typeof LEAD_MAGNETS)[string] | null {
+  if (source.startsWith("future_of_insurance")) {
+    return LEAD_MAGNETS.future_of_insurance;
+  }
+  if (source.startsWith("free_guide") || source.startsWith("lead_magnet")) {
+    return LEAD_MAGNETS.free_guide;
+  }
+  return null;
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+export async function sendLeadMagnetDelivery(
+  email: string,
+  name: string | null,
+  source: string
+): Promise<void> {
+  const magnet = leadMagnetForSource(source);
+  if (!magnet) return;
+
+  const firstName = name ? escapeHtml(name.trim().split(/\s+/)[0] ?? "") : "";
+  const link = `${APP_URL}${magnet.path}`;
+
+  await sendEmail({
+    to: email,
+    subject: `Your guide: ${magnet.title}`,
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+        <h2 style="color: #0a0a0a; font-size: 20px;">${firstName ? `${firstName}, your` : "Your"} guide is ready</h2>
+        <p style="color: #525252; font-size: 16px; line-height: 1.6;">
+          Here's your permanent link to <strong>${magnet.title}</strong> — ${magnet.readTime}, no login needed:
+        </p>
+        <p style="margin: 28px 0;">
+          <a href="${link}" style="background-color: #10b981; color: #0a0a0a; font-weight: 700; text-decoration: none; padding: 14px 28px; border-radius: 9999px; display: inline-block;">
+            Read the guide
+          </a>
+        </p>
+        <p style="color: #525252; font-size: 15px; line-height: 1.6;">
+          When you're ready to see what this looks like running on your own book, the fastest next step is a free 30-minute strategy call — we'll look at your AMS setup together and tell you honestly whether automation is worth it for your agency.
+        </p>
+        <p style="color: #525252; font-size: 15px;">
+          <a href="${APP_URL}/#pricing" style="color: #2563eb;">Book a free strategy call &rarr;</a>
+        </p>
+        <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;" />
+        <p style="color: #a3a3a3; font-size: 12px;">RenewalEngineAI — AI Automation for Insurance Agencies. You're receiving this one-time delivery because you requested this guide at renewalengineai.com.</p>
+      </div>
+    `,
+  });
+}
+
 export async function sendTokenExpiryWarning(
   email: string,
   provider: string
