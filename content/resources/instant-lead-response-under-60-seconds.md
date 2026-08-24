@@ -16,7 +16,7 @@ related:
 
 > **TL;DR:** 78% of insurance consumers buy from the first agent to respond, and conversion probability drops 10&times; between minute 1 and minute 60. This article covers what "fast" actually means across channels (web, phone, text, referral), the exact AI-driven workflow that gets insurance agencies to sub-60-second response, the tooling stack that makes it work, and the cost model.
 
-If you're an independent insurance agency, you already know the stat: 78% of consumers buy from the first agent to respond. What most agencies don't know is that "first" doesn't mean "that afternoon." It means within a minute. The odds of converting a lead drop by 80% between the first and sixtieth minute after it comes in. Most lead-response sins are sins of timing, not copy.
+If you're an independent insurance agency, you already know the stat: 78% of consumers buy from the first agent to respond. What most agencies don't know is that "first" doesn't mean "that afternoon." It means within a minute. The odds of converting a lead drop roughly tenfold between the first and sixtieth minute after it comes in. Most lead-response sins are sins of timing, not copy.
 
 This post is about why that gap is so hard to close manually, what changes when AI handles the first contact, and the exact workflow we build for agencies who want to stop losing winnable leads to faster competitors.
 
@@ -28,7 +28,7 @@ Response-time benchmarks vary by channel. Here's the 2026 target matrix:
 
 | Channel | Industry average | Winning agencies | Target |
 |---|---|---|---|
-| Web form submission | 47 hours | 2-5 minutes | **Under 60 seconds** |
+| Web form submission | 47+ minutes | 2-5 minutes | **Under 60 seconds** |
 | Phone call (business hours) | 30-90 seconds to pickup | Immediate | **&lt; 30 seconds** |
 | Phone call (after hours) | Voicemail, next business day | AI answer + call-back | **&lt; 60 seconds** |
 | Inbound text | 2-4 hours | 10 minutes | **Under 60 seconds** |
@@ -42,7 +42,7 @@ Two things to notice. First, the gap between "average" and "target" is one to th
 
 The numbers behind fast lead response are brutal, and they've been brutal for a decade:
 
-- **391% higher conversion** when you respond within a minute vs. within five minutes. This is the [Harvard Business Review study](https://hbr.org/2011/03/the-short-life-of-online-sales-leads) that's been cited to death, and it's still directionally correct.
+- **391% higher conversion** when you respond within a minute vs. within five minutes. That figure comes from Velocify's Ultimate Contact Strategy research. The related [Harvard Business Review study](https://hbr.org/2011/03/the-short-life-of-online-sales-leads) that's been cited to death found the same shape from a different angle: firms that contacted leads within an hour were roughly seven times more likely to qualify them than firms that waited even sixty minutes longer.
 - **78% of consumers buy from the first agent who responds.** Not the best agent. Not the cheapest carrier. The first responder.
 - **Conversion probability drops 10x between minute 1 and minute 60.** The curve is steepest in the first five minutes.
 

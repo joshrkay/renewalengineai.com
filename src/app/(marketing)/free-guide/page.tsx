@@ -42,13 +42,13 @@ const automations = [
     icon: TrendingUp,
     title: "Quote Follow-Up Automation",
     hook: "Every quote gets a personalized 5-touch sequence until bind or decline",
-    payoff: "Close 28% more quoted deals",
+    payoff: "No open quote ever goes cold in a shared inbox",
   },
   {
     icon: Shield,
     title: "Retention Intelligence",
-    hook: "Predict which clients will lapse 60 days before they do",
-    payoff: "Prevent 90% of non-renewals before they happen",
+    hook: "Flag at-risk renewals weeks before the X-date",
+    payoff: "Reach every at-risk client before the renewal decision is made",
   },
   {
     icon: Users,
@@ -116,8 +116,8 @@ export default function FreeGuidePage() {
                   {[
                     "Save 15+ hours weekly on manual renewal & follow-up tasks",
                     "Respond to every lead in under 60 seconds, 24/7",
-                    "Improve renewal retention 15–25% without hiring",
-                    "Boost quote-to-bind conversion up to 391%",
+                    "Run proactive renewal outreach on every X-date without hiring",
+                    "Lift lead contact rates up to 391% with sub-60-second response (Velocify)",
                   ].map((bullet) => (
                     <li key={bullet} className="flex items-start gap-3">
                       <div

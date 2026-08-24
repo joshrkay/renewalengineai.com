@@ -9,7 +9,7 @@ const comparisons = [
   {
     metric: "Renewal Retention",
     without: "80-85% (15-20% lapse)",
-    with: "94-97% with proactive outreach"
+    with: "94-97% target with proactive outreach"
   },
   {
     metric: "Quote Follow-Up",

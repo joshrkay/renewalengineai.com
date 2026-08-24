@@ -102,7 +102,7 @@ export function Benefits() {
             <div className="text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
               95%+
             </div>
-            <div className="text-xl text-neutral-400 font-bold">Renewal Retention Rate</div>
+            <div className="text-xl text-neutral-400 font-bold">Renewal Retention Target</div>
           </div>
           <div className="text-center">
             <div className="text-6xl font-black bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent mb-3">
