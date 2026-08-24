@@ -19,7 +19,7 @@ An **endorsement** is a formal amendment to an existing insurance policy. It add
 
 - Adding a newly licensed driver or a replacement vehicle to an auto policy
 - Increasing dwelling coverage after a renovation
-- Adding a **additional insured** to a general liability policy for a specific project
+- Adding an **additional insured** to a general liability policy for a specific project
 - Changing a mailing address or lienholder
 - Removing a scheduled item that was sold
 
@@ -39,3 +39,8 @@ The reliable pattern is not "let AI issue endorsements." It is:
 4. **Write back** the change to the AMS
 
 Step 3 is where automation earns most of its value, because the failure mode agencies actually suffer is not slow processing — it is requests that quietly fall through without anyone noticing.
+
+## Go deeper
+
+- [Producer Workflows After AI](/resources/producer-workflows-post-ai)
+- [AI Tools vs. Hiring a CSR](/resources/ai-tools-vs-hiring-a-csr)

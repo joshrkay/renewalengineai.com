@@ -12,7 +12,7 @@ segment: "Mid-size to large independent agencies, commonly 10+ staff and mixed p
 dataAccess:
   - "Scheduled exports from Epic reporting for policy, client, and activity tables"
   - "Applied Epic APIs where the agency's licensing includes them"
-  - "Applied Epic Integration Services / partner endpoints, where available"
+  - "The Applied Epic API and Applied Certified Integrations, where the agency's licensing includes them"
 strengths:
   - "The richest data model of the three major AMS platforms — deep commercial lines structure, multi-entity support, and detailed activity logging"
   - "Strong reporting layer, which makes clean scheduled extracts straightforward once the report definitions exist"
@@ -53,7 +53,7 @@ Where an agency's licensing includes API access, we move the read path over once
 
 An automation that reads Epic but never writes to it creates a second version of the truth, and within a quarter nobody trusts either one.
 
-Every automated touch — an email sent, a text delivered, a reply received, a task escalated — is written back as an Epic activity against the correct account, attributed to the assigned producer or CSR. When a CSR opens the account, the automation's work is simply part of the history, in the place they already look.
+How write-back works depends on the same access question as reads. Where the agency's licensing includes the Applied Epic API, every automated touch — an email sent, a text delivered, a reply received, a task escalated — is written back as an Epic activity against the correct account, attributed to the assigned producer or CSR. On extract-only engagements, where no API write path exists, we deliver a daily activity file formatted for Epic's import tooling plus a same-day digest to the assigned CSR, so the history still lands in Epic — on a batch cadence rather than in real time. Either way, when a CSR opens the account the automation's work is part of the history, in the place they already look; the audit determines which path your licensing supports before anything is promised.
 
 ## The Epic-specific data problems we expect to find
 

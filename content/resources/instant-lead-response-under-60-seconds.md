@@ -14,9 +14,9 @@ related:
 
 # Instant Lead Response: How to Reply to Insurance Leads in Under 60 Seconds
 
-> **TL;DR:** 78% of insurance consumers buy from the first agent to respond, and conversion probability drops 10&times; between minute 1 and minute 60. This article covers what "fast" actually means across channels (web, phone, text, referral), the exact AI-driven workflow that gets insurance agencies to sub-60-second response, the tooling stack that makes it work, and the cost model.
+> **TL;DR:** The widely cited industry finding is that roughly four in five insurance consumers buy from the first agent to respond, and conversion probability drops 10&times; between minute 1 and minute 60. This article covers what "fast" actually means across channels (web, phone, text, referral), the exact AI-driven workflow that gets insurance agencies to sub-60-second response, the tooling stack that makes it work, and the cost model.
 
-If you're an independent insurance agency, you already know the stat: 78% of consumers buy from the first agent to respond. What most agencies don't know is that "first" doesn't mean "that afternoon." It means within a minute. The odds of converting a lead drop by 80% between the first and sixtieth minute after it comes in. Most lead-response sins are sins of timing, not copy.
+If you're an independent insurance agency, you already know the claim — the widely repeated industry figure that roughly four in five consumers buy from the first agent to respond. What most agencies don't know is that "first" doesn't mean "that afternoon." It means within a minute. The odds of converting a lead drop roughly tenfold between the first and sixtieth minute after it comes in. Most lead-response sins are sins of timing, not copy.
 
 This post is about why that gap is so hard to close manually, what changes when AI handles the first contact, and the exact workflow we build for agencies who want to stop losing winnable leads to faster competitors.
 
@@ -28,7 +28,7 @@ Response-time benchmarks vary by channel. Here's the 2026 target matrix:
 
 | Channel | Industry average | Winning agencies | Target |
 |---|---|---|---|
-| Web form submission | 47 hours | 2-5 minutes | **Under 60 seconds** |
+| Web form submission | 47+ minutes | 2-5 minutes | **Under 60 seconds** |
 | Phone call (business hours) | 30-90 seconds to pickup | Immediate | **&lt; 30 seconds** |
 | Phone call (after hours) | Voicemail, next business day | AI answer + call-back | **&lt; 60 seconds** |
 | Inbound text | 2-4 hours | 10 minutes | **Under 60 seconds** |
@@ -42,7 +42,7 @@ Two things to notice. First, the gap between "average" and "target" is one to th
 
 The numbers behind fast lead response are brutal, and they've been brutal for a decade:
 
-- **391% higher conversion** when you respond within a minute vs. within five minutes. This is the [Harvard Business Review study](https://hbr.org/2011/03/the-short-life-of-online-sales-leads) that's been cited to death, and it's still directionally correct.
+- **391% higher conversion** when you respond within a minute vs. within five minutes. That figure comes from Velocify's Ultimate Contact Strategy research. The related [Harvard Business Review study](https://hbr.org/2011/03/the-short-life-of-online-sales-leads) that's been cited to death found the same shape from a different angle: firms that contacted leads within an hour were roughly seven times more likely to qualify them than firms that waited even sixty minutes longer.
 - **78% of consumers buy from the first agent who responds.** Not the best agent. Not the cheapest carrier. The first responder.
 - **Conversion probability drops 10x between minute 1 and minute 60.** The curve is steepest in the first five minutes.
 
@@ -97,7 +97,7 @@ By the time the lead replies (or schedules), the producer has a full briefing.
 
 ### Stage 4 — Qualification exchange (5-15 minutes if engaged)
 
-If the lead replies, the AI continues the conversation to fill in whatever the intake form missed: current carrier, current premiums, claims in the last 5 years, desired coverage change. It does this in the lead's channel, one question at a time, without ever saying "I'm an AI" (because the lead doesn't care, they care that they're getting responses). At the end, it confirms the appointment with the producer.
+If the lead replies, the AI continues the conversation to fill in whatever the intake form missed: current carrier, current premiums, claims in the last 5 years, desired coverage change. It does this in the lead's channel, one question at a time, identifying itself plainly (something like "I'm the agency's automated assistant — I'll get you to a licensed agent") so nobody feels tricked later. At the end, it confirms the appointment with the producer.
 
 ### Stage 5 — Producer hand-off (at the scheduled call)
 
@@ -199,7 +199,7 @@ Sub-30 seconds is achievable on text and email. Voice depends on your AI voice e
 
 ### Should the AI admit it's an AI?
 
-Not in the first response. Not in normal qualification exchanges. The one exception: if the lead directly asks "am I talking to a person?", tell them the truth immediately. Transparency is non-negotiable when asked; proactive disclosure is not required and in our testing doesn't improve conversion.
+Yes — up front. Disclose in the first exchange, in a natural sentence rather than a legal banner. Two reasons. First, trust: a lead who discovers mid-conversation that "Sarah" was software feels tricked at exactly the moment you need them to trust you with their coverage. Second, regulation is moving one direction: several states already require bot disclosure in commercial interactions (California's bot-disclosure law is the template), and insurance is not a market to be on the wrong side of a disclosure rule in. What the lead actually cares about — the speed of a useful response — survives disclosure just fine.
 
 ### Will the AI actually bind a policy?
 

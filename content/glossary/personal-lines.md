@@ -30,3 +30,8 @@ This makes personal lines unusually well-suited to automated retention work. The
 ## The multi-line lever
 
 The strongest predictor of personal lines retention is **policies per client**. A monoline auto client is easy to lose; an auto-plus-home-plus-umbrella household is substantially harder. Which means the highest-return personal lines automation is often not renewal outreach at all — it is systematic **account rounding** on monoline clients.
+
+## Go deeper
+
+- [The Insurance Renewal Automation Playbook](/resources/ai-renewal-automation-playbook)
+- [Cross-Sell Triggers for Independent Agencies](/resources/cross-sell-triggers-for-independent-agencies)

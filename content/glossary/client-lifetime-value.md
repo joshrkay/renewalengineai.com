@@ -40,3 +40,8 @@ This is the number that makes retention spending legible. Agencies routinely app
 LTV should be calculated per **segment**, not as a single agency-wide average. Monoline personal auto and multi-line commercial accounts have LTVs that differ by more than an order of magnitude, and blending them produces a number that justifies nothing.
 
 Segment-level LTV tells you the defensible budget for retaining each group — and usually reveals that the agency is spending most of its attention on the segment with the lowest lifetime value, because that is the segment that generates the most inbound noise.
+
+## Go deeper
+
+- [Renewal Retention Math for P&C Agencies](/resources/renewal-retention-math-for-p-and-c-agencies)
+- [Cross-Sell Triggers for Independent Agencies](/resources/cross-sell-triggers-for-independent-agencies)

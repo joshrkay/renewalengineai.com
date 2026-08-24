@@ -12,7 +12,7 @@ As an independent insurance agent, your time is your most valuable resource. Eve
 
 **Implementation:**
 1. Export your policy expiration dates from your AMS
-2. Create email templates for each touchpoint (we'll provide these)
+2. Create email templates for each touchpoint (starter copy in the Template Starters section at the end of this guide)
 3. Set up automation to trigger based on date fields
 4. Use AI to personalize each message with the client's name, policy details, and previous interaction history
 
@@ -89,11 +89,33 @@ As an independent insurance agent, your time is your most valuable resource. Eve
 3. **Measure results** after 30 days (time saved, client feedback, renewal rate impact)
 4. **Add the next automation** once the first is running smoothly
 
-## Template Library
-[Link to editable Google Doc with all email/SMS templates]
+## Template Starters
 
-## AI Prompt Library
-[Link to collection of proven prompts for each automation type]
+Copy these, swap in your agency's voice, and load them into your email tool.
+
+**Renewal reminder (30 days out):**
+> Hi {first name} — your {policy type} policy renews on {date}. A lot has changed in the market this year, so before it auto-renews I'd like to take 15 minutes to make sure your coverage still fits and you're not overpaying. Reply with a good time this week, or grab a slot here: {scheduling link}.
+
+**Quote follow-up (day 3):**
+> Hi {first name} — wanted to make sure the quote I sent Tuesday didn't get buried. Two things people usually ask at this stage: {common question 1} and {common question 2}. Happy to walk through either — or if you're ready, we can bind it in about 10 minutes.
+
+**Cross-sell touch (life event trigger):**
+> Congrats on the new house, {first name}! New address usually means three things worth a quick look: dwelling coverage limits, an umbrella policy, and flood zone status. None of them take more than a few minutes to check. Want me to run all three against your current policy?
+
+For full multi-touch cadences — timing, channel mix, and what to say at each step — see the deep-dive articles at [renewalengineai.com/resources](https://renewalengineai.com/resources), especially the quote follow-up and renewal automation playbooks.
+
+## AI Prompt Starters
+
+Paste these into ChatGPT or Claude with your details filled in:
+
+**Personalize a renewal email:**
+> "Rewrite this renewal reminder for a client named {name} who has been with us {X} years, had {claim/no claims} last year, and holds {policy types}. Keep it under 120 words, warm but not salesy, and end with one specific question."
+
+**Triage a service request:**
+> "Here is a client email: {paste email}. Classify it as COI request, endorsement, billing question, or claim, then draft a reply I can review. Flag anything that needs a licensed agent's judgment."
+
+**Score cross-sell opportunities:**
+> "Here are 20 client records with policy types and life-event notes: {paste}. Rank the 5 best cross-sell conversations to have this week and say why for each in one sentence." 
 
 ## Next Steps
 Once you have these automations running, you'll be ready for more advanced implementations like:

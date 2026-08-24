@@ -32,3 +32,8 @@ Most competitive lapse is decided in a narrow window before the **x-date** — t
 ## The measurement discipline
 
 Segment lapse by cause, by line of business, by tenure, and by **policies per client**. The aggregate number tells you there is a problem. Only the segments tell you where it is — and first-year monoline clients almost always turn out to be the concentration.
+
+## Go deeper
+
+- [Renewal Retention Math for P&C Agencies](/resources/renewal-retention-math-for-p-and-c-agencies)
+- [The Insurance Renewal Automation Playbook](/resources/ai-renewal-automation-playbook)

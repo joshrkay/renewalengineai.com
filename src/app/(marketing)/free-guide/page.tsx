@@ -36,25 +36,25 @@ const automations = [
     icon: Zap,
     title: "Instant Lead Response",
     hook: "Respond in under 60 seconds, 24/7",
-    payoff: "391% more conversions (78% of buyers pick the first agent to reply)",
+    payoff: "Up to 391% higher conversion from sub-minute response (Velocify)",
   },
   {
     icon: TrendingUp,
     title: "Quote Follow-Up Automation",
     hook: "Every quote gets a personalized 5-touch sequence until bind or decline",
-    payoff: "Close 28% more quoted deals",
+    payoff: "No open quote ever goes cold in a shared inbox",
   },
   {
     icon: Shield,
-    title: "Retention Intelligence",
-    hook: "Predict which clients will lapse 60 days before they do",
-    payoff: "Prevent 90% of non-renewals before they happen",
+    title: "Service Request Triage",
+    hook: "AI-drafted replies to COIs, endorsements, and billing questions your team approves in one click",
+    payoff: "Hours of inbox triage handed to the system every week",
   },
   {
     icon: Users,
     title: "Cross-Sell & Round-Out",
     hook: "AI finds hidden revenue in your existing book",
-    payoff: "Lift revenue per client 15–25%",
+    payoff: "Every monoline household flagged and ranked for the next policy",
   },
 ];
 
@@ -116,8 +116,8 @@ export default function FreeGuidePage() {
                   {[
                     "Save 15+ hours weekly on manual renewal & follow-up tasks",
                     "Respond to every lead in under 60 seconds, 24/7",
-                    "Improve renewal retention 15–25% without hiring",
-                    "Boost quote-to-bind conversion up to 391%",
+                    "Run proactive renewal outreach on every X-date without hiring",
+                    "Lift conversion on inbound leads up to 391% with sub-60-second response (Velocify)",
                   ].map((bullet) => (
                     <li key={bullet} className="flex items-start gap-3">
                       <div

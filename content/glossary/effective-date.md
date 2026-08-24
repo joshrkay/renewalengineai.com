@@ -32,3 +32,7 @@ Several expensive mistakes live in the gap between "sold" and "effective":
 Effective dates and expiration dates together define every time-based trigger in an agency: renewal sequences, pro-rata calculations, audit scheduling, and lapse detection.
 
 Because effective dates are usually entered correctly at binding while x-dates drift as policies are rewritten and re-marketed, the effective date is often the more trustworthy field of the two — and a useful cross-check when auditing whether an agency's expiration data can be relied on for automation.
+
+## Go deeper
+
+- [The Insurance Renewal Automation Playbook](/resources/ai-renewal-automation-playbook)

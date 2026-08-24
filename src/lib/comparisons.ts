@@ -54,3 +54,13 @@ export function listComparisons(): Comparison[] {
 export function getComparison(slug: string): Comparison | undefined {
   return listComparisons().find((c) => c.slug === slug);
 }
+
+/**
+ * Display label for the competitor pill/eyebrow. Neutral two-vendor pages
+ * ("Sonant AI vs. Liberate") already carry "vs." in the field; only
+ * single-name competitors get the prefix. Every renderer must use this —
+ * inlining `vs. ${competitor}` double-prefixes neutral pages.
+ */
+export function competitorLabel(competitor: string): string {
+  return competitor.includes("vs.") ? competitor : `vs. ${competitor}`;
+}

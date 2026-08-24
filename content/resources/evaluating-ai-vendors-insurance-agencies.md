@@ -53,7 +53,7 @@ Vendor mortality is real in the AI wave. You want three things: a data-export co
 
 Some signals justify walking away regardless of how the seven questions go:
 
-1. **Guaranteed outcomes with no baseline.** "We'll raise your retention 20%" from someone who hasn't seen your book is astrology. A real operator measures your baseline first, then commits to a range. (Any number we publish, like the 15-20% retention lift or the 391% response-time edge, comes with the mechanism and its conditions attached.)
+1. **Guaranteed outcomes with no baseline.** "We'll raise your retention 20%" from someone who hasn't seen your book is astrology. A real operator measures your baseline first, then commits to a range. (We hold ourselves to the same bar: the 15-20% retention figure we use is a target with the mechanism attached, not a client average — and the 391% response-time figure is Velocify's, cited as theirs.)
 2. **Pressure pricing.** "This price expires Friday" is a tactic for products that don't survive deliberation.
 3. **No insurance-native vocabulary.** If the sales engineer doesn't know what an X-date, a book roll, or an ACORD form is, you're buying a generic SMB tool with an insurance landing page, and every workflow assumption inside it will be slightly wrong.
 4. **The demo can't touch real data structures.** A vendor unwilling to demo against realistic policy data (even anonymized) is hiding integration weakness.

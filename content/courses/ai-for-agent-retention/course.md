@@ -29,4 +29,4 @@ RenewalEngineAI was built by operators who spent years inside independent agenci
 Four modules. Twelve lessons. Each lesson is short enough to consume over a cup of coffee and actionable enough that you can implement it before lunch. The recommended pace is one lesson per day for about three weeks, then a week of implementation, then a final week of measurement.
 
 ## Investment
-One-time payment of $397 for lifetime access, all updates, the prompt library, and the private student community. Thirty-day money-back guarantee: if you implement the first three lessons and don't save at least five hours in your first week, we refund you in full.
+One-time payment of $397 for lifetime access to all twelve written lessons, every update, and the prompt library. Thirty-day money-back guarantee: if the course isn't working for you in the first thirty days, email us and we refund you in full — no implementation homework required to qualify.

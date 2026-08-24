@@ -25,11 +25,11 @@ The salary line understates a hire by a wide margin. Here's the honest math for 
 
 | Cost component | Typical range | Notes |
 |---|---|---|
-| Base salary | $42,000-$64,000/yr | Licensed CSRs average closer to $62,000 |
+| Base salary | $45,000-$65,000/yr | Licensed CSRs sit at the top of the range; check current postings in your metro |
 | Benefits, taxes, overhead | +25-30% | Health, payroll taxes, software seats, desk |
 | Recruiting | 4-8 weeks of vacancy | Plus job-board and screening costs |
 | Ramp to independent | 3-6 months | Learning your AMS, carriers, workflows |
-| Turnover risk | 50-200% of salary per departure | Service roles churn constantly |
+| Turnover risk | 50-200% of salary per departure (the range popularized by Gallup and SHRM turnover research) | Service roles churn constantly |
 
 Fully loaded, a licensed CSR runs roughly $65,000-$80,000 in year one, and the first several months of that are paid learning, not paid output. None of which makes hiring wrong. It makes hiring expensive, which matters when the work you're buying is repetitive enough that a system could do it.
 
@@ -49,7 +49,7 @@ The comparison only makes sense per task, so score the work, not the abstraction
 
 1. **Pre-renewal outreach at 100% coverage.** Every policy touched 30-90 days out, every time. This is where the 15-20% retention lift lives, and no human team sustains full coverage on a growing book. (Run your own numbers with the [renewal retention math worksheet](/resources/renewal-retention-math-for-p-and-c-agencies).)
 2. **First-touch lead response.** Sub-60-second contact, 24/7, with a 391% conversion edge over slow response. A CSR physically cannot hold that SLA; see the [response-time benchmarks](/resources/lead-response-time-benchmarks-insurance).
-3. **Quote follow-up cadences.** Seven polite, on-time touches without anyone remembering anything, at roughly 75% lower follow-up cost than manual.
+3. **Quote follow-up cadences.** Seven polite, on-time touches without anyone remembering anything, at a fraction of the per-touch cost of manual follow-up.
 4. **Logging.** Every touch written back to the AMS, no memory required.
 
 **A human wins decisively at:**
@@ -82,7 +82,7 @@ To make the comparison concrete, here's the year-one ledger for a 2,000-policy a
 | Time to full output | 4-8 weeks to hire, 3-6 months to ramp | 2-3 weeks to live |
 | Renewal coverage | Whatever one person sustains on top of service work; realistically partial | 100% of expiring policies, every month |
 | Lead response | Business hours, when not on another call | Under 60 seconds, 24/7 |
-| Sick days, turnover | Real, and turnover costs 50-200% of salary | None |
+| Sick days, turnover | Real, and turnover commonly costs 50-200% of salary (Gallup/SHRM range) | None |
 | Hard conversations | Yes, and this is the point of the role | No |
 | Judgment and upsell | Yes | No |
 

@@ -40,7 +40,7 @@ Reactive renewal work looks like this: a producer gets a carrier-generated expir
 
 Proactive retention flips the default. Every policy gets outreach. The system decides how much, in what channel, and at what depth, based on what it knows about the client. Producers are pulled in by the AI, not the other way around, and only for the 10-15% of renewals where a human conversation moves the number.
 
-Agencies that ship this well see [15-20% retention lift in the first full year](/). That's the number we reliably quote because it's what shows up in the Operations Audit data across the agencies we've worked with.
+A 15-20% retention lift in the first full year is the target we build against. It isn't magic: if your book retains 84% and loses most of that 16% to silence rather than price, a system that touches every renewal four times has a lot of recoverable ground — [the retention math article](/resources/renewal-retention-math-for-p-and-c-agencies) works the arithmetic so you can size the target for your own book instead of taking a number on faith.
 
 ## The four-touch renewal cadence
 
@@ -201,7 +201,7 @@ The full 12-month ROI math across all four revenue lines (retention, lead respon
 
 For a worked example of the full rollout &mdash; starting state, what we built, 90-day outcomes, 12-month projection &mdash; read [the Pacific Agency Group composite case study](/case-studies/pacific-agency-group-personal-lines). It covers:
 
-- 82% → 94% retention inside 90 days.
+- 82% → 94% retention measured on the renewal cohorts touched in the first 90 days (book-level lift lands in month 4-6, as below).
 - 47 hours → 38 seconds median lead response time.
 - $187K in recovered annual premium projected at month 12.
 - What the principal wishes they'd known before the build.
@@ -255,6 +255,6 @@ Three failure modes we see most:
 
 ## Next step
 
-If you want the cadence templates, the classifier prompt, and the exact AMS field mapping we use — that's the core of the [AI for Agent Retention course](/courses/ai-for-agent-retention), or we build and run the whole thing as a service via [Build & Launch](/#pricing). If you want to see what this would look like for your specific book before deciding, a [free audit](/#pricing) surfaces the retention gap with the actual numbers from your agency.
+If you want the cadence templates, the classifier prompt, and the exact AMS field mapping we use — that's the core of the [AI for Agent Retention course](/courses/ai-for-agent-retention), or we build and run the whole thing as a service via [Build & Launch](/#pricing). If you want to see what this would look like for your specific book before deciding, start with a [free 30-minute strategy call](/#pricing); the paid [$1,500 Renewal Audit](/#pricing) then surfaces the retention gap with the actual numbers from your agency.
 
 Renewal automation isn't a new idea. What's new is that the AI is finally good enough to personalize at the per-policy level — which is the only version of this that actually lifts retention. Until you've built that, you don't have a retention system, you have a mail merge.

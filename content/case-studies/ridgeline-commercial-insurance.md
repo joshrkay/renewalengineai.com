@@ -15,8 +15,8 @@ headlineResults:
     label: "Commercial renewal retention"
   - value: "$312K"
     label: "Cross-sell opportunities surfaced"
-  - value: "2.3 → 4.1"
-    label: "Policies per household"
+  - value: "2.3 → 2.9"
+    label: "Policies per account"
 composite: true
 primaryKeyword: "commercial insurance AI case study"
 ---
@@ -41,7 +41,7 @@ Commercial renewal workflows have more stakeholders and more decision points tha
 |---|---|---|
 | Renewal retention | 86% | 93%+ |
 | Cross-sell rate (accounts with 2+ policies) | 58% | 75%+ |
-| Average policies per household | 2.3 | 3.5+ |
+| Average policies per account | 2.3 | 2.8+ |
 | Renewal pre-touch rate (60+ days out) | 31% | 95%+ |
 | Time from RFP inbound to first response | 2.1 days | Under 4 hours |
 
@@ -89,7 +89,7 @@ Commercial cycles are longer, so the most meaningful numbers land at the 6-12 mo
 | Commercial renewal retention | 86% | **95%** |
 | Cross-sell opportunities surfaced (cumulative) | &mdash; | **$312K in identified opportunity** |
 | Cross-sell opportunities closed | &mdash; | **$91K in new commission-eligible premium** |
-| Average policies per household | 2.3 | **4.1** |
+| Average policies per account | 2.3 | **2.9** |
 | RFP response time | 2.1 days | **Under 2 hours** |
 
 ### What the dollar impact looks like
@@ -98,7 +98,7 @@ Commercial cycles are longer, so the most meaningful numbers land at the 6-12 mo
 - **Cross-sell:** $91K of new premium from cross-sell conversations the AI surfaced in the first 12 months. Roughly 29% conversion rate on the opportunities the classifier flagged.
 - **RFP capture:** Faster response lifted RFP-to-bind from 22% to 34%; modest volume but every bind is a multi-year relationship.
 
-Net: **the engagement returned roughly 4.5&times; the combined Audit + Build + 12 months of Managed Ops cost in the first year.**
+In agency-revenue terms &mdash; the honest way to count it &mdash; that premium converts to commission. At a typical 12% commercial commission rate, $108K of retained premium plus $91K of new premium is roughly **$24K of annual commission**, against a first-year engagement cost of $37,500 (Audit + Build &amp; Launch + 12 months of Managed Ops). The engagement doesn&rsquo;t pay for itself in year one on commission alone; it pays because retained commercial accounts renew for a median of 7+ years, so the commission stream this engagement protects and adds is worth several multiples of the one-time cost over the life of those accounts &mdash; and the Build &amp; Launch cost never recurs.
 
 ## Why commercial was a slightly different build
 

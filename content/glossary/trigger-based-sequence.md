@@ -38,3 +38,8 @@ The −60 touch does most of the work. It establishes contact before the client 
 - **Suppression rules.** Anyone who replies, calls, or binds must exit immediately. Nothing destroys credibility faster than a "just checking in" email sent after the client already renewed.
 - **Multi-channel** delivery, since email alone reaches a fraction of a book.
 - **A real reply path.** Automation opens the conversation; a human has to be able to continue it.
+
+## Go deeper
+
+- [The Insurance Renewal Automation Playbook](/resources/ai-renewal-automation-playbook)
+- [Quote Follow-Up Sequences That Actually Bind](/resources/quote-follow-up-sequences-that-actually-bind)

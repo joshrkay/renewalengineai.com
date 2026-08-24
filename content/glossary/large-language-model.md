@@ -35,3 +35,7 @@ These share a shape: transforming language that already exists into a different,
 Use the model to **read, route, and draft** — not to **decide or send unsupervised** where the decision carries E&O exposure. A model that classifies a certificate request and prepares the document for a CSR to approve is doing useful work with a human backstop. A model that issues certificates on its own is an uninsured liability.
 
 Agencies that get value from LLMs almost always draw that line explicitly and early. Agencies that get burned are usually the ones that never drew it.
+
+## Go deeper
+
+- [Evaluating AI Vendors for Insurance Agencies](/resources/evaluating-ai-vendors-insurance-agencies)

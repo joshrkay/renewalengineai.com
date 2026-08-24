@@ -1,26 +1,29 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+// Illustrative scenarios of what the system is built to change — not client
+// testimonials. We are early: quotes from real pilot participants live in
+// the Testimonials section, and we don't invent named customers here.
 const testimonials = [
   {
-    quote: "Our renewal lapse rate dropped from 18% to under 6% in the first quarter. The AI system catches every expiring policy and runs outreach automatically - nothing slips through.",
-    author: "Mike T.",
-    title: "Agency Principal, Texas",
-    result: "18% → 6%",
-    metric: "Renewal Lapse Rate"
+    quote: "Every expiring policy gets caught and worked automatically — the four-touch renewal sequence runs on every X-date, so lapse-from-neglect stops being a line item.",
+    author: "The renewal leak",
+    title: "What the system is built to close",
+    result: "0 missed",
+    metric: "X-dates worked (target)"
   },
   {
-    quote: "We used to miss half our after-hours leads. Now every inquiry gets a response in under a minute. Our bind rate on new quotes jumped 40% in two months.",
-    author: "Rachel S.",
-    title: "Agency Owner, Florida",
-    result: "40%",
-    metric: "More Binds"
+    quote: "After-hours and weekend leads get a response in under a minute instead of Monday morning. The first agent to respond usually wins the conversation.",
+    author: "The speed leak",
+    title: "What the system is built to close",
+    result: "<60s",
+    metric: "Every lead, 24/7"
   },
   {
-    quote: "We avoided hiring two CSRs by automating follow-ups and renewals. That's $130K saved annually, and our clients actually get faster, more consistent service now.",
-    author: "Carlos M.",
-    title: "Managing Partner, California",
-    result: "$130K",
-    metric: "Annual Savings"
+    quote: "Follow-ups, COI requests, and renewal touches run without adding headcount — the team reviews and approves instead of typing every message from scratch.",
+    author: "The headcount leak",
+    title: "What the system is built to close",
+    result: "0 hires",
+    metric: "To run the outreach layer"
   }
 ];
 
@@ -102,7 +105,7 @@ export function Benefits() {
             <div className="text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
               95%+
             </div>
-            <div className="text-xl text-neutral-400 font-bold">Renewal Retention Rate</div>
+            <div className="text-xl text-neutral-400 font-bold">Renewal Retention Target</div>
           </div>
           <div className="text-center">
             <div className="text-6xl font-black bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent mb-3">

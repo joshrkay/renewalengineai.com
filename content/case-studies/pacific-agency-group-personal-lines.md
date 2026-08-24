@@ -1,7 +1,7 @@
 ---
 title: "Pacific Agency Group: Personal Lines Retention Lift at a 350-Policy P&C Shop"
 slug: "pacific-agency-group-personal-lines"
-description: "How a 350-policy personal lines P&C agency on Applied Epic used AI renewal automation and sub-60-second lead response to lift retention from 82% to 94% inside 90 days."
+description: "How a 350-policy personal lines P&C agency on Applied Epic used AI renewal automation and sub-60-second lead response to lift retention from 82% to 94% on the renewal cohorts reached in its first 90 days."
 publishedAt: "2026-04-21"
 agencyName: "Pacific Agency Group"
 region: "Southwest US"
@@ -12,7 +12,7 @@ policyCount: 350
 engagement: "Audit + Build + Managed Ops"
 headlineResults:
   - value: "82% → 94%"
-    label: "Renewal retention inside 90 days"
+    label: "Retention on renewal cohorts reached in the first 90 days"
   - value: "47 hrs → 38 sec"
     label: "Median lead response time"
   - value: "$187K"
@@ -37,7 +37,7 @@ Pacific Agency Group is a representative independent P&C agency in the Southwest
 
 The principal had noticed retention drifting. Not a collapse &mdash; a slow bleed. His own numbers from Epic, pulled in the audit week:
 
-| Metric | Pacific&rsquo;s baseline | Industry reference |
+| Metric | Pacific&rsquo;s baseline | Commonly cited reference |
 |---|---|---|
 | Renewal retention | **82%** | Top-quartile independents: 92%+ |
 | Median lead response time | **47 hours** | Winning agencies: under 5 minutes |
@@ -90,11 +90,11 @@ We ran Managed Ops from Week 4 onwards, tuning classifiers weekly. The numbers a
 
 ### Revenue impact (first 90 days)
 
-- **47 additional retained policies** vs. the projected baseline retention trajectory.
+- **Roughly 42 additional retained policies** vs. the projected baseline retention trajectory (a 12-point lift on a ~350-policy book).
 - **13 additional binds** from quote follow-up that would have gone cold.
 - **Estimated incremental premium retained/captured at 90 days: $46,000.**
 
-Annualized over the first 12 months, the model projects **$187,000 in recovered annual premium** &mdash; roughly 7&times; the total first-year engagement cost.
+Annualized over the first 12 months, the model projects **$187,000 in recovered annual premium**. In commission terms &mdash; the number that actually hits an agency&rsquo;s P&amp;L &mdash; that is roughly **$22K&ndash;$28K of annual commission** at typical personal lines rates, against a first-year engagement cost of $37,500. Year one is roughly break-even on cash; the return comes from the fact that a retained personal lines household renews year after year while the Build &amp; Launch cost is paid once.
 
 ## 12-month outlook
 
@@ -124,7 +124,7 @@ Pacific&rsquo;s numbers are achievable for agencies in the 200&ndash;600 policy 
 
 Agencies below 150 policies typically don&rsquo;t have enough volume to justify the Build & Launch price tag yet. Agencies above 1000 policies see larger absolute revenue recovery but the same percentage lift.
 
-The [free audit](/#pricing) is the right first step &mdash; 5 days of actual assessment against your real book, ending in a proposal with numbers specific to your agency. Read [how it works](/how-it-works) for the process.
+The [$1,500 Renewal Audit](/#pricing) is the right first step &mdash; 5 days of actual assessment against your real book, ending in a proposal with numbers specific to your agency. If you want a no-cost read before committing, [book the free strategy call](/#pricing) first. Read [how it works](/how-it-works) for the process.
 
 ---
 

@@ -32,3 +32,9 @@ Most US independent agencies run on one of three platforms: **Applied Epic**, **
 Every meaningful agency automation — renewal outreach, lead routing, cross-sell scoring, book health reporting — depends on reading accurate policy data out of the AMS and, ideally, writing activity back into it. That makes AMS data quality the binding constraint on AI in an agency. An agency with clean expiration dates and consistent client records can automate renewals in weeks. An agency whose x-dates are half-empty cannot, no matter which AI vendor it hires, until the data is repaired.
 
 This is why a serious automation engagement audits AMS data before it designs any workflow.
+
+## Go deeper
+
+- [The AMS AI Integration Guide](/resources/ams-ai-integration-guide)
+- [The AMS Data Export Checklist](/resources/ams-data-export-checklist)
+- [How we integrate with Applied Epic, HawkSoft, and EZLynx](/integrations)

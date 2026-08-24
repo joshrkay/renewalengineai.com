@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
+import { BookAuditButton } from "@/components/courses/BookAuditButton";
 import { ResourceBody } from "@/components/resources/ResourceBody";
 import { getCaseStudy, listCaseStudies } from "@/lib/case-studies";
 import { team, personJsonLd, personJsonLdId } from "@/lib/team";
@@ -138,6 +139,14 @@ export default async function CaseStudyPage({
                 <span className="inline-block bg-emerald-600/20 text-emerald-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
                   {caseStudy.lineOfBusiness}
                 </span>
+                {caseStudy.composite && (
+                  <span
+                    className="inline-block bg-neutral-800 text-neutral-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full"
+                    title="A representative composite drawn from multiple engagements — not a single named client"
+                  >
+                    Composite
+                  </span>
+                )}
                 <span className="text-neutral-500 text-sm">
                   {caseStudy.ams} · {caseStudy.bookSizeLabel} book
                 </span>
@@ -220,12 +229,11 @@ export default async function CaseStudyPage({
                 $1,500 flat. Fully credited toward Build &amp; Launch if you
                 continue.
               </p>
-              <Link
-                href="/#pricing"
+              <BookAuditButton
+                label="Find My Revenue Leaks →"
+                ctaLocation="case_study_footer"
                 className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-black rounded-full px-8 py-4 transition-colors"
-              >
-                Find My Revenue Leaks →
-              </Link>
+              />
             </section>
           </div>
         </main>

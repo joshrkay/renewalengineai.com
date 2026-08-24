@@ -83,13 +83,11 @@ export default async function FreeGuideThankYouPage({
               </div>
 
               <p className="text-lg lg:text-xl text-neutral-300 mb-4 max-w-2xl">
-                Scroll down to read it now. We also just sent a copy to your
-                inbox so you can save it for later.
+                Scroll down to read the whole thing right now.
               </p>
               <p className="text-sm text-neutral-500 flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                If you don&apos;t see it in 5 minutes, check your spam folder
-                (and whitelist hello@renewalengineai.com).
+                Bookmark this page so you can come back to it any time.
               </p>
             </div>
           </section>

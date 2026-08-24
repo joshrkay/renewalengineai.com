@@ -19,6 +19,8 @@ This guide is the integration playbook we use when we build on top of the three 
 
 If you're evaluating an AI rollout for your agency, start here. Most of the "will this actually work for us" question comes down to the specifics below.
 
+*Per-AMS specifics — what we read, how write-back works, and the data problems to expect on your system — live on the dedicated pages for [Applied Epic](/integrations/applied-epic), [HawkSoft](/integrations/hawksoft), and [EZLynx](/integrations/ezlynx).*
+
 ## The core pattern — read, decide, write
 
 Every AI-in-the-AMS project decomposes into three steps. Understanding where the friction lives in each step for your specific AMS is the whole game.

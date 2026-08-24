@@ -35,3 +35,8 @@ That distinction is what makes extraction viable across the long tail of formats
 Good extraction on clean documents runs high, but never 100%, and degrades on poor scans and unusual layouts.
 
 The correct design does not chase perfection. It returns a **confidence score per field**, auto-accepts above a threshold, and routes low-confidence fields to a human for a quick check — with the extracted value pre-filled. The human reviews a handful of uncertain fields instead of typing forty. That is where the time actually comes back.
+
+## Go deeper
+
+- [The AMS Data Export Checklist](/resources/ams-data-export-checklist)
+- [The AMS AI Integration Guide](/resources/ams-ai-integration-guide)

@@ -30,3 +30,8 @@ Requests frequently ask for a third party to be named as **additional insured** 
 Safely automatable: intake and classification of the request, checking the requested language against endorsements already on file, generating the document, and delivering it.
 
 Not automatable: deciding to grant coverage terms the policy does not contain. The correct design routes those requests to a human with the mismatch already flagged — which is both faster than manual review and safer than an unsupervised bot.
+
+## Go deeper
+
+- [AI Tools vs. Hiring a CSR](/resources/ai-tools-vs-hiring-a-csr)
+- [Producer Workflows After AI](/resources/producer-workflows-post-ai)

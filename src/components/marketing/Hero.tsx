@@ -34,7 +34,7 @@ export function Hero() {
 
           {/* Subheadline - ICP-first, GEO-optimized direct answer */}
           <p className="text-2xl lg:text-3xl text-neutral-300 mb-12 max-w-3xl font-medium leading-relaxed">
-            For independent P&amp;C agencies on Applied Epic, HawkSoft, or EZLynx. We build and run the AI so your team doesn&rsquo;t touch it. Typical result: 15-20% retention lift and sub-60-second lead response, live inside 3 weeks.
+            For independent P&amp;C agencies on Applied Epic, HawkSoft, or EZLynx. We build and run the AI so your team doesn&rsquo;t touch it. Built to lift renewal retention 15-20% and sub-60-second lead response, live inside 3 weeks.
           </p>
 
           {/* CTA Buttons */}
@@ -44,7 +44,7 @@ export function Hero() {
               onClick={() => openBooking("hero")}
               className="bg-emerald-500 hover:bg-emerald-600 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-emerald-500/50 transition-all hover:scale-105 font-bold"
             >
-              Get My Free Renewal Audit
+              Book My Free Strategy Call
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
             <Button
@@ -62,15 +62,15 @@ export function Hero() {
             <div className="border-l-4 border-emerald-500 pl-6">
               <div className="text-5xl font-black text-white mb-1">391%</div>
               <div className="text-neutral-400 font-medium text-sm">
-                Lift from &lt;1-min response
-                <span className="block text-neutral-600 text-xs mt-1">HBR / InsideSales</span>
+                Conversion lift, &lt;1-min response
+                <span className="block text-neutral-600 text-xs mt-1">Velocify research</span>
               </div>
             </div>
             <div className="border-l-4 border-emerald-500 pl-6">
               <div className="text-5xl font-black text-white mb-1">15-20%</div>
               <div className="text-neutral-400 font-medium text-sm">
-                Retention lift
-                <span className="block text-neutral-600 text-xs mt-1">Proactive outreach</span>
+                Retention lift target
+                <span className="block text-neutral-600 text-xs mt-1">Four-touch renewal outreach</span>
               </div>
             </div>
             <div className="border-l-4 border-emerald-500 pl-6">

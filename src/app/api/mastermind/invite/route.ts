@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
+import { after } from "next/server";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
-import { sendMastermindInviteNotification } from "@/lib/email";
+import {
+  sendMastermindInviteNotification,
+  sendLeadMagnetDelivery,
+} from "@/lib/email";
 import { logAudit } from "@/lib/audit";
 import { log } from "@/lib/logger";
 
@@ -37,16 +42,36 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "invalid_email" }, { status: 400 });
     }
 
-    // Upsert so duplicate submissions return success without creating
-    // duplicate rows. Existing rows keep their `contacted` flag.
-    const invite = await prisma.mastermindInvite.upsert({
-      where: { email },
-      create: { email, name, source, notes },
-      update: {
-        name: name ?? undefined,
-        notes: notes ?? undefined,
-      },
-    });
+    // Whether this email is new decides delivery below: the guide email
+    // goes out at most once per address, ever. Without this, the public
+    // endpoint is a mail pump — repeat POSTs with a victim's address and
+    // a lead-magnet source would email them on every call.
+    //
+    // The claim must be ATOMIC: a read-then-upsert lets N concurrent
+    // requests all observe "no row" and each send. Instead we attempt the
+    // insert first — the email column's unique constraint guarantees that
+    // exactly one concurrent request wins the create (and with it the
+    // right to send); every loser hits P2002 and falls through to a plain
+    // update with no delivery. Existing rows keep their `contacted` flag.
+    let invite;
+    let firstSubmission = false;
+    try {
+      invite = await prisma.mastermindInvite.create({
+        data: { email, name, source, notes },
+      });
+      firstSubmission = true;
+    } catch (e) {
+      const isUniqueViolation =
+        e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002";
+      if (!isUniqueViolation) throw e;
+      invite = await prisma.mastermindInvite.update({
+        where: { email },
+        data: {
+          name: name ?? undefined,
+          notes: notes ?? undefined,
+        },
+      });
+    }
 
     await logAudit({
       action: "mastermind_invite.submitted",
@@ -55,10 +80,23 @@ export async function POST(req: NextRequest) {
       metadata: { source },
     });
 
-    // Fire-and-forget notification to the ops inbox. Do not block the
-    // response on email delivery — the DB row is the source of truth.
-    sendMastermindInviteNotification(email, name, source).catch((err) => {
-      log.error("[mastermind-invite] notification failed:", err);
+    // Emails run via after() so they survive the serverless response
+    // being sent (a bare floating promise can be frozen mid-flight on
+    // Vercel) without blocking the caller. The DB row is the source of
+    // truth either way; on-page delivery never depends on these.
+    after(async () => {
+      await sendMastermindInviteNotification(email, name, source).catch(
+        (err) => {
+          log.error("[mastermind-invite] notification failed:", err);
+        }
+      );
+      // Guide delivery: only for lead-magnet sources, and only for the
+      // request that atomically won the create above.
+      if (firstSubmission) {
+        await sendLeadMagnetDelivery(email, name, source).catch((err) => {
+          log.error("[mastermind-invite] lead delivery failed:", err);
+        });
+      }
     });
 
     return NextResponse.json({ ok: true });

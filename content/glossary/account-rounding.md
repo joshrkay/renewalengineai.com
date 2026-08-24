@@ -37,3 +37,8 @@ Cross-sell works when it is timely and specific, and fails when it is a generic 
 Every agency knows account rounding matters. Most do it sporadically, because it depends on someone noticing the right moment for the right client among thousands — which is precisely the kind of continuous, low-salience monitoring humans are worst at and software is best at.
 
 The systematic version is a standing query over the book that surfaces triggered opportunities weekly, with the specific reason attached, ready for a producer to act on. Not a campaign. A queue.
+
+## Go deeper
+
+- [Cross-Sell Triggers for Independent Agencies](/resources/cross-sell-triggers-for-independent-agencies)
+- [Book Segmentation for AI Outreach](/resources/book-segmentation-for-ai-outreach)

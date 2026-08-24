@@ -110,11 +110,13 @@ export default async function ResourceArticlePage({
         keywords: resource.primaryKeyword,
         inLanguage: "en-US",
         isAccessibleForFree: true,
-        // speakable targets h1 + the lead paragraph so voice assistants
-        // and AI answer engines pull the most authoritative summary.
+        // speakable targets h1 + the TL;DR blockquote. Deliberately NOT
+        // "article p:first-of-type": most articles open with a rhetorical
+        // hook, so that selector pointed answer engines at sentences that
+        // don't answer the query. The TL;DR is the direct answer.
         speakable: {
           "@type": "SpeakableSpecification",
-          cssSelector: ["h1", "article p:first-of-type", "blockquote"],
+          cssSelector: ["h1", "article blockquote p"],
         },
         ...(mentionsAms ? { mentions: amsMentions } : {}),
       },

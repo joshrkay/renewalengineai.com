@@ -30,6 +30,11 @@ Two books of equal premium differ in value based on:
 
 ## The operational point
 
-A book is not a static asset. It leaks. Between 8% and 12% of a typical independent agency's book turns over every year, and most of that loss is not price-driven — it is attention-driven, from renewals nobody touched and service requests that sat too long.
+A book is not a static asset. It leaks. The figure commonly cited across the independent channel is 8-12% annual turnover, and in our experience the recoverable share of that loss is attention-driven rather than price-driven — renewals nobody touched and service requests that sat too long. The [retention math article](/resources/renewal-retention-math-for-p-and-c-agencies) works through what that leak costs in commission terms.
 
 That makes the book the natural unit of analysis for automation. Segment it, measure retention within each segment, and direct outreach where the leakage actually is. Treating the book as one undifferentiated mailing list is the single most common reason agency "retention campaigns" produce nothing.
+
+## Go deeper
+
+- [Renewal Retention Math for P&C Agencies](/resources/renewal-retention-math-for-p-and-c-agencies)
+- [Book Segmentation for AI Outreach](/resources/book-segmentation-for-ai-outreach)

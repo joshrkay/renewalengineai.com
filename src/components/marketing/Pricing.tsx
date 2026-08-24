@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 import { useBooking } from "@/components/marketing/BookingContext";
 
-const AUDIT_CALENDLY_URL = "https://calendly.com/joshrkay-ch88/1-hour-audit";
 
 const offers = [
   {
@@ -68,17 +67,12 @@ export function Pricing() {
   const [error, setError] = useState<string | null>(null);
 
   const handleCtaClick = async (plan: string) => {
-    // Audit CTA goes directly to the 1-hour audit Calendly — clients
-    // still book the consult first and pay via the audit Stripe product
-    // on their own flow.
-    if (plan === "audit") {
-      window.open(AUDIT_CALENDLY_URL, "_blank", "noopener,noreferrer");
-      return;
-    }
-
-    // Sprint and Managed send the buyer straight to a Stripe Checkout
-    // session created from the live Stripe product's default price.
-    if (plan === "sprint" || plan === "managed") {
+    // All three plans check out through Stripe. The audit's checkout
+    // success URL redirects straight to the 1-hour audit Calendly
+    // (see PLAN_SUCCESS_URLS in the checkout route), so pay-then-book
+    // happens in one flow; a buyer who wants to talk first uses the
+    // free strategy call link under the audit card instead.
+    if (plan === "audit" || plan === "sprint" || plan === "managed") {
       if (loadingPlan) return;
       setError(null);
       setLoadingPlan(plan);
@@ -170,6 +164,15 @@ export function Pricing() {
                 >
                   {loadingPlan === offer.key ? "Opening checkout…" : offer.cta}
                 </Button>
+                {offer.key === "audit" && (
+                  <button
+                    type="button"
+                    onClick={() => openBooking("pricing_audit_secondary")}
+                    className="w-full mt-3 text-sm font-semibold text-neutral-500 hover:text-black underline underline-offset-4 transition-colors"
+                  >
+                    Prefer to talk first? Book the free strategy call
+                  </button>
+                )}
               </div>
 
               {/* Features */}
@@ -237,7 +240,7 @@ export function Pricing() {
               onClick={() => openBooking("pricing_bottom")}
               className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
             >
-              Get My Free Renewal Audit
+              Book My Free Strategy Call
             </Button>
           </div>
         </div>
