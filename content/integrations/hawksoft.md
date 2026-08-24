@@ -50,7 +50,7 @@ Getting household grouping right before anything sends is the single highest-lev
 
 ## Writing back
 
-Every automated touch is written to the **client log** against the correct client, so the CSR sees the full history in the place they already look. No parallel system, no separate dashboard anyone has to remember to check.
+Where the agency has HawkSoft's partner API endpoints enabled, every automated touch is written to the **client log** against the correct client, so the CSR sees the full history in the place they already look. On export-only setups the same record arrives as a daily log-ready file and CSR digest until API access is enabled — batch cadence instead of real time, but still one system of record. No parallel dashboard anyone has to remember to check; the audit establishes which path your configuration supports.
 
 ## Where the returns concentrate
 
