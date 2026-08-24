@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { DashboardSidebar } from "@/components/dashboard/DashboardSidebar";
+
+// Defence in depth: /dashboard is already auth-gated and disallowed in
+// robots.txt, but without its own metadata it inherits the root layout's
+// homepage canonical and index:true.
+export const metadata: Metadata = {
+  title: "Dashboard",
+  robots: { index: false, follow: false },
+};
 
 export default async function DashboardLayout({
   children,

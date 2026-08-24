@@ -31,6 +31,8 @@ export function Footer() {
               <li><a href="/how-it-works#phase-2" className="hover:text-white transition-colors">Build &amp; Launch ($6,000)</a></li>
               <li><a href="/how-it-works#phase-3" className="hover:text-white transition-colors">Managed AI Operations ($2,500/mo)</a></li>
               <li><a href="/for-independent-agencies" className="hover:text-white transition-colors">For Independent Agencies</a></li>
+              <li><a href="/integrations" className="hover:text-white transition-colors">AMS Integrations</a></li>
+              <li><a href="/team-licenses" className="hover:text-white transition-colors">Team Licenses</a></li>
             </ul>
           </div>
 
@@ -44,8 +46,9 @@ export function Footer() {
               <li><a href="/compare" className="hover:text-white transition-colors">Compare</a></li>
               <li><a href="/guides/5-ai-automations" className="hover:text-white transition-colors">Free: 5 AI Automations Guide</a></li>
               <li><a href="/courses" className="hover:text-white transition-colors">Courses</a></li>
+              <li><a href="/glossary" className="hover:text-white transition-colors">Glossary</a></li>
               <li><a href="/mastermind" className="hover:text-white transition-colors">Mastermind</a></li>
-              <li><a href="/team/josh-kay" className="hover:text-white transition-colors">Team</a></li>
+              <li><a href="/team" className="hover:text-white transition-colors">Team</a></li>
             </ul>
           </div>
 
