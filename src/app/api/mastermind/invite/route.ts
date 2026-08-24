@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { after } from "next/server";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import {
   sendMastermindInviteNotification,
@@ -45,21 +46,32 @@ export async function POST(req: NextRequest) {
     // goes out at most once per address, ever. Without this, the public
     // endpoint is a mail pump — repeat POSTs with a victim's address and
     // a lead-magnet source would email them on every call.
-    const existing = await prisma.mastermindInvite.findUnique({
-      where: { email },
-      select: { id: true },
-    });
-
-    // Upsert so duplicate submissions return success without creating
-    // duplicate rows. Existing rows keep their `contacted` flag.
-    const invite = await prisma.mastermindInvite.upsert({
-      where: { email },
-      create: { email, name, source, notes },
-      update: {
-        name: name ?? undefined,
-        notes: notes ?? undefined,
-      },
-    });
+    //
+    // The claim must be ATOMIC: a read-then-upsert lets N concurrent
+    // requests all observe "no row" and each send. Instead we attempt the
+    // insert first — the email column's unique constraint guarantees that
+    // exactly one concurrent request wins the create (and with it the
+    // right to send); every loser hits P2002 and falls through to a plain
+    // update with no delivery. Existing rows keep their `contacted` flag.
+    let invite;
+    let firstSubmission = false;
+    try {
+      invite = await prisma.mastermindInvite.create({
+        data: { email, name, source, notes },
+      });
+      firstSubmission = true;
+    } catch (e) {
+      const isUniqueViolation =
+        e instanceof Prisma.PrismaClientKnownRequestError && e.code === "P2002";
+      if (!isUniqueViolation) throw e;
+      invite = await prisma.mastermindInvite.update({
+        where: { email },
+        data: {
+          name: name ?? undefined,
+          notes: notes ?? undefined,
+        },
+      });
+    }
 
     await logAudit({
       action: "mastermind_invite.submitted",
@@ -78,9 +90,9 @@ export async function POST(req: NextRequest) {
           log.error("[mastermind-invite] notification failed:", err);
         }
       );
-      // Guide delivery: only for lead-magnet sources, and only on the
-      // first-ever submission for this address (see `existing` above).
-      if (!existing) {
+      // Guide delivery: only for lead-magnet sources, and only for the
+      // request that atomically won the create above.
+      if (firstSubmission) {
         await sendLeadMagnetDelivery(email, name, source).catch((err) => {
           log.error("[mastermind-invite] lead delivery failed:", err);
         });
