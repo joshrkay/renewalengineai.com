@@ -49,7 +49,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
         <div className="flex items-center justify-between p-6 border-b border-neutral-100">
           <div>
             <h3 className="text-2xl font-black text-black">
-              Get My Free Renewal Audit
+              Book My Free Strategy Call
             </h3>
             <p className="text-neutral-500 mt-1">
               30-minute call to identify where your agency is leaking revenue
@@ -70,7 +70,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
             width="100%"
             height="100%"
             frameBorder="0"
-            title="Schedule a Renewal Audit"
+            title="Schedule Your Free Strategy Call"
           />
         </div>
       </div>

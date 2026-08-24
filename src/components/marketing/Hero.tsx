@@ -44,7 +44,7 @@ export function Hero() {
               onClick={() => openBooking("hero")}
               className="bg-emerald-500 hover:bg-emerald-600 !text-white text-xl px-12 py-8 rounded-full shadow-2xl shadow-emerald-500/50 transition-all hover:scale-105 font-bold"
             >
-              Get My Free Renewal Audit
+              Book My Free Strategy Call
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
             <Button

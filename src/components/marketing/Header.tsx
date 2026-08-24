@@ -37,7 +37,7 @@ export function Header() {
               onClick={() => openBooking("header_desktop")}
               className="bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full px-8 py-6 transition-all hover:scale-105"
             >
-              Get My Free Renewal Audit
+              Book My Free Strategy Call
             </Button>
           </div>
 
@@ -100,7 +100,7 @@ export function Header() {
                 }}
                 className="w-full bg-blue-600 hover:bg-blue-700 !text-white font-bold rounded-full py-6"
               >
-                Get My Free Renewal Audit
+                Book My Free Strategy Call
               </Button>
             </div>
           </div>

@@ -237,7 +237,7 @@ export function Pricing() {
               onClick={() => openBooking("pricing_bottom")}
               className="bg-white !text-black hover:bg-neutral-100 text-xl px-12 py-8 rounded-full font-black transition-all hover:scale-105"
             >
-              Get My Free Renewal Audit
+              Book My Free Strategy Call
             </Button>
           </div>
         </div>

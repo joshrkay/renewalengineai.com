@@ -16,8 +16,8 @@ const credibilityPoints = [
   {
     icon: Clock,
     stat: "14 days",
-    label: "average time from signed agreement to live AI automation for our clients",
-    source: "RenewalEngineAI deployment data",
+    label: "from signed agreement to your first live automation\u2014a guaranteed commitment, not an average",
+    source: "The 30-Day Results Guarantee",
   },
   {
     icon: ShieldCheck,

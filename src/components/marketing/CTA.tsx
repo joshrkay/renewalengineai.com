@@ -18,7 +18,7 @@ export function CTA() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full mb-8">
           <Sparkles className="h-5 w-5" />
-          <span className="font-black">Free Renewal Audit</span>
+          <span className="font-black">Free Strategy Call</span>
         </div>
 
         {/* Headline */}
