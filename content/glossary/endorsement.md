@@ -19,7 +19,7 @@ An **endorsement** is a formal amendment to an existing insurance policy. It add
 
 - Adding a newly licensed driver or a replacement vehicle to an auto policy
 - Increasing dwelling coverage after a renovation
-- Adding a **additional insured** to a general liability policy for a specific project
+- Adding an **additional insured** to a general liability policy for a specific project
 - Changing a mailing address or lienholder
 - Removing a scheduled item that was sold
 

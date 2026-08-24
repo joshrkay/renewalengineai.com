@@ -13,7 +13,7 @@ related:
 
 # The 7 Cross-Sell Triggers Every Independent Agency Should Automate
 
-Cross-selling has a reputation problem in agencies: it sounds like pestering good clients to buy more stuff. So most agencies don't do it systematically, and the average P&C household sits at about 1.4 policies with their primary agent.
+Cross-selling has a reputation problem in agencies: it sounds like pestering good clients to buy more stuff. So most agencies don't do it systematically, and the commonly cited figure for the typical P&C household is only about 1.4 policies with their primary agent.
 
 That number is a retention problem wearing a sales costume. Across the independent channel, the pattern agents and carriers describe is a retention cliff below two policies per household, with multi-line households retaining dramatically better — the commonly cited shape puts 2.0+ households above 95%, because multi-line households rarely shop. Treat those bands as the widely repeated industry pattern rather than audited figures, and measure your own book against them. McKinsey's benchmark work across 20+ insurers tells the same story from the carrier side: average product density of 1.2-1.5 per customer, with the deepest relationships holding two, three, or more.
 

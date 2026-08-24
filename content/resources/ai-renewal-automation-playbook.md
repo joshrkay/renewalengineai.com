@@ -40,7 +40,7 @@ Reactive renewal work looks like this: a producer gets a carrier-generated expir
 
 Proactive retention flips the default. Every policy gets outreach. The system decides how much, in what channel, and at what depth, based on what it knows about the client. Producers are pulled in by the AI, not the other way around, and only for the 10-15% of renewals where a human conversation moves the number.
 
-Agencies that ship this well see [15-20% retention lift in the first full year](/). That's the number we reliably quote because it's what shows up in the Operations Audit data across the agencies we've worked with.
+A 15-20% retention lift in the first full year is the target we build against. It isn't magic: if your book retains 84% and loses most of that 16% to silence rather than price, a system that touches every renewal four times has a lot of recoverable ground — [the retention math article](/resources/renewal-retention-math-for-p-and-c-agencies) works the arithmetic so you can size the target for your own book instead of taking a number on faith.
 
 ## The four-touch renewal cadence
 

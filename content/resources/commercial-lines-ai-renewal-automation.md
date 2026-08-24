@@ -19,7 +19,7 @@ So here's the honest scoping: automation does not run a commercial renewal. It c
 
 ## Why commercial renewals leak differently
 
-Personal lines leaks from silence: nobody touched the policy, it auto-renewed badly or lapsed. Commercial retention runs higher (90-95% is the common benchmark, against 85-90% for personal lines), but each loss is enormous, and commercial accounts rarely leave over a single premium number. They leave over process: the renewal that started 30 days out instead of 120, the exposure update nobody collected so the quote came back wrong, the loss runs requested too late for competitive remarketing, the client who felt like a renewal transaction instead of a risk-management relationship.
+Personal lines leaks from silence: nobody touched the policy, it auto-renewed badly or lapsed. Commercial retention runs higher (the ranges commonly cited put commercial at 90-95% against 85-90% for personal lines), but each loss is enormous, and commercial accounts rarely leave over a single premium number. They leave over process: the renewal that started 30 days out instead of 120, the exposure update nobody collected so the quote came back wrong, the loss runs requested too late for competitive remarketing, the client who felt like a renewal transaction instead of a risk-management relationship.
 
 Which means the automation target in commercial isn't outreach volume. It's the calendar: making sure every stage of a long cycle starts on time, with its inputs collected, for every account, including the mid-size ones that don't get the white-glove treatment your top ten accounts do. That's a coverage problem wearing a project-management costume, and coverage problems are what systems solve.
 

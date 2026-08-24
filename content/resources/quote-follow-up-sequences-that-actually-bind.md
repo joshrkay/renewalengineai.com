@@ -15,7 +15,7 @@ related:
 
 A quote you generated and never followed up on is the most expensive kind of waste in an agency: you already paid for the lead, already did the intake, already ran the carriers, and then let the prospect drift off to whoever called them back.
 
-The numbers on this are blunt. Somewhere between 50% and 65% of quoted prospects don't bind immediately. Around 80% of insurance sales take five or more follow-up touches, yet 44% of producers stop after a single attempt. And agencies that run structured follow-up sequences report quote-to-bind rates near 28%, roughly double the 15% industry norm. The gap between those two numbers is not talent or carrier appetite. It's cadence.
+The shape of the problem is blunt, and it is the same in every agency we have looked at: most quoted prospects don't bind on the day they get the quote, sales research has said for decades that the majority of closes take five or more touches while most sellers stop after one or two, and agencies that run structured follow-up sequences consistently out-bind agencies that rely on producers' memories. (Treat any precise industry percentages you see quoted on this — including ones we have used — as directional; nobody audits them. What is checkable is your own bind rate before and after a sequence, and that is the number this article is built to move.) The gap is not talent or carrier appetite. It's cadence.
 
 This is the seven-touch sequence we build for agencies, with the timing, the channel mix, and the personalization details that separate a sequence that binds from a mail-merge that annoys.
 
@@ -32,7 +32,7 @@ A follow-up sequence is a machine for resolving all four: it catches the drifter
 
 ## The seven-touch cadence
 
-The skeleton below assumes a personal-lines or small-commercial quote. Days count from quote delivery, not from lead arrival.
+An insurance quote follow-up sequence is a fixed schedule of seven touches across email, text, and phone over the 21 days after a quote is delivered, each touch with its own job, running until the prospect binds or declines. The skeleton below assumes a personal-lines or small-commercial quote. Days count from quote delivery, not from lead arrival.
 
 | Touch | When | Channel | Job |
 |---|---|---|---|

@@ -33,7 +33,7 @@ export async function generateMetadata({
   const indexable = Boolean(result.lesson.preview);
   return {
     title: `${result.lesson.title} | ${result.course.title}`,
-    description: `Module ${result.module.number}: ${result.module.title}`,
+    description: `${result.lesson.title} — Module ${result.module.number} (${result.module.title}) of ${result.course.title}, a ${result.lesson.duration}-minute lesson for independent insurance agency owners.`,
     alternates: {
       canonical: `https://renewalengineai.com/courses/${courseSlug}/${moduleSlug}/${lessonSlug}`,
     },

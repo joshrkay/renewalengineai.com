@@ -27,7 +27,7 @@ A **producer** is the licensed salesperson in an insurance agency who writes new
 
 Producer economics only work when producers are in front of prospects. In practice, a large share of a producer's week is consumed by things that are not selling: chasing quote follow-ups, assembling submission data, answering service questions that should route to a CSR, and re-entering information that already exists in the AMS.
 
-Studies of agency time allocation consistently find producers spending under half their time on revenue-generating activity. The rest is administrative drag.
+Time-allocation reviews inside agencies routinely find producers spending under half their time on revenue-generating activity. The rest is administrative drag.
 
 ## Why this is the highest-value automation target
 

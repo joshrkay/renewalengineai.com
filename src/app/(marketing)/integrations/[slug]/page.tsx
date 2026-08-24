@@ -91,6 +91,7 @@ export default async function IntegrationPage({
         dateModified: integration.updatedAt ?? integration.publishedAt,
         url,
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        image: "https://renewalengineai.com/opengraph-image",
         author: { "@id": personJsonLdId(author.slug) },
         publisher: { "@id": "https://renewalengineai.com#Organization" },
         keywords: integration.primaryKeyword,

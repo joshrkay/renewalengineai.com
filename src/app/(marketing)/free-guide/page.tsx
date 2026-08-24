@@ -36,7 +36,7 @@ const automations = [
     icon: Zap,
     title: "Instant Lead Response",
     hook: "Respond in under 60 seconds, 24/7",
-    payoff: "391% more conversions (78% of buyers pick the first agent to reply)",
+    payoff: "Up to 391% higher contact rates from sub-minute response (Velocify)",
   },
   {
     icon: TrendingUp,
@@ -46,15 +46,15 @@ const automations = [
   },
   {
     icon: Shield,
-    title: "Retention Intelligence",
-    hook: "Flag at-risk renewals weeks before the X-date",
-    payoff: "Reach every at-risk client before the renewal decision is made",
+    title: "Service Request Triage",
+    hook: "AI-drafted replies to COIs, endorsements, and billing questions your team approves in one click",
+    payoff: "Hours of inbox triage handed to the system every week",
   },
   {
     icon: Users,
     title: "Cross-Sell & Round-Out",
     hook: "AI finds hidden revenue in your existing book",
-    payoff: "Lift revenue per client 15–25%",
+    payoff: "Every monoline household flagged and ranked for the next policy",
   },
 ];
 

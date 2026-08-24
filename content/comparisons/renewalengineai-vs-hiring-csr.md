@@ -149,3 +149,5 @@ The [5-day audit](/#pricing) gives you data-grounded numbers specific to your bo
 If you&rsquo;re weighing a CSR hire against AI automation and want numbers specific to your agency&rsquo;s book, the audit delivers them. It pulls your renewal pipeline, maps your lead-response gaps, and hands you a proposal you can compare to any hiring decision with real data instead of category marketing.
 
 [See pricing and book the audit](/#pricing). Or read [how the engagement actually runs](/how-it-works).
+
+*For the full cost model — salary bands, loaded costs, and the year-one ledger — see the companion deep-dive: [AI Tools vs. Hiring a CSR](/resources/ai-tools-vs-hiring-a-csr).*

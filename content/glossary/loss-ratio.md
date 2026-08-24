@@ -1,7 +1,7 @@
 ---
 term: "Loss Ratio"
 slug: "loss-ratio"
-shortDefinition: "Loss ratio is claims paid divided by premium earned, expressed as a percentage — the measure carriers use to judge whether a book of business is profitable and whether to keep an agency's appointment."
+shortDefinition: "Loss ratio is incurred losses (paid claims plus changes in reserves) plus loss adjustment expense, divided by earned premium, expressed as a percentage — the measure carriers use to judge whether a book of business is profitable and whether to keep an agency's appointment."
 category: "Metrics"
 aliases:
   - "Claims Ratio"
@@ -12,7 +12,7 @@ related:
   - "property-and-casualty-insurance"
 ---
 
-**Loss ratio** is claims paid (plus loss adjustment expense) divided by premium earned, expressed as a percentage. A book that collected $1,000,000 in premium and paid $620,000 in claims runs a 62% loss ratio.
+**Loss ratio** is incurred losses — paid claims plus changes in claim reserves — plus loss adjustment expense, divided by earned premium, expressed as a percentage. A book that earned $1,000,000 in premium and incurred $620,000 in losses and adjustment expense runs a 62% loss ratio. (Carriers judge on incurred, not just paid: a big open reserve counts against the book before a dollar is paid out.)
 
 ## Why an agency should care about a carrier metric
 

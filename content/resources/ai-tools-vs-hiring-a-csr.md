@@ -29,7 +29,7 @@ The salary line understates a hire by a wide margin. Here's the honest math for 
 | Benefits, taxes, overhead | +25-30% | Health, payroll taxes, software seats, desk |
 | Recruiting | 4-8 weeks of vacancy | Plus job-board and screening costs |
 | Ramp to independent | 3-6 months | Learning your AMS, carriers, workflows |
-| Turnover risk | 50-200% of salary per departure | Service roles churn constantly |
+| Turnover risk | 50-200% of salary per departure (the range popularized by Gallup and SHRM turnover research) | Service roles churn constantly |
 
 Fully loaded, a licensed CSR runs roughly $65,000-$80,000 in year one, and the first several months of that are paid learning, not paid output. None of which makes hiring wrong. It makes hiring expensive, which matters when the work you're buying is repetitive enough that a system could do it.
 
@@ -82,7 +82,7 @@ To make the comparison concrete, here's the year-one ledger for a 2,000-policy a
 | Time to full output | 4-8 weeks to hire, 3-6 months to ramp | 2-3 weeks to live |
 | Renewal coverage | Whatever one person sustains on top of service work; realistically partial | 100% of expiring policies, every month |
 | Lead response | Business hours, when not on another call | Under 60 seconds, 24/7 |
-| Sick days, turnover | Real, and turnover costs 50-200% of salary | None |
+| Sick days, turnover | Real, and turnover commonly costs 50-200% of salary (Gallup/SHRM range) | None |
 | Hard conversations | Yes, and this is the point of the role | No |
 | Judgment and upsell | Yes | No |
 

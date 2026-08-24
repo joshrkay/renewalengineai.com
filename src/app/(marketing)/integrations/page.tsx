@@ -82,8 +82,10 @@ export default function IntegrationsIndexPage() {
               <p className="text-xl text-neutral-400 leading-relaxed">
                 We don&rsquo;t replace your agency management system and we
                 don&rsquo;t ask your team to learn a new one. Automation reads
-                from the AMS, writes activity back into it, and leaves your
-                system of record exactly where it is.
+                from the AMS, writes activity back where your system&rsquo;s
+                access allows (real-time via API where licensed, daily
+                import-ready files where not), and leaves your system of
+                record exactly where it is.
               </p>
             </div>
 

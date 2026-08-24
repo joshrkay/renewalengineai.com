@@ -15,7 +15,7 @@ related:
 
 Ask an agency owner their retention rate and most will say "around 90%." Ask what a single lost policy costs them and the room goes quiet. That's the gap this article closes: the difference between knowing a percentage and knowing the dollar figure that percentage is quietly draining from your book.
 
-The math matters because retention is the highest-impact number in the agency P&L. Industry benchmarks put personal lines retention around 85-90% and commercial lines around 90-95%, and brokers who value agencies for a living treat retention as the single biggest input to what your book is worth. A two-point swing changes both your income this year and your agency's sale price later.
+The math matters because retention is the highest-impact number in the agency P&L. The benchmarks commonly cited across the independent channel put personal lines retention around 85-90% and commercial lines around 90-95% (treat these as the widely repeated ranges rather than audited figures — your AMS can tell you your own), and brokers who value agencies for a living treat retention as the single biggest input to what your book is worth. A two-point swing changes both your income this year and your agency's sale price later.
 
 Below are the four calculations we run in every renewal audit, with worked examples you can copy into a spreadsheet. None of them need more than the data in your AMS. (If you want the exact exports to pull first, use the [AMS data export checklist](/resources/ams-data-export-checklist).)
 
@@ -76,7 +76,7 @@ Here's the same math at three retention levels for that book:
 | 88% | 240 | $51,840 | ~$430,000 (8.3-yr lifetime) |
 | 92% | 160 | $34,560 | ~$432,000 (12.5-yr lifetime) |
 
-Notice the lifetime column barely moves: as retention rises, you lose fewer policies but each one is worth more. What changes dramatically is the annual bleed and the compounding: the 92% book keeps 140 more clients per year than the 85% book, and each kept client keeps paying, referring, and cross-selling for a decade. That compounding is why proactive renewal outreach programs that lift retention 15-20% relative to silent renewals pay for themselves inside the first quarter.
+Notice the lifetime column barely moves: as retention rises, you lose fewer policies but each one is worth more. What changes dramatically is the annual bleed and the compounding: the 92% book keeps 140 more clients per year than the 85% book, and each kept client keeps paying, referring, and cross-selling for a decade. That compounding is why a proactive renewal outreach program built to lift retention meaningfully relative to silent renewals pays for itself quickly — run your own numbers through the table above to see the threshold for your book.
 
 ## Calculation 4: what a retention point is worth to you
 

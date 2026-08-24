@@ -21,7 +21,7 @@ Bind rate = policies bound ÷ quotes issued
 
 ## Typical ranges
 
-Personal lines agencies commonly bind 20–35% of quotes. Commercial lines runs higher per quote — often 35–50% — because the quoting effort is larger and producers pre-qualify harder before investing in a submission.
+The ranges commonly cited across the channel: personal lines agencies binding 20–35% of quotes. Commercial lines runs higher per quote — often 35–50% — because the quoting effort is larger and producers pre-qualify harder before investing in a submission.
 
 A very high bind rate is not automatically good news. It can mean the agency is only quoting layups and leaving winnable business unquoted.
 

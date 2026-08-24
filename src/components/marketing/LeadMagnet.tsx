@@ -79,14 +79,14 @@ export function LeadMagnet() {
 
               {/* Headline */}
               <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
-                The Insurance Agency AI Playbook
-                <span className="text-blue-400"> (2025 Edition)</span>
+                5 AI Automations Every Insurance
+                <span className="text-blue-400"> Agent Should Set Up This Week</span>
               </h2>
               <p className="text-lg lg:text-xl text-blue-100 mb-8 max-w-2xl">
-                The exact automation blueprint we use to help independent
-                agencies respond to leads in 60 seconds, recover lapsing
-                renewals, and add 15–20% to retention — without hiring more
-                staff.
+                The exact five automations we set up first for independent
+                agencies — renewal sequences, instant lead response, quote
+                follow-up, service triage, and cross-sell scoring — with the
+                templates to start this week.
               </p>
 
               {/* What's inside */}

@@ -37,7 +37,7 @@ Pacific Agency Group is a representative independent P&C agency in the Southwest
 
 The principal had noticed retention drifting. Not a collapse &mdash; a slow bleed. His own numbers from Epic, pulled in the audit week:
 
-| Metric | Pacific&rsquo;s baseline | Industry reference |
+| Metric | Pacific&rsquo;s baseline | Commonly cited reference |
 |---|---|---|
 | Renewal retention | **82%** | Top-quartile independents: 92%+ |
 | Median lead response time | **47 hours** | Winning agencies: under 5 minutes |
@@ -90,7 +90,7 @@ We ran Managed Ops from Week 4 onwards, tuning classifiers weekly. The numbers a
 
 ### Revenue impact (first 90 days)
 
-- **47 additional retained policies** vs. the projected baseline retention trajectory.
+- **Roughly 42 additional retained policies** vs. the projected baseline retention trajectory (a 12-point lift on a ~350-policy book).
 - **13 additional binds** from quote follow-up that would have gone cold.
 - **Estimated incremental premium retained/captured at 90 days: $46,000.**
 
