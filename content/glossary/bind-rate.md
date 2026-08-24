@@ -38,3 +38,8 @@ The instinctive explanation is price. The data usually says otherwise. A large s
 Quoting is expensive: data gathering, market submission, comparison, presentation. Following up on a quote already produced is nearly free by comparison, and it is the step agencies most reliably skip.
 
 A structured multi-touch follow-up cadence on quoted business — several touches across channels over two to three weeks — routinely produces double-digit relative improvement in bind rate without changing pricing, appetite, or staffing. It is the clearest example in agency operations of a gap that exists purely because the work is boring, not because it is hard.
+
+## Go deeper
+
+- [Quote Follow-Up Sequences That Actually Bind](/resources/quote-follow-up-sequences-that-actually-bind)
+- [Insurance Lead Response Time Benchmarks](/resources/lead-response-time-benchmarks-insurance)

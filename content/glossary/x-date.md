@@ -33,3 +33,8 @@ If x-dates in the AMS are missing, stale, or entered inconsistently, none of tha
 ## The practical standard
 
 Every active policy should carry an accurate expiration date in a single, consistently formatted field. Not a note. Not a spreadsheet a producer keeps privately. One field, in the AMS, correct — because that is what every downstream automation reads.
+
+## Go deeper
+
+- [The Insurance Renewal Automation Playbook](/resources/ai-renewal-automation-playbook)
+- [Renewal Retention Math for P&C Agencies](/resources/renewal-retention-math-for-p-and-c-agencies)

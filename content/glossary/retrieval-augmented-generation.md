@@ -37,3 +37,7 @@ The difference is between a system that sounds authoritative and one that is.
 ## The honest limitation
 
 RAG reduces fabrication; it does not eliminate it. If retrieval surfaces the wrong document, the model will confidently ground its answer in the wrong document. Retrieval quality is the whole game, and it degrades quietly when document organization is poor — which returns the problem, as it so often does in agency automation, to data hygiene.
+
+## Go deeper
+
+- [Evaluating AI Vendors for Insurance Agencies](/resources/evaluating-ai-vendors-insurance-agencies)

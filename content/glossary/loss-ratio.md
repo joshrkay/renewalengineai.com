@@ -33,3 +33,7 @@ A P&C loss ratio in the 50s or low 60s is generally comfortable. Above roughly 7
 Loss ratio is shaped at selection and at service: which risks the agency writes, how honestly exposures are documented, and whether clients receive risk-management guidance. It is not directly automatable.
 
 What automation contributes is visibility — surfacing loss-ratio drift by segment, producer, and carrier early enough to correct appetite, rather than discovering the problem when a carrier sends a non-renewal notice on the whole book.
+
+## Go deeper
+
+- [Commercial Lines Renewal Automation](/resources/commercial-lines-ai-renewal-automation)

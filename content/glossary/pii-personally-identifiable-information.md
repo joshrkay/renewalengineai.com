@@ -39,3 +39,7 @@ Before any AI system touches agency data, three things need answers on paper:
 ## The practical minimum
 
 Minimize what the automation sees, prefer providers contractually barred from training on your data, log access, enforce opt-outs centrally across every channel, and keep a written record of these decisions. The record is what makes the position defensible later.
+
+## Go deeper
+
+- [PII Compliance for AI in Insurance Agencies](/resources/pii-compliance-ai-insurance-agencies)

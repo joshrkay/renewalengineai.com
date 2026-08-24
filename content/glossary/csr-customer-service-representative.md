@@ -33,3 +33,8 @@ The distinction is real and worth keeping straight: a **producer** sells new bus
 A CSR's throughput is bounded by interruption, not by effort. The work arrives as email, phone calls, and portal notifications, largely unstructured and largely unprioritized. A meaningful share of it — triage, data lookup, document generation, routine status replies — is repetitive enough to automate, which is why "hire another CSR" and "automate the intake" are genuinely competing answers to the same capacity problem.
 
 The realistic split: automation absorbs the classification, drafting, and follow-up chasing. Judgment calls, coverage advice, and any conversation where a client is upset stay with the CSR.
+
+## Go deeper
+
+- [AI Tools vs. Hiring a CSR](/resources/ai-tools-vs-hiring-a-csr)
+- [Producer Workflows After AI](/resources/producer-workflows-post-ai)

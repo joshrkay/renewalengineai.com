@@ -32,3 +32,8 @@ Life, health, disability, and long-term care are separate segments with differen
 The economic fact that shapes every independent P&C agency is that **policies renew every twelve months, and renewal is not automatic**. Revenue is recurring but not guaranteed. Each year the entire book is, in principle, up for re-decision.
 
 That single structural feature is why retention work compounds so heavily in P&C and why a few points of retention improvement outweigh most new-business gains. An agency that writes hard and retains poorly runs to stand still.
+
+## Go deeper
+
+- [The Insurance Renewal Automation Playbook](/resources/ai-renewal-automation-playbook)
+- [Renewal Retention Math for P&C Agencies](/resources/renewal-retention-math-for-p-and-c-agencies)

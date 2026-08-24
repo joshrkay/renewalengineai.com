@@ -37,3 +37,8 @@ Classification is upstream of everything else. Response-time targets, routing ru
 Classification should be **confident or escalating**, never quietly wrong. When the model is unsure, the message goes to a human queue rather than a guessed category.
 
 The failure mode to engineer against is not misfiling a vendor email — it is misfiling a first notice of loss as routine correspondence. Set the thresholds so that the categories carrying real consequence escalate readily, and accept a slightly higher review load in exchange.
+
+## Go deeper
+
+- [Instant Lead Response: Under 60 Seconds](/resources/instant-lead-response-under-60-seconds)
+- [AI Tools vs. Hiring a CSR](/resources/ai-tools-vs-hiring-a-csr)

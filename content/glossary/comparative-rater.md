@@ -32,3 +32,7 @@ That last one is the operational gap. A rater compresses the *quoting* step to m
 ## The integration question
 
 The valuable configuration is rater and **AMS** connected: applicant data flows from the AMS into the rater, and the bound policy flows back without re-entry. Where that link is missing, the rater creates a second silo of client data, and the agency now has two systems disagreeing about the same account — an outcome that makes downstream automation harder, not easier.
+
+## Go deeper
+
+- [Quote Follow-Up Sequences That Actually Bind](/resources/quote-follow-up-sequences-that-actually-bind)

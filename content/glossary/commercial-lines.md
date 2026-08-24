@@ -34,3 +34,7 @@ Most commercial renewals that go badly go badly because the sequence started too
 Automation earns its keep on the **cycle scaffolding**: triggering the renewal workflow at the right day count, chasing loss runs and exposure questionnaires, extracting data from dec pages and applications, and keeping every stakeholder's next action visible.
 
 It does not replace the market conversation, the coverage judgment, or the relationship. In commercial lines the realistic claim is compressing a 120-day scramble into a controlled process — not removing the humans from it.
+
+## Go deeper
+
+- [Commercial Lines Renewal Automation](/resources/commercial-lines-ai-renewal-automation)

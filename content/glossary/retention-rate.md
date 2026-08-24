@@ -37,6 +37,11 @@ Independent P&C agencies typically run between 84% and 92%. Personal lines monol
 
 ## Why small movements matter so much
 
-Retention compounds. A book retaining 88% turns over completely in roughly eight years; a book retaining 93% takes closer to fourteen. That difference does not show up in a single quarter — it shows up as the gap between an agency that grows on new business and one that grows on top of a stable base.
+Retention compounds. A book retaining 88% of its clients each year loses half of them in about five and a half years; at 93%, losing that same half takes nearly ten. (The arithmetic: 0.88 compounded halves in ~5.4 years, 0.93 in ~9.6.) That difference does not show up in a single quarter — it shows up as the gap between an agency that grows on new business and one that grows on top of a stable base.
 
 The corollary: a five-point retention improvement is usually cheaper to buy than the equivalent new business, because the clients already know you.
+
+## Go deeper
+
+- [Renewal Retention Math for P&C Agencies](/resources/renewal-retention-math-for-p-and-c-agencies)
+- [The Insurance Renewal Automation Playbook](/resources/ai-renewal-automation-playbook)

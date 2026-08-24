@@ -152,7 +152,7 @@ The framework for every line of business below:
 
 **The agent's job becomes:** a thin transactional pipe for the commodity policies and a high-touch advisor for the people who still drive their own car a lot. You won't make a living writing $1,200 six-month policies anymore.
 
-**One thing to do this year:** Stop quoting cold leads on standalone auto. Quote auto + home together, or auto + umbrella, or don't quote at all. Bundled households retain at 92% vs 78% for monoline auto. The math is not close.
+**One thing to do this year:** Stop quoting cold leads on standalone auto. Quote auto + home together, or auto + umbrella, or don't quote at all. Bundled households retain far better than monoline auto — the commonly cited spread is on the order of 92% vs 78%. The math is not close.
 
 ---
 
@@ -166,7 +166,7 @@ The framework for every line of business below:
 
 **The agent's job becomes:** a risk engineer. You walk clients through what they can do to their property to stay insurable — defensible space, roof upgrades, water sensors, retrofit. You become the person who saves them the policy, not the person who finds the policy.
 
-**One thing to do this year:** Build a "stay insurable" checklist for your top three carrier markets. Send it to every HO renewal 90 days out with the specific items that move the rate. Agents who do this hold 40% more renewals through hard markets.
+**One thing to do this year:** Build a "stay insurable" checklist for your top three carrier markets. Send it to every HO renewal 90 days out with the specific items that move the rate. Agents who do this hold meaningfully more renewals through hard markets.
 
 ---
 
@@ -264,7 +264,7 @@ The framework for every line of business below:
 
 **The agent's job becomes:** the loss-prevention consultant. You sell the sensors as much as the policy. You walk the building once a year with a tablet. You document, you advise, you keep the account insurable in markets that are getting more selective every year.
 
-**One thing to do this year:** Pick your top 20 commercial-property accounts. Schedule an in-person walk-through this year — not a renewal call, a walk-through. Build a deficiency report for each. Agents who do this lose less than 5% of their top-20 to remarketing; the industry average is north of 25%.
+**One thing to do this year:** Pick your top 20 commercial-property accounts. Schedule an in-person walk-through this year — not a renewal call, a walk-through. Build a deficiency report for each. Agents who do this lose only a small fraction of their top-20 to remarketing, while the typical agency loses a large multiple of that.
 
 ---
 
@@ -320,7 +320,7 @@ The framework for every line of business below:
 
 **The agent's job becomes:** the security-and-coverage advisor. You partner with a managed-security provider. You walk every commercial client through the security questionnaire. You know what an EDR is, what a SIEM is, and why the client's IT person saying "we're fine" is not an answer.
 
-**One thing to do this year:** If you write commercial and cyber is less than 25% of your accounts, this is the single biggest opportunity in your book. Run a "cyber check" on your top 50 commercial accounts. Use the carrier's pre-bind questionnaire as the discovery tool. Half will buy.
+**One thing to do this year:** If you write commercial and cyber is less than 25% of your accounts, this is the single biggest opportunity in your book. Run a "cyber check" on your top 50 commercial accounts. Use the carrier's pre-bind questionnaire as the discovery tool. A meaningful share will buy — and every conversation deepens the account either way.
 
 ---
 
@@ -348,7 +348,7 @@ The framework for every line of business below:
 
 **The agent's job becomes:** the risk-zone advisor. You know which ZIP codes are at the cliff edge. You proactively educate clients before they buy a property. You write more private flood than NFIP because the markets are better and the commissions are real.
 
-**One thing to do this year:** Get appointed with one private flood market this quarter. Run every active NFIP policy in your book through the private-market quoter once. You will rewrite 20–30% at lower premium and higher commission, and you'll look like a hero doing it.
+**One thing to do this year:** Get appointed with one private flood market this quarter. Run every active NFIP policy in your book through the private-market quoter once. A substantial share of NFIP policies re-quote favorably in today's private market — each one you rewrite means lower premium for the client and higher commission for you, and you'll look like a hero doing it.
 
 ---
 
@@ -410,7 +410,7 @@ You cannot reorganize the agency overnight. You can compound small changes for t
 ### Months 4–6: Automate the non-advisory work
 
 - **Month 4.** Implement automated renewal sequences. 90, 60, 30, 14, 7-day touches that go out without a human typing them. Every agency has the data; almost none have the workflow. (RenewalEngineAI does exactly this if you want help.)
-- **Month 5.** Implement instant lead response. AI voice or chat that picks up in under 60 seconds, qualifies, and books the producer. The math on lead response is brutal: 78% of buyers go with the first agent who replies.
+- **Month 5.** Implement instant lead response. AI voice or chat that picks up in under 60 seconds, qualifies, and books the producer. The math on lead response is brutal: most buyers go with the first agent who replies (Velocify's research measured conversion lifts up to 391% for sub-minute response).
 - **Month 6.** Audit your service workflows. Every endorsement, COI, or billing question that takes a CSR more than 5 minutes today should be either automated or routed to the carrier portal. Free up 20% of CSR time and you've found the budget for a producer.
 
 ### Months 7–9: Move up-market
@@ -421,7 +421,7 @@ You cannot reorganize the agency overnight. You can compound small changes for t
 
 ### Months 10–12: Compound
 
-- **Month 10.** Run the cross-sell list the AI flagged in month 4. Every client missing umbrella, life, cyber, or flood gets a personalized outreach. Agencies that do this consistently lift revenue per household 15–25%.
+- **Month 10.** Run the cross-sell list the AI flagged in month 4. Every client missing umbrella, life, cyber, or flood gets a personalized outreach. Done consistently, this is how agencies push revenue per household up meaningfully year over year.
 - **Month 11.** Hire or reassign one person on the team to be the "AI operations" lead — owns the automation stack, the data hygiene, the carrier-portal integrations. Even a half-time investment here pays back within a quarter.
 - **Month 12.** Plan the next year. You will know more in month 12 than you do today. The agency that runs this loop year over year is the agency that's still here in 2055.
 

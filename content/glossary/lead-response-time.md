@@ -17,7 +17,7 @@ related:
 
 ## Why it dominates conversion
 
-The research on this is unusually consistent. Responding within the first minute rather than after an hour multiplies contact rates several times over. The most-cited finding in insurance distribution is that a large majority of buyers purchase from the **first** agent who responds — meaning the race is often decided before the second agency has read the email.
+The research here points one direction: Velocify's contact-strategy studies and the Harvard Business Review's lead-response work both found that responding within the first minutes rather than after an hour multiplies contact and qualification rates several times over — the specific figures, with sources, are in our [lead response benchmarks article](/resources/lead-response-time-benchmarks-insurance). The practical version: a large share of buyers go with the **first** agent who responds, meaning the race is often decided before the second agency has read the email.
 
 The mechanism is not mysterious. Insurance shoppers submit multiple quote requests in one sitting. Whoever reaches them while they are still sitting there wins the conversation.
 
@@ -34,3 +34,8 @@ Not laziness — arithmetic. Leads arrive continuously, including evenings and w
 Under 60 seconds, every hour of every day, for the first touch — automated, personalized to what the prospect actually asked, and immediately followed by routing to the right human with the context already gathered.
 
 This is the clearest case in agency operations where automation is not an efficiency play but a capability the agency simply does not otherwise have.
+
+## Go deeper
+
+- [Insurance Lead Response Time Benchmarks](/resources/lead-response-time-benchmarks-insurance)
+- [Instant Lead Response: Under 60 Seconds](/resources/instant-lead-response-under-60-seconds)

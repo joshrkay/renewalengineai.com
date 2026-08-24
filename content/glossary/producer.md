@@ -34,3 +34,7 @@ Studies of agency time allocation consistently find producers spending under hal
 Producers are the most expensive hours in the agency, and the work displacing their selling time is the most mechanical. Automating quote follow-up cadences, prefilled submissions, and lead qualification does not replace the producer — it returns hours to the only activity that pays for the seat.
 
 The measurable version of this: track the ratio of producer hours spent in client-facing conversation to total hours. Automation that does not move that ratio is not earning its cost, whatever else it does.
+
+## Go deeper
+
+- [Producer Workflows After AI](/resources/producer-workflows-post-ai)

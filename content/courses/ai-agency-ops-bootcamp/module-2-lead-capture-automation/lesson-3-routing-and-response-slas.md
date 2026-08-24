@@ -17,7 +17,7 @@ By the end of this lesson you will have a routing matrix that fits your current 
 
 ## The speed-to-lead reality
 
-Industry research on lead response times is brutal and the numbers are not debated. A lead contacted within **5 minutes** is roughly **9 times more likely** to convert than a lead contacted within an hour. A lead contacted within an hour is several times more likely to convert than a lead contacted the next day. By 24 hours, conversion rates are a fraction of the 5-minute baseline. The speed factor dominates almost every other variable, including price, carrier, and quoted coverage level.
+The research on lead response times is brutal. Harvard Business Review's lead-response study found firms contacting a lead within an hour were roughly **seven times** more likely to qualify it than firms that waited even an hour longer, and Velocify's contact-strategy research found conversion lifts of up to 391% for contact inside the first minute. A lead contacted within an hour is several times more likely to convert than a lead contacted the next day. By 24 hours, conversion rates are a fraction of the 5-minute baseline. The speed factor dominates almost every other variable, including price, carrier, and quoted coverage level.
 
 Why? Because leads shop in parallel. The visitor who submitted your form also submitted forms at two to four competitor sites in the same browsing session. Whoever calls back first gets the conversation. The second caller gets "I'm already talking to someone." By the third caller it is over. You are not competing on price or service at that point — you are competing on being the first ring.
 

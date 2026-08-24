@@ -39,3 +39,8 @@ The reliable pattern is not "let AI issue endorsements." It is:
 4. **Write back** the change to the AMS
 
 Step 3 is where automation earns most of its value, because the failure mode agencies actually suffer is not slow processing — it is requests that quietly fall through without anyone noticing.
+
+## Go deeper
+
+- [Producer Workflows After AI](/resources/producer-workflows-post-ai)
+- [AI Tools vs. Hiring a CSR](/resources/ai-tools-vs-hiring-a-csr)

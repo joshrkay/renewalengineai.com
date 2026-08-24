@@ -15,7 +15,7 @@ related:
 
 Cross-selling has a reputation problem in agencies: it sounds like pestering good clients to buy more stuff. So most agencies don't do it systematically, and the average P&C household sits at about 1.4 policies with their primary agent.
 
-That number is a retention problem wearing a sales costume. Carriers consistently report a retention cliff below two policies per household, and agencies with policies-per-household above 2.0 see retention climb to 95% or better, because multi-line households rarely shop. McKinsey's benchmark work across 20+ insurers tells the same story from the carrier side: average product density of 1.2-1.5 per customer, with the deepest relationships holding two, three, or more.
+That number is a retention problem wearing a sales costume. Across the independent channel, the pattern agents and carriers describe is a retention cliff below two policies per household, with multi-line households retaining dramatically better — the commonly cited shape puts 2.0+ households above 95%, because multi-line households rarely shop. Treat those bands as the widely repeated industry pattern rather than audited figures, and measure your own book against them. McKinsey's benchmark work across 20+ insurers tells the same story from the carrier side: average product density of 1.2-1.5 per customer, with the deepest relationships holding two, three, or more.
 
 So the payoff for cross-selling isn't just the second premium. It's that the second policy roughly doubles how long you keep the first one. (Run that math on your own book with the [retention worksheet](/resources/renewal-retention-math-for-p-and-c-agencies).)
 
@@ -56,7 +56,7 @@ The data plumbing underneath is the same five exports as everything else we buil
 
 Take the same 2,000-policy book from the retention article, roughly 1,400 households at 1.4 policies each. Suppose triggers fire on just 20% of households a year (moves, new drivers, X-dates, and claims easily cover that) and the full pipeline converts 15% of fired triggers into one added policy at $150 of annual commission. That's 42 new policies and about $6,300 of new commission per year, modest on its own.
 
-Now add the retention effect, which is the real prize: 42 households crossing from monoline toward the 2.0-policy line, where retention runs 10+ points higher. On lifetime-value math, each converted household is worth several times its first-year commission, because both policies now stay longer. The cross-sell program's biggest line item never shows up in the sales report; it shows up two years later in the retention rate.
+Now add the retention effect, which is the real prize: 42 households crossing from monoline toward the 2.0-policy line, where the commonly observed pattern is retention running 10+ points higher. On lifetime-value math, each converted household is worth several times its first-year commission, because both policies now stay longer. The cross-sell program's biggest line item never shows up in the sales report; it shows up two years later in the retention rate.
 
 That's also the honest priority order if you can only automate a few: triggers 1 and 2 first (highest volume, cleanest data), then 3 and 4 (event-driven, easy to detect), then 5-7 as your data quality allows.
 

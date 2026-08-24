@@ -36,3 +36,8 @@ Signals do not carry equal weight, and combining them beats any single one. A mo
 Every one of these signals already exists in the AMS and the carrier feed. What is missing in most agencies is not data but a standing process that evaluates the book against these conditions every week and puts a ranked, reasoned list in front of the person who can act.
 
 That is a modest technical problem and an enormous commercial one.
+
+## Go deeper
+
+- [Renewal Retention Math for P&C Agencies](/resources/renewal-retention-math-for-p-and-c-agencies)
+- [Book Segmentation for AI Outreach](/resources/book-segmentation-for-ai-outreach)
