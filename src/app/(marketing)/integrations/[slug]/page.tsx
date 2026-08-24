@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
+import { BookAuditButton } from "@/components/courses/BookAuditButton";
 import { ResourceBody } from "@/components/resources/ResourceBody";
 import { getIntegration, listIntegrations } from "@/lib/integrations";
 import { team, personJsonLd, personJsonLdId } from "@/lib/team";
@@ -165,9 +166,19 @@ export default async function IntegrationPage({
               <p className="text-xl text-neutral-400 mb-4">
                 {integration.description}
               </p>
-              <p className="text-sm text-neutral-500">
+              <p className="text-sm text-neutral-500 mb-8">
                 Typical profile: {integration.segment}
               </p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <BookAuditButton
+                  label={`Book a free ${integration.ams} strategy call`}
+                  ctaLocation="integration_hero"
+                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-8 py-3 transition-colors"
+                />
+                <p className="text-sm text-neutral-500">
+                  30 minutes · we look at your {integration.ams} setup together
+                </p>
+              </div>
             </div>
 
             <div className="grid gap-5 mb-14">
