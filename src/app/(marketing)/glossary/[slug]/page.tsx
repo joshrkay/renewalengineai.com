@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
 import { BookingProvider } from "@/components/marketing/BookingContext";
+import { BookAuditButton } from "@/components/courses/BookAuditButton";
 import { ResourceBody } from "@/components/resources/ResourceBody";
 import { getGlossaryTerm, listGlossaryTerms } from "@/lib/glossary";
 import { team, personJsonLd, personJsonLdId } from "@/lib/team";
@@ -195,12 +196,11 @@ export default async function GlossaryTermPage({
                 >
                   Read the guides →
                 </Link>
-                <Link
-                  href="/#pricing"
+                <BookAuditButton
+                  label="Book a free strategy call"
+                  ctaLocation="glossary_footer"
                   className="inline-block border border-neutral-700 hover:border-blue-600 text-white font-black rounded-full px-8 py-4 transition-colors"
-                >
-                  See pricing
-                </Link>
+                />
               </div>
             </section>
           </div>

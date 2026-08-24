@@ -1,7 +1,7 @@
 ---
 title: "Pacific Agency Group: Personal Lines Retention Lift at a 350-Policy P&C Shop"
 slug: "pacific-agency-group-personal-lines"
-description: "How a 350-policy personal lines P&C agency on Applied Epic used AI renewal automation and sub-60-second lead response to lift retention from 82% to 94% inside 90 days."
+description: "How a 350-policy personal lines P&C agency on Applied Epic used AI renewal automation and sub-60-second lead response to lift retention from 82% to 94% on the renewal cohorts reached in its first 90 days."
 publishedAt: "2026-04-21"
 agencyName: "Pacific Agency Group"
 region: "Southwest US"
@@ -12,7 +12,7 @@ policyCount: 350
 engagement: "Audit + Build + Managed Ops"
 headlineResults:
   - value: "82% → 94%"
-    label: "Renewal retention inside 90 days"
+    label: "Retention on renewal cohorts reached in the first 90 days"
   - value: "47 hrs → 38 sec"
     label: "Median lead response time"
   - value: "$187K"
@@ -124,7 +124,7 @@ Pacific&rsquo;s numbers are achievable for agencies in the 200&ndash;600 policy 
 
 Agencies below 150 policies typically don&rsquo;t have enough volume to justify the Build & Launch price tag yet. Agencies above 1000 policies see larger absolute revenue recovery but the same percentage lift.
 
-The [free audit](/#pricing) is the right first step &mdash; 5 days of actual assessment against your real book, ending in a proposal with numbers specific to your agency. Read [how it works](/how-it-works) for the process.
+The [$1,500 Renewal Audit](/#pricing) is the right first step &mdash; 5 days of actual assessment against your real book, ending in a proposal with numbers specific to your agency. If you want a no-cost read before committing, [book the free strategy call](/#pricing) first. Read [how it works](/how-it-works) for the process.
 
 ---
 
