@@ -8,6 +8,8 @@ export type CourseFrontmatter = {
   price: number;
   tagline: string;
   duration: number;
+  /** ISO date. Drives sitemap <lastmod>, so it must not be derived at build time. */
+  updatedAt?: string;
 };
 
 export type LessonFrontmatter = {

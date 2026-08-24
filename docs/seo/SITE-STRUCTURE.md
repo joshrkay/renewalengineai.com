@@ -31,9 +31,21 @@ Snapshot as of 2026-08-18. Source of truth for URLs is `src/app/sitemap.ts` — 
 │   ├── /mastermind ($97–197/mo membership)
 │   └── /team-licenses (custom, 3–50 seats)
 │
+├── /integrations                         AMS hub (added 2026-08-24)
+│   ├── /integrations/applied-epic
+│   ├── /integrations/hawksoft
+│   └── /integrations/ezlynx
+│
+├── /glossary                             27 defined terms (added 2026-08-24)
+│   └── /glossary/[slug]                  DefinedTerm entries
+│
 ├── /guides/5-ai-automations              Lead magnet landing page
+├── /free-guide                           Lead magnet landing page (same asset, different framing)
+├── /future-of-insurance                  Ebook landing page
 └── /privacy, /terms
 ```
+
+Note on the two lead-magnet pages: `/guides/5-ai-automations` and `/free-guide` promote the same asset with different copy and different H1s. Both are explicitly `index: true` and both are now in the sitemap. If Google starts reporting one as a duplicate of the other, canonicalise `/free-guide` to `/guides/5-ai-automations` rather than removing it — it is the paid-traffic landing page.
 
 Two funnels share one domain: **done-for-you service** (Audit → Build & Launch → Managed Ops) and **DIY education** (Bootcamp/Retention courses → Mastermind → Team Licenses). Both need to be reachable from organic content — see [CONTENT-CALENDAR.md](./CONTENT-CALENDAR.md) for how individual articles route to one or the other based on reader intent ("at capacity, want it done" vs. "want to learn it myself").
 
@@ -42,11 +54,11 @@ Two funnels share one domain: **done-for-you service** (Audit → Build & Launch
 | Gap | Why it matters | Priority |
 |---|---|---|
 | Only 3 published resource articles; 12 more sit in `content/resources/_backlog.json` with `status: pending` | Thin content footprint for a niche this specific — see [IMPLEMENTATION-ROADMAP.md](./IMPLEMENTATION-ROADMAP.md) Phase 1, the content engine that should be publishing these is broken | Critical |
-| No dedicated `/integrations/applied-epic`, `/integrations/hawksoft`, `/integrations/ezlynx` pages | These are named, high-intent keywords (buyer already has the AMS, is searching for what plugs into it) currently only covered inside `/resources/ams-ai-integration-guide` | High |
+| ~~No dedicated `/integrations/*` pages~~ | **Closed 2026-08-24.** `/integrations` hub plus `/integrations/applied-epic`, `/integrations/hawksoft`, `/integrations/ezlynx`, each with `SoftwareApplication` entity markup so answer engines can resolve "does X work with Applied Epic". | Done |
 | Only 2 case studies | Case studies are the highest-trust asset for a $6k+ service purchase; thin proof is a bigger risk than thin blog content | High |
-| No `/glossary` or FAQ hub beyond the homepage FAQPage schema | Insurance + AI is jargon-heavy (AMS, CSR, book of business, lapse rate, bind rate) — glossary entries are cheap to produce and rank for definitional queries, and are exactly the kind of passage AI answer engines cite | Medium |
+| ~~No `/glossary` hub~~ | **Closed 2026-08-24.** 27 terms under `/glossary`, split across Agency Operations, Lines of Business, Metrics, Growth, and AI & Automation. Each entry opens with a self-contained one-sentence definition and carries `DefinedTerm` markup inside a site-wide `DefinedTermSet`. A FAQ hub beyond the homepage `FAQPage` schema is still open. | Partly done |
 | Only 1 comparison page per named competitor, none for adjacent categories (GoHighLevel/generic CRM automation, hiring an agency/consultancy) | `renewalengineai-vs-hiring-csr` already covers the "build it yourself" alternative; a GoHighLevel-style DIY-CRM comparison is still missing | Medium |
-| Course content (15 + 12 lesson modules) has only 2 individual lesson URLs in the sitemap — the rest are presumably gated/preview-only | Confirm this is intentional (paywall) and not an indexing gap; if any more free-preview lessons exist, add them | Low — verify only |
+| Course content (27 lessons) has only 2 individual lesson URLs in the sitemap | **Verified 2026-08-24: intentional.** Exactly 2 lessons carry `preview: true`; `sitemap.ts` filters on that flag and paywalled lessons render `noindex`. The open question is commercial, not technical — 25 lessons of substantive content are invisible to search, and promoting a few more to preview is the cheapest way to grow the indexable footprint. | Low — decision pending |
 | No location or "near me" pages | Correctly out of scope — this is a national remote service, not brick-and-mortar. Don't add location pages; would violate the sitemap skill's programmatic-SEO quality gates for no real reason. | N/A |
 
 ## Internal linking notes

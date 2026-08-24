@@ -5,6 +5,7 @@ price: 797
 priceHigh: 1297
 tagline: Run your entire agency on AI-powered workflows
 duration: 15
+updatedAt: "2026-07-12"
 ---
 
 # AI Agency Operations Bootcamp
