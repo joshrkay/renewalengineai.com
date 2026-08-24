@@ -21,9 +21,9 @@ This is not a theoretical course. Every lesson produces an artifact you can drop
 ## Format and pricing
 Two delivery options.
 
-**Self-paced Premium ($797)**: Video lessons, written content, all templates, all prompts, private community access, lifetime updates. Work through it on your own timeline.
+**Self-paced Premium ($797)**: All fifteen written lessons with worked diagrams, every template and prompt from the curriculum, and lifetime updates as the material evolves. Work through it on your own timeline.
 
-**Live Cohort ($1,297)**: Everything in self-paced, plus eight weekly live calls with the instructor and other agency owners, peer review of your workflows, and direct feedback on your implementations. Cohorts run quarterly with 15 seats each.
+**Live Cohort ($1,297, waitlist)**: Everything in self-paced, plus eight weekly live calls with the instructor and other agency owners, peer review of your workflows, and direct feedback on your implementations. Cohorts are capped at 15 seats; join the waitlist from this page and we'll email you when the next one is scheduled.
 
 ## Prerequisites
 Comfort with basic spreadsheet work, an active AI subscription (ChatGPT Plus, Claude, or similar), and enough time to spend four to six hours per week on course work during the first month. You do not need any programming background.

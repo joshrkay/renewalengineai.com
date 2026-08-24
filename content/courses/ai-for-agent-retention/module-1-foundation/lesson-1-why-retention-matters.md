@@ -35,7 +35,7 @@ Real lifetime value on a lost policy is usually two to four times the first-year
 
 ## The three kinds of lapse
 
-Not every lapse is the same, and the solution depends on the category. In our data across hundreds of agency books, lapses break down roughly like this:
+Not every lapse is the same, and the solution depends on the category. As a working model — the exact split varies by book, and you'll measure your own in lesson 2 — lapses break down roughly like this:
 
 ![Three kinds of lapse: 50% neglect, 30% price-driven, 20% life event](/courses/retention/three-kinds-of-lapse.svg)
 
@@ -59,7 +59,7 @@ A quick level-set on expectations, because this matters.
 
 This course will not replace your license, your judgment, or your relationships. It will not automate your agency out of existence. It will not write coverage recommendations, touch E&O exposure, or make decisions that belong to a human professional. If that is what you are looking for, you are in the wrong place and you are also several years too early on the technology.
 
-What this course will do is give you a working AI-powered retention system that saves you roughly 10 to 15 hours a week and recovers somewhere between 20 and 40 percent of the policies you are currently losing to neglect. That is a modest, realistic, measurable outcome. It is also enough to pay for a producer, fund a marketing budget, or just buy back your weekends.
+What this course will do is give you a working AI-powered retention system built to take renewal outreach off your plate hour-for-hour and to recover a meaningful share of the policies you are currently losing to neglect — your recovery rate depends on your book, and lesson 2 has you baseline it so you can measure the lift for yourself rather than take a number on faith. It is also enough to pay for a producer, fund a marketing budget, or just buy back your weekends.
 
 ## What you'll take away from this lesson
 

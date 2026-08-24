@@ -1,4 +1,5 @@
 import ReactMarkdown, { type Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const components: Components = {
   h1: ({ children }) => (
@@ -53,6 +54,24 @@ const components: Components = {
     </a>
   ),
   hr: () => <hr className="border-neutral-800 my-10" />,
+  table: ({ children }) => (
+    <div className="overflow-x-auto my-8">
+      <table className="min-w-full border border-neutral-800 rounded-2xl overflow-hidden text-left">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }) => <thead className="bg-neutral-900">{children}</thead>,
+  th: ({ children }) => (
+    <th className="px-4 py-3 text-white font-bold text-sm uppercase tracking-wide border-b border-neutral-700">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="px-4 py-3 text-neutral-300 border-b border-neutral-800 align-top">
+      {children}
+    </td>
+  ),
   img: ({ src, alt }) => (
     // span elements (not div) so react-markdown can legally nest them
     // inside the implicit <p> wrapper without a hydration warning.
@@ -74,5 +93,9 @@ const components: Components = {
 };
 
 export function LessonBody({ body }: { body: string }) {
-  return <ReactMarkdown components={components}>{body}</ReactMarkdown>;
+  return (
+    <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
+      {body}
+    </ReactMarkdown>
+  );
 }

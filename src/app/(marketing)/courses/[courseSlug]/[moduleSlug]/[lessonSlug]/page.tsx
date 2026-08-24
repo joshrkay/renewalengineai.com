@@ -140,6 +140,31 @@ export default async function LessonPage({
               </article>
             )}
 
+            {lesson.preview && (
+              // Free-preview readers arrive from search with no other CTA on
+              // the page — without this block the only path to a price is
+              // clicking "Next" into the paywall.
+              <div className="mt-16 bg-gradient-to-br from-blue-600/15 to-black border border-blue-600/40 rounded-2xl p-8">
+                <p className="text-sm text-blue-400 font-bold uppercase tracking-wider mb-2">
+                  Free preview lesson
+                </p>
+                <h2 className="text-2xl font-black mb-3">
+                  This is 1 of {flat.length} lessons in {course.title}
+                </h2>
+                <p className="text-neutral-300 mb-6 max-w-xl">
+                  The full course includes every template, prompt, and worked
+                  diagram from the curriculum, with lifetime updates and a
+                  30-day money-back guarantee.
+                </p>
+                <Link
+                  href={`/courses/${course.slug}`}
+                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full px-8 py-3 transition-colors"
+                >
+                  See the full curriculum &amp; enroll →
+                </Link>
+              </div>
+            )}
+
             <div className="mt-16 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row gap-4 justify-between">
               {prev ? (
                 <Link
