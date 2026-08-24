@@ -94,7 +94,7 @@ We ran Managed Ops from Week 4 onwards, tuning classifiers weekly. The numbers a
 - **13 additional binds** from quote follow-up that would have gone cold.
 - **Estimated incremental premium retained/captured at 90 days: $46,000.**
 
-Annualized over the first 12 months, the model projects **$187,000 in recovered annual premium** &mdash; roughly 7&times; the total first-year engagement cost.
+Annualized over the first 12 months, the model projects **$187,000 in recovered annual premium**. In commission terms &mdash; the number that actually hits an agency&rsquo;s P&amp;L &mdash; that is roughly **$22K&ndash;$28K of annual commission** at typical personal lines rates, against a first-year engagement cost of $37,500. Year one is roughly break-even on cash; the return comes from the fact that a retained personal lines household renews year after year while the Build &amp; Launch cost is paid once.
 
 ## 12-month outlook
 
