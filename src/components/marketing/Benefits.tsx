@@ -32,9 +32,18 @@ export function Benefits() {
     <section id="results" className="relative py-32 px-6 lg:px-8 bg-black overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
+        {/* Purely decorative texture at 5% opacity. It was previously a 146KB
+            JPEG hotlinked from images.unsplash.com, which cost a DNS+TLS
+            handshake to a third party and was being preloaded as an LCP
+            candidate despite sitting below the fold and being 95% invisible.
+            Now a self-hosted 27KB WebP, lazily loaded. Marked aria-hidden with
+            an empty alt because it carries no information. */}
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1660854088062-c178a98550cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwc3VjY2VzcyUyMGJ1c2luZXNzJTIwdmljdG9yeXxlbnwxfHx8fDE3NzMzNzY5NDF8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Insurance agency team celebrating success with AI automation"
+          src="/images/results-bg.webp"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover opacity-5"
         />
       </div>

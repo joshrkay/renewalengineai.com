@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 
 export const metadata: Metadata = {
-  title: "How RenewalEngineAI Works — Audit, Build & Launch, Managed Ops",
+  title: "How RenewalEngineAI Works",
   description:
     "The three-phase process: a 5-day AI automation audit ($1,500), a 2-3 week build & launch ($6,000), and ongoing managed AI operations ($2,500/month) for independent insurance agencies.",
   keywords: [

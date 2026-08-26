@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import fm from "front-matter";
+import { stripLeadingH1 } from "@/lib/markdown";
 
 export type CourseFrontmatter = {
   title: string;
@@ -46,7 +47,7 @@ const COURSES_DIR = path.join(process.cwd(), "content", "courses");
 function readMarkdown<T>(filePath: string): { attributes: T; body: string } {
   const raw = fs.readFileSync(filePath, "utf-8");
   const parsed = fm<T>(raw);
-  return { attributes: parsed.attributes, body: parsed.body };
+  return { attributes: parsed.attributes, body: stripLeadingH1(parsed.body) };
 }
 
 function titleize(slug: string): string {

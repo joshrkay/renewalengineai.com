@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listComparisons , competitorLabel } from "@/lib/comparisons";
 
 export const metadata: Metadata = {
-  title: "Compare RenewalEngineAI to Other Insurance AI Options",
+  title: "Compare Insurance AI Options",
   description:
     "Side-by-side comparisons of RenewalEngineAI versus Strada, Sonant AI, and hiring a CSR. Honest positioning differences, cost-of-ownership models, and decision trees for independent insurance agencies.",
   alternates: { canonical: "https://renewalengineai.com/compare" },

@@ -1,5 +1,6 @@
 ---
 title: "Renewal Retention Math: How to Calculate the True Cost of Every Lost Policy"
+seoTitle: "Renewal Retention Math for P&C Agencies"
 slug: "renewal-retention-math-for-p-and-c-agencies"
 description: "The insurance renewal retention calculation every P&C agency should run: retention formulas, lost-policy cost, and LTV math with a Monday worksheet."
 publishedAt: "2026-07-12"

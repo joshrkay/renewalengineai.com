@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 
 export const metadata: Metadata = {
-  title: "Agency Team Licenses for Insurance Agencies (3-50 Seats)",
+  title: "Agency Team Licenses (3-50 Seats)",
   description:
     "Multi-seat access to the full RenewalEngineAI course library for independent insurance agencies with 3 to 50 seats. Bulk enrollment, shared playbooks, live onboarding.",
   alternates: { canonical: "https://renewalengineai.com/team-licenses" },

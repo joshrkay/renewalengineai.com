@@ -1,5 +1,6 @@
 ---
 title: "Commercial Lines Renewal Automation: Where AI Earns Its Keep"
+seoTitle: "Commercial Lines Renewal Automation"
 slug: "commercial-lines-ai-renewal-automation"
 description: "Commercial insurance renewal automation, honestly scoped: which parts of the 120-day cycle AI compresses, where humans still win, and the handoff design."
 publishedAt: "2026-07-12"

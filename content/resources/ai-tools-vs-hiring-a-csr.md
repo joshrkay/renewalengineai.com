@@ -1,5 +1,6 @@
 ---
 title: "AI Automation vs. Hiring Another CSR: A Cost-Benefit Walkthrough"
+seoTitle: "AI Tools vs. Hiring a CSR"
 slug: "ai-tools-vs-hiring-a-csr"
 description: "AI automation vs hiring CSR insurance agency math: all-in cost, ramp time, and retention impact compared, with the decision framework owners actually need."
 publishedAt: "2026-07-12"

@@ -1,5 +1,6 @@
 ---
 title: "AMS Data Export Checklist: What to Pull Before Your First AI Audit"
+seoTitle: "AMS Data Export Checklist"
 slug: "ams-data-export-checklist"
 description: "The exact AMS data export insurance agencies should pull from Applied Epic, HawkSoft, or EZLynx before an AI audit - tables, fields, and hygiene checks."
 publishedAt: "2026-07-12"

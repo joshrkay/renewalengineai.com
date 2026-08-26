@@ -8,7 +8,7 @@ import { listGlossaryTerms, listGlossaryByCategory } from "@/lib/glossary";
 const URL = "https://renewalengineai.com/glossary";
 
 export const metadata: Metadata = {
-  title: "Insurance & AI Automation Glossary for Independent Agencies",
+  title: "Insurance & AI Automation Glossary",
   description:
     "Plain-English definitions of the insurance agency and AI automation terms that matter — AMS, x-date, bind rate, lapse rate, policies per client, RAG, intake classification, and more.",
   alternates: { canonical: URL },

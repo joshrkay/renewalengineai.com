@@ -1,5 +1,6 @@
 ---
 title: "The Insurance Renewal Automation Playbook"
+seoTitle: "AI Renewal Automation Playbook"
 slug: "ai-renewal-automation-playbook"
 description: "How independent insurance agencies use AI to run proactive, personalized renewal campaigns that lift retention 15-20% without adding headcount."
 publishedAt: "2026-04-23"

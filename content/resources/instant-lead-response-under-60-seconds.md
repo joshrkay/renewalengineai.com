@@ -1,5 +1,6 @@
 ---
 title: "Instant Lead Response: How to Reply to Insurance Leads in Under 60 Seconds"
+seoTitle: "Instant Lead Response in Under 60 Seconds"
 slug: "instant-lead-response-under-60-seconds"
 description: "The research behind sub-60-second lead response, why insurance agents still respond in hours, and the AI workflow that closes the gap without hiring."
 publishedAt: "2026-04-23"

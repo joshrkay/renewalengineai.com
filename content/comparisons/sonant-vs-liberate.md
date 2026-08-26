@@ -1,5 +1,6 @@
 ---
 title: "Sonant AI vs. Liberate: Which Voice AI Fits Your Insurance Organization?"
+seoTitle: "Sonant AI vs. Liberate"
 slug: "sonant-vs-liberate"
 description: "A neutral, integrator's-eye comparison of Sonant AI and Liberate for insurance in 2026: who each is actually built for, what each automates, and how to pick based on your size and workflows."
 publishedAt: "2026-08-24"

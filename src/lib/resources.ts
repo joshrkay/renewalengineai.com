@@ -1,9 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import fm from "front-matter";
+import { stripLeadingH1 } from "@/lib/markdown";
 
 export type ResourceFrontmatter = {
   title: string;
+  /** Optional short <title> for SERPs. Falls back to `title` (the on-page H1),
+   *  which is often longer than the ~60 chars Google renders. */
+  seoTitle?: string;
   slug: string;
   description: string;
   publishedAt: string;
@@ -25,7 +29,7 @@ function readMarkdown<T>(
 ): { attributes: T; body: string } {
   const raw = fs.readFileSync(filePath, "utf-8");
   const parsed = fm<T>(raw);
-  return { attributes: parsed.attributes, body: parsed.body };
+  return { attributes: parsed.attributes, body: stripLeadingH1(parsed.body) };
 }
 
 export function listResources(): Resource[] {

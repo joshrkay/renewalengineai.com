@@ -4,6 +4,9 @@ import fm from "front-matter";
 
 export type CaseStudyFrontmatter = {
   title: string;
+  /** Optional short <title> for SERPs. Falls back to `title` (the on-page H1),
+   *  which is often longer than the ~60 chars Google renders. */
+  seoTitle?: string;
   slug: string;
   description: string;
   publishedAt: string;
