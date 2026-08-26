@@ -1,46 +1,64 @@
 # Content Calendar — RenewalEngineAI
 
-**Prepared:** 2026-08-18/19. See [SEO-STRATEGY.md](./SEO-STRATEGY.md) §2 before reading this — the backlog described below is **already drafted**, not a to-do list of writing tasks.
+**Prepared:** 2026-08-18/19. **Refreshed:** 2026-08-26 — the backlog shipped; the engine that was meant to keep producing is still broken.
+See [SEO-STRATEGY.md](./SEO-STRATEGY.md) §2 for why nothing published between May and August.
 
 ---
 
-## 1. Current state (correcting the premise most content plans would start from)
+## 1. The 12-article backlog — SHIPPED
 
-`content/resources/_backlog.json` lists 12 topics, all marked `status: pending`. That flag is stale. All 12 are fully drafted as `.md` files and were merged into `main` via PR #25 on 2026-08-19:
+All 12 went live 2026-08-26, not by being written (they were drafted and merged back in July) but by the deploy pipeline being fixed. Verified 200 on production:
 
 | Slug | Category | Status |
 |---|---|---|
-| `ams-data-export-checklist` | Integrations | Drafted, merged, awaiting deploy |
-| `renewal-retention-math-for-p-and-c-agencies` | Retention | Drafted, merged, awaiting deploy |
-| `lead-response-time-benchmarks-insurance` | Growth | Drafted, merged, awaiting deploy |
-| `ai-tools-vs-hiring-a-csr` | Strategy | Drafted, merged, awaiting deploy |
-| `cross-sell-triggers-for-independent-agencies` | Retention | Drafted, merged, awaiting deploy |
-| `pii-compliance-ai-insurance-agencies` | Operations | Drafted, merged, awaiting deploy |
-| `quote-follow-up-sequences-that-actually-bind` | Growth | Drafted, merged, awaiting deploy |
-| `book-segmentation-for-ai-outreach` | Retention | Drafted, merged, awaiting deploy |
-| `evaluating-ai-vendors-insurance-agencies` | Strategy | Drafted, merged, awaiting deploy |
-| `producer-workflows-post-ai` | Operations | Drafted, merged, awaiting deploy |
-| `commercial-lines-ai-renewal-automation` | Retention | Drafted, merged, awaiting deploy |
-| `30-60-90-day-ai-rollout-plan` | Strategy | Drafted, merged, awaiting deploy |
+| `ams-data-export-checklist` | Integrations | ✅ Live |
+| `renewal-retention-math-for-p-and-c-agencies` | Retention | ✅ Live |
+| `lead-response-time-benchmarks-insurance` | Growth | ✅ Live |
+| `ai-tools-vs-hiring-a-csr` | Strategy | ✅ Live |
+| `cross-sell-triggers-for-independent-agencies` | Retention | ✅ Live |
+| `pii-compliance-ai-insurance-agencies` | Operations | ✅ Live |
+| `quote-follow-up-sequences-that-actually-bind` | Growth | ✅ Live |
+| `book-segmentation-for-ai-outreach` | Retention | ✅ Live |
+| `evaluating-ai-vendors-insurance-agencies` | Strategy | ✅ Live |
+| `producer-workflows-post-ai` | Operations | ✅ Live |
+| `commercial-lines-ai-renewal-automation` | Retention | ✅ Live |
+| `30-60-90-day-ai-rollout-plan` | Strategy | ✅ Live |
 
-**Action for this backlog: none, other than updating `status` to `published` once the deploy pipeline is fixed and these go live.** Do not commission new versions of these topics.
+**Resource hub: 3 articles → 15.** Retention/automation as a topic cluster is now well covered; adding more generic posts in that vein has sharply diminishing returns.
 
-## 2. What actually needs new writing (after the backlog ships)
+**Housekeeping:** `_backlog.json` still marks all 12 `drafted`. Set them to `published`. This isn't cosmetic — see §3.
 
-Once the 12 articles are confirmed live (check `/resources/[slug]` returns 200 for each, not the sitemap — dynamic sitemap will already reflect them), the real gaps are the ones in [SITE-STRUCTURE.md](./SITE-STRUCTURE.md) §"Gaps" and [COMPETITOR-ANALYSIS.md](./COMPETITOR-ANALYSIS.md) §3, not more retention/automation posts — that category is now well covered. Priority order, sized for solo/DIY pace (roughly one piece every 1–2 weeks, reusing the existing content engine where possible):
+## 2. Also shipped since the last version of this doc
 
-1. **`/integrations/applied-epic`, `/integrations/hawksoft`, `/integrations/ezlynx`** — 3 short, high-intent landing pages. Not blog posts; these are conversion pages, so write manually rather than through the weekly-content engine (which is tuned for long-form resource articles, not landing-page copy).
-2. **`renewalengineai-vs-gohighlevel`** comparison page — targets the GHL-reseller competitor category identified in COMPETITOR-ANALYSIS.md §2, no partnership-tension constraint.
-3. **`sonant-vs-liberate`** neutral vendor comparison — highest-leverage single piece in this whole calendar (see COMPETITOR-ANALYSIS.md §3.2 for why). Do this before more resource articles.
-4. **`/glossary`** — batch this as one project, not a drip. 15–25 short definitional entries (AMS, CSR, book of business, lapse rate, bind rate, etc.), each self-contained enough to be citable by an AI answer engine on its own.
-5. Third named case study (coordinate with roadmap Phase 2 — needs a real customer, not just writing).
+Three of the five "needs new writing" items are done:
 
-## 3. Engine maintenance, not new topics
+1. ✅ **`/integrations/applied-epic`, `/integrations/hawksoft`, `/integrations/ezlynx`** — hub + 3, with `SoftwareApplication` markup.
+2. ✅ **`renewalengineai-vs-gohighlevel`** — the GHL-reseller category, no partnership-tension constraint.
+3. ✅ **`sonant-vs-liberate`** — the neutral vendor comparison flagged as the highest-leverage single piece in this calendar. Live and never yet crawled.
+4. ✅ **`/glossary`** — batched as one project as recommended: 27 terms + hub, each entry self-contained enough for an answer engine to cite alone.
+5. ❌ **Third named case study** — still open, still the highest-value remaining piece. Needs a real customer, not a writing slot.
 
-Once the current 12-item backlog clears, add new topics to `_backlog.json` sparingly and only from the priority list above — resist the temptation to keep the engine "fed" with generic retention content just because it's running. A thin content footprint that's sharply targeted beats a thick one that's redundant.
+## 3. The engine is still broken — and its last run was a false pass
 
-Also verify, once the engine is confirmed running: each new article should link to (a) the matching `/compare/*` page if one exists, and (b) either `/courses` or `/#pricing` depending on reader intent — [SITE-STRUCTURE.md](./SITE-STRUCTURE.md) flags that the 3 originally-published articles weren't consistently doing this; audit them alongside the 12 new ones rather than treating it as solved.
+The weekly content engine (`.github/workflows/weekly-content.yml`) has not produced an article since before the outage. Two independent faults, and **fixing either alone changes nothing**:
 
-## 4. Distribution (already-drafted, same status as the articles)
+- **Missing secrets.** `gh secret list` returns empty. Runs on 2026-07-27, 08-03, 08-10 and 08-17 all died with `Error: TAVILY_API_KEY is not set`. Both `ANTHROPIC_API_KEY` and `TAVILY_API_KEY` are needed.
+- **Status-flag mismatch.** The runner selects topics with `status: pending`; `_backlog.json` marks all 12 `drafted`. So the 2026-08-24 run "succeeded" in 1m27s having logged `no pending topics in backlog — nothing to do`. It exited before touching an API key.
 
-`content/social/lead-magnet-launch/` and the branch behind PR #25 already contain LinkedIn/X copy for the full 12-article batch (`social-content-pillar-cluster.md` on that branch). Same rule as §1: this is drafted, not a task — publish it alongside each article once live, don't rewrite it.
+Fix both, then add one real topic as `pending` and watch a run end-to-end. **A green check is not evidence the engine works** — it passed while doing nothing four days ago.
+
+## 4. What to write next (once the engine runs)
+
+Priority order, sized for solo/DIY pace. Note the shift: the gap is no longer volume, it's proof and connective tissue.
+
+1. **Third named case study** (roadmap Phase 3) — needs a real customer; start the conversation now since it has the longest lead time.
+2. **Internal-linking audit across all 15 articles**, not new prose. The 12 newly-live pieces have never been checked against a live site: each should link to its matching `/compare/*` page and to `/courses` or `/#pricing` by reader intent, and the strongest should link into `/case-studies/*`, which nothing currently points at.
+3. **Glossary inbound links.** 28 URLs appeared at once with almost nothing linking to them — the most orphaned section on the site. Contextual `/resources/*` → `/glossary/[term]` links cost minutes each.
+4. **A FAQ hub** beyond the homepage `FAQPage` schema — the one glossary-adjacent gap left.
+5. **Course preview lessons** — promoting 3–5 of the 25 paywalled lessons to `preview: true` adds indexable, already-written depth for zero writing. Commercial decision.
+
+New `_backlog.json` topics should come from this list, sparingly. A thin footprint that's sharply targeted beats a thick one that's redundant — and at 15 articles the retention cluster is no longer thin.
+
+## 5. Distribution (drafted, unshipped)
+
+`content/social/lead-magnet-launch/` contains LinkedIn/X copy for the full 12-article batch. Same status the articles had until this week: **written, merged, never used.** Now that the articles are actually live and linkable, this copy can finally be posted — publish alongside each piece rather than rewriting it. This is the cheapest distribution available and it has been sitting unused for a month.
