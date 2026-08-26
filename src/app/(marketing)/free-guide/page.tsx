@@ -8,7 +8,7 @@ import { Clock, Zap, TrendingUp, Shield, Users, Check } from "lucide-react";
 export const metadata: Metadata = {
   // No brand suffix here — the root layout's title template already
   // appends "| RenewalEngineAI".
-  title: "Free Guide: 5 AI Automations for Insurance Agents",
+  title: "Free Guide: 5 AI Automations",
   description:
     "Discover how top insurance agents save 15+ hours weekly with AI automation. Free step-by-step guide: renewal sequences, lead response, quote follow-up, retention intelligence, and cross-sell automation.",
   // This is the gated funnel entry for the same five automations covered

@@ -1,5 +1,6 @@
 ---
 title: "AI Automation vs. Hiring a CSR: Cost-Benefit for Insurance Agencies"
+seoTitle: "AI Automation vs. Hiring a CSR"
 slug: "renewalengineai-vs-hiring-csr"
 description: "A realistic cost-benefit comparison of hiring another CSR versus shipping AI automation at an independent insurance agency. Year-1 math, ramp time, capacity, and where each option actually wins."
 publishedAt: "2026-04-23"

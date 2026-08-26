@@ -1,5 +1,6 @@
 ---
 title: "Ridgeline Commercial Insurance: Cross-Sell & Retention on HawkSoft"
+seoTitle: "Ridgeline Commercial Case Study"
 slug: "ridgeline-commercial-insurance"
 description: "A 180-account commercial lines agency on HawkSoft used AI cross-sell scoring and renewal automation to surface $312K in cross-sell opportunities and lift retention 9 points in the first year."
 publishedAt: "2026-04-22"

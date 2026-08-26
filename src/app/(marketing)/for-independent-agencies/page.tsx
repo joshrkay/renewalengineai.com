@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { BookAuditButton } from "@/components/courses/BookAuditButton";
 
 export const metadata: Metadata = {
-  title: "AI Automation for Independent P&C Agencies (Epic, HawkSoft, EZLynx)",
+  title: "AI Automation for Independent P&C Agencies",
   description:
     "For independent P&C agencies on Applied Epic, HawkSoft, or EZLynx. AI renewal automation and lead response built around your AMS. 15-20% retention lift, sub-60-second lead response.",
   keywords: [

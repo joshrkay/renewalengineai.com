@@ -25,23 +25,40 @@ export async function generateMetadata({
   const url = `https://renewalengineai.com/glossary/${entry.slug}`;
   // Title targets the definitional query shape ("what is an x-date") rather
   // than repeating the bare term, which competes with dictionary results.
-  const title = `${entry.term}: Definition for Insurance Agencies`;
+  //
+  // Budget: Google truncates around 60 characters and the root layout appends
+  // " | RenewalEngineAI" (18), leaving 42. The previous suffix — ": Definition
+  // for Insurance Agencies" — put all 27 entries over the limit (avg 73). Keep
+  // the "Definition" qualifier where it fits and fall back to the bare term for
+  // the few long parenthetical entries; every term fits inside the budget alone.
+  const BRAND_SUFFIX = " | RenewalEngineAI".length;
+  const withQualifier = `${entry.term} Definition`;
+  const title =
+    withQualifier.length + BRAND_SUFFIX <= 60 ? withQualifier : entry.term;
+
+  // Meta descriptions are the term's one-sentence definition, which runs long
+  // for some entries; trim on a word boundary so SERP snippets don't cut mid-word.
+  const description =
+    entry.shortDefinition.length <= 158
+      ? entry.shortDefinition
+      : entry.shortDefinition.slice(0, 155).replace(/\s+\S*$/, "") + "…";
+
   return {
     title,
-    description: entry.shortDefinition,
+    description,
     alternates: { canonical: url },
     openGraph: {
       type: "article",
       url,
       title,
-      description: entry.shortDefinition,
+      description,
       siteName: "RenewalEngineAI",
       modifiedTime: entry.updatedAt,
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description: entry.shortDefinition,
+      description,
     },
   };
 }

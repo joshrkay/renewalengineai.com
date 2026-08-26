@@ -23,13 +23,13 @@ export async function generateMetadata({
 
   const url = `https://renewalengineai.com/resources/${resource.slug}`;
   return {
-    title: resource.title,
+    title: resource.seoTitle ?? resource.title,
     description: resource.description,
     alternates: { canonical: url },
     openGraph: {
       type: "article",
       url,
-      title: resource.title,
+      title: resource.seoTitle ?? resource.title,
       description: resource.description,
       siteName: "RenewalEngineAI",
       publishedTime: resource.publishedAt,
@@ -37,7 +37,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: resource.title,
+      title: resource.seoTitle ?? resource.title,
       description: resource.description,
     },
   };

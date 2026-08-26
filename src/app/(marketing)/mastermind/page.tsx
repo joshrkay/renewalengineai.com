@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { MastermindInviteForm } from "@/components/marketing/MastermindInviteForm";
 
 export const metadata: Metadata = {
-  title: "Insurance Agency AI Mastermind — Monthly Calls & Prompt Library",
+  title: "Insurance Agency AI Mastermind",
   description:
     "Ongoing membership for insurance agents running AI in production. Monthly live calls, an evolving prompt library, and a private peer community. $97–$197/month, cancel anytime.",
   keywords: [

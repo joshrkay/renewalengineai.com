@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { LeadMagnetForm } from "@/components/marketing/LeadMagnetForm";
 
 export const metadata: Metadata = {
-  title: "5 AI Automations Every Insurance Agent Should Set Up This Week",
+  title: "5 AI Automations for Insurance Agents",
   description:
     "Free guide: the five AI automations that save independent insurance agents 15+ hours a week and lift retention — renewal sequences, cross-sell scoring, instant lead response, quote follow-up, and service triage.",
   keywords: [

@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { team } from "@/lib/team";
 
 export const metadata: Metadata = {
-  title: "Team — Operators Building AI Automation for Insurance Agencies",
+  title: "Team",
   description:
     "Meet the operators behind RenewalEngineAI. We build, launch, and manage AI automation systems for independent insurance agencies — renewal campaigns, instant lead response, and AMS integration.",
   alternates: { canonical: "https://renewalengineai.com/team" },

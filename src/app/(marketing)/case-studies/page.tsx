@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listCaseStudies } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
-  title: "Insurance Agency AI Case Studies - Representative Engagement Outcomes",
+  title: "Insurance Agency AI Case Studies",
   description:
     "Representative case studies from RenewalEngineAI engagements with independent insurance agencies. Retention lift, cross-sell revenue, and lead-response outcomes with specific numbers.",
   alternates: { canonical: "https://renewalengineai.com/case-studies" },

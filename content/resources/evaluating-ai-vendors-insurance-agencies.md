@@ -1,5 +1,6 @@
 ---
 title: "How to Evaluate an AI Vendor as an Independent Insurance Agency"
+seoTitle: "How to Evaluate Insurance AI Vendors"
 slug: "evaluating-ai-vendors-insurance-agencies"
 description: "Evaluating AI vendors as an insurance agency: the seven questions that expose demoware, the red flags in security claims, and a scoring shortcut that works."
 publishedAt: "2026-07-12"

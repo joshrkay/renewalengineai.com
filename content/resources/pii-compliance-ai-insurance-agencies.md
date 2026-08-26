@@ -1,5 +1,6 @@
 ---
 title: "PII, HIPAA, and AI: Compliance for Insurance Agencies Running Automation"
+seoTitle: "PII & HIPAA Compliance for Agency AI"
 slug: "pii-compliance-ai-insurance-agencies"
 description: "PII compliance for insurance AI automation: GLBA, state privacy laws, TCPA consent, and the operating checklist agencies need before automating outreach."
 publishedAt: "2026-07-12"

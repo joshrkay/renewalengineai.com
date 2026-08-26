@@ -1,5 +1,6 @@
 ---
 title: "Book Segmentation for AI Outreach: Beyond Personal vs. Commercial"
+seoTitle: "Book Segmentation for AI Outreach"
 slug: "book-segmentation-for-ai-outreach"
 description: "Insurance book segmentation for AI outreach: the five dimensions that decide which clients get which sequences, and how to build tiers your AMS can drive."
 publishedAt: "2026-07-12"

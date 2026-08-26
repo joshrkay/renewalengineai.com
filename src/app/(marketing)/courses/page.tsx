@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listCourses, formatPrice } from "@/lib/courses";
 
 export const metadata: Metadata = {
-  title: "AI Courses for Insurance Agents — Retention, Ops & Prompting",
+  title: "AI Courses for Insurance Agents",
   description:
     "Self-paced courses that teach insurance agents how to build AI retention engines, agency-ops automations, and production prompts. Taught by operators who run these systems for real agencies.",
   keywords: [

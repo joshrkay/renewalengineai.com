@@ -23,13 +23,13 @@ export async function generateMetadata({
 
   const url = `https://renewalengineai.com/compare/${comparison.slug}`;
   return {
-    title: comparison.title,
+    title: comparison.seoTitle ?? comparison.title,
     description: comparison.description,
     alternates: { canonical: url },
     openGraph: {
       type: "article",
       url,
-      title: comparison.title,
+      title: comparison.seoTitle ?? comparison.title,
       description: comparison.description,
       siteName: "RenewalEngineAI",
       publishedTime: comparison.publishedAt,
@@ -37,7 +37,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: comparison.title,
+      title: comparison.seoTitle ?? comparison.title,
       description: comparison.description,
     },
   };

@@ -2,6 +2,32 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Baseline hardening. Only HSTS was set before (Vercel supplies it); the
+  // rest are absent, which the 2026-08-26 SEO audit flagged. CSP is
+  // deliberately omitted here — it needs per-route work against the inline
+  // JSON-LD and Humblytics, and a wrong one breaks the site silently.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
+        ],
+      },
+      {
+        // The OG image route was showing up in Search Console as a crawled
+        // page candidate. It is an asset, not a document.
+        source: "/opengraph-image",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+    ];
+  },
   async redirects() {
     return [
       {

@@ -1,5 +1,6 @@
 ---
 title: "The 30-60-90 Day AI Rollout Plan for Independent Agencies"
+seoTitle: "30-60-90 Day AI Rollout Plan"
 slug: "30-60-90-day-ai-rollout-plan"
 description: "A realistic AI rollout plan for insurance agencies: what ships in days 1-30, 31-60, and 61-90, with owners, gates, and the mistakes that stall rollouts."
 publishedAt: "2026-07-12"

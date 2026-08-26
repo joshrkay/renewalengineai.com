@@ -32,7 +32,15 @@ export async function generateMetadata({
   // Free preview lessons are indexable.
   const indexable = Boolean(result.lesson.preview);
   return {
-    title: `${result.lesson.title} | ${result.course.title}`,
+    // The root layout already appends " | RenewalEngineAI", so adding the
+    // course name here produced a three-part title ~80 chars long. Keep the
+    // course name only when the whole thing still fits Google's ~60-char render.
+    title: (() => {
+      const withCourse = `${result.lesson.title} | ${result.course.title}`;
+      return withCourse.length + " | RenewalEngineAI".length <= 60
+        ? withCourse
+        : result.lesson.title;
+    })(),
     description: `${result.lesson.title} — Module ${result.module.number} (${result.module.title}) of ${result.course.title}, a ${result.lesson.duration}-minute lesson for independent insurance agency owners.`,
     alternates: {
       canonical: `https://renewalengineai.com/courses/${courseSlug}/${moduleSlug}/${lessonSlug}`,

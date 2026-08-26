@@ -1,5 +1,6 @@
 ---
 title: "What Producers Actually Do When AI Handles the Follow-Up"
+seoTitle: "Producer Workflows After AI"
 slug: "producer-workflows-post-ai"
 description: "The insurance producer workflow after AI automation takes renewal outreach and lead response: what a day looks like, what changes, and who thrives."
 publishedAt: "2026-07-12"

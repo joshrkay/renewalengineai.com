@@ -24,13 +24,13 @@ export async function generateMetadata({
 
   const url = `https://renewalengineai.com/case-studies/${caseStudy.slug}`;
   return {
-    title: caseStudy.title,
+    title: caseStudy.seoTitle ?? caseStudy.title,
     description: caseStudy.description,
     alternates: { canonical: url },
     openGraph: {
       type: "article",
       url,
-      title: caseStudy.title,
+      title: caseStudy.seoTitle ?? caseStudy.title,
       description: caseStudy.description,
       siteName: "RenewalEngineAI",
       publishedTime: caseStudy.publishedAt,
@@ -38,7 +38,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: caseStudy.title,
+      title: caseStudy.seoTitle ?? caseStudy.title,
       description: caseStudy.description,
     },
   };

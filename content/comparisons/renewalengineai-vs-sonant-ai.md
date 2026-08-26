@@ -1,5 +1,6 @@
 ---
 title: "RenewalEngineAI vs. Sonant AI: Voice-First vs Multi-Channel"
+seoTitle: "RenewalEngineAI vs. Sonant AI"
 slug: "renewalengineai-vs-sonant-ai"
 description: "Comparing RenewalEngineAI and Sonant AI for independent insurance agencies. Voice-first AI vs multi-channel renewal automation, and which one solves the bottleneck your agency actually has."
 publishedAt: "2026-04-23"

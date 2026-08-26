@@ -6,7 +6,7 @@ import { BookingProvider } from "@/components/marketing/BookingContext";
 import { listResources } from "@/lib/resources";
 
 export const metadata: Metadata = {
-  title: "Insurance AI Automation Guides & Playbooks | Renewals, Leads, AMS",
+  title: "Insurance AI Automation Guides",
   description:
     "Practical guides on AI renewal automation, sub-60-second lead response, and AMS integration (Applied Epic, HawkSoft, EZLynx) for independent agencies.",
   alternates: { canonical: "https://renewalengineai.com/resources" },

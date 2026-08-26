@@ -1,5 +1,6 @@
 ---
 title: "Lead Response Time Benchmarks for Independent Insurance Agencies"
+seoTitle: "Insurance Lead Response Time Benchmarks"
 slug: "lead-response-time-benchmarks-insurance"
 description: "Insurance lead response time benchmarks for 2026: what fast means by lead source and channel, and the sub-60-second targets that move conversion."
 publishedAt: "2026-07-12"

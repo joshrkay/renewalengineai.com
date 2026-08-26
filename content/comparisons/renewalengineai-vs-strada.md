@@ -1,5 +1,6 @@
 ---
 title: "RenewalEngineAI vs. Strada: Which Is Right for Your Agency?"
+seoTitle: "RenewalEngineAI vs. Strada"
 slug: "renewalengineai-vs-strada"
 description: "Comparing RenewalEngineAI and Strada for independent insurance agencies in 2026. The positioning difference, what each is actually for, and which agencies are better served by each."
 publishedAt: "2026-04-23"

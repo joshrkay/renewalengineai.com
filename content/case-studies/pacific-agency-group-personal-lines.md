@@ -1,5 +1,6 @@
 ---
 title: "Pacific Agency Group: Personal Lines Retention Lift at a 350-Policy P&C Shop"
+seoTitle: "Pacific Agency Group Case Study"
 slug: "pacific-agency-group-personal-lines"
 description: "How a 350-policy personal lines P&C agency on Applied Epic used AI renewal automation and sub-60-second lead response to lift retention from 82% to 94% on the renewal cohorts reached in its first 90 days."
 publishedAt: "2026-04-21"

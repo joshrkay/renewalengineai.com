@@ -8,7 +8,7 @@ import { listIntegrations } from "@/lib/integrations";
 const URL = "https://renewalengineai.com/integrations";
 
 export const metadata: Metadata = {
-  title: "AMS Integrations: Applied Epic, HawkSoft & EZLynx AI Automation",
+  title: "AMS Integrations: Epic, HawkSoft, EZLynx",
   description:
     "How RenewalEngineAI connects to the agency management system you already run — Applied Epic, HawkSoft CMS, or EZLynx. What data we read, how activity is written back, and what rollout looks like on each.",
   alternates: { canonical: URL },

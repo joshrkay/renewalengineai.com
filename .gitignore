@@ -31,3 +31,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 *.db
+
+# Local SEO audit artifacts (regenerable; see docs/seo/)
+renewalengineai.com-audit/

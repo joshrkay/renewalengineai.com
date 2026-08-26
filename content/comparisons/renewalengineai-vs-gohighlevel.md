@@ -1,5 +1,6 @@
 ---
 title: "RenewalEngineAI vs. GoHighLevel Agencies: What a Generic CRM Can't See in Your Book"
+seoTitle: "RenewalEngineAI vs. GoHighLevel"
 slug: "renewalengineai-vs-gohighlevel"
 description: "Comparing RenewalEngineAI's done-for-you insurance automation with GoHighLevel-based marketing agency offerings in 2026: what each actually delivers, what the CRM can and can't see, and which agencies each serves best."
 publishedAt: "2026-08-24"
