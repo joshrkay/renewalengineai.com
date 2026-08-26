@@ -6,11 +6,16 @@ import { FreeGuideForm } from "@/components/marketing/FreeGuideForm";
 import { Clock, Zap, TrendingUp, Shield, Users, Check } from "lucide-react";
 
 export const metadata: Metadata = {
-  title:
-    "Free Guide: 5 AI Automations Every Insurance Agent Should Set Up This Week | RenewalEngineAI",
+  // No brand suffix here — the root layout's title template already
+  // appends "| RenewalEngineAI".
+  title: "Free Guide: 5 AI Automations for Insurance Agents",
   description:
     "Discover how top insurance agents save 15+ hours weekly with AI automation. Free step-by-step guide: renewal sequences, lead response, quote follow-up, retention intelligence, and cross-sell automation.",
-  alternates: { canonical: "https://renewalengineai.com/free-guide" },
+  // This is the gated funnel entry for the same five automations covered
+  // by /guides/5-ai-automations, which carries the HowTo schema and is the
+  // page we want ranking. Point the canonical there so the two do not
+  // compete for the identical query.
+  alternates: { canonical: "https://renewalengineai.com/guides/5-ai-automations" },
   openGraph: {
     type: "website",
     url: "https://renewalengineai.com/free-guide",

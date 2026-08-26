@@ -20,8 +20,10 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
+  // No brand suffix here — the root layout's title template already
+  // appends "| RenewalEngineAI".
   title:
-    "The Next 30 Years of Insurance — Free 20-Page Field Manual for Independent Agents | RenewalEngineAI",
+    "The Next 30 Years of Insurance — Field Manual for Independent Agents",
   description:
     "A practical 20-page guide for independent insurance agents covering how the business changed from 1995–2025, how AI will reshape it through 2055, and what the job looks like across all 15 major lines of insurance.",
   alternates: { canonical: "https://renewalengineai.com/future-of-insurance" },
