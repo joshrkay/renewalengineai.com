@@ -4,6 +4,7 @@ seoTitle: "7 Cross-Sell Triggers to Automate"
 slug: "cross-sell-triggers-for-independent-agencies"
 description: "Insurance cross-sell automation triggers: the 7 policy and life events that predict a second line, and the patterns that surface them before clients shop."
 publishedAt: "2026-07-12"
+updatedAt: "2026-08-26"
 category: "Retention"
 primaryKeyword: "insurance cross-sell automation"
 readTime: 8

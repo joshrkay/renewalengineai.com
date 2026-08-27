@@ -4,7 +4,7 @@ slug: ai-for-agent-retention
 price: 397
 tagline: Build your own AI-powered renewal system and keep more of your book
 duration: 8
-updatedAt: "2026-07-12"
+updatedAt: "2026-08-26"
 ---
 
 # AI for Agent Retention

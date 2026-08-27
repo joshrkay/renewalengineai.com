@@ -4,6 +4,7 @@ seoTitle: "Producer Workflows After AI"
 slug: "producer-workflows-post-ai"
 description: "The insurance producer workflow after AI automation takes renewal outreach and lead response: what a day looks like, what changes, and who thrives."
 publishedAt: "2026-07-12"
+updatedAt: "2026-08-26"
 category: "Operations"
 readTime: 8
 primaryKeyword: "insurance producer workflow AI"

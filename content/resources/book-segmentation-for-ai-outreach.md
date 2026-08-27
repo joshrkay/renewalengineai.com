@@ -4,6 +4,7 @@ seoTitle: "Book Segmentation for AI Outreach"
 slug: "book-segmentation-for-ai-outreach"
 description: "Insurance book segmentation for AI outreach: the five dimensions that decide which clients get which sequences, and how to build tiers your AMS can drive."
 publishedAt: "2026-07-12"
+updatedAt: "2026-08-26"
 category: "Retention"
 readTime: 9
 primaryKeyword: "insurance book segmentation AI"

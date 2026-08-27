@@ -4,6 +4,7 @@ seoTitle: "AMS + AI Integration Guide"
 slug: "ams-ai-integration-guide"
 description: "The practical integration patterns, export schedules, field mappings, and webhook flows we use to plug AI automation into Applied Epic, HawkSoft, and EZLynx without breaking the AMS."
 publishedAt: "2026-04-23"
+updatedAt: "2026-08-26"
 category: "Integrations"
 primaryKeyword: "Applied Epic HawkSoft EZLynx AI integration"
 readTime: 18

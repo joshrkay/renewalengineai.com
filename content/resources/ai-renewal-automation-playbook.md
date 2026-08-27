@@ -7,7 +7,7 @@ publishedAt: "2026-04-23"
 category: "Retention"
 primaryKeyword: "insurance renewal automation"
 readTime: 17
-updatedAt: "2026-04-23"
+updatedAt: "2026-08-26"
 related:
   - "instant-lead-response-under-60-seconds"
   - "ams-ai-integration-guide"
