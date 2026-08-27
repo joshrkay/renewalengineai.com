@@ -7,7 +7,7 @@ publishedAt: "2026-04-23"
 category: "Growth"
 primaryKeyword: "insurance lead response time"
 readTime: 15
-updatedAt: "2026-04-23"
+updatedAt: "2026-08-26"
 related:
   - "ai-renewal-automation-playbook"
   - "ams-ai-integration-guide"

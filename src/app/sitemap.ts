@@ -11,7 +11,11 @@ const SITE_URL = "https://renewalengineai.com";
 
 // Date of the last hand-edit to the static marketing pages. Bump deliberately
 // when the copy on those pages actually changes.
-const STATIC_PAGES_UPDATED = new Date("2026-04-23");
+// Bumped 2026-08-26: PRs #28 and #30 rewrote <title> on every static page
+// (64 were over 60 chars), fixed the /about redirect and the /free-guide
+// canonical. Leaving this at the April date told Google nothing had changed
+// since launch, which suppresses recrawl exactly when a recrawl is wanted.
+const STATIC_PAGES_UPDATED = new Date("2026-08-26");
 
 // `lastmod` must be derived from content, never from `new Date()` at build
 // time: a timestamp that moves on every deploy tells Google the whole site

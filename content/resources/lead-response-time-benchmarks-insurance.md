@@ -4,6 +4,7 @@ seoTitle: "Insurance Lead Response Time Benchmarks"
 slug: "lead-response-time-benchmarks-insurance"
 description: "Insurance lead response time benchmarks for 2026: what fast means by lead source and channel, and the sub-60-second targets that move conversion."
 publishedAt: "2026-07-12"
+updatedAt: "2026-08-26"
 category: "Growth"
 primaryKeyword: "insurance lead response time benchmarks"
 readTime: 8

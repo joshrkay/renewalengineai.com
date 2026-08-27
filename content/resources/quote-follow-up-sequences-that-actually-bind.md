@@ -4,6 +4,7 @@ seoTitle: "Quote Follow-Up Sequences That Bind"
 slug: "quote-follow-up-sequences-that-actually-bind"
 description: "The insurance quote follow-up sequence that lifts bind rate: a seven-touch, multi-channel cadence with timing, scripts logic, and the numbers behind it."
 publishedAt: "2026-07-12"
+updatedAt: "2026-08-26"
 category: "Growth"
 primaryKeyword: "insurance quote follow-up sequence"
 readTime: 9
