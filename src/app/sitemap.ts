@@ -71,7 +71,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Lead-magnet landing pages: indexable (robots index:true) and therefore
     // belong in the sitemap. Their /thank-you and /read counterparts are
     // noindex and are deliberately excluded.
-    { url: `${SITE_URL}/free-guide`, lastModified: STATIC_PAGES_UPDATED, changeFrequency: "monthly", priority: 0.7 },
+    // /free-guide is deliberately omitted. It canonicalises to
+    // /guides/5-ai-automations (same five automations, same title), so listing
+    // it here only earns an "Alternate page with proper canonical tag"
+    // exclusion in Search Console — a sitemap URL that can never be indexed as
+    // itself. The page stays live and crawlable as the paid-traffic landing
+    // page; it just should not be advertised for indexing.
     { url: `${SITE_URL}/future-of-insurance`, lastModified: STATIC_PAGES_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/team`, lastModified: STATIC_PAGES_UPDATED, changeFrequency: "monthly", priority: 0.5 },
     { url: `${SITE_URL}/courses`, lastModified: coursesUpdated, changeFrequency: "weekly", priority: 0.9 },
