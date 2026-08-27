@@ -119,6 +119,46 @@
       "priority": 6,
       "status": "drafted",
       "draftedAt": "2026-07-12T18:50:00Z"
+    },
+    {
+      "slug": "insurance-ai-consultant-vs-managed-operations",
+      "title": "Hiring an Insurance Consultant vs. Managed AI Operations: What Happens After the Plan",
+      "description": "Independent consultants write a strong roadmap and then leave. This compares the consulting engagement model against managed AI operations for a P&C agency \u2014 who owns the build, who tunes it at month six, and what each actually costs over a year.",
+      "primaryKeyword": "insurance agency AI consultant",
+      "category": "Strategy",
+      "priority": 9,
+      "status": "pending",
+      "notes": "Competitor category 2 in docs/seo/COMPETITOR-ANALYSIS.md \u2014 named as uncovered. Keep fit-based, not adversarial: consultants are a legitimate choice for agencies that have internal ops capacity."
+    },
+    {
+      "slug": "eo-exposure-when-ai-touches-client-communication",
+      "title": "E&O Exposure When AI Touches Client Communication",
+      "description": "Where errors-and-omissions risk actually sits when automation sends renewal notices, quote follow-ups, or coverage summaries \u2014 what to log, what a human must still sign off, and how to document the workflow before your carrier asks.",
+      "primaryKeyword": "insurance agency E&O AI automation",
+      "category": "Operations",
+      "priority": 8,
+      "status": "pending",
+      "notes": "Distinct from the existing PII/HIPAA article, which covers data handling rather than professional liability. Real objection raised in sales conversations."
+    },
+    {
+      "slug": "switching-ams-without-breaking-automation",
+      "title": "Switching Your AMS Without Breaking the Automation You Just Built",
+      "description": "What survives an Applied Epic, HawkSoft, or EZLynx migration and what has to be rebuilt \u2014 field mappings, trigger logic, historical policy data \u2014 plus the sequencing that keeps renewal outreach running through the cutover.",
+      "primaryKeyword": "insurance AMS migration automation",
+      "category": "Integrations",
+      "priority": 7,
+      "status": "pending",
+      "notes": "Pairs with the three /integrations/* landing pages; high-intent and currently uncovered."
+    },
+    {
+      "slug": "fractional-ops-vs-vertical-ai-partner",
+      "title": "Fractional Ops Leaders vs. a Vertical AI Partner for Insurance Agencies",
+      "description": "Fractional COOs bring broad operational range; a vertical partner brings insurance-specific depth. This lays out which bottleneck each one actually fixes for an independent P&C agency, and when hiring both is the right answer.",
+      "primaryKeyword": "fractional operations insurance agency",
+      "category": "Strategy",
+      "priority": 6,
+      "status": "pending",
+      "notes": "Competitor category 3 in docs/seo/COMPETITOR-ANALYSIS.md \u2014 named as uncovered."
     }
   ]
 }
